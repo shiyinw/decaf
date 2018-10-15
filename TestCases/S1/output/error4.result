@@ -1,1 +1,1 @@
-Error: Unable to access jarfile ../../result/decaf.jar
+*** Error at (4,15): illegal newline in string constant "string"

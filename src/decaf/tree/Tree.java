@@ -95,6 +95,16 @@ public abstract class Tree {
     public static final int LABELLED = FORLOOP + 1;
 
     /**
+     * Switch statements, of type Switch.
+     */
+    public static final int SWITCH = LABELLED + 1;
+
+    /**
+     * Case parts in switch statements, of type Case.
+     */
+    public static final int CASE = SWITCH + 1;
+
+    /**
      * Synchronized statements, of type Synchonized.
      */
     public static final int SYNCHRONIZED = CASE + 1;
