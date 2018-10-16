@@ -3,39 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="669d79b1-ed23-4db6-880a-252b07993a86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/array-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/array-1.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/array-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/array-2.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/array-access.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/array-access.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/array-comp.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/array-comp.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/array-concat.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/array-concat.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/array-const-err.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/array-const-err.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/array-const.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/array-const.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/array-foreach.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/array-foreach.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/error1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/error1.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/error2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/error2.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/error3.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/error3.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/error4.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/error4.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/error5.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/error5.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/fibonacci.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/fibonacci.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/guarded-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/guarded-1.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/guarded-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/guarded-2.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/guarded-error-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/guarded-error-1.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/guarded-error-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/guarded-error-2.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/guarded-error-3.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/guarded-error-3.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/nqueues.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/nqueues.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/scopy.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/scopy.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/sealed.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/sealed.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/test1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/test1.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/test2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/test2.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/test3.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/test3.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/test4.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/test4.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/test5.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/test5.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/test6.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/test6.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/var-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/var-1.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/var-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/var-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/result/decaf.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Lexer.l" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Lexer.l" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/tree/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/tree/Tree.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,27 +71,33 @@
     <session id="-1435801774">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="decaf" value="5" />
-          <entry key="java" value="4" />
-          <entry key="l" value="2" />
-          <entry key="md" value="1" />
+          <entry key="decaf" value="13" />
+          <entry key="java" value="11" />
+          <entry key="l" value="4" />
+          <entry key="md" value="2" />
+          <entry key="output" value="1" />
+          <entry key="result" value="3" />
+          <entry key="xml" value="1" />
+          <entry key="y" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="4" />
-          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="JAVA" value="11" />
+          <entry key="PLAIN_TEXT" value="25" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -138,68 +115,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.l">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-74">
               <folding>
                 <element signature="e#0#84555#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S1/error1.decaf">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S1/error2.decaf">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S1/error3.decaf">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S1/error4.decaf">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S1/error5.decaf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/report.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -207,6 +129,60 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestCases/S1/result/array-1.result">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/S1/array-1.decaf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="11" selection-start-column="11" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.l">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-14309">
+              <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.y">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5998">
+              <caret line="421" column="2" selection-start-line="421" selection-start-column="2" selection-end-line="421" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/BaseLexer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-222">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5441">
+              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -230,6 +206,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Course" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -265,36 +244,22 @@
             <path>
               <item name="decaf" type="b2602c69:ProjectViewProjectNode" />
               <item name="decaf" type="462c0819:PsiDirectoryNode" />
-              <item name="TestCases" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="decaf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="decaf" type="462c0819:PsiDirectoryNode" />
-              <item name="TestCases" type="462c0819:PsiDirectoryNode" />
-              <item name="S1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="decaf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="decaf" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Course" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539513396054" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539677660167" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../../../decaf_PA1A-2/src/decaf/tree/Tree.java" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../compiler-decaf-master/src/decaf/frontend/Parser.y" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -323,15 +288,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2746781" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28540772" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
-      <window_info id="Learn" order="6" />
+      <window_info id="Learn" order="6" weight="0.3297568" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -340,12 +304,12 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32891566" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.24964234" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24964234" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -353,6 +317,42 @@
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -370,7 +370,7 @@
         <filter targetName="5 javadoc" isVisible="false" />
         <filter targetName="clean" isVisible="true" />
       </targetFilters>
-      <expanded value="false" />
+      <expanded value="true" />
     </buildFile>
   </component>
   <component name="editorHistoryManager">
@@ -391,22 +391,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
           <caret line="75" column="47" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ASTPrintFormat.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1/array-1.decaf">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.y">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -439,29 +423,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1/result/array-1.result">
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/test1.decaf">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/test2.decaf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/test3.decaf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/test4.decaf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/test5.decaf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/test6.decaf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.output">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ASTPrintFormat.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+        <state relative-caret-position="-960" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/BaseLexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-222">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/output/array-1.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/array-1.decaf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/result/array-1.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.l">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
+        <state relative-caret-position="85">
           <caret line="66" column="12" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14309">
+          <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.y">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5998">
+          <caret line="421" column="2" selection-start-line="421" selection-start-column="2" selection-end-line="421" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-74">
           <folding>
             <element signature="e#0#84555#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5441">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
         </state>
       </provider>
     </entry>
