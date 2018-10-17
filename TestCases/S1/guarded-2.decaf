@@ -7,7 +7,7 @@ class Main {
         int x;
         x = ReadInteger();
         if { true: if (x > 0) if { x == 1: Print("x=1"); ||| x == 2: Print("x=2"); }
-                   else if {} }
+           else if {} }
     }
 
     static void main() {

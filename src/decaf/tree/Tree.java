@@ -134,10 +134,14 @@ public abstract class Tree {
      */
     public static final int IF = CONDEXPR + 1;
 
+    public static final int IFG = IF + 1;
+
+    public static final int GUARD = IFG + 1;
+
     /**
      * Expression statements, of type Exec.
      */
-    public static final int EXEC = IF + 1;
+    public static final int EXEC = GUARD + 1;
 
     /**
      * Break statements, of type Break.
@@ -297,6 +301,8 @@ public abstract class Tree {
     public static final int READINTEXPR = THISEXPR + 1;
     public static final int READLINEEXPR = READINTEXPR + 1;
     public static final int PRINT = READLINEEXPR + 1;
+
+    public static final int DIVIDER = PRINT + 1;
     
     /**
      * Tags for Literal and TypeLiteral
@@ -498,7 +504,9 @@ public abstract class Tree {
     		pw.println("stmtblock");
     		pw.incIndent();
     		for (Tree s : block) {
-    			s.printTo(pw);
+    		    if(s !=null) {
+                    s.printTo(pw);
+                }
     		}
     		pw.decIndent();
     	}
@@ -622,6 +630,69 @@ public abstract class Tree {
     }
 
 
+    /**
+     * An "xx:xx;" clause inside guarded
+     */
+
+    public static class IfG extends Tree {
+
+        public Expr condition;
+        public Tree trueBranch;
+
+        public IfG(Expr condition, Tree trueBranch, Location loc) {
+            super(IFG, loc);
+            this.condition = condition;
+            this.trueBranch = trueBranch;
+        }
+
+        @Override
+        public void accept(Visitor v) { v.visitIfG(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("guard");
+            pw.incIndent();
+            condition.printTo(pw);
+            trueBranch.printTo(pw);
+            pw.decIndent();
+        }
+    }
+
+    /**
+     * Guarded statements
+     */
+
+    public static class Guard extends Tree{
+        public List<Tree> block;
+
+        public Guard(List<Tree> block, Location loc) {
+            super(GUARD, loc);
+            this.block = block;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitGuard(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("guarded");
+            pw.incIndent();
+            if(block != null){
+                for (Tree s : block) {
+                    if (s != null) {
+                        s.printTo(pw);
+                    }
+                }
+            }
+            else{
+                pw.println("<empty>");
+            }
+            pw.decIndent();
+        }
+    }
+
+
+
     public static class Scopy extends Tree{
         public String indentifier;
         public Expr expr;
@@ -633,9 +704,7 @@ public abstract class Tree {
         }
 
         @Override
-        public void accept(Visitor v) {
-            v.visitScopy(this);
-        }
+        public void accept(Visitor v) { v.visitScopy(this); }
 
         @Override
         public void printTo(IndentPrintWriter pw) {
@@ -1179,7 +1248,7 @@ public abstract class Tree {
     }
 
     /**
-     * An identifier
+     * A var identifier
      */
     public static class IdentVar extends LValue {
 
@@ -1416,6 +1485,14 @@ public abstract class Tree {
         }
 
         public void visitIf(If that) {
+            visitTree(that);
+        }
+
+        public void visitIfG(IfG that) {
+            visitTree(that);
+        }
+
+        public void visitGuard(Guard that) {
             visitTree(that);
         }
 

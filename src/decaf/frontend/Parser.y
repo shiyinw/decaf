@@ -31,9 +31,10 @@ import java.util.*;
 %token IF     ELSE        RETURN   BREAK   NEW
 %token PRINT  READ_INTEGER  READ_LINE
 %token LITERAL
-%token IDENTIFIER	  AND    OR    STATIC  SEALED   INSTANCEOF
+%token IDENTIFIER	  AND    OR    STATIC  SEALED   INSTANCEOF DIVIDER
 %token SCOPY
 %token LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL    VAR
+%token ':'
 %token '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
 %token ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
 
@@ -44,8 +45,8 @@ import java.util.*;
 %nonassoc LESS_EQUAL GREATER_EQUAL '<' '>'
 %left  '+' '-'
 %left  '*' '/' '%'  
-%nonassoc UMINUS '!' 
-%nonassoc '[' '.' 
+%nonassoc UMINUS '!'
+%nonassoc '[' '.' ':'
 %nonassoc ')' EMPTY
 %nonassoc ELSE
 
@@ -187,6 +188,7 @@ StmtList        :	StmtList Stmt
                 ;
 
 Stmt		    :	OCStmt ';'
+                |   GuardedStmt
                 |   VariableDef
 					{
 						$$.stmt = $1.vdef;
@@ -206,6 +208,36 @@ Stmt		    :	OCStmt ';'
                 |	BreakStmt ';'
                 |	StmtBlock
                 ;
+
+GuardedStmt     :   IF '{' IfBranchG IfStmtG '}'
+                {
+                    $3.slist.add($4.stmt);
+                    $$.stmt = new Tree.Guard($3.slist, $1.loc);
+
+                }
+                |   IF '{' '}'
+                {
+                    $$.stmt = new Tree.Guard(null, $1.loc);
+                }
+                ;
+
+IfBranchG       :   IfBranchG IfStmtG DIVIDER
+                    {
+                        $$.slist.add($2.stmt);
+                    }
+                |	/* empty */
+                    {
+                        $$ = new SemValue();
+                        $$.slist = new ArrayList<Tree>();
+                    }
+                ;
+
+IfStmtG         :   Expr ':' Stmt
+                    {
+                        $$.stmt = new Tree.IfG($1.expr, $3.stmt, $1.loc);
+                    }
+                ;
+
 
 OCStmt          :   SCOPY '(' IDENTIFIER ',' Expr ')'
                     {
