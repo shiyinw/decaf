@@ -214,10 +214,12 @@ public abstract class Tree {
      */
     public static final int IDENT = SELECT + 1;
 
+    public static final int IDENTVAR = IDENT + 1;
+
     /**
      * Literals, of type Literal.
      */
-    public static final int LITERAL = IDENT + 1;
+    public static final int LITERAL = IDENTVAR + 1;
 
     /**
      * Basic type identifiers, of type TypeIdent.
@@ -1177,6 +1179,30 @@ public abstract class Tree {
     }
 
     /**
+     * An identifier
+     */
+    public static class IdentVar extends LValue {
+
+        public String name;
+        public boolean isDefined;
+
+        public IdentVar(String name, Location loc) {
+            super(IDENTVAR, loc);
+            this.name = name;
+        }
+
+        @Override
+        public void accept(Visitor v) {
+            v.visitIdentVar(this);
+        }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("var " + name);
+        }
+    }
+
+    /**
       * An identifier
       */
     public static class Ident extends LValue {
@@ -1466,6 +1492,10 @@ public abstract class Tree {
         }
 
         public void visitIdent(Ident that) {
+            visitTree(that);
+        }
+
+        public void visitIdentVar(IdentVar that) {
             visitTree(that);
         }
 

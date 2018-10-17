@@ -26,14 +26,14 @@ import java.util.*;
 
 
 
-%token VOID   BOOL  INT   STRING  CLASS 
+%token VOID   BOOL  INT   STRING  CLASS
 %token NULL   EXTENDS     THIS     WHILE   FOR   
 %token IF     ELSE        RETURN   BREAK   NEW
 %token PRINT  READ_INTEGER  READ_LINE
 %token LITERAL
 %token IDENTIFIER	  AND    OR    STATIC  SEALED   INSTANCEOF
 %token SCOPY
-%token LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL
+%token LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL    VAR
 %token '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
 %token ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
 
@@ -234,7 +234,14 @@ Receiver     	:	Expr '.'
                 	}
                 ; 
 
-LValue          :	Receiver IDENTIFIER
+LValue          :	VAR IDENTIFIER
+                    {
+                        $$.lvalue = new Tree.IdentVar($2.ident, $2.loc);
+                        if ($1.loc == null) {
+                        $$.loc = $2.loc;
+                        }
+                    }
+                |   Receiver IDENTIFIER
 					{
 						$$.lvalue = new Tree.Ident($1.expr, $2.ident, $2.loc);
 						if ($1.loc == null) {

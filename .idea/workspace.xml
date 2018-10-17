@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="669d79b1-ed23-4db6-880a-252b07993a86" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S1/output/scopy.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1/output/scopy.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/frontend/Lexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/frontend/Lexer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/frontend/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/frontend/Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/frontend/SemValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/frontend/SemValue.class" afterDir="false" />
@@ -31,6 +30,7 @@
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadIntExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadIntExpr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadLineExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadLineExpr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Return.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Return.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Scopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Scopy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Skip.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Skip.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ThisExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ThisExpr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TopLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TopLevel.class" afterDir="false" />
@@ -129,101 +129,91 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="decaf" value="14" />
-          <entry key="java" value="30" />
-          <entry key="l" value="7" />
+          <entry key="decaf" value="16" />
+          <entry key="java" value="33" />
+          <entry key="l" value="8" />
           <entry key="md" value="2" />
           <entry key="output" value="2" />
-          <entry key="result" value="23" />
+          <entry key="result" value="28" />
           <entry key="xml" value="1" />
           <entry key="y" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="30" />
-          <entry key="PLAIN_TEXT" value="52" />
+          <entry key="JAVA" value="33" />
+          <entry key="PLAIN_TEXT" value="60" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="946" />
-          <entry key="l" value="126" />
-          <entry key="y" value="648" />
+          <entry key="java" value="1139" />
+          <entry key="l" value="180" />
+          <entry key="y" value="1041" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="946" />
-          <entry key="PLAIN_TEXT" value="774" />
+          <entry key="JAVA" value="1139" />
+          <entry key="PLAIN_TEXT" value="1221" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.y">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="209" column="49" selection-start-line="209" selection-start-column="49" selection-end-line="209" selection-end-column="49" />
+            <state relative-caret-position="256">
+              <caret line="238" column="54" selection-start-line="238" selection-start-column="54" selection-end-line="238" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.output">
+        <entry file="file://$PROJECT_DIR$/TestCases/S1/result/var-1.result">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.l">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/TestCases/S1/var-1.decaf">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/S1/output/var-1.result">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13173">
-              <caret line="1357" column="61" selection-start-line="1357" selection-start-column="61" selection-end-line="1357" selection-end-column="61" />
+            <state relative-caret-position="382">
+              <caret line="218" column="7" selection-start-line="218" selection-start-column="7" selection-end-line="218" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#Tree#0" />
+                <element signature="e#27243#27244#0" expanded="true" />
+                <element signature="e#27295#27296#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S1/scopy.decaf">
+        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/SemValue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="6" selection-start-column="6" selection-end-column="6" />
+            <state relative-caret-position="2745">
+              <caret line="194" column="18" selection-start-line="194" selection-start-column="18" selection-end-line="194" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S1/output/scopy.result">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S1/result/scopy.result">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/TestCases/S1/var-2.decaf">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -237,8 +227,8 @@
         <option value="$PROJECT_DIR$/TestCases/S1/output/sealed.result" />
         <option value="$PROJECT_DIR$/src/decaf/frontend/Lexer.l" />
         <option value="$PROJECT_DIR$/src/decaf/frontend/SemValue.java" />
-        <option value="$PROJECT_DIR$/src/decaf/tree/Tree.java" />
         <option value="$PROJECT_DIR$/src/decaf/frontend/Parser.y" />
+        <option value="$PROJECT_DIR$/src/decaf/tree/Tree.java" />
       </list>
     </option>
   </component>
@@ -331,7 +321,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="onReductedListener&#9;null&#9;null&#10;STATIC&#9;PSI&#9;JAVA://com.sun.tools.example.debug.expr.ExpressionParserConstants#STATIC" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539687158480" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539772131744" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -368,7 +358,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29756796" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29756796" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -482,35 +472,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/PA1_Decaf.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/error/BadArgCountError.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1/runAll.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/submit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="75" column="47" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1/error1.decaf">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1/error2.decaf">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1/error3.decaf">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1/error4.decaf">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -618,20 +579,6 @@
     <entry file="file://$PROJECT_DIR$/src/decaf/Driver.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/SemValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="190" column="18" selection-start-line="190" selection-start-column="18" selection-end-line="190" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1/output/nqueues.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -660,16 +607,10 @@
     <entry file="file://$PROJECT_DIR$/TestCases/S1/output/array-concat.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1/output/array-access.result">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4606" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1/output/array-1.result">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1/result/scopy.result">
       <provider selected="true" editor-type-id="text-editor">
@@ -692,31 +633,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.output">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/result/guarded-1.result">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/guarded-1.decaf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/output/guarded-1.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/var-2.decaf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/output/array-comp.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/output/array-access.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/output/array-1.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.l">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
+        <state relative-caret-position="306">
+          <caret line="77" column="61" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/result/var-1.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/SemValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2745">
+          <caret line="194" column="18" selection-start-line="194" selection-start-column="18" selection-end-line="194" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/var-1.decaf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1/output/var-1.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.y">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="238" column="54" selection-start-line="238" selection-start-column="54" selection-end-line="238" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13173">
-          <caret line="1357" column="61" selection-start-line="1357" selection-start-column="61" selection-end-line="1357" selection-end-column="61" />
+        <state relative-caret-position="382">
+          <caret line="218" column="7" selection-start-line="218" selection-start-column="7" selection-end-line="218" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#Tree#0" />
+            <element signature="e#27243#27244#0" expanded="true" />
+            <element signature="e#27295#27296#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.output">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.y">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="209" column="49" selection-start-line="209" selection-start-column="49" selection-end-line="209" selection-end-column="49" />
         </state>
       </provider>
     </entry>

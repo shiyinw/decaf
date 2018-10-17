@@ -190,6 +190,10 @@ public class SemValue {
 			msg = "keyword : scopy";
 			break;
 
+		case Parser.VAR:
+			msg = "keyword : var";
+			break;
+
 
 		// 常量
 		case Parser.LITERAL:
