@@ -29,7 +29,7 @@ import java.util.*;
 %token IF     ELSE        RETURN   BREAK   NEW
 %token PRINT  READ_INTEGER         READ_LINE
 %token LITERAL
-%token IDENTIFIER	  AND    OR    STATIC  INSTANCEOF
+%token IDENTIFIER	  AND    OR    STATIC  SEALED   INSTANCEOF
 %token LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL
 %token '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
 %token ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
@@ -100,10 +100,14 @@ Type            :	INT
                 	}
                 ;
 
-ClassDef        :	CLASS IDENTIFIER ExtendsClause '{' FieldList '}'
+ClassDef        :	SEALED CLASS IDENTIFIER ExtendsClause '{' FieldList '}'
 					{
-						$$.cdef = new Tree.ClassDef($2.ident, $3.ident, $5.flist, $1.loc);
+						$$.cdef = new Tree.ClassDef(true, $3.ident, $4.ident, $6.flist, $1.loc);
 					}
+				|   CLASS IDENTIFIER ExtendsClause '{' FieldList '}'
+                    {
+                        $$.cdef = new Tree.ClassDef(false, $2.ident, $3.ident, $5.flist, $1.loc);
+                    }
                 ;
 
 ExtendsClause	:	EXTENDS IDENTIFIER
@@ -150,6 +154,7 @@ VariableList    :	VariableList ',' Variable
                 	}
                 ;
 
+/* function definition */
 FunctionDef    :	STATIC Type IDENTIFIER '(' Formals ')' StmtBlock
 					{
 						$$.fdef = new MethodDef(true, $3.ident, $2.type, $5.vlist, (Block) $7.stmt, $3.loc);
