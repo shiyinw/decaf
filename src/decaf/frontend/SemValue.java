@@ -186,6 +186,10 @@ public class SemValue {
 			msg = "keyword : sealed";
 			break;
 
+		case Parser.SCOPY:
+			msg = "keyword : scopy";
+			break;
+
 
 		// 常量
 		case Parser.LITERAL:

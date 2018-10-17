@@ -24,15 +24,19 @@ import java.util.*;
 %Jnodebug
 %Jnoconstruct
 
+
+
 %token VOID   BOOL  INT   STRING  CLASS 
 %token NULL   EXTENDS     THIS     WHILE   FOR   
 %token IF     ELSE        RETURN   BREAK   NEW
-%token PRINT  READ_INTEGER         READ_LINE
+%token PRINT  READ_INTEGER  READ_LINE
 %token LITERAL
 %token IDENTIFIER	  AND    OR    STATIC  SEALED   INSTANCEOF
+%token SCOPY
 %token LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL
 %token '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
 %token ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
+
 
 %left OR
 %left AND 
@@ -182,7 +186,8 @@ StmtList        :	StmtList Stmt
                 	}
                 ;
 
-Stmt		    :	VariableDef
+Stmt		    :	OCStmt ';'
+                |   VariableDef
 					{
 						$$.stmt = $1.vdef;
 					}
@@ -200,6 +205,12 @@ Stmt		    :	VariableDef
                 |	PrintStmt ';'
                 |	BreakStmt ';'
                 |	StmtBlock
+                ;
+
+OCStmt          :   SCOPY '(' IDENTIFIER ',' Expr ')'
+                    {
+                        $$.stmt = new Tree.Scopy($3.ident, $5.expr, $3.loc);
+                    }
                 ;
 
 SimpleStmt      :	LValue '=' Expr

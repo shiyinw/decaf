@@ -105,9 +105,14 @@ public abstract class Tree {
     public static final int CASE = SWITCH + 1;
 
     /**
+     * SCOPY function
+     */
+    public static final int SCOPY = CASE + 1;
+
+    /**
      * Synchronized statements, of type Synchonized.
      */
-    public static final int SYNCHRONIZED = CASE + 1;
+    public static final int SYNCHRONIZED = SCOPY + 1;
 
     /**
      * Try statements, of type Try.
@@ -612,6 +617,32 @@ public abstract class Tree {
     			pw.decIndent();
     		}
     	}
+    }
+
+
+    public static class Scopy extends Tree{
+        public String indentifier;
+        public Expr expr;
+
+        public Scopy(String indentifier, Expr expr, Location loc){
+            super(SCOPY, loc);
+            this.indentifier = indentifier;
+            this.expr = expr;
+        }
+
+        @Override
+        public void accept(Visitor v) {
+            v.visitScopy(this);
+        }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("scopy");
+            pw.incIndent();
+            pw.println(indentifier);
+            expr.printTo(pw);
+            pw.decIndent();
+        }
     }
 
     /**
@@ -1323,6 +1354,8 @@ public abstract class Tree {
         public Visitor() {
             super();
         }
+
+        public void visitScopy(Scopy that) {visitTree(that); }
 
         public void visitTopLevel(TopLevel that) {
             visitTree(that);

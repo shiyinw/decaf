@@ -46,9 +46,8 @@ program
                     varref p
                     intconst 1
                 vardef p1 classtype Point
-                call scopy
-                    <empty>
-                    varref p1
+                scopy
+                    p1
                     varref p
                 print
                     call toString
