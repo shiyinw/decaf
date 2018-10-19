@@ -148,10 +148,12 @@ public abstract class Tree {
 
     public static final int ARRAYREF = ARRAYINIT + 1;
 
+    public static final int ARRAYCOMP = ARRAYREF + 1;
+
     /**
      * Expression statements, of type Exec.
      */
-    public static final int EXEC = ARRAYREF + 1;
+    public static final int EXEC = ARRAYCOMP + 1;
 
     /**
      * Break statements, of type Break.
@@ -529,6 +531,41 @@ public abstract class Tree {
         }
     }
 
+    public static class ArrayComp extends Expr{
+        public boolean iff;
+        public String ident;
+        public Expr inbrunch, ifbrunch, output;
+
+        public ArrayComp(boolean iff, Expr output, String ident, Expr inbrunch, Expr ifbrunch, Location loc) {
+            super(ARRAYCOMP, loc);
+            this.iff = iff;
+            this.ident = ident;
+            this.inbrunch = inbrunch;
+            this.ifbrunch = ifbrunch;
+            this.output = output;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayComp(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array comp");
+            pw.incIndent();
+            pw.println("varbind " + ident);
+            inbrunch.printTo(pw);
+            if(iff){
+                ifbrunch.printTo(pw);
+            }
+            else{
+                pw.println("boolconst true");
+            }
+            output.printTo(pw);
+            pw.decIndent();
+        }
+    }
+
+
     public static class ArrayFor extends Tree{
         public LValue e1;
         public Tree e2;
@@ -571,11 +608,12 @@ public abstract class Tree {
     public static class BoundVar extends LValue {
 
         public String name;
-        public boolean isDefined;
+        public TypeLiteral type;
 
-        public BoundVar(String name, Location loc) {
+        public BoundVar(TypeLiteral type, String name, Location loc) {
             super(BOUNDVAR, loc);
             this.name = name;
+            this.type = type;
         }
 
         @Override
@@ -585,7 +623,14 @@ public abstract class Tree {
 
         @Override
         public void printTo(IndentPrintWriter pw) {
-            pw.println("varbind " + name + " var");
+            pw.print("varbind " + name + " ");
+            if(type==null){
+                pw.println("var");
+            }
+            else{
+                type.printTo(pw);
+                pw.println();
+            }
         }
     }
 
@@ -1780,6 +1825,8 @@ public abstract class Tree {
         public void visitArrayRef(ArrayRef that) { visitTree(that); }
 
         public void visitArrayConcat(ArrayConcat that) { visitTree(that); }
+
+        public void visitArrayComp(ArrayComp that) { visitTree(that); }
 
         public void visitArrayInit(ArrayInit that) { visitTree(that); }
 

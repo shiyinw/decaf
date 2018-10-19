@@ -31,19 +31,29 @@ import java.util.*;
 %token IF     ELSE        RETURN   BREAK   NEW
 %token PRINT  READ_INTEGER  READ_LINE
 %token LITERAL
-%token IDENTIFIER	  AND    OR    STATIC  SEALED   INSTANCEOF DIVIDER
+%token IDENTIFIER    STATIC  SEALED   INSTANCEOF DIVIDER
 %token SCOPY FOREACH DEFAULT IN
-%token LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL    VAR
-%token ARRAY_REPEAT ARRAY_CONCAT
+%token VAR
+
+%token DEFAULT '['  ']'
+%token '!'
+%token '*' '/' '%'
+%token '+' '-'
+%token '<' '>' LESS_EQUAL   GREATER_EQUAL
+%token ARRAY_REPEAT
+%token ARRAY_CONCAT
+%token EQUAL   NOT_EQUAL
+%token AND OR
+
 %token ':'
-%token '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
-%token ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
+%token '=' '.'
+%token ',' ';' '(' ')' '{' '}'
 
 
 
 
 %left OR
-%left AND 
+%left AND
 %nonassoc EQUAL NOT_EQUAL
 %nonassoc LESS_EQUAL GREATER_EQUAL '<' '>'
 %left  '+' '-'
@@ -227,11 +237,11 @@ ForeachStmt     :   FOREACH '(' BoundVariable IN Expr ')' Stmt
 
 BoundVariable   :   VAR IDENTIFIER
                     {
-                        $$.lvalue = new LValue.BoundVar($2.ident, $2.loc);
+                        $$.lvalue = new LValue.BoundVar(null, $2.ident, $1.loc);
                     }
                 |   Type IDENTIFIER
                     {
-                        $$.lvalue = new LValue.BoundVar($2.ident, $2.loc);
+                        $$.lvalue = new LValue.BoundVar($1.type, $2.ident, $1.loc);
                     }
                 ;
 
@@ -326,7 +336,13 @@ BoolExpr        : Expr
                 ;
 
 Expr            :	'[' Expr FOR IDENTIFIER IN Expr ']'
+                    {
+                        $$.expr = new Tree.ArrayComp(false, $2.expr, $4.ident, $6.expr, null, $1.loc);
+                    }
                 |   '[' Expr FOR IDENTIFIER IN Expr IF BoolExpr ']'
+                    {
+                        $$.expr = new Tree.ArrayComp(true, $2.expr, $4.ident, $6.expr, $8.expr, $1.loc);
+                    }
                 |   Expr ARRAY_REPEAT Constant
                     {
                         $$.expr = new Tree.ArrayInit($1.expr, $3.expr, $1.loc);

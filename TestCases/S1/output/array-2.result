@@ -53,6 +53,13 @@ program
                             varref arr1
                 assign
                     var arr4
+                    array comp
+                        varbind x
+                        varref arr1
+                        boolconst true
+                        call f
+                            <empty>
+                            varref x
                 foreach
                     varbind x var
                     varref arr4
@@ -62,8 +69,17 @@ program
                             varref x
                 assign
                     var arr5
+                    array comp
+                        varbind x
+                        varref arr2
+                        equ
+                            mod
+                                varref x
+                                intconst 2
+                            intconst 0
+                        varref x
                 foreach
-                    varbind x var
+                    varbind x inttype
                     varref arr5
                     les
                         varref x

@@ -42,7 +42,7 @@ program
                     varref cnt
                     intconst 0
                 foreach
-                    varbind s var
+                    varbind s stringtype
                     varref ss
                     and
                         les
