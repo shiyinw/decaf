@@ -832,7 +832,7 @@ final static String yyrule[] = {
 "PrintStmt : PRINT '(' ExprList ')'",
 };
 
-//#line 561 "Parser.y"
+//#line 564 "Parser.y"
     
 	/**
 	 * 打印当前归约所用的语法规则<br>
@@ -1325,262 +1325,268 @@ case 64:
                         yyval.expr = new Tree.ArrayRef(val_peek(5).expr, val_peek(3).expr, val_peek(1).expr, val_peek(5).loc);
                     }
 break;
+case 65:
+//#line 359 "Parser.y"
+{
+                        yyval.expr = new Tree.ArrayDefault(val_peek(5).expr, val_peek(3).expr, val_peek(0).expr, val_peek(5).loc);
+                    }
+break;
 case 66:
-//#line 360 "Parser.y"
+//#line 363 "Parser.y"
 {
 						yyval.expr = val_peek(0).lvalue;
 					}
 break;
 case 69:
-//#line 366 "Parser.y"
+//#line 369 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.PLUS, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 70:
-//#line 370 "Parser.y"
+//#line 373 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.MINUS, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 71:
-//#line 374 "Parser.y"
+//#line 377 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.MUL, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 72:
-//#line 378 "Parser.y"
+//#line 381 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.DIV, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 73:
-//#line 382 "Parser.y"
+//#line 385 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.MOD, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 74:
-//#line 386 "Parser.y"
+//#line 389 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.EQ, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 75:
-//#line 390 "Parser.y"
+//#line 393 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.NE, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 76:
-//#line 394 "Parser.y"
+//#line 397 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.LT, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 77:
-//#line 398 "Parser.y"
+//#line 401 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.GT, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 78:
-//#line 402 "Parser.y"
+//#line 405 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.LE, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 79:
-//#line 406 "Parser.y"
+//#line 409 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.GE, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 80:
-//#line 410 "Parser.y"
+//#line 413 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.AND, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 81:
-//#line 414 "Parser.y"
+//#line 417 "Parser.y"
 {
                 		yyval.expr = new Tree.Binary(Tree.OR, val_peek(2).expr, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 82:
-//#line 418 "Parser.y"
+//#line 421 "Parser.y"
 {
                 		yyval = val_peek(1);
                 	}
 break;
 case 83:
-//#line 422 "Parser.y"
+//#line 425 "Parser.y"
 {
                 		yyval.expr = new Tree.Unary(Tree.NEG, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 84:
-//#line 426 "Parser.y"
+//#line 429 "Parser.y"
 {
                 		yyval.expr = new Tree.Unary(Tree.NOT, val_peek(0).expr, val_peek(1).loc);
                 	}
 break;
 case 85:
-//#line 430 "Parser.y"
+//#line 433 "Parser.y"
 {
                 		yyval.expr = new Tree.ReadIntExpr(val_peek(2).loc);
                 	}
 break;
 case 86:
-//#line 434 "Parser.y"
+//#line 437 "Parser.y"
 {
                 		yyval.expr = new Tree.ReadLineExpr(val_peek(2).loc);
                 	}
 break;
 case 87:
-//#line 438 "Parser.y"
+//#line 441 "Parser.y"
 {
                 		yyval.expr = new Tree.ThisExpr(val_peek(0).loc);
                 	}
 break;
 case 88:
-//#line 442 "Parser.y"
+//#line 445 "Parser.y"
 {
                 		yyval.expr = new Tree.NewClass(val_peek(2).ident, val_peek(3).loc);
                 	}
 break;
 case 89:
-//#line 446 "Parser.y"
+//#line 449 "Parser.y"
 {
                 		yyval.expr = new Tree.NewArray(val_peek(3).type, val_peek(1).expr, val_peek(4).loc);
                 	}
 break;
 case 90:
-//#line 450 "Parser.y"
+//#line 453 "Parser.y"
 {
                 		yyval.expr = new Tree.TypeTest(val_peek(3).expr, val_peek(1).ident, val_peek(5).loc);
                 	}
 break;
 case 91:
-//#line 454 "Parser.y"
+//#line 457 "Parser.y"
 {
                 		yyval.expr = new Tree.TypeCast(val_peek(2).ident, val_peek(0).expr, val_peek(0).loc);
                 	}
 break;
 case 93:
-//#line 461 "Parser.y"
+//#line 464 "Parser.y"
 {
 						yyval.expr = new Tree.Literal(val_peek(0).typeTag, val_peek(0).literal, val_peek(0).loc);
 					}
 break;
 case 94:
-//#line 465 "Parser.y"
+//#line 468 "Parser.y"
 {
 						yyval.expr = new Null(val_peek(0).loc);
 					}
 break;
 case 95:
-//#line 471 "Parser.y"
+//#line 474 "Parser.y"
 {
                         yyval.expr = new Tree.Array(null, val_peek(1).loc);
                     }
 break;
 case 96:
-//#line 475 "Parser.y"
+//#line 478 "Parser.y"
 {
                         yyval.expr = new Tree.Array(val_peek(1).elist, val_peek(2).loc);
                     }
 break;
 case 97:
-//#line 481 "Parser.y"
+//#line 484 "Parser.y"
 {
 						yyval.elist.add(val_peek(0).expr);
 					}
 break;
 case 98:
-//#line 485 "Parser.y"
+//#line 488 "Parser.y"
 {
                 		yyval.elist = new ArrayList<Tree.Expr>();
 						yyval.elist.add(val_peek(0).expr);
                 	}
 break;
 case 100:
-//#line 493 "Parser.y"
+//#line 496 "Parser.y"
 {
                 		yyval = new SemValue();
                 		yyval.elist = new ArrayList<Tree.Expr>();
                 	}
 break;
 case 101:
-//#line 500 "Parser.y"
+//#line 503 "Parser.y"
 {
 						yyval.elist.add(val_peek(0).expr);
 					}
 break;
 case 102:
-//#line 504 "Parser.y"
+//#line 507 "Parser.y"
 {
                 		yyval.elist = new ArrayList<Tree.Expr>();
 						yyval.elist.add(val_peek(0).expr);
                 	}
 break;
 case 103:
-//#line 511 "Parser.y"
+//#line 514 "Parser.y"
 {
 						yyval.stmt = new Tree.WhileLoop(val_peek(2).expr, val_peek(0).stmt, val_peek(4).loc);
 					}
 break;
 case 104:
-//#line 517 "Parser.y"
+//#line 520 "Parser.y"
 {
 						yyval.stmt = new Tree.ForLoop(val_peek(6).stmt, val_peek(4).expr, val_peek(2).stmt, val_peek(0).stmt, val_peek(8).loc);
 					}
 break;
 case 105:
-//#line 523 "Parser.y"
+//#line 526 "Parser.y"
 {
 						yyval.stmt = new Tree.Break(val_peek(0).loc);
 					}
 break;
 case 106:
-//#line 529 "Parser.y"
+//#line 532 "Parser.y"
 {
 						yyval.stmt = new Tree.If(val_peek(3).expr, val_peek(1).stmt, val_peek(0).stmt, val_peek(5).loc);
 					}
 break;
 case 107:
-//#line 535 "Parser.y"
+//#line 538 "Parser.y"
 {
 						yyval.stmt = val_peek(0).stmt;
 					}
 break;
 case 108:
-//#line 539 "Parser.y"
+//#line 542 "Parser.y"
 {
 						yyval = new SemValue();
 					}
 break;
 case 109:
-//#line 545 "Parser.y"
+//#line 548 "Parser.y"
 {
 						yyval.stmt = new Tree.Return(val_peek(0).expr, val_peek(1).loc);
 					}
 break;
 case 110:
-//#line 549 "Parser.y"
+//#line 552 "Parser.y"
 {
                 		yyval.stmt = new Tree.Return(null, val_peek(0).loc);
                 	}
 break;
 case 111:
-//#line 555 "Parser.y"
+//#line 558 "Parser.y"
 {
 						yyval.stmt = new Print(val_peek(1).elist, val_peek(3).loc);
 					}
 break;
-//#line 1518 "Parser.java"
+//#line 1524 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
     }//switch
     //#### Now let's reduce... ####

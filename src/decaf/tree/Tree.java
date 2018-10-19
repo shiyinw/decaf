@@ -150,10 +150,12 @@ public abstract class Tree {
 
     public static final int ARRAYCOMP = ARRAYREF + 1;
 
+    public static final int ARRAYDEFAULT = ARRAYCOMP + 1;
+
     /**
      * Expression statements, of type Exec.
      */
-    public static final int EXEC = ARRAYCOMP + 1;
+    public static final int EXEC = ARRAYDEFAULT + 1;
 
     /**
      * Break statements, of type Break.
@@ -677,6 +679,33 @@ public abstract class Tree {
             pw.println("range");
             pw.incIndent();
             e2.printTo(pw);
+            e3.printTo(pw);
+            pw.decIndent();
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayDefault extends Expr{
+        public Expr e1, e2, e3;
+
+        public ArrayDefault(Expr e1, Expr e2, Expr e3, Location loc) {
+            super(ARRAYDEFAULT, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+            this.e3 = e3;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayDefault(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("arrref");
+            pw.incIndent();
+            e1.printTo(pw);
+            e2.printTo(pw);
+            pw.println("default");
+            pw.incIndent();
             e3.printTo(pw);
             pw.decIndent();
             pw.decIndent();
@@ -1827,6 +1856,8 @@ public abstract class Tree {
         public void visitArrayConcat(ArrayConcat that) { visitTree(that); }
 
         public void visitArrayComp(ArrayComp that) { visitTree(that); }
+
+        public void visitArrayDefault(ArrayDefault that) { visitTree(that); }
 
         public void visitArrayInit(ArrayInit that) { visitTree(that); }
 

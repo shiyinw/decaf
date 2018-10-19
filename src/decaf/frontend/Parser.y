@@ -356,6 +356,9 @@ Expr            :	'[' Expr FOR IDENTIFIER IN Expr ']'
                         $$.expr = new Tree.ArrayRef($1.expr, $3.expr, $5.expr, $1.loc);
                     }
                 |   Expr '[' Expr ']' DEFAULT Expr
+                    {
+                        $$.expr = new Tree.ArrayDefault($1.expr, $3.expr, $6.expr, $1.loc);
+                    }
                 |   LValue
 					{
 						$$.expr = $1.lvalue;

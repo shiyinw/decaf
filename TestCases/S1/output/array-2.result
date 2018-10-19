@@ -50,7 +50,11 @@ program
                             arrref
                                 varref arr1
                                 intconst 0
-                            varref arr1
+                            arrref
+                                varref arr1
+                                intconst 7
+                                default
+                                    intconst 10
                 assign
                     var arr4
                     array comp
