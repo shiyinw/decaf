@@ -146,10 +146,12 @@ public abstract class Tree {
 
     public static final int ARRAYINIT = ARRAYFOR + 1;
 
+    public static final int ARRAYREF = ARRAYINIT + 1;
+
     /**
      * Expression statements, of type Exec.
      */
-    public static final int EXEC = ARRAYINIT + 1;
+    public static final int EXEC = ARRAYREF + 1;
 
     /**
      * Break statements, of type Break.
@@ -228,10 +230,12 @@ public abstract class Tree {
 
     public static final int IDENTVAR = IDENT + 1;
 
+    public static final int BOUNDVAR = IDENTVAR + 1;
+
     /**
      * Literals, of type Literal.
      */
-    public static final int LITERAL = IDENTVAR + 1;
+    public static final int LITERAL = BOUNDVAR + 1;
 
     /**
      * Basic type identifiers, of type TypeIdent.
@@ -564,6 +568,27 @@ public abstract class Tree {
         }
     }
 
+    public static class BoundVar extends LValue {
+
+        public String name;
+        public boolean isDefined;
+
+        public BoundVar(String name, Location loc) {
+            super(BOUNDVAR, loc);
+            this.name = name;
+        }
+
+        @Override
+        public void accept(Visitor v) {
+            v.visitBoundVar(this);
+        }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("varbind " + name + " var");
+        }
+    }
+
     public static class ArrayInit extends Expr{
         public Expr e1, e2;
 
@@ -582,6 +607,33 @@ public abstract class Tree {
             pw.incIndent();
             e1.printTo(pw);
             e2.printTo(pw);
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayRef extends Expr{
+        public Expr e1, e2, e3;
+
+        public ArrayRef(Expr e1, Expr e2, Expr e3, Location loc) {
+            super(ARRAYREF, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+            this.e3 = e3;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayRef(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("arrref");
+            pw.incIndent();
+            e1.printTo(pw);
+            pw.println("range");
+            pw.incIndent();
+            e2.printTo(pw);
+            e3.printTo(pw);
+            pw.decIndent();
             pw.decIndent();
         }
     }
@@ -1723,10 +1775,16 @@ public abstract class Tree {
 
         public void visitArray(Array that) { visitTree(that); }
 
+        public void visitArrayRef(ArrayRef that) { visitTree(that); }
+
         public void visitArrayConcat(ArrayConcat that) { visitTree(that); }
 
         public void visitArrayInit(ArrayInit that) { visitTree(that); }
 
         public void visitArrayFor(ArrayFor that) { visitTree(that); }
+
+        public void visitBoundVar(BoundVar that) {
+            visitTree(that);
+        }
     }
 }

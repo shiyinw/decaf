@@ -11,11 +11,21 @@ program
                 vardef sub1 arrtype inttype
                 assign
                     varref sub1
-                    varref xs
+                    arrref
+                        varref xs
+                        range
+                            intconst 2
+                            intconst 6
                 vardef sub2 arrtype inttype
                 assign
                     varref sub2
-                    varref xs
+                    arrref
+                        varref xs
+                        range
+                            intconst 1
+                            sub
+                                intconst 10
+                                intconst 1
                 vardef sub3 arrtype inttype
                 vardef x inttype
                 assign
@@ -35,7 +45,17 @@ program
                         intconst 4
                 assign
                     varref sub3
-                    varref xs
+                    arrref
+                        varref xs
+                        range
+                            sub
+                                varref y
+                                varref x
+                            add
+                                varref x
+                                mul
+                                    varref y
+                                    intconst 2
                 vardef z1 inttype
                 assign
                     varref z1

@@ -32,7 +32,7 @@ import java.util.*;
 %token PRINT  READ_INTEGER  READ_LINE
 %token LITERAL
 %token IDENTIFIER	  AND    OR    STATIC  SEALED   INSTANCEOF DIVIDER
-%token SCOPY FOREACH DEFAULT
+%token SCOPY FOREACH DEFAULT IN
 %token LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL    VAR
 %token ARRAY_REPEAT ARRAY_CONCAT
 %token ':'
@@ -192,7 +192,8 @@ StmtList        :	StmtList Stmt
                 	}
                 ;
 
-Stmt		    :	OCStmt ';'
+Stmt		    :	ForeachStmt
+                |   OCStmt ';'
                 |   GuardedStmt
                 |   VariableDef
 					{
@@ -213,6 +214,23 @@ Stmt		    :	OCStmt ';'
                 |	BreakStmt ';'
                 |	StmtBlock
                 ;
+
+ForeachStmt     :   FOREACH '(' BoundVariable IN Expr ')' Stmt /*TODO <while>*/
+                {
+                    $$.stmt = new Tree.ArrayFor(false, $3.lvalue, $5.expr, $7.stmt, null, $1.loc);
+                }
+                ;
+
+BoundVariable   :   VAR IDENTIFIER
+                    {
+                        $$.lvalue = new LValue.BoundVar($2.ident, $2.loc);
+                    }
+                |   Type IDENTIFIER
+                    {
+                        $$.lvalue = new LValue.BoundVar($2.ident, $2.loc);
+                    }
+                ;
+
 
 GuardedStmt     :   IF '{' IfBranchG IfStmtG '}'
                 {
@@ -309,6 +327,9 @@ Expr            :	Expr ARRAY_REPEAT Constant
                         $$.expr = new Tree.ArrayConcat($1.expr, $3.expr, $1.loc);
                     }
                 |   Expr '[' Expr ':' Expr ']'
+                    {
+                        $$.expr = new Tree.ArrayRef($1.expr, $3.expr, $5.expr, $1.loc);
+                    }
                 |   Expr '[' Expr ']' DEFAULT Expr
                 |   LValue
 					{
