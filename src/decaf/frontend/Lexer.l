@@ -76,6 +76,9 @@ WHITESPACE			= ([ \t]+)
 "sealed"            { return keyword(Parser.SEALED);        }
 "scopy"             { return keyword(Parser.SCOPY);         }
 "var"               { return keyword(Parser.VAR);           }
+"foreach"           { return keyword(Parser.FOREACH);       }
+"default"           { return keyword(Parser.DEFAULT);       }
+
 
 	// 识别操作符的规则
 "<="				{ return operator(Parser.LESS_EQUAL);	}
@@ -86,6 +89,8 @@ WHITESPACE			= ([ \t]+)
 "||"				{ return operator(Parser.OR);			}
 {SIMPLE_OPERATOR}	{ return operator((int)yycharat(0));	}
 "|||"               { return operator(Parser.DIVIDER);      }
+"%%"				{ return operator(Parser.ARRAY_REPEAT);	}
+"++"				{ return operator(Parser.ARRAY_CONCAT);	}
 
 	// 识别常数的规则
 "true"				{ return boolConst(true);										}

@@ -138,10 +138,18 @@ public abstract class Tree {
 
     public static final int GUARD = IFG + 1;
 
+    public static final int ARRAY = GUARD + 1;
+
+    public static final int ARRAYCONCAT = ARRAY + 1;
+
+    public static final int ARRAYFOR = ARRAYCONCAT + 1;
+
+    public static final int ARRAYINIT = ARRAYFOR + 1;
+
     /**
      * Expression statements, of type Exec.
      */
-    public static final int EXEC = GUARD + 1;
+    public static final int EXEC = ARRAYINIT + 1;
 
     /**
      * Break statements, of type Break.
@@ -463,6 +471,119 @@ public abstract class Tree {
     		type.printTo(pw);
     		pw.println();
     	}
+    }
+
+    /**
+     * Array
+     */
+    public static class Array extends Expr{
+        public List<Expr> block;
+
+        public Array(List<Expr> block, Location loc) {
+            super(ARRAY, loc);
+            this.block = block;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArray(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array const");
+            pw.incIndent();
+            if(block != null){
+                for (Expr s : block) {
+                    s.printTo(pw);
+                }
+            }
+            else{
+                pw.println("<empty>");
+            }
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayConcat extends Expr{
+        public Expr e1, e2;
+
+        public ArrayConcat(Expr e1, Expr e2, Location loc) {
+            super(ARRAYCONCAT, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayConcat(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array concat");
+            pw.incIndent();
+            e1.printTo(pw);
+            e2.printTo(pw);
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayFor extends Tree{
+        public LValue e1;
+        public Tree e2;
+        public Expr ident, j;
+        public boolean judge;
+
+        public ArrayFor(boolean judege, LValue e1, Expr ident, Tree e2, Expr j, Location loc) {
+            super(ARRAYFOR, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+            this.ident = ident;
+            this.judge = judege;
+            this.j = j;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayFor(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("foreach");
+            pw.incIndent();
+            e1.printTo(pw);
+
+            ident.printTo(pw);
+
+            if(judge){
+                j.printTo(pw);
+            }
+            else{
+                pw.println("boolconst true");
+            }
+            if(e2!=null){
+                e2.printTo(pw);
+            }
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayInit extends Expr{
+        public Expr e1, e2;
+
+        public ArrayInit(Expr e1, Expr e2, Location loc) {
+            super(ARRAYCONCAT, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayInit(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array repeat");
+            pw.incIndent();
+            e1.printTo(pw);
+            e2.printTo(pw);
+            pw.decIndent();
+        }
     }
 
     /**
@@ -1599,5 +1720,13 @@ public abstract class Tree {
         public void visitTree(Tree that) {
             assert false;
         }
+
+        public void visitArray(Array that) { visitTree(that); }
+
+        public void visitArrayConcat(ArrayConcat that) { visitTree(that); }
+
+        public void visitArrayInit(ArrayInit that) { visitTree(that); }
+
+        public void visitArrayFor(ArrayFor that) { visitTree(that); }
     }
 }

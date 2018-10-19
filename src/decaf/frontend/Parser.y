@@ -32,11 +32,14 @@ import java.util.*;
 %token PRINT  READ_INTEGER  READ_LINE
 %token LITERAL
 %token IDENTIFIER	  AND    OR    STATIC  SEALED   INSTANCEOF DIVIDER
-%token SCOPY
+%token SCOPY FOREACH DEFAULT
 %token LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL    VAR
+%token ARRAY_REPEAT ARRAY_CONCAT
 %token ':'
 %token '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
 %token ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
+
+
 
 
 %left OR
@@ -49,6 +52,8 @@ import java.util.*;
 %nonassoc '[' '.' ':'
 %nonassoc ')' EMPTY
 %nonassoc ELSE
+%left ARRAY_REPEAT
+%right ARRAY_CONCAT
 
 %start Program
 
@@ -295,7 +300,17 @@ Call            :	Receiver IDENTIFIER '(' Actuals ')'
 					}
                 ;
 
-Expr            :	LValue
+Expr            :	Expr ARRAY_REPEAT Constant
+                    {
+                        $$.expr = new Tree.ArrayInit($1.expr, $3.expr, $1.loc);
+                    }
+                |   Expr ARRAY_CONCAT Expr
+                    {
+                        $$.expr = new Tree.ArrayConcat($1.expr, $3.expr, $1.loc);
+                    }
+                |   Expr '[' Expr ':' Expr ']'
+                |   Expr '[' Expr ']' DEFAULT Expr
+                |   LValue
 					{
 						$$.expr = $1.lvalue;
 					}
@@ -395,7 +410,8 @@ Expr            :	LValue
                 	} 
                 ;
 	
-Constant        :	LITERAL
+Constant        :	ArrayConstant
+                |   LITERAL
 					{
 						$$.expr = new Tree.Literal($1.typeTag, $1.literal, $1.loc);
 					}
@@ -403,6 +419,27 @@ Constant        :	LITERAL
                 	{
 						$$.expr = new Null($1.loc);
 					}
+                ;
+
+ArrayConstant   : '[' ']'
+                    {
+                        $$.expr = new Tree.Array(null, $1.loc);
+                    }
+                | '[' ArrayInsider ']'
+                    {
+                        $$.expr = new Tree.Array($2.elist, $1.loc);
+                    }
+                ;
+
+ArrayInsider    :	ArrayInsider ',' Constant
+					{
+						$$.elist.add($3.expr);
+					}
+                |	Constant
+                	{
+                		$$.elist = new ArrayList<Tree.Expr>();
+						$$.elist.add($1.expr);
+                	}
                 ;
 
 Actuals         :	ExprList
