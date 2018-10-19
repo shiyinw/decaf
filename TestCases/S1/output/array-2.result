@@ -29,19 +29,19 @@ program
                                 intconst 6
                 assign
                     var arr2
-                    mul
-                        mul
-                            array concat
-                                arrref
-                                    varref arr1
-                                    range
-                                        intconst 2
-                                        intconst 5
+                    array concat
+                        arrref
+                            varref arr1
+                            range
                                 intconst 2
-                            array repeat
                                 intconst 5
+                        array repeat
+                            mul
+                                intconst 2
                                 intconst 5
-                        intconst 2
+                            mul
+                                intconst 5
+                                intconst 2
                 assign
                     var arr3
                     arrref

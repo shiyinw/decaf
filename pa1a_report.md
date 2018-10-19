@@ -6,6 +6,14 @@
 
 根据实验讲义上的说明，我需要通过更改以下的文件达到附加的功能：
 
+1. 支持对象复制语句。
+2. 引入关键词 sealed 修饰 class，使其不能被继承。 
+3. 支持串行条件卫士语句。 
+4. 支持简单的自动类型推导。
+5. 支持若干与一维数组有关的表达式或语句。
+6. Python 风格的数组 comprehension 表达式。
+7. 数组迭代语句。
+
 | 文件名          | 含义                   | 说明                                            |
 | --------------- | ---------------------- | ----------------------------------------------- |
 | Lexer.l         | LEX 源程序             | 你要在此文件中定义正规 式，并给出相应的动作。   |
@@ -48,7 +56,7 @@ tree.java
 
 改正过这个以后，代码就可以初步地跑起来力，程序通过了`error*.decaf`、`fibonacci.decaf`、`nqueues.decaf`和`test*.decaf`。
 
-### 2. 增加sealed
+#### 2. 增加sealed
 
 我模仿了原有代码中对于static function的部分，修改了ClassDef的部分代码，照猫画虎。
 
@@ -101,7 +109,7 @@ public static class ClassDef extends Tree {
 }
 ```
 
-### 3. 增加scopy
+#### 3. 增加scopy
 
 这个比较简单，照着实验说明上的写就好，为了以后的使用，注意要把scope的两个参数的类型写好。
 
@@ -140,7 +148,7 @@ public static class Scopy extends Tree{
 }
 ```
 
-### 4. 增加var
+#### 4. 增加var
 
 我第一反应是按照对`sealed class`的处理，但是看到实验文档后觉得还是要单独设置一个`class`便于日后修改调用。
 
@@ -170,7 +178,7 @@ public static class IdentVar extends LValue {
 }
 ```
 
-### 5. 条件卫士
+#### 5. 条件卫士
 
 我仿照`StmtBlock`的写法，给Guarded的内部的条件列表做打印
 
@@ -200,3 +208,272 @@ IfStmtG:Expr ':' Stmt
        ;
 ```
 
+完成了前四个后，我逐渐熟悉了实验环境，条件卫士写的比较轻松。
+
+#### 6. 自动类型推导var
+
+```
+LValue	:	VAR IDENTIFIER
+            {
+                $$.lvalue = new Tree.IdentVar($2.ident, $2.loc);
+                if ($1.loc == null) {
+                	$$.loc = $2.loc;
+            	}
+            }
+            |   Receiver IDENTIFIER
+                {
+                	$$.lvalue = new Tree.Ident($1.expr, $2.ident, $2.loc);
+                	if ($1.loc == null) {
+                		$$.loc = $2.loc;
+                	}
+                }
+            |	Expr '[' Expr ']'
+            	{
+            		$$.lvalue = new Tree.Indexed($1.expr, $3.expr, $1.loc);
+            	}
+            ;
+```
+
+仿照`VarDef`写的自动类型推导的递归逻辑。
+
+#### 7. 数组
+
+相比其他的任务，这个最为繁琐，我零零碎碎折腾了大半天的时间。因为编译器的自动纠错功能有限，在编译失败的时候我需要自己找错误，我不定时地保存下阶段性成果到Github的private repo，有的时候查不出错误，我就直接revert到前一个版本。
+
+```java
+	/**
+     * Array
+     */
+    public static class Array extends Expr{
+        public List<Expr> block;
+
+        public Array(List<Expr> block, Location loc) {
+            super(ARRAY, loc);
+            this.block = block;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArray(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array const");
+            pw.incIndent();
+            if(block != null){
+                for (Expr s : block) {
+                    s.printTo(pw);
+                }
+            }
+            else{
+                pw.println("<empty>");
+            }
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayConcat extends Expr{
+        public Expr e1, e2;
+
+        public ArrayConcat(Expr e1, Expr e2, Location loc) {
+            super(ARRAYCONCAT, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayConcat(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array concat");
+            pw.incIndent();
+            e1.printTo(pw);
+            e2.printTo(pw);
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayComp extends Expr{
+        public boolean iff;
+        public String ident;
+        public Expr inbrunch, ifbrunch, output;
+
+        public ArrayComp(boolean iff, Expr output, String ident, Expr inbrunch, Expr ifbrunch, Location loc) {
+            super(ARRAYCOMP, loc);
+            this.iff = iff;
+            this.ident = ident;
+            this.inbrunch = inbrunch;
+            this.ifbrunch = ifbrunch;
+            this.output = output;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayComp(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array comp");
+            pw.incIndent();
+            pw.println("varbind " + ident);
+            inbrunch.printTo(pw);
+            if(iff){
+                ifbrunch.printTo(pw);
+            }
+            else{
+                pw.println("boolconst true");
+            }
+            output.printTo(pw);
+            pw.decIndent();
+        }
+    }
+
+
+    public static class ArrayFor extends Tree{
+        public LValue e1;
+        public Tree e2;
+        public Expr ident, j;
+        public boolean judge;
+
+        public ArrayFor(boolean judege, LValue e1, Expr ident, Tree e2, Expr j, Location loc) {
+            super(ARRAYFOR, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+            this.ident = ident;
+            this.judge = judege;
+            this.j = j;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayFor(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("foreach");
+            pw.incIndent();
+            e1.printTo(pw);
+
+            ident.printTo(pw);
+
+            if(judge){
+                j.printTo(pw);
+            }
+            else{
+                pw.println("boolconst true");
+            }
+            if(e2!=null){
+                e2.printTo(pw);
+            }
+            pw.decIndent();
+        }
+    }
+
+    public static class BoundVar extends LValue {
+
+        public String name;
+        public TypeLiteral type;
+
+        public BoundVar(TypeLiteral type, String name, Location loc) {
+            super(BOUNDVAR, loc);
+            this.name = name;
+            this.type = type;
+        }
+
+        @Override
+        public void accept(Visitor v) {
+            v.visitBoundVar(this);
+        }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.print("varbind " + name + " ");
+            if(type==null){
+                pw.println("var");
+            }
+            else{
+                type.printTo(pw);
+                pw.println();
+            }
+        }
+    }
+
+    public static class ArrayInit extends Expr{
+        public Expr e1, e2;
+
+        public ArrayInit(Expr e1, Expr e2, Location loc) {
+            super(ARRAYCONCAT, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayInit(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array repeat");
+            pw.incIndent();
+            e1.printTo(pw);
+            e2.printTo(pw);
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayRef extends Expr{
+        public Expr e1, e2, e3;
+
+        public ArrayRef(Expr e1, Expr e2, Expr e3, Location loc) {
+            super(ARRAYREF, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+            this.e3 = e3;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayRef(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("arrref");
+            pw.incIndent();
+            e1.printTo(pw);
+            pw.println("range");
+            pw.incIndent();
+            e2.printTo(pw);
+            e3.printTo(pw);
+            pw.decIndent();
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayDefault extends Expr{
+        public Expr e1, e2, e3;
+
+        public ArrayDefault(Expr e1, Expr e2, Expr e3, Location loc) {
+            super(ARRAYDEFAULT, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+            this.e3 = e3;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayDefault(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("arrref");
+            pw.incIndent();
+            e1.printTo(pw);
+            e2.printTo(pw);
+            pw.println("default");
+            pw.incIndent();
+            e3.printTo(pw);
+            pw.decIndent();
+            pw.decIndent();
+        }
+    }
+```
+
+### 体会与展望
+
+* 词法分析真是一件繁琐的工作，如果有时间的话我想优化编辑环境，增加自动debug工具。我遇到的bug基本上都是空指针造成的连接问题和传参类型错误，可以建模求解。
+* 我这次完全是靠模仿原有代码上手写完，没怎么需要文档，以后应该培养自己从零开始写新语言代码的能力。

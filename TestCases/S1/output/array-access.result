@@ -69,40 +69,40 @@ program
                     varref z2
                     add
                         intconst 1
-                        arrref
-                            varref xs
-                            sub
-                                add
+                        mod
+                            arrref
+                                varref xs
+                                sub
+                                    add
+                                        varref x
+                                        varref y
+                                    varref z1
+                                default
                                     varref x
-                                    varref y
-                                varref z1
-                            default
-                                mod
-                                    varref x
-                                    varref y
+                            varref y
                 vardef z3 inttype
                 assign
                     varref z3
-                    arrref
-                        varref xs
-                        intconst 3
-                        default
-                            array concat
-                                array repeat
+                    array concat
+                        array repeat
+                            arrref
+                                varref xs
+                                intconst 3
+                                default
                                     intconst 2
-                                    intconst 2
-                                array const
-                                    intconst 1
+                            intconst 2
+                        array const
+                            intconst 1
                 vardef z4 inttype
                 assign
                     varref z4
-                    arrref
-                        varref xs
-                        intconst 3
-                        default
-                            add
+                    add
+                        arrref
+                            varref xs
+                            intconst 3
+                            default
                                 intconst 2
-                                intconst 3
+                        intconst 3
                 vardef z5 inttype
                 assign
                     varref z5

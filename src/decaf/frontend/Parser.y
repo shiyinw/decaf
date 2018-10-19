@@ -25,45 +25,34 @@ import java.util.*;
 %Jnoconstruct
 
 
-
 %token VOID   BOOL  INT   STRING  CLASS
-%token NULL   EXTENDS     THIS     WHILE   FOR   
+%token NULL   EXTENDS     THIS     WHILE   FOR
 %token IF     ELSE        RETURN   BREAK   NEW
-%token PRINT  READ_INTEGER  READ_LINE
+%token PRINT  READ_INTEGER         READ_LINE
 %token LITERAL
-%token IDENTIFIER    STATIC  SEALED   INSTANCEOF DIVIDER
-%token SCOPY FOREACH DEFAULT IN
-%token VAR
-
-%token DEFAULT '['  ']'
-%token '!'
-%token '*' '/' '%'
-%token '+' '-'
-%token '<' '>' LESS_EQUAL   GREATER_EQUAL
-%token ARRAY_REPEAT
-%token ARRAY_CONCAT
-%token EQUAL   NOT_EQUAL
-%token AND OR
-
-%token ':'
-%token '=' '.'
-%token ',' ';' '(' ')' '{' '}'
-
-
-
+%token IDENTIFIER	  AND    OR    STATIC  INSTANCEOF
+%token LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL
+%token '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
+%token ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
+%token SCOPY VAR SEALED DIVIDER ':'
+%token ARRAY_REPEAT ARRAY_CONCAT DEFAULT IN FOREACH
 
 %left OR
 %left AND
 %nonassoc EQUAL NOT_EQUAL
+%right ARRAY_CONCAT
+%left ARRAY_REPEAT
 %nonassoc LESS_EQUAL GREATER_EQUAL '<' '>'
 %left  '+' '-'
-%left  '*' '/' '%'  
+%left  '*' '/' '%'
 %nonassoc UMINUS '!'
-%nonassoc '[' '.' ':'
+%nonassoc '[' '.' DEFAULT
 %nonassoc ')' EMPTY
 %nonassoc ELSE
-%left ARRAY_REPEAT
-%right ARRAY_CONCAT
+
+
+
+
 
 %start Program
 
@@ -343,14 +332,6 @@ Expr            :	'[' Expr FOR IDENTIFIER IN Expr ']'
                     {
                         $$.expr = new Tree.ArrayComp(true, $2.expr, $4.ident, $6.expr, $8.expr, $1.loc);
                     }
-                |   Expr ARRAY_REPEAT Constant
-                    {
-                        $$.expr = new Tree.ArrayInit($1.expr, $3.expr, $1.loc);
-                    }
-                |   Expr ARRAY_CONCAT Expr
-                    {
-                        $$.expr = new Tree.ArrayConcat($1.expr, $3.expr, $1.loc);
-                    }
                 |   Expr '[' Expr ':' Expr ']'
                     {
                         $$.expr = new Tree.ArrayRef($1.expr, $3.expr, $5.expr, $1.loc);
@@ -393,6 +374,14 @@ Expr            :	'[' Expr FOR IDENTIFIER IN Expr ']'
                 	{
                 		$$.expr = new Tree.Binary(Tree.NE, $1.expr, $3.expr, $2.loc);
                 	}
+                |   Expr ARRAY_REPEAT Expr
+                    {
+                    $$.expr = new Tree.ArrayInit($1.expr, $3.expr, $1.loc);
+                    }
+                |   Expr ARRAY_CONCAT Expr
+                    {
+                        $$.expr = new Tree.ArrayConcat($1.expr, $3.expr, $1.loc);
+                    }
                 |	Expr '<' Expr
                 	{
                 		$$.expr = new Tree.Binary(Tree.LT, $1.expr, $3.expr, $2.loc);
