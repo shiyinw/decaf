@@ -1127,7 +1127,9 @@ public abstract class Tree {
     		pw.println("assign");
     		pw.incIndent();
     		left.printTo(pw);
-    		expr.printTo(pw);
+    		if(expr != null) {
+                expr.printTo(pw);
+            }
     		pw.decIndent();
     	}
     }

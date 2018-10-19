@@ -215,10 +215,14 @@ Stmt		    :	ForeachStmt
                 |	StmtBlock
                 ;
 
-ForeachStmt     :   FOREACH '(' BoundVariable IN Expr ')' Stmt /*TODO <while>*/
-                {
+ForeachStmt     :   FOREACH '(' BoundVariable IN Expr ')' Stmt
+                    {
                     $$.stmt = new Tree.ArrayFor(false, $3.lvalue, $5.expr, $7.stmt, null, $1.loc);
-                }
+                    }
+                |   FOREACH '(' BoundVariable IN Expr WHILE Expr ')' Stmt
+                    {
+                        $$.stmt = new Tree.ArrayFor(true, $3.lvalue, $5.expr, $9.stmt, $7.expr, $1.loc);
+                    }
                 ;
 
 BoundVariable   :   VAR IDENTIFIER
@@ -318,7 +322,12 @@ Call            :	Receiver IDENTIFIER '(' Actuals ')'
 					}
                 ;
 
-Expr            :	Expr ARRAY_REPEAT Constant
+BoolExpr        : Expr
+                ;
+
+Expr            :	'[' Expr FOR IDENTIFIER IN Expr ']'
+                |   '[' Expr FOR IDENTIFIER IN Expr IF BoolExpr ']'
+                |   Expr ARRAY_REPEAT Constant
                     {
                         $$.expr = new Tree.ArrayInit($1.expr, $3.expr, $1.loc);
                     }

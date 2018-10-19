@@ -1,1 +1,26 @@
-*** Error at (7,18): syntax error
+program
+    class Main <empty>
+        static func main voidtype
+            formals
+            stmtblock
+                vardef xs arrtype inttype
+                assign
+                    varref xs
+                    newarray inttype
+                        intconst 10
+                vardef plus1 arrtype inttype
+                assign
+                    varref plus1
+                vardef is_positive arrtype booltype
+                assign
+                    varref is_positive
+                vardef positive arrtype inttype
+                assign
+                    varref positive
+                vardef y inttype
+                assign
+                    varref y
+                    intconst 3
+                vardef times_y_ge_5 arrtype inttype
+                assign
+                    varref times_y
