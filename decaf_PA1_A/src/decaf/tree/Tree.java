@@ -1863,8 +1863,6 @@ public abstract class Tree {
 
         public void visitArrayFor(ArrayFor that) { visitTree(that); }
 
-        public void visitBoundVar(BoundVar that) {
-            visitTree(that);
-        }
+        public void visitBoundVar(BoundVar that) { visitTree(that); }
     }
 }

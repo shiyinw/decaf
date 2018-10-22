@@ -26,7 +26,7 @@
 
 
 
-#### 具体实现
+### 具体实现
 
 #### 1. 修改bug
 
@@ -183,29 +183,34 @@ public static class IdentVar extends LValue {
 我仿照`StmtBlock`的写法，给Guarded的内部的条件列表做打印
 
 ```
-GuardedStmt:IF '{' IfBranchG IfStmtG'}'
-           {
-           		$3.slist.add($4.stmt);
-                $$.stmt = new Tree.Guard($3.slist, $1.loc);
-           }
-           ;
+GuardedStmt     :   IF '{' IfBranchG IfStmtG '}'
+                {
+                    $3.slist.add($4.stmt);
+                    $$.stmt = new Tree.Guard($3.slist, $1.loc);
 
-IfBranchG:IfBranchG IfStmtG DIVIDER
-         {
-             $$.slist.add($2.stmt);
-         }
-         |	/* empty */
-         {
-             $$ = new SemValue();
-             $$.slist = new ArrayList<Tree>();
-         }
-         ;
+                }
+                |   IF '{' '}'
+                {
+                    $$.stmt = new Tree.Guard(null, $1.loc);
+                }
+                ;
 
-IfStmtG:Expr ':' Stmt
-       {
-           $$.stmt = new Tree.IfG($1.expr, $3.stmt, $1.loc);
-       }
-       ;
+IfBranchG       :   IfBranchG IfStmtG DIVIDER
+                    {
+                        $$.slist.add($2.stmt);
+                    }
+                |	/* empty */
+                    {
+                        $$ = new SemValue();
+                        $$.slist = new ArrayList<Tree>();
+                    }
+                ;
+
+IfStmtG         :   Expr ':' Stmt
+                    {
+                        $$.stmt = new Tree.IfG($1.expr, $3.stmt, $1.loc);
+                    }
+                ;
 ```
 
 完成了前四个后，我逐渐熟悉了实验环境，条件卫士写的比较轻松。
@@ -240,237 +245,27 @@ LValue	:	VAR IDENTIFIER
 
 相比其他的任务，这个最为繁琐，我零零碎碎折腾了大半天的时间。因为编译器的自动纠错功能有限，在编译失败的时候我需要自己找错误，我不定时地保存下阶段性成果到Github的private repo，有的时候查不出错误，我就直接revert到前一个版本。
 
-```java
-	/**
-     * Array
-     */
-    public static class Array extends Expr{
-        public List<Expr> block;
+```lex
+ArrayConstant   : '[' ']'
+                    {
+                        $$.expr = new Tree.Array(null, $1.loc);
+                    }
+                | '[' ArrayInsider ']'
+                    {
+                        $$.expr = new Tree.Array($2.elist, $1.loc);
+                    }
+                ;
 
-        public Array(List<Expr> block, Location loc) {
-            super(ARRAY, loc);
-            this.block = block;
-        }
-
-        @Override
-        public void accept(Visitor v) {v.visitArray(this); }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.println("array const");
-            pw.incIndent();
-            if(block != null){
-                for (Expr s : block) {
-                    s.printTo(pw);
-                }
-            }
-            else{
-                pw.println("<empty>");
-            }
-            pw.decIndent();
-        }
-    }
-
-    public static class ArrayConcat extends Expr{
-        public Expr e1, e2;
-
-        public ArrayConcat(Expr e1, Expr e2, Location loc) {
-            super(ARRAYCONCAT, loc);
-            this.e1 = e1;
-            this.e2 = e2;
-        }
-
-        @Override
-        public void accept(Visitor v) {v.visitArrayConcat(this); }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.println("array concat");
-            pw.incIndent();
-            e1.printTo(pw);
-            e2.printTo(pw);
-            pw.decIndent();
-        }
-    }
-
-    public static class ArrayComp extends Expr{
-        public boolean iff;
-        public String ident;
-        public Expr inbrunch, ifbrunch, output;
-
-        public ArrayComp(boolean iff, Expr output, String ident, Expr inbrunch, Expr ifbrunch, Location loc) {
-            super(ARRAYCOMP, loc);
-            this.iff = iff;
-            this.ident = ident;
-            this.inbrunch = inbrunch;
-            this.ifbrunch = ifbrunch;
-            this.output = output;
-        }
-
-        @Override
-        public void accept(Visitor v) {v.visitArrayComp(this); }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.println("array comp");
-            pw.incIndent();
-            pw.println("varbind " + ident);
-            inbrunch.printTo(pw);
-            if(iff){
-                ifbrunch.printTo(pw);
-            }
-            else{
-                pw.println("boolconst true");
-            }
-            output.printTo(pw);
-            pw.decIndent();
-        }
-    }
-
-
-    public static class ArrayFor extends Tree{
-        public LValue e1;
-        public Tree e2;
-        public Expr ident, j;
-        public boolean judge;
-
-        public ArrayFor(boolean judege, LValue e1, Expr ident, Tree e2, Expr j, Location loc) {
-            super(ARRAYFOR, loc);
-            this.e1 = e1;
-            this.e2 = e2;
-            this.ident = ident;
-            this.judge = judege;
-            this.j = j;
-        }
-
-        @Override
-        public void accept(Visitor v) {v.visitArrayFor(this); }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.println("foreach");
-            pw.incIndent();
-            e1.printTo(pw);
-
-            ident.printTo(pw);
-
-            if(judge){
-                j.printTo(pw);
-            }
-            else{
-                pw.println("boolconst true");
-            }
-            if(e2!=null){
-                e2.printTo(pw);
-            }
-            pw.decIndent();
-        }
-    }
-
-    public static class BoundVar extends LValue {
-
-        public String name;
-        public TypeLiteral type;
-
-        public BoundVar(TypeLiteral type, String name, Location loc) {
-            super(BOUNDVAR, loc);
-            this.name = name;
-            this.type = type;
-        }
-
-        @Override
-        public void accept(Visitor v) {
-            v.visitBoundVar(this);
-        }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.print("varbind " + name + " ");
-            if(type==null){
-                pw.println("var");
-            }
-            else{
-                type.printTo(pw);
-                pw.println();
-            }
-        }
-    }
-
-    public static class ArrayInit extends Expr{
-        public Expr e1, e2;
-
-        public ArrayInit(Expr e1, Expr e2, Location loc) {
-            super(ARRAYCONCAT, loc);
-            this.e1 = e1;
-            this.e2 = e2;
-        }
-
-        @Override
-        public void accept(Visitor v) {v.visitArrayInit(this); }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.println("array repeat");
-            pw.incIndent();
-            e1.printTo(pw);
-            e2.printTo(pw);
-            pw.decIndent();
-        }
-    }
-
-    public static class ArrayRef extends Expr{
-        public Expr e1, e2, e3;
-
-        public ArrayRef(Expr e1, Expr e2, Expr e3, Location loc) {
-            super(ARRAYREF, loc);
-            this.e1 = e1;
-            this.e2 = e2;
-            this.e3 = e3;
-        }
-
-        @Override
-        public void accept(Visitor v) {v.visitArrayRef(this); }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.println("arrref");
-            pw.incIndent();
-            e1.printTo(pw);
-            pw.println("range");
-            pw.incIndent();
-            e2.printTo(pw);
-            e3.printTo(pw);
-            pw.decIndent();
-            pw.decIndent();
-        }
-    }
-
-    public static class ArrayDefault extends Expr{
-        public Expr e1, e2, e3;
-
-        public ArrayDefault(Expr e1, Expr e2, Expr e3, Location loc) {
-            super(ARRAYDEFAULT, loc);
-            this.e1 = e1;
-            this.e2 = e2;
-            this.e3 = e3;
-        }
-
-        @Override
-        public void accept(Visitor v) {v.visitArrayDefault(this); }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.println("arrref");
-            pw.incIndent();
-            e1.printTo(pw);
-            e2.printTo(pw);
-            pw.println("default");
-            pw.incIndent();
-            e3.printTo(pw);
-            pw.decIndent();
-            pw.decIndent();
-        }
-    }
+ArrayInsider    :	ArrayInsider ',' Constant
+					{
+						$$.elist.add($3.expr);
+					}
+                |	Constant
+                	{
+                		$$.elist = new ArrayList<Tree.Expr>();
+						$$.elist.add($1.expr);
+                	}
+                ;
 ```
 
 ### 体会与展望
