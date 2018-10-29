@@ -2,20 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="669d79b1-ed23-4db6-880a-252b07993a86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/PA1_Decaf.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/ant.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/report.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/result/decaf.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/submit.zip" beforeDir="false" afterPath="$PROJECT_DIR$/submit.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/Decaf PA1-B README.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/Decaf PA1-B README.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/src/decaf/frontend/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-access.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-access.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-comp.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-comp.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-concat.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-concat.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-const.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-const.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-foreach.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/array-foreach.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/fibonacci.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/fibonacci.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/guarded-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/guarded-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/guarded-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/guarded-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/nqueues.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/nqueues.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/sealed.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/sealed.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test1.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test2.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test3.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test3.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test4.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test4.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test5.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test5.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test6.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/test6.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/var-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/var-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/var-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1+/output/var-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/array-errors.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/array-errors.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/error1.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/error1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/error2.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/error2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/error3.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/error3.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/error4.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/error4.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/error5.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/error5.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/guarded-error-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/guarded-error-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/guarded-error-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/guarded-error-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/guarded-error-3.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/guarded-error-3.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/guarded-error-4.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/guarded-error-4.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/guarded-errors.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/guarded-errors.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-3.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-3.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-4.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-4.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-5.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-5.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-6.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-6.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-7.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-7.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-8.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-8.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-9.result" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/TestCases/S1-/output/multi-errors-9.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/result/bin/decaf/frontend/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/result/bin/decaf/frontend/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/result/decaf.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/src/decaf/frontend/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/src/decaf/frontend/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_B/src/decaf/frontend/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_B/src/decaf/frontend/Table.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +164,8 @@
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -153,7 +186,7 @@
     <favorites_list name="decaf_PA1_A" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -188,6 +221,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -204,9 +238,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Course" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -246,8 +279,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49879518" visible="true" weight="0.34978542" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49879518" visible="true" weight="0.35479257" />
       <window_info id="Structure" order="1" sideWeight="0.50120485" side_tool="true" weight="0.34978542" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />

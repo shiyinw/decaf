@@ -1,5 +1,8 @@
-Exception in thread "main" java.lang.NullPointerException
-	at decaf.frontend.Parser.parse(Parser.java:85)
-	at decaf.frontend.Parser.parseFile(Parser.java:128)
-	at decaf.Driver.compile(Driver.java:56)
-	at decaf.Driver.main(Driver.java:70)
+*** Error at (7,20): syntax error
+*** Error at (7,22): syntax error
+*** Error at (10,20): syntax error
+*** Error at (10,25): syntax error
+*** Error at (17,24): syntax error
+*** Error at (17,34): syntax error
+*** Error at (20,21): syntax error
+*** Error at (22,33): syntax error

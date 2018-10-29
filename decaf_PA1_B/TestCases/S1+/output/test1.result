@@ -1,5 +1,42 @@
-Exception in thread "main" java.lang.NullPointerException
-	at decaf.frontend.Parser.parse(Parser.java:85)
-	at decaf.frontend.Parser.parseFile(Parser.java:128)
-	at decaf.Driver.compile(Driver.java:56)
-	at decaf.Driver.main(Driver.java:70)
+program
+    class Main <empty>
+        vardef field booltype
+        vardef another classtype Main
+        func foo arrtype inttype
+            formals
+                vardef y inttype
+            stmtblock
+                vardef q arrtype inttype
+                vardef i inttype
+                assign
+                    varref q
+                    newarray inttype
+                        varref y
+                assign
+                    varref i
+                    intconst 0
+                while
+                    les
+                        varref i
+                        varref y
+                    stmtblock
+                        assign
+                            arrref
+                                varref q
+                                varref i
+                            varref i
+                        assign
+                            varref i
+                            add
+                                varref i
+                                intconst 1
+                return
+                    varref q
+        static func main inttype
+            formals
+            stmtblock
+                return
+                    call length
+                        call foo
+                            this
+                            intconst 5

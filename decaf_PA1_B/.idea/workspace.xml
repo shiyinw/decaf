@@ -2,23 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="320ddc5d-fd53-4654-ab98-b705db5f0f5e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/PA1_Decaf.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/ant.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/report.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/report.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/result/decaf.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/src/decaf/frontend/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/src/decaf/tree/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/src/decaf/tree/Tree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/submit.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/submit.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Decaf PA1-B README.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Decaf PA1-B README.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Parser.spec" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Parser.spec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/tree/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/tree/Tree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-access.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-access.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-comp.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-comp.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-concat.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-concat.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-const.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-const.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-foreach.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-foreach.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/fibonacci.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/fibonacci.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/guarded-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/guarded-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/guarded-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/guarded-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/nqueues.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/nqueues.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/sealed.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/sealed.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/test1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/test1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/test2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/test2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/test3.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/test3.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/test4.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/test4.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/test5.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/test5.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/test6.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/test6.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/var-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/var-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/var-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/var-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/array-errors.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/array-errors.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/error1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/error1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/error2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/error2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/error3.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/error3.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/error4.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/error4.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/error5.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/error5.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-3.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-3.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-4.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-4.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/guarded-errors.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/guarded-errors.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-3.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-3.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-4.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-4.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-5.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-5.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-6.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-6.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-7.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-7.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-8.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-8.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-9.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-9.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/frontend/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/frontend/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/result/decaf.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Table.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,14 +59,16 @@
     <session id="2061154491">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="decaf" value="1" />
           <entry key="java" value="12" />
-          <entry key="result" value="5" />
+          <entry key="result" value="7" />
           <entry key="spec" value="2" />
           <entry key="xml" value="1" />
         </counts>
@@ -45,7 +76,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="12" />
-          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="PLAIN_TEXT" value="10" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -65,114 +96,12 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.spec">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="334" selection-start-line="334" selection-end-line="334" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/SemValue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2470">
-              <caret line="1639" selection-start-line="1639" selection-end-line="1639" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#7955#8551#0" />
-                <element signature="e#9997#10978#0" />
-                <element signature="e#10526#10527#0" expanded="true" />
-                <element signature="e#10571#10572#0" expanded="true" />
-                <element signature="e#9388#10584#0" />
-                <element signature="e#10590#11156#0" />
-                <element signature="e#11162#11540#0" />
-                <element signature="e#11546#12110#0" />
-                <element signature="e#12116#12147#0" />
-                <element signature="e#12116#12858#0" />
-                <element signature="e#12864#12894#0" />
-                <element signature="e#12864#14044#0" />
-                <element signature="e#14050#14099#0" />
-                <element signature="e#14050#15098#0" />
-                <element signature="e#15104#15193#0" />
-                <element signature="e#15104#15599#0" />
-                <element signature="e#15605#15644#0" />
-                <element signature="e#15605#15989#0" />
-                <element signature="e#15995#16033#0" />
-                <element signature="e#15995#16598#0" />
-                <element signature="e#16604#16642#0" />
-                <element signature="e#16604#17204#0" />
-                <element signature="e#17210#17417#0" />
-                <element signature="e#17423#17461#0" />
-                <element signature="e#17423#18377#0" />
-                <element signature="e#18383#18423#0" />
-                <element signature="e#18383#18886#0" />
-                <element signature="e#18892#18932#0" />
-                <element signature="e#18892#19627#0" />
-                <element signature="e#19633#19896#0" />
-                <element signature="e#19902#19943#0" />
-                <element signature="e#19902#20720#0" />
-                <element signature="e#20726#20784#0" />
-                <element signature="e#20726#21210#0" />
-                <element signature="e#21216#21253#0" />
-                <element signature="e#21216#22100#0" />
-                <element signature="e#22106#22144#0" />
-                <element signature="e#22106#24280#0" />
-                <element signature="e#24286#25265#0" />
-                <element signature="e#25271#25649#0" />
-                <element signature="e#25655#26038#0" />
-                <element signature="e#26044#26407#0" />
-                <element signature="e#26413#26444#0" />
-                <element signature="e#26413#27085#0" />
-                <element signature="e#27091#27131#0" />
-                <element signature="e#27091#27793#0" />
-                <element signature="e#27799#27836#0" />
-                <element signature="e#27799#28453#0" />
-                <element signature="e#28459#28491#0" />
-                <element signature="e#28459#29170#0" />
-                <element signature="e#29176#29276#0" />
-                <element signature="e#29176#30115#0" />
-                <element signature="e#30121#30456#0" />
-                <element signature="e#30462#30615#0" />
-                <element signature="e#30621#30737#0" />
-                <element signature="e#30621#31550#0" />
-                <element signature="e#31556#32013#0" />
-                <element signature="e#32019#32056#0" />
-                <element signature="e#32019#32572#0" />
-                <element signature="e#33188#33927#0" />
-                <element signature="e#33933#34492#0" />
-                <element signature="e#34498#35499#0" />
-                <element signature="e#35506#36480#0" />
-                <element signature="e#36486#37180#0" />
-                <element signature="e#36827#36828#0" expanded="true" />
-                <element signature="e#36872#36873#0" expanded="true" />
-                <element signature="e#37186#37737#0" />
-                <element signature="e#37743#38440#0" />
-                <element signature="e#38446#39161#0" />
-                <element signature="e#39167#39219#0" />
-                <element signature="e#39167#39843#0" />
-                <element signature="e#39849#39886#0" />
-                <element signature="e#39849#40622#0" />
-                <element signature="e#40630#41237#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
+            <state relative-caret-position="30">
+              <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -188,6 +117,7 @@
         <option value="$PROJECT_DIR$/src/decaf/frontend/Table.java" />
         <option value="$PROJECT_DIR$/src/decaf/tree/Tree.java" />
         <option value="$PROJECT_DIR$/src/decaf/frontend/Parser.spec" />
+        <option value="$PROJECT_DIR$/src/decaf/frontend/Parser.java" />
       </list>
     </option>
   </component>
@@ -207,6 +137,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -265,14 +197,18 @@
             <path>
               <item name="decaf_PA1_B" type="b2602c69:ProjectViewProjectNode" />
               <item name="decaf_PA1_B" type="462c0819:PsiDirectoryNode" />
+              <item name="TestCases" type="462c0819:PsiDirectoryNode" />
+              <item name="S1-" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="decaf_PA1_B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="decaf_PA1_B" type="462c0819:PsiDirectoryNode" />
               <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Course" />
     </panes>
   </component>
@@ -283,7 +219,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../decaf_PA1_A/src/decaf/frontend/Parser.y" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../../Compiler-master/PA1B/src/decaf/frontend/Parser.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -323,18 +259,14 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Learn" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.32891566" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Learn" order="6" />
+      <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -342,14 +274,18 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" weight="0.3297568" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.24964234" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.3297568" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -359,6 +295,14 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
     <buildFile url="file://$PROJECT_DIR$/build.xml">
+      <targetFilters>
+        <filter targetName="prepare" isVisible="true" />
+        <filter targetName="1 table generation" isVisible="true" />
+        <filter targetName="2 compile" isVisible="true" />
+        <filter targetName="3 pack" isVisible="true" />
+        <filter targetName="4 javadoc" isVisible="false" />
+        <filter targetName="clean" isVisible="true" />
+      </targetFilters>
       <expanded value="true" />
     </buildFile>
   </component>
@@ -375,9 +319,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-16661">
           <caret line="123" column="22" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
-          <folding>
-            <element signature="e#61790#88835#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -387,118 +328,45 @@
     <entry file="file://$PROJECT_DIR$/TestCases/S1+/output/array-2.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-849" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1+/output/array-1.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.java">
+    <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-849">
+        <state relative-caret-position="14917">
+          <caret line="1262" selection-start-line="1262" selection-end-line="1262" />
           <folding>
-            <element signature="e#0#105846#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/SemValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="93" column="27" selection-start-line="93" selection-start-column="27" selection-end-line="93" selection-end-column="27" />
+        <state relative-caret-position="546">
+          <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
+    <entry file="file://$PROJECT_DIR$/TestCases/S1-/error5.decaf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2470">
-          <caret line="1639" selection-start-line="1639" selection-end-line="1639" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#7955#8551#0" />
-            <element signature="e#9997#10978#0" />
-            <element signature="e#10526#10527#0" expanded="true" />
-            <element signature="e#10571#10572#0" expanded="true" />
-            <element signature="e#9388#10584#0" />
-            <element signature="e#10590#11156#0" />
-            <element signature="e#11162#11540#0" />
-            <element signature="e#11546#12110#0" />
-            <element signature="e#12116#12147#0" />
-            <element signature="e#12116#12858#0" />
-            <element signature="e#12864#12894#0" />
-            <element signature="e#12864#14044#0" />
-            <element signature="e#14050#14099#0" />
-            <element signature="e#14050#15098#0" />
-            <element signature="e#15104#15193#0" />
-            <element signature="e#15104#15599#0" />
-            <element signature="e#15605#15644#0" />
-            <element signature="e#15605#15989#0" />
-            <element signature="e#15995#16033#0" />
-            <element signature="e#15995#16598#0" />
-            <element signature="e#16604#16642#0" />
-            <element signature="e#16604#17204#0" />
-            <element signature="e#17210#17417#0" />
-            <element signature="e#17423#17461#0" />
-            <element signature="e#17423#18377#0" />
-            <element signature="e#18383#18423#0" />
-            <element signature="e#18383#18886#0" />
-            <element signature="e#18892#18932#0" />
-            <element signature="e#18892#19627#0" />
-            <element signature="e#19633#19896#0" />
-            <element signature="e#19902#19943#0" />
-            <element signature="e#19902#20720#0" />
-            <element signature="e#20726#20784#0" />
-            <element signature="e#20726#21210#0" />
-            <element signature="e#21216#21253#0" />
-            <element signature="e#21216#22100#0" />
-            <element signature="e#22106#22144#0" />
-            <element signature="e#22106#24280#0" />
-            <element signature="e#24286#25265#0" />
-            <element signature="e#25271#25649#0" />
-            <element signature="e#25655#26038#0" />
-            <element signature="e#26044#26407#0" />
-            <element signature="e#26413#26444#0" />
-            <element signature="e#26413#27085#0" />
-            <element signature="e#27091#27131#0" />
-            <element signature="e#27091#27793#0" />
-            <element signature="e#27799#27836#0" />
-            <element signature="e#27799#28453#0" />
-            <element signature="e#28459#28491#0" />
-            <element signature="e#28459#29170#0" />
-            <element signature="e#29176#29276#0" />
-            <element signature="e#29176#30115#0" />
-            <element signature="e#30121#30456#0" />
-            <element signature="e#30462#30615#0" />
-            <element signature="e#30621#30737#0" />
-            <element signature="e#30621#31550#0" />
-            <element signature="e#31556#32013#0" />
-            <element signature="e#32019#32056#0" />
-            <element signature="e#32019#32572#0" />
-            <element signature="e#33188#33927#0" />
-            <element signature="e#33933#34492#0" />
-            <element signature="e#34498#35499#0" />
-            <element signature="e#35506#36480#0" />
-            <element signature="e#36486#37180#0" />
-            <element signature="e#36827#36828#0" expanded="true" />
-            <element signature="e#36872#36873#0" expanded="true" />
-            <element signature="e#37186#37737#0" />
-            <element signature="e#37743#38440#0" />
-            <element signature="e#38446#39161#0" />
-            <element signature="e#39167#39219#0" />
-            <element signature="e#39167#39843#0" />
-            <element signature="e#39849#39886#0" />
-            <element signature="e#39849#40622#0" />
-            <element signature="e#40630#41237#0" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/SemValue.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.spec">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="334" selection-start-line="334" selection-end-line="334" />
+        <state relative-caret-position="30">
+          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>

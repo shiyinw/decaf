@@ -82,6 +82,22 @@ public class Parser extends Table {
      */
     private SemValue parse(int symbol, Set<Integer> follow) {
         Map.Entry<Integer, List<Integer>> result = query(symbol, lookahead); // get production by lookahead symbol
+
+        Set<Integer> begin = beginSet(symbol);
+        Set<Integer> end =followSet(symbol);
+        end.addAll(follow);
+
+        if (!begin.contains(lookahead)) {
+            error();
+            for(;;lookahead = lex()) {
+                if (begin.contains(lookahead)) {
+                    return parse(symbol, follow);
+                }
+                if (end.contains(lookahead)) {
+                    return null;
+                }
+            }
+        }
         int actionId = result.getKey(); // get user-defined action
 
         List<Integer> right = result.getValue(); // right-hand side of production
@@ -97,8 +113,12 @@ public class Parser extends Table {
         }
 
         params[0] = new SemValue(); // initialize return value
-        act(actionId, params); // do user-defined action
-        return params[0];
+        try {
+            act(actionId, params); // do user-defined action
+            return params[0];
+        } catch(Exception e) {
+            return null;
+        }
     }
 
     /**

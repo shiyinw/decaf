@@ -1,1 +1,11 @@
-Error: Unable to access jarfile ../../result/decaf.jar
+Exception in thread "main" java.lang.NullPointerException
+	at decaf.frontend.Parser.parse(Parser.java:85)
+	at decaf.frontend.Parser.parse(Parser.java:94)
+	at decaf.frontend.Parser.parse(Parser.java:94)
+	at decaf.frontend.Parser.parse(Parser.java:94)
+	at decaf.frontend.Parser.parse(Parser.java:94)
+	at decaf.frontend.Parser.parse(Parser.java:94)
+	at decaf.frontend.Parser.parse(Parser.java:94)
+	at decaf.frontend.Parser.parseFile(Parser.java:128)
+	at decaf.Driver.compile(Driver.java:56)
+	at decaf.Driver.main(Driver.java:70)
