@@ -93,7 +93,7 @@ public class Parser extends Table {
                 if (begin.contains(lookahead)) {
                     return parse(symbol, follow);
                 }
-                if (end.contains(lookahead)) {
+                else if (end.contains(lookahead)) {
                     return null;
                 }
             }
@@ -107,7 +107,7 @@ public class Parser extends Table {
         for (int i = 0; i < length; i++) { // parse right-hand side symbols one by one
             int term = right.get(i);
             params[i + 1] = isNonTerminal(term)
-                    ? parse(term, follow) // for non terminals: recursively parse it
+                    ? parse(term, end) // for non terminals: recursively parse it
                     : matchToken(term) // for terminals: match token
                     ;
         }
@@ -119,6 +119,54 @@ public class Parser extends Table {
         } catch(Exception e) {
             return null;
         }
+    }
+    /*
+    private SemValue parse(int symbol, Set<Integer> follow) {
+        Map.Entry<Integer, List<Integer>> result = query(symbol, lookahead); // get production by lookahead symbol
+
+        if (result == null) {
+            System.out.print("*** Error at ");
+            System.out.print(val.loc);
+            System.out.println(": ***");
+
+
+            Set<Integer> begin = beginSet(symbol);
+            Set<Integer> end = followSet(symbol);
+
+
+            while (!begin.contains(lookahead) &&
+                   !end.contains(lookahead) &&
+                   !follow.contains(lookahead)) {
+                lookahead = lex();
+            }
+
+            if (begin.contains(lookahead)) {
+                return parse(symbol, follow);
+            }
+
+            if (end.contains(lookahead) || follow.contains(lookahead)) {
+                return null;
+            }
+
+        }
+        int actionId = result.getKey(); // get user-defined action
+
+        List<Integer> right = result.getValue(); // right-hand side of production
+        int length = right.size();
+        SemValue[] params = new SemValue[length + 1];
+
+
+        for (int i = 0; i < length; i++) { // parse right-hand side symbols one by one
+            int term = right.get(i);
+            params[i + 1] = isNonTerminal(term)
+                    ? parse(term, follow) // for non terminals: recursively parse it
+                    : matchToken(term) // for terminals: match token
+                    ;
+        }
+
+        params[0] = new SemValue(); // initialize return value
+        act(actionId, params); // do user-defined action
+        return params[0];
     }
 
     /**

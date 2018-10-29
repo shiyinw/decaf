@@ -46,11 +46,11 @@ def main():
     print(S('已找到 {}'.format(decaf_jar)))
 
     # Check whether report exists
-    for report_file in ['report.txt', 'report.doc', 'report.docx', 'report.pdf', 'report.odf']:
+    for report_file in ['report.pdf']:
         if os.path.exists(report_file):
             break
     else:
-        print(S('未找到实验报告。请确认它的文件名正确 (report.txt/doc/docx/pdf/odf)。'), file=sys.stderr)
+        print(S('未找到实验报告。请确认它的文件名正确 (report.pdf)。'), file=sys.stderr)
         return 1
     print(S('已找到实验报告 {}'.format(report_file)))
 
