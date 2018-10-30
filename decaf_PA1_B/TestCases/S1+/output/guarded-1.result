@@ -1,11 +1,9 @@
 *** Error at (4,12): syntax error
-*** Error at (4,24): unrecognized character ':'
+*** Error at (4,24): syntax error
 *** Error at (4,26): syntax error
 *** Error at (5,10): syntax error
-*** Error at (5,12): unrecognized character '|'
-*** Error at (5,37): unrecognized character ':'
+*** Error at (5,37): syntax error
 *** Error at (5,39): syntax error
 *** Error at (6,10): syntax error
-*** Error at (6,12): unrecognized character '|'
-*** Error at (6,28): unrecognized character ':'
+*** Error at (6,28): syntax error
 *** Error at (6,30): syntax error

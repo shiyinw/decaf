@@ -1,4 +1,4 @@
-*** Error at (7,13): syntax error
+*** Error at (7,9): syntax error
 *** Error at (7,20): syntax error
 *** Error at (7,22): syntax error
 *** Error at (7,24): syntax error
@@ -10,19 +10,20 @@
 *** Error at (7,41): syntax error
 *** Error at (7,42): syntax error
 *** Error at (7,43): syntax error
-*** Error at (8,13): syntax error
-*** Error at (8,26): unrecognized character ':'
+*** Error at (8,9): syntax error
+*** Error at (8,26): syntax error
 *** Error at (8,27): syntax error
 *** Error at (8,28): syntax error
 *** Error at (8,33): syntax error
-*** Error at (8,40): syntax error
-*** Error at (9,13): syntax error
-*** Error at (9,32): unrecognized character ':'
+*** Error at (8,39): syntax error
+*** Error at (8,42): syntax error
+*** Error at (9,9): syntax error
+*** Error at (9,32): syntax error
 *** Error at (9,33): syntax error
 *** Error at (9,41): syntax error
 *** Error at (9,49): syntax error
 *** Error at (9,51): syntax error
-*** Error at (10,13): syntax error
+*** Error at (10,9): syntax error
 *** Error at (10,20): syntax error
 *** Error at (10,21): unrecognized character '|'
 *** Error at (10,27): syntax error
@@ -32,11 +33,12 @@
 *** Error at (10,40): unrecognized character '|'
 *** Error at (10,41): syntax error
 *** Error at (10,42): syntax error
-*** Error at (11,22): syntax error
+*** Error at (11,9): syntax error
+*** Error at (11,18): syntax error
 *** Error at (11,24): syntax error
 *** Error at (11,27): syntax error
 *** Error at (11,31): syntax error
-*** Error at (15,13): syntax error
+*** Error at (15,9): syntax error
 *** Error at (15,20): syntax error
 *** Error at (15,21): unrecognized character '|'
 *** Error at (15,24): syntax error
@@ -47,8 +49,8 @@
 *** Error at (15,41): syntax error
 *** Error at (15,51): unrecognized character '|'
 *** Error at (15,52): syntax error
+*** Error at (16,9): syntax error
 *** Error at (16,18): syntax error
 *** Error at (16,24): syntax error
-*** Error at (16,27): syntax error
 *** Error at (16,32): syntax error
 *** Error at (16,38): syntax error

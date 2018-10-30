@@ -1,5 +1,10 @@
-*** Error at (15,19): syntax error
-*** Error at (17,19): syntax error
-*** Error at (17,25): syntax error
-*** Error at (19,20): syntax error
-*** Error at (19,26): syntax error
+*** Error at (15,18): syntax error
+*** Error at (15,21): syntax error
+*** Error at (17,18): syntax error
+*** Error at (17,21): syntax error
+*** Error at (17,24): syntax error
+*** Error at (17,27): syntax error
+*** Error at (19,19): syntax error
+*** Error at (19,22): syntax error
+*** Error at (19,25): syntax error
+*** Error at (19,28): syntax error

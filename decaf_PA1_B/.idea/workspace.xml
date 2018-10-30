@@ -2,11 +2,86 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="320ddc5d-fd53-4654-ab98-b705db5f0f5e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ant.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/result/bin/decaf/tree/Tree$Visitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/result/bin/decaf/tree/Tree$Visitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/result/decaf.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../decaf_PA1_A/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA1_A/src/decaf/frontend/Lexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ant.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-access.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-access.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-comp.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-comp.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-concat.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-concat.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-const.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-const.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-foreach.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-foreach.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/guarded-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/guarded-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/guarded-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/guarded-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/sealed.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/sealed.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/var-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/var-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/var-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/var-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/array-errors.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/array-errors.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/error5.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/error5.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-3.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-3.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-4.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/guarded-error-4.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/guarded-errors.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/guarded-errors.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-3.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-3.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-4.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-4.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-5.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-5.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-6.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-6.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-7.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-7.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-8.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-8.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-9.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1-/output/multi-errors-9.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/frontend/Lexer.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/frontend/Lexer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/frontend/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/frontend/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/frontend/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/frontend/Table.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Apply.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Apply.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Assign.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Assign.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Binary.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Binary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Block.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Break.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Break.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Calculate.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Calculate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$CallExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$CallExpr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ClassDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ClassDef.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Exec.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Exec.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Expr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Expr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ForLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ForLoop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Ident.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Ident.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$If.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$If.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Indexed.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Indexed.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue$Kind.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue$Kind.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Literal.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Literal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$MethodDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$MethodDef.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$NewArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$NewArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$NewClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$NewClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Null.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Null.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Print.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Print.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadIntExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadIntExpr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadLineExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadLineExpr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Return.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Return.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Skip.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Skip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ThisExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ThisExpr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeCast.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeCast.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeIdent.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeIdent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeLiteral.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeLiteral.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Unary.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Unary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$VarDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$VarDef.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Visitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Visitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$WhileLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$WhileLoop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/result/decaf.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Parser.spec" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Parser.spec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Table.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decaf/tree/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/tree/Tree.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,55 +94,121 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="2" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="decaf" value="2" />
-          <entry key="java" value="16" />
-          <entry key="result" value="40" />
-          <entry key="spec" value="2" />
+          <entry key="java" value="18" />
+          <entry key="result" value="43" />
+          <entry key="spec" value="3" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="16" />
-          <entry key="PLAIN_TEXT" value="44" />
+          <entry key="JAVA" value="18" />
+          <entry key="PLAIN_TEXT" value="47" />
+          <entry key="Specification" value="1" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1143" />
-          <entry key="spec" value="73" />
+          <entry key="java" value="1214" />
+          <entry key="spec" value="75" />
           <entry key="y" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1143" />
+          <entry key="JAVA" value="1214" />
           <entry key="PLAIN_TEXT" value="74" />
+          <entry key="Specification" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.spec">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="1156" column="55" selection-start-line="1156" selection-start-column="55" selection-end-line="1156" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4686#4687#0" expanded="true" />
+                <element signature="e#4744#4745#0" expanded="true" />
+                <element signature="e#4953#4954#0" expanded="true" />
+                <element signature="e#4981#4982#0" expanded="true" />
+                <element signature="e#5193#5194#0" expanded="true" />
+                <element signature="e#5242#5243#0" expanded="true" />
+                <element signature="e#7973#7974#0" expanded="true" />
+                <element signature="e#8004#8005#0" expanded="true" />
+                <element signature="e#8142#8143#0" expanded="true" />
+                <element signature="e#8177#8178#0" expanded="true" />
+                <element signature="e#8289#8290#0" expanded="true" />
+                <element signature="e#8366#8367#0" expanded="true" />
+                <element signature="e#8724#8725#0" expanded="true" />
+                <element signature="e#8766#8767#0" expanded="true" />
+                <element signature="e#8864#8865#0" expanded="true" />
+                <element signature="e#8904#8905#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/S1-/output/multi-errors-1.result">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+            <state relative-caret-position="42">
+              <caret line="93" column="47" selection-start-line="93" selection-start-column="47" selection-end-line="93" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="337" column="32" selection-start-line="337" selection-start-column="32" selection-end-line="337" selection-end-column="32" />
+              <folding>
+                <element signature="e#9086#9087#0" expanded="true" />
+                <element signature="e#9131#9132#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>SEALED</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -98,8 +239,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Course" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -172,7 +313,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,7 +363,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -240,7 +381,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.24964234" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -257,7 +398,7 @@
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-    <buildFile url="file://$PROJECT_DIR$/../../Compiler-master/PA1B/build.xml">
+    <buildFile url="file://$PROJECT_DIR$/build.xml">
       <expanded value="true" />
     </buildFile>
   </component>
@@ -269,11 +410,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/frontend/BaseLexer.java">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-849" />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1-/error5.decaf">
       <provider selected="true" editor-type-id="text-editor">
@@ -289,20 +425,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="123" column="22" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.spec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1338">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="331" column="22" selection-start-line="331" selection-start-column="22" selection-end-line="331" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -334,9 +456,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1+/output/nqueues.result">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1+/output/sealed.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1+/output/test1.result">
@@ -381,9 +500,6 @@
     <entry file="file://$PROJECT_DIR$/TestCases/S1-/output/guarded-errors.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1-/output/multi-errors-1.result">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1-/output/multi-errors-2.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -408,10 +524,60 @@
     <entry file="file://$PROJECT_DIR$/TestCases/S1-/output/guarded-error-4.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="337" column="32" selection-start-line="337" selection-start-column="32" selection-end-line="337" selection-end-column="32" />
+          <folding>
+            <element signature="e#9086#9087#0" expanded="true" />
+            <element signature="e#9131#9132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1+/output/sealed.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.spec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="1156" column="55" selection-start-line="1156" selection-start-column="55" selection-end-line="1156" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4686#4687#0" expanded="true" />
+            <element signature="e#4744#4745#0" expanded="true" />
+            <element signature="e#4953#4954#0" expanded="true" />
+            <element signature="e#4981#4982#0" expanded="true" />
+            <element signature="e#5193#5194#0" expanded="true" />
+            <element signature="e#5242#5243#0" expanded="true" />
+            <element signature="e#7973#7974#0" expanded="true" />
+            <element signature="e#8004#8005#0" expanded="true" />
+            <element signature="e#8142#8143#0" expanded="true" />
+            <element signature="e#8177#8178#0" expanded="true" />
+            <element signature="e#8289#8290#0" expanded="true" />
+            <element signature="e#8366#8367#0" expanded="true" />
+            <element signature="e#8724#8725#0" expanded="true" />
+            <element signature="e#8766#8767#0" expanded="true" />
+            <element signature="e#8864#8865#0" expanded="true" />
+            <element signature="e#8904#8905#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1-/output/multi-errors-1.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="120" column="25" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="25" />
+        <state relative-caret-position="42">
+          <caret line="93" column="47" selection-start-line="93" selection-start-column="47" selection-end-line="93" selection-end-column="47" />
         </state>
       </provider>
     </entry>

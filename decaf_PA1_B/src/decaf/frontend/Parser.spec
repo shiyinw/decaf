@@ -19,6 +19,8 @@ IDENTIFIER   AND      OR    STATIC  INSTANCEOF
 LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL
 '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
 ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
+SCOPY VAR SEALED DIVIDER ':'
+ARRAY_REPEAT ARRAY_CONCAT DEFAULT IN FOREACH
 
 %%
 
@@ -97,9 +99,13 @@ ArrayType       :   '[' ']' ArrayType
                     }
                 ;
 
-ClassDef        :   CLASS IDENTIFIER ExtendsClause '{' FieldList '}'
+ClassDef        :	SEALED CLASS IDENTIFIER ExtendsClause '{' FieldList '}'
+					{
+						$$.cdef = new Tree.ClassDef(true, $3.ident, $4.ident, $6.flist, $1.loc);
+					}
+				|   CLASS IDENTIFIER ExtendsClause '{' FieldList '}'
                     {
-                        $$.cdef = new Tree.ClassDef($2.ident, $3.ident, $5.flist, $1.loc);
+                        $$.cdef = new Tree.ClassDef(false, $2.ident, $3.ident, $5.flist, $1.loc);
                     }
                 ;
 

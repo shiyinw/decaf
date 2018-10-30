@@ -12,5 +12,7 @@
 *** Error at (8,20): syntax error
 *** Error at (10,15): syntax error
 *** Error at (10,16): syntax error
-*** Error at (13,23): syntax error
-*** Error at (15,22): syntax error
+*** Error at (13,22): syntax error
+*** Error at (13,25): syntax error
+*** Error at (15,21): syntax error
+*** Error at (15,24): syntax error
