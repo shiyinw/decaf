@@ -213,6 +213,10 @@ Stmt            :   VariableDef
                             $$.stmt = $1.stmt;
                         }
                     }
+                |   OCStmt ';'
+                    {
+                        $$.stmt = $1.stmt;
+                    }
                 |   IfStmt
                     {
                         $$.stmt = $1.stmt;
@@ -763,5 +767,11 @@ ReturnExpr      :   Expr
 PrintStmt       :   PRINT '(' ExprList ')'
                     {
                         $$.stmt = new Tree.Print($3.elist, $1.loc);
+                    }
+                ;
+
+OCStmt          :   SCOPY '(' IDENTIFIER ',' Expr ')'
+                    {
+                        $$.stmt = new Tree.Scopy($3.ident, $5.expr, $3.loc);
                     }
                 ;
