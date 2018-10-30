@@ -83,17 +83,19 @@ public class Parser extends Table {
     private SemValue parse(int symbol, Set<Integer> follow) {
         Map.Entry<Integer, List<Integer>> result = query(symbol, lookahead); // get production by lookahead symbol
 
-        Set<Integer> begin = beginSet(symbol);
-        Set<Integer> end =followSet(symbol);
-        end.addAll(follow);
+        Set<Integer> beginset = beginSet(symbol);
+        Set<Integer> followset =followSet(symbol);
+        followset.addAll(follow);
 
-        if (!begin.contains(lookahead)) {
+        boolean e = true;
+        if (!beginset.contains(lookahead)) {
             error();
+            e = false;
             for(;;lookahead = lex()) {
-                if (begin.contains(lookahead)) {
+                if (beginset.contains(lookahead)) {
                     return parse(symbol, follow);
                 }
-                else if (end.contains(lookahead)) {
+                else if (followset.contains(lookahead)) {
                     return null;
                 }
             }
@@ -113,12 +115,10 @@ public class Parser extends Table {
         }
 
         params[0] = new SemValue(); // initialize return value
-        try {
+        if(e){
             act(actionId, params); // do user-defined action
-            return params[0];
-        } catch(Exception e) {
-            return null;
         }
+        return params[0];
     }
     /*
     private SemValue parse(int symbol, Set<Integer> follow) {
