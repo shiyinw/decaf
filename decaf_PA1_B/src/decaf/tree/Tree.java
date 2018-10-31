@@ -221,6 +221,10 @@ public abstract class Tree {
      */
     public static final int IDENT = SELECT + 1;
 
+    public static final int IDENTVAR = IDENT + 1;
+
+    public static final int BOUNDVAR = IDENTVAR + 1;
+
     /**
      * Literals, of type Literal.
      */
@@ -474,6 +478,30 @@ public abstract class Tree {
     		type.printTo(pw);
     		pw.println();
     	}
+    }
+
+    /**
+     * A var identifier
+     */
+    public static class IdentVar extends LValue {
+
+        public String name;
+        public boolean isDefined;
+
+        public IdentVar(String name, Location loc) {
+            super(IDENTVAR, loc);
+            this.name = name;
+        }
+
+        @Override
+        public void accept(Visitor v) {
+            v.visitIdentVar(this);
+        }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("var " + name);
+        }
     }
 
     /**
@@ -1027,9 +1055,12 @@ public abstract class Tree {
 
     	public LValue left;
     	public Expr expr;
+    	boolean var = false;
+    	public String name;
 
         public Assign(LValue left, Expr expr, Location loc) {
             super(ASSIGN, loc);
+            this.var = var;
             this.left = left;
             this.expr = expr;
         }
@@ -1037,6 +1068,14 @@ public abstract class Tree {
         public Assign(Expr left, Expr expr, Location loc) {
             super(ASSIGN, loc);
             this.left = (LValue) left;
+            this.expr = expr;
+            this.var = var;
+        }
+
+        public Assign(boolean var, String left, Expr expr, Location loc) {
+            super(ASSIGN, loc);
+            this.var = var;
+            this.name = left;
             this.expr = expr;
         }
 
@@ -1049,7 +1088,12 @@ public abstract class Tree {
     	public void printTo(IndentPrintWriter pw) {
     		pw.println("assign");
     		pw.incIndent();
-    		left.printTo(pw);
+    		if(var){
+    		    pw.println("var " + name);
+            }
+    		else{
+    		    left.printTo(pw);
+            }
     		expr.printTo(pw);
     		pw.decIndent();
     	}
@@ -1888,6 +1932,10 @@ public abstract class Tree {
         }
 
         public void visitIdent(Ident that) {
+            visitTree(that);
+        }
+
+        public void visitIdentVar(IdentVar that) {
             visitTree(that);
         }
 

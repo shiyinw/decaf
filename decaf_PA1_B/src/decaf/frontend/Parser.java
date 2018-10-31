@@ -83,21 +83,23 @@ public class Parser extends Table {
     private SemValue parse(int symbol, Set<Integer> follow) {
         Map.Entry<Integer, List<Integer>> result = query(symbol, lookahead); // get production by lookahead symbol
 
-        Set<Integer> beginset = beginSet(symbol);
-        Set<Integer> followset =followSet(symbol);
-        followset.addAll(follow);
+        Set<Integer> begin = beginSet(symbol);
+        Set<Integer> end = followSet(symbol);
+        end.addAll(follow);
 
-        if (!beginset.contains(lookahead)) {
+        if (!begin.contains(lookahead)) {
             error();
-            for(;;lookahead = lex()) {
-                if (beginset.contains(lookahead)) {
+            while(true) {
+                if (begin.contains(lookahead)) {
                     return parse(symbol, follow);
                 }
-                else if (followset.contains(lookahead)) {
+                else if (end.contains(lookahead)) {
                     return null;
                 }
+                lookahead = lex(); // get the next input
             }
         }
+
         int actionId = result.getKey(); // get user-defined action
 
         List<Integer> right = result.getValue(); // right-hand side of production
@@ -107,7 +109,7 @@ public class Parser extends Table {
         for (int i = 0; i < length; i++) { // parse right-hand side symbols one by one
             int term = right.get(i);
             params[i + 1] = isNonTerminal(term)
-                    ? parse(term, followset) // for non terminals: recursively parse it
+                    ? parse(term, end) // for non terminals: recursively parse it
                     : matchToken(term) // for terminals: match token
                     ;
         }

@@ -255,6 +255,13 @@ SimpleStmt      :   Expr Assignment
                             $$.stmt = new Tree.Assign($1.expr, $2.expr, $2.loc);
                         }
                     }
+                |   VAR IDENTIFIER '=' Expr
+                    {
+                        $$.stmt = new Tree.Assign(true, $2.ident, $4.expr, $1.loc);
+                        if ($4.expr == null) {
+                            $$.loc = $2.loc;
+                        }
+                    }
                 |   /* empty */
                 ;
 

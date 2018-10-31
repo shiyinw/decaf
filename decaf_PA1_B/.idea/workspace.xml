@@ -3,20 +3,35 @@
   <component name="ChangeListManager">
     <list default="true" id="320ddc5d-fd53-4654-ab98-b705db5f0f5e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/array-foreach.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/array-foreach.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/var-1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/var-1.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S1+/output/var-2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S1+/output/var-2.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/frontend/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/frontend/Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/frontend/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/frontend/Table.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Apply.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Apply.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ArrayConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ArrayConstant.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Assign.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Assign.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Binary.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Binary.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Block.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$BoundVariable.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$BoundVariable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Break.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Break.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Calculate.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Calculate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$CallExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$CallExpr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ClassDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ClassDef.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Comp.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Comp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Concat.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Concat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Default.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Default.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Exec.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Exec.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Expr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Expr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ForLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ForLoop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Foreach.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Foreach.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Guarded.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Guarded.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Ident.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Ident.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$If.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$If.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$IfSubStmt.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$IfSubStmt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Indexed.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Indexed.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue$Kind.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue$Kind.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue.class" afterDir="false" />
@@ -28,8 +43,11 @@
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Print.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Print.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadIntExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadIntExpr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadLineExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadLineExpr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Repeat.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Repeat.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Return.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Return.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Scopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Scopy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Skip.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Skip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Slice.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Slice.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ThisExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ThisExpr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TopLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TopLevel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeArray.class" afterDir="false" />
@@ -44,6 +62,7 @@
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$WhileLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$WhileLoop.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/result/decaf.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Parser.spec" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Parser.spec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Table.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/tree/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/tree/Tree.java" afterDir="false" />
@@ -58,43 +77,45 @@
     <session id="2061154491">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="decaf" value="7" />
-          <entry key="java" value="18" />
-          <entry key="result" value="44" />
+          <entry key="decaf" value="9" />
+          <entry key="java" value="20" />
+          <entry key="result" value="48" />
           <entry key="spec" value="4" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="18" />
-          <entry key="PLAIN_TEXT" value="53" />
+          <entry key="JAVA" value="20" />
+          <entry key="PLAIN_TEXT" value="59" />
           <entry key="Specification" value="2" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1346" />
-          <entry key="spec" value="139" />
+          <entry key="decaf" value="1" />
+          <entry key="java" value="1750" />
+          <entry key="spec" value="484" />
           <entry key="y" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1346" />
-          <entry key="PLAIN_TEXT" value="74" />
-          <entry key="Specification" value="66" />
+          <entry key="JAVA" value="1750" />
+          <entry key="PLAIN_TEXT" value="75" />
+          <entry key="Specification" value="411" />
         </counts>
       </usages-collector>
     </session>
@@ -104,121 +125,33 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.spec">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="217" column="42" selection-start-line="217" selection-start-column="42" selection-end-line="217" selection-end-column="42" />
+            <state relative-caret-position="319">
+              <caret line="264" column="31" lean-forward="true" selection-start-line="264" selection-start-column="31" selection-end-line="264" selection-end-column="31" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S1+/scopy.decaf">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S1+/output/scopy.result">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="517" column="24" selection-start-line="517" selection-start-column="24" selection-end-line="517" selection-end-column="24" />
-              <folding>
-                <element signature="e#8988#8989#0" expanded="true" />
-                <element signature="e#9005#9006#0" expanded="true" />
-                <element signature="e#9086#9087#0" expanded="true" />
-                <element signature="e#9131#9132#0" expanded="true" />
-                <element signature="e#15296#15297#0" expanded="true" />
-                <element signature="e#15340#15341#0" expanded="true" />
-                <element signature="e#16218#16219#0" expanded="true" />
-                <element signature="e#16268#16269#0" expanded="true" />
-                <element signature="e#17840#17841#0" expanded="true" />
-                <element signature="e#17884#17885#0" expanded="true" />
-                <element signature="e#18691#18692#0" expanded="true" />
-                <element signature="e#18737#18738#0" expanded="true" />
-                <element signature="e#19284#19285#0" expanded="true" />
-                <element signature="e#19315#19316#0" expanded="true" />
-                <element signature="e#20410#20411#0" expanded="true" />
-                <element signature="e#20444#20445#0" expanded="true" />
-                <element signature="e#21427#21428#0" expanded="true" />
-                <element signature="e#21469#21470#0" expanded="true" />
-                <element signature="e#21763#21764#0" expanded="true" />
-                <element signature="e#21793#21794#0" expanded="true" />
-                <element signature="e#23063#23064#0" expanded="true" />
-                <element signature="e#23111#23112#0" expanded="true" />
-                <element signature="e#23999#24000#0" expanded="true" />
-                <element signature="e#24029#24030#0" expanded="true" />
-                <element signature="e#26615#26616#0" expanded="true" />
-                <element signature="e#26655#26656#0" expanded="true" />
-                <element signature="e#28020#28021#0" expanded="true" />
-                <element signature="e#28069#28070#0" expanded="true" />
-                <element signature="e#28655#28656#0" expanded="true" />
-                <element signature="e#28704#28705#0" expanded="true" />
-                <element signature="e#29362#29363#0" expanded="true" />
-                <element signature="e#29410#29411#0" expanded="true" />
-                <element signature="e#30181#30182#0" expanded="true" />
-                <element signature="e#30231#30232#0" expanded="true" />
-                <element signature="e#31072#31073#0" expanded="true" />
-                <element signature="e#31110#31111#0" expanded="true" />
-                <element signature="e#32011#32012#0" expanded="true" />
-                <element signature="e#32053#32054#0" expanded="true" />
-                <element signature="e#32478#32479#0" expanded="true" />
-                <element signature="e#32516#32517#0" expanded="true" />
-                <element signature="e#32575#32576#0" expanded="true" />
-                <element signature="e#32620#32621#0" expanded="true" />
-                <element signature="e#32685#32686#0" expanded="true" />
-                <element signature="e#32721#32722#0" expanded="true" />
-                <element signature="e#32821#32822#0" expanded="true" />
-                <element signature="e#32860#32861#0" expanded="true" />
-                <element signature="e#32919#32920#0" expanded="true" />
-                <element signature="e#32965#32966#0" expanded="true" />
-                <element signature="e#33030#33031#0" expanded="true" />
-                <element signature="e#33067#33068#0" expanded="true" />
-                <element signature="e#33159#33160#0" expanded="true" />
-                <element signature="e#33194#33195#0" expanded="true" />
-                <element signature="e#33253#33254#0" expanded="true" />
-                <element signature="e#33295#33296#0" expanded="true" />
-                <element signature="e#33360#33361#0" expanded="true" />
-                <element signature="e#33393#33394#0" expanded="true" />
-                <element signature="e#37492#37493#0" expanded="true" />
-                <element signature="e#37542#37543#0" expanded="true" />
-                <element signature="e#37522#37523#0" expanded="true" />
-                <element signature="e#37554#37555#0" expanded="true" />
-                <element signature="e#37686#37687#0" expanded="true" />
-                <element signature="e#37716#37717#0" expanded="true" />
-                <element signature="e#38924#38925#0" expanded="true" />
-                <element signature="e#38967#38968#0" expanded="true" />
-                <element signature="e#39032#39033#0" expanded="true" />
-                <element signature="e#39076#39077#0" expanded="true" />
-                <element signature="e#40615#40616#0" expanded="true" />
-                <element signature="e#40654#40655#0" expanded="true" />
-                <element signature="e#40716#40717#0" expanded="true" />
-                <element signature="e#40755#40756#0" expanded="true" />
-                <element signature="e#40884#40885#0" expanded="true" />
-                <element signature="e#40923#40924#0" expanded="true" />
-                <element signature="e#40977#40978#0" expanded="true" />
-                <element signature="e#41016#41017#0" expanded="true" />
-                <element signature="e#40858#40859#0" expanded="true" />
-                <element signature="e#40897#40898#0" expanded="true" />
-                <element signature="e#41571#41572#0" expanded="true" />
-                <element signature="e#41610#41611#0" expanded="true" />
-                <element signature="e#41658#41659#0" expanded="true" />
-                <element signature="e#41697#41698#0" expanded="true" />
-                <element signature="e#41743#41744#0" expanded="true" />
-                <element signature="e#41782#41783#0" expanded="true" />
-                <element signature="e#41832#41833#0" expanded="true" />
-                <element signature="e#41871#41872#0" expanded="true" />
-                <element signature="e#41915#41916#0" expanded="true" />
-                <element signature="e#41954#41955#0" expanded="true" />
-                <element signature="e#42034#42035#0" expanded="true" />
-                <element signature="e#42073#42074#0" expanded="true" />
-                <element signature="e#42493#42494#0" expanded="true" />
-                <element signature="e#42532#42533#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="134">
+              <caret line="1062" column="29" lean-forward="true" selection-start-line="1062" selection-start-column="29" selection-end-line="1062" selection-end-column="29" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/S1+/var-1.decaf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/S1+/result/var-1.result">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -228,6 +161,10 @@
       <find>SEALED</find>
       <find>SCOPY</find>
       <find>scopy</find>
+      <find>var</find>
+      <find>Ident</find>
+      <find>VarDef</find>
+      <find>Assign</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -241,6 +178,7 @@
       <list>
         <option value="$PROJECT_DIR$/src/decaf/frontend/Table.java" />
         <option value="$PROJECT_DIR$/src/decaf/frontend/Parser.java" />
+        <option value="$PROJECT_DIR$/TestCases/S1+/var-1.decaf" />
         <option value="$PROJECT_DIR$/src/decaf/tree/Tree.java" />
         <option value="$PROJECT_DIR$/src/decaf/frontend/Parser.spec" />
       </list>
@@ -262,8 +200,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -318,6 +254,13 @@
               <item name="decaf_PA1_B" type="b2602c69:ProjectViewProjectNode" />
               <item name="decaf_PA1_B" type="462c0819:PsiDirectoryNode" />
               <item name="TestCases" type="462c0819:PsiDirectoryNode" />
+              <item name="S1+" type="462c0819:PsiDirectoryNode" />
+              <item name="result" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="decaf_PA1_B" type="b2602c69:ProjectViewProjectNode" />
+              <item name="decaf_PA1_B" type="462c0819:PsiDirectoryNode" />
+              <item name="TestCases" type="462c0819:PsiDirectoryNode" />
               <item name="S1-" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -337,6 +280,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Course" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -346,7 +291,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../../Compiler-master/PA1A/src/decaf/tree/Tree.java" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../decaf_PA1_A/src/decaf/tree/Tree.java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -386,7 +331,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26752505" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -402,9 +347,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32891566" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.32891566" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.24964234" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -422,15 +367,18 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
     <buildFile url="file://$PROJECT_DIR$/build.xml">
+      <targetFilters>
+        <filter targetName="prepare" isVisible="true" />
+        <filter targetName="1 table generation" isVisible="true" />
+        <filter targetName="2 compile" isVisible="true" />
+        <filter targetName="3 pack" isVisible="true" />
+        <filter targetName="4 javadoc" isVisible="false" />
+        <filter targetName="clean" isVisible="true" />
+      </targetFilters>
       <expanded value="true" />
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-177" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/frontend/BaseLexer.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -579,17 +527,7 @@
     <entry file="file://$PROJECT_DIR$/TestCases/S1-/output/multi-errors-1.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="93" column="47" selection-start-line="93" selection-start-column="47" selection-end-line="93" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1+/var-2.decaf">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1+/var-1.decaf">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1+/test2.decaf">
@@ -602,115 +540,46 @@
     <entry file="file://$PROJECT_DIR$/TestCases/S1+/test1.decaf">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="517" column="24" selection-start-line="517" selection-start-column="24" selection-end-line="517" selection-end-column="24" />
-          <folding>
-            <element signature="e#8988#8989#0" expanded="true" />
-            <element signature="e#9005#9006#0" expanded="true" />
-            <element signature="e#9086#9087#0" expanded="true" />
-            <element signature="e#9131#9132#0" expanded="true" />
-            <element signature="e#15296#15297#0" expanded="true" />
-            <element signature="e#15340#15341#0" expanded="true" />
-            <element signature="e#16218#16219#0" expanded="true" />
-            <element signature="e#16268#16269#0" expanded="true" />
-            <element signature="e#17840#17841#0" expanded="true" />
-            <element signature="e#17884#17885#0" expanded="true" />
-            <element signature="e#18691#18692#0" expanded="true" />
-            <element signature="e#18737#18738#0" expanded="true" />
-            <element signature="e#19284#19285#0" expanded="true" />
-            <element signature="e#19315#19316#0" expanded="true" />
-            <element signature="e#20410#20411#0" expanded="true" />
-            <element signature="e#20444#20445#0" expanded="true" />
-            <element signature="e#21427#21428#0" expanded="true" />
-            <element signature="e#21469#21470#0" expanded="true" />
-            <element signature="e#21763#21764#0" expanded="true" />
-            <element signature="e#21793#21794#0" expanded="true" />
-            <element signature="e#23063#23064#0" expanded="true" />
-            <element signature="e#23111#23112#0" expanded="true" />
-            <element signature="e#23999#24000#0" expanded="true" />
-            <element signature="e#24029#24030#0" expanded="true" />
-            <element signature="e#26615#26616#0" expanded="true" />
-            <element signature="e#26655#26656#0" expanded="true" />
-            <element signature="e#28020#28021#0" expanded="true" />
-            <element signature="e#28069#28070#0" expanded="true" />
-            <element signature="e#28655#28656#0" expanded="true" />
-            <element signature="e#28704#28705#0" expanded="true" />
-            <element signature="e#29362#29363#0" expanded="true" />
-            <element signature="e#29410#29411#0" expanded="true" />
-            <element signature="e#30181#30182#0" expanded="true" />
-            <element signature="e#30231#30232#0" expanded="true" />
-            <element signature="e#31072#31073#0" expanded="true" />
-            <element signature="e#31110#31111#0" expanded="true" />
-            <element signature="e#32011#32012#0" expanded="true" />
-            <element signature="e#32053#32054#0" expanded="true" />
-            <element signature="e#32478#32479#0" expanded="true" />
-            <element signature="e#32516#32517#0" expanded="true" />
-            <element signature="e#32575#32576#0" expanded="true" />
-            <element signature="e#32620#32621#0" expanded="true" />
-            <element signature="e#32685#32686#0" expanded="true" />
-            <element signature="e#32721#32722#0" expanded="true" />
-            <element signature="e#32821#32822#0" expanded="true" />
-            <element signature="e#32860#32861#0" expanded="true" />
-            <element signature="e#32919#32920#0" expanded="true" />
-            <element signature="e#32965#32966#0" expanded="true" />
-            <element signature="e#33030#33031#0" expanded="true" />
-            <element signature="e#33067#33068#0" expanded="true" />
-            <element signature="e#33159#33160#0" expanded="true" />
-            <element signature="e#33194#33195#0" expanded="true" />
-            <element signature="e#33253#33254#0" expanded="true" />
-            <element signature="e#33295#33296#0" expanded="true" />
-            <element signature="e#33360#33361#0" expanded="true" />
-            <element signature="e#33393#33394#0" expanded="true" />
-            <element signature="e#37492#37493#0" expanded="true" />
-            <element signature="e#37542#37543#0" expanded="true" />
-            <element signature="e#37522#37523#0" expanded="true" />
-            <element signature="e#37554#37555#0" expanded="true" />
-            <element signature="e#37686#37687#0" expanded="true" />
-            <element signature="e#37716#37717#0" expanded="true" />
-            <element signature="e#38924#38925#0" expanded="true" />
-            <element signature="e#38967#38968#0" expanded="true" />
-            <element signature="e#39032#39033#0" expanded="true" />
-            <element signature="e#39076#39077#0" expanded="true" />
-            <element signature="e#40615#40616#0" expanded="true" />
-            <element signature="e#40654#40655#0" expanded="true" />
-            <element signature="e#40716#40717#0" expanded="true" />
-            <element signature="e#40755#40756#0" expanded="true" />
-            <element signature="e#40884#40885#0" expanded="true" />
-            <element signature="e#40923#40924#0" expanded="true" />
-            <element signature="e#40977#40978#0" expanded="true" />
-            <element signature="e#41016#41017#0" expanded="true" />
-            <element signature="e#40858#40859#0" expanded="true" />
-            <element signature="e#40897#40898#0" expanded="true" />
-            <element signature="e#41571#41572#0" expanded="true" />
-            <element signature="e#41610#41611#0" expanded="true" />
-            <element signature="e#41658#41659#0" expanded="true" />
-            <element signature="e#41697#41698#0" expanded="true" />
-            <element signature="e#41743#41744#0" expanded="true" />
-            <element signature="e#41782#41783#0" expanded="true" />
-            <element signature="e#41832#41833#0" expanded="true" />
-            <element signature="e#41871#41872#0" expanded="true" />
-            <element signature="e#41915#41916#0" expanded="true" />
-            <element signature="e#41954#41955#0" expanded="true" />
-            <element signature="e#42034#42035#0" expanded="true" />
-            <element signature="e#42073#42074#0" expanded="true" />
-            <element signature="e#42493#42494#0" expanded="true" />
-            <element signature="e#42532#42533#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1+/scopy.decaf">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S1+/output/scopy.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S1+/scopy.decaf">
+    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="127" column="7" lean-forward="true" selection-start-line="127" selection-start-column="7" selection-end-line="127" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1-/output/multi-errors-9.result">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1+/output/var-1.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1+/var-1.decaf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S1+/result/var-1.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/tree/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="1062" column="29" lean-forward="true" selection-start-line="1062" selection-start-column="29" selection-end-line="1062" selection-end-column="29" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Parser.spec">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="217" column="42" selection-start-line="217" selection-start-column="42" selection-end-line="217" selection-end-column="42" />
+        <state relative-caret-position="319">
+          <caret line="264" column="31" lean-forward="true" selection-start-line="264" selection-start-column="31" selection-end-line="264" selection-end-column="31" />
         </state>
       </provider>
     </entry>
