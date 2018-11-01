@@ -131,14 +131,9 @@ public abstract class Tree {
     public static final int GUARD = IFG + 1;
 
     /**
-     * Guarded statements, of type Guarded.
-     */
-    public static final int GUARDED = GUARD + 1;
-
-    /**
      * Branch statements, of type IfSubStmt.
      */
-    public static final int IFSUBSTMT = GUARDED + 1;
+    public static final int IFSUBSTMT = GUARD + 1;
 
     /**
      * Expression statements, of type Exec.
@@ -323,8 +318,14 @@ public abstract class Tree {
     public static final int READLINEEXPR = READINTEXPR + 1;
     public static final int PRINT = READLINEEXPR + 1;
 
-    public static final int ARRAY_CONCAT = PRINT + 1;
-    public static final int ARRAY_REPEAT = ARRAY_CONCAT + 1;
+    public static final int ARRAYCONCAT = PRINT + 1;
+    public static final int ARRAYREPEAT = ARRAYCONCAT + 1;
+    public static final int ARRAY = ARRAYREPEAT + 1;
+    public static final int ARRAYFOR = ARRAY + 1;
+    public static final int ARRAYINIT = ARRAYFOR + 1;
+    public static final int ARRAYREF = ARRAYINIT + 1;
+    public static final int ARRAYCOMP = ARRAYREF + 1;
+    public static final int ARRAYDEFAULT = ARRAYCOMP + 1;
 
     /**
      * Tags for Literal and TypeLiteral
@@ -488,6 +489,161 @@ public abstract class Tree {
     }
 
     /**
+     * Array
+     */
+    public static class Array extends Expr{
+        public List<Expr> block;
+
+        public Array(List<Expr> block, Location loc) {
+            super(ARRAY, loc);
+            this.block = block;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArray(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array const");
+            pw.incIndent();
+            if(block != null){
+                for (Expr s : block) {
+                    s.printTo(pw);
+                }
+            }
+            else{
+                pw.println("<empty>");
+            }
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayConcat extends Expr{
+        public Expr e1, e2;
+
+        public ArrayConcat(Expr e1, Expr e2, Location loc) {
+            super(ARRAYCONCAT, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayConcat(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array concat");
+            pw.incIndent();
+            e1.printTo(pw);
+            e2.printTo(pw);
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayComp extends Expr{
+        public boolean iff;
+        public String ident;
+        public Expr inbrunch, ifbrunch, output;
+
+        public ArrayComp(boolean iff, Expr output, String ident, Expr inbrunch, Expr ifbrunch, Location loc) {
+            super(ARRAYCOMP, loc);
+            this.iff = iff;
+            this.ident = ident;
+            this.inbrunch = inbrunch;
+            this.ifbrunch = ifbrunch;
+            this.output = output;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayComp(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array comp");
+            pw.incIndent();
+            pw.println("varbind " + ident);
+            inbrunch.printTo(pw);
+            if(iff){
+                ifbrunch.printTo(pw);
+            }
+            else{
+                pw.println("boolconst true");
+            }
+            output.printTo(pw);
+            pw.decIndent();
+        }
+    }
+
+
+    public static class ArrayFor extends Tree{
+        public LValue e1;
+        public Tree e2;
+        public Expr ident, j;
+        public boolean judge;
+
+        public ArrayFor(boolean judege, LValue e1, Expr ident, Tree e2, Expr j, Location loc) {
+            super(ARRAYFOR, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+            this.ident = ident;
+            this.judge = judege;
+            this.j = j;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayFor(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("foreach");
+            pw.incIndent();
+            e1.printTo(pw);
+
+            ident.printTo(pw);
+
+            if(judge){
+                j.printTo(pw);
+            }
+            else{
+                pw.println("boolconst true");
+            }
+            if(e2!=null){
+                e2.printTo(pw);
+            }
+            pw.decIndent();
+        }
+    }
+
+    public static class BoundVar extends LValue {
+
+        public String name;
+        public TypeLiteral type;
+
+        public BoundVar(TypeLiteral type, String name, Location loc) {
+            super(BOUNDVAR, loc);
+            this.name = name;
+            this.type = type;
+        }
+
+        @Override
+        public void accept(Visitor v) {
+            v.visitBoundVar(this);
+        }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.print("varbind " + name + " ");
+            if(type==null){
+                pw.println("var");
+            }
+            else{
+                type.printTo(pw);
+                pw.println();
+            }
+        }
+    }
+
+    /**
      * A var identifier
      */
     public static class IdentVar extends LValue {
@@ -508,6 +664,82 @@ public abstract class Tree {
         @Override
         public void printTo(IndentPrintWriter pw) {
             pw.println("var " + name);
+        }
+    }
+
+    public static class ArrayInit extends Expr{
+        public Expr e1, e2;
+
+        public ArrayInit(Expr e1, Expr e2, Location loc) {
+            super(ARRAYCONCAT, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayInit(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("array repeat");
+            pw.incIndent();
+            e1.printTo(pw);
+            e2.printTo(pw);
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayRef extends Expr{
+        public Expr e1, e2, e3;
+
+        public ArrayRef(Expr e1, Expr e2, Expr e3, Location loc) {
+            super(ARRAYREF, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+            this.e3 = e3;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayRef(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("arrref");
+            pw.incIndent();
+            e1.printTo(pw);
+            pw.println("range");
+            pw.incIndent();
+            e2.printTo(pw);
+            e3.printTo(pw);
+            pw.decIndent();
+            pw.decIndent();
+        }
+    }
+
+    public static class ArrayDefault extends Expr{
+        public Expr e1, e2, e3;
+
+        public ArrayDefault(Expr e1, Expr e2, Expr e3, Location loc) {
+            super(ARRAYDEFAULT, loc);
+            this.e1 = e1;
+            this.e2 = e2;
+            this.e3 = e3;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitArrayDefault(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("arrref");
+            pw.incIndent();
+            e1.printTo(pw);
+            e2.printTo(pw);
+            pw.println("default");
+            pw.incIndent();
+            e3.printTo(pw);
+            pw.decIndent();
+            pw.decIndent();
         }
     }
 
@@ -1972,5 +2204,20 @@ public abstract class Tree {
             assert false;
         }
 
+        public void visitArray(Array that) { visitTree(that); }
+
+        public void visitArrayRef(ArrayRef that) { visitTree(that); }
+
+        public void visitArrayConcat(ArrayConcat that) { visitTree(that); }
+
+        public void visitArrayComp(ArrayComp that) { visitTree(that); }
+
+        public void visitArrayDefault(ArrayDefault that) { visitTree(that); }
+
+        public void visitArrayInit(ArrayInit that) { visitTree(that); }
+
+        public void visitArrayFor(ArrayFor that) { visitTree(that); }
+
+        public void visitBoundVar(BoundVar that) { visitTree(that); }
     }
 }

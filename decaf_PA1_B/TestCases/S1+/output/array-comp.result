@@ -1,5 +1,5 @@
-*** Error at (7,17): syntax error
 *** Error at (7,18): unrecognized character '|'
+*** Error at (7,19): syntax error
 *** Error at (7,23): syntax error
 *** Error at (7,27): syntax error
 *** Error at (7,29): syntax error
@@ -7,8 +7,8 @@
 *** Error at (7,34): unrecognized character '|'
 *** Error at (7,35): syntax error
 *** Error at (7,36): syntax error
-*** Error at (10,23): syntax error
 *** Error at (10,24): unrecognized character '|'
+*** Error at (10,25): syntax error
 *** Error at (10,31): syntax error
 *** Error at (10,35): syntax error
 *** Error at (10,37): syntax error
@@ -16,8 +16,8 @@
 *** Error at (10,42): unrecognized character '|'
 *** Error at (10,43): syntax error
 *** Error at (10,44): syntax error
-*** Error at (13,20): syntax error
 *** Error at (13,21): unrecognized character '|'
+*** Error at (13,22): syntax error
 *** Error at (13,24): syntax error
 *** Error at (13,28): syntax error
 *** Error at (13,30): syntax error
@@ -26,8 +26,8 @@
 *** Error at (13,39): syntax error
 *** Error at (13,44): unrecognized character '|'
 *** Error at (13,45): syntax error
-*** Error at (18,19): syntax error
 *** Error at (18,20): unrecognized character '|'
+*** Error at (18,21): syntax error
 *** Error at (18,25): syntax error
 *** Error at (18,29): syntax error
 *** Error at (18,31): syntax error

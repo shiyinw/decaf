@@ -245,7 +245,42 @@ Stmt            :   VariableDef
                     {
                         $$.stmt = $1.stmt;
                     }
+                |   FOREACH '(' BoundVariable IN Expr ForeachStmt
+                    {
+                        if($6.expr==null)
+                        {
+                            $$.stmt = new Tree.ArrayFor(false, $3.lvalue, $5.expr, $6.stmt, null, $1.loc);
+                        }
+                        else
+                        {
+                            $$.stmt = new Tree.ArrayFor(true, $3.lvalue, $5.expr, $6.stmt, $6.expr, $1.loc);
+                        }
+
+                    }
                 ;
+
+ForeachStmt     :   ')' Stmt
+                    {
+                        $$.stmt = $2.stmt;
+                        $$.expr = null;
+                    }
+                |   WHILE Expr ')' Stmt
+                    {
+                        $$.expr = $2.expr;
+                        $$.stmt = $4.stmt;
+                    }
+                ;
+
+BoundVariable   :   VAR IDENTIFIER
+                    {
+                        $$.lvalue = new LValue.BoundVar(null, $2.ident, $1.loc);
+                    }
+                |   Type IDENTIFIER
+                    {
+                        $$.lvalue = new LValue.BoundVar($1.type, $2.ident, $1.loc);
+                    }
+                ;
+
 
 SimpleStmt      :   Expr Assignment
                     {
@@ -300,19 +335,19 @@ Oper3           :   EQUAL
                     }
                 ;
 
-//Oper31          :   ARRAY_CONCAT
-//                    {
-//                        $$.counter = Tree.ARRAY_CONCAT;
-//                        $$.loc = $1.loc;
-//                    }
-//                ;
-//
-//Oper32          :   ARRAY_REPEAT
-//                    {
-//                        $$.counter = Tree.ARRAY_REPEAT;
-//                        $$.loc = $1.loc;
-//                    }
-//                ;
+Oper31          :   ARRAY_CONCAT
+                    {
+                        $$.counter = Tree.ARRAYCONCAT;
+                        $$.loc = $1.loc;
+                    }
+                ;
+
+Oper32          :   ARRAY_REPEAT
+                    {
+                        $$.counter = Tree.ARRAYREPEAT;
+                        $$.loc = $1.loc;
+                    }
+                ;
 
 Oper4           :   LESS_EQUAL
                     {
@@ -471,65 +506,65 @@ ExprT3          :   Oper3 Expr4 ExprT3
                 |   /* empty */
                 ;
 
-//Expr31          :   Expr32 ExprT31
-//                    {
-//                        if ($2.svec != null && !$2.svec.isEmpty()) {
-//                            $$.expr = $2.evec.get($2.svec.size() - 1);
-//                            for (int i = (int)$2.svec.size() - 2; i >= 0; i--) {
-//                                $$.expr = new Tree.Concat($2.evec.get(i), $$.expr, $2.lvec.get(i + 1));
-//                            }
-//                            $$.expr = new Tree.Concat($1.expr, $$.expr, $2.lvec.get(0));
-//                        }
-//                        else {
-//                            $$.expr = $1.expr;
-//                        }
-//                    }
-//                ;
-//
-//ExprT31         :   Oper31 Expr32 ExprT31
-//                    {
-//                        $$.svec = new Vector<Integer>();
-//                        $$.lvec = new Vector<Location>();
-//                        $$.evec = new Vector<Expr>();
-//                        $$.svec.add($1.counter);
-//                        $$.lvec.add($1.loc);
-//                        $$.evec.add($2.expr);
-//                        if ($3.svec != null) {
-//                            $$.svec.addAll($3.svec);
-//                            $$.lvec.addAll($3.lvec);
-//                            $$.evec.addAll($3.evec);
-//                        }
-//                    }
-//                |   /* empty */
-//                ;
-//
-//Expr32          :   Expr4 ExprT32
-//                    {
-//                        $$.expr = $1.expr;
-//                        if ($2.svec != null) {
-//                            for (int i = 0; i < $2.svec.size(); ++i) {
-//                                $$.expr = new Tree.Repeat($$.expr, $2.evec.get(i), $2.lvec.get(i));
-//                            }
-//                        }
-//                    }
-//                ;
-//
-//ExprT32         :   Oper32 Expr4 ExprT32
-//                    {
-//                        $$.svec = new Vector<Integer>();
-//                        $$.lvec = new Vector<Location>();
-//                        $$.evec = new Vector<Expr>();
-//                        $$.svec.add($1.counter);
-//                        $$.lvec.add($1.loc);
-//                        $$.evec.add($2.expr);
-//                        if ($3.svec != null) {
-//                            $$.svec.addAll($3.svec);
-//                            $$.lvec.addAll($3.lvec);
-//                            $$.evec.addAll($3.evec);
-//                        }
-//                    }
-//                |   /* empty */
-//                ;
+Expr31          :   Expr32 ExprT31
+                    {
+                        if ($2.svec != null && !$2.svec.isEmpty()) {
+                            $$.expr = $2.evec.get($2.svec.size() - 1);
+                            for (int i = (int)$2.svec.size() - 2; i >= 0; i--) {
+                                $$.expr = new Tree.Concat($2.evec.get(i), $$.expr, $2.lvec.get(i + 1));
+                            }
+                            $$.expr = new Tree.Concat($1.expr, $$.expr, $2.lvec.get(0));
+                        }
+                        else {
+                            $$.expr = $1.expr;
+                        }
+                    }
+                ;
+
+ExprT31         :   Oper31 Expr32 ExprT31
+                    {
+                        $$.svec = new Vector<Integer>();
+                        $$.lvec = new Vector<Location>();
+                        $$.evec = new Vector<Expr>();
+                        $$.svec.add($1.counter);
+                        $$.lvec.add($1.loc);
+                        $$.evec.add($2.expr);
+                        if ($3.svec != null) {
+                            $$.svec.addAll($3.svec);
+                            $$.lvec.addAll($3.lvec);
+                            $$.evec.addAll($3.evec);
+                        }
+                    }
+                |   /* empty */
+                ;
+
+Expr32          :   Expr4 ExprT32
+                    {
+                        $$.expr = $1.expr;
+                        if ($2.svec != null) {
+                            for (int i = 0; i < $2.svec.size(); ++i) {
+                                $$.expr = new Tree.Repeat($$.expr, $2.evec.get(i), $2.lvec.get(i));
+                            }
+                        }
+                    }
+                ;
+
+ExprT32         :   Oper32 Expr4 ExprT32
+                    {
+                        $$.svec = new Vector<Integer>();
+                        $$.lvec = new Vector<Location>();
+                        $$.evec = new Vector<Expr>();
+                        $$.svec.add($1.counter);
+                        $$.lvec.add($1.loc);
+                        $$.evec.add($2.expr);
+                        if ($3.svec != null) {
+                            $$.svec.addAll($3.svec);
+                            $$.lvec.addAll($3.lvec);
+                            $$.evec.addAll($3.evec);
+                        }
+                    }
+                |   /* empty */
+                ;
 
 Expr4           :   Expr5 ExprT4
                     {
@@ -768,7 +803,38 @@ Constant        :   LITERAL
                     {
                         $$.expr = new Null($1.loc);
                     }
+                |   '[' ARRAY
+                    {
+                        $$.expr = $2.expr;
+                    }
                 ;
+
+ARRAY           :   ']'
+                    {
+                        $$.expr = new Tree.ArrayConstant(null, $1.loc);
+                    }
+                |   Constant ARRAY2 ']'
+                    {
+                        $$.elist = new ArrayList<Tree.Expr>();
+                        $$.elist.add($1.expr);
+                        $$.elist.addAll($2.elist);
+                        $$.expr = new Tree.ArrayConstant($$.elist, $1.loc);
+                    }
+
+                ;
+
+ARRAY2          :   ',' Constant ARRAY2
+                    {
+                        $$.elist = new ArrayList<Tree.Expr>();
+                        $$.elist.add($2.expr);
+                        $$.elist.addAll($3.elist);
+                    }
+                |   /* empty */
+                    {
+                        $$.elist = new ArrayList<Tree.Expr>();
+                    }
+                ;
+
 
 Actuals         :   ExprList
                     {
@@ -818,18 +884,6 @@ BreakStmt       :   BREAK
                         $$.stmt = new Tree.Break($1.loc);
                     }
                 ;
-
-//IfStmt          : IfStmt2
-//                    {
-//                    }
-//                  ;
-//
-//IfStmt2          : IF '(' Expr ')' Stmt ElseClause
-//                     {
-//                         $$.stmt = new Tree.If($3.expr, $5.stmt, $6.stmt, $1.loc);
-//                     }
-//                 ;
-
 
 
 IfStmt          :   IF IfContent
