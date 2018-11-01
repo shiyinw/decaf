@@ -300,6 +300,20 @@ Oper3           :   EQUAL
                     }
                 ;
 
+//Oper31          :   ARRAY_CONCAT
+//                    {
+//                        $$.counter = Tree.ARRAY_CONCAT;
+//                        $$.loc = $1.loc;
+//                    }
+//                ;
+//
+//Oper32          :   ARRAY_REPEAT
+//                    {
+//                        $$.counter = Tree.ARRAY_REPEAT;
+//                        $$.loc = $1.loc;
+//                    }
+//                ;
+
 Oper4           :   LESS_EQUAL
                     {
                         $$.counter = Tree.LE;
@@ -456,6 +470,66 @@ ExprT3          :   Oper3 Expr4 ExprT3
                     }
                 |   /* empty */
                 ;
+
+//Expr31          :   Expr32 ExprT31
+//                    {
+//                        if ($2.svec != null && !$2.svec.isEmpty()) {
+//                            $$.expr = $2.evec.get($2.svec.size() - 1);
+//                            for (int i = (int)$2.svec.size() - 2; i >= 0; i--) {
+//                                $$.expr = new Tree.Concat($2.evec.get(i), $$.expr, $2.lvec.get(i + 1));
+//                            }
+//                            $$.expr = new Tree.Concat($1.expr, $$.expr, $2.lvec.get(0));
+//                        }
+//                        else {
+//                            $$.expr = $1.expr;
+//                        }
+//                    }
+//                ;
+//
+//ExprT31         :   Oper31 Expr32 ExprT31
+//                    {
+//                        $$.svec = new Vector<Integer>();
+//                        $$.lvec = new Vector<Location>();
+//                        $$.evec = new Vector<Expr>();
+//                        $$.svec.add($1.counter);
+//                        $$.lvec.add($1.loc);
+//                        $$.evec.add($2.expr);
+//                        if ($3.svec != null) {
+//                            $$.svec.addAll($3.svec);
+//                            $$.lvec.addAll($3.lvec);
+//                            $$.evec.addAll($3.evec);
+//                        }
+//                    }
+//                |   /* empty */
+//                ;
+//
+//Expr32          :   Expr4 ExprT32
+//                    {
+//                        $$.expr = $1.expr;
+//                        if ($2.svec != null) {
+//                            for (int i = 0; i < $2.svec.size(); ++i) {
+//                                $$.expr = new Tree.Repeat($$.expr, $2.evec.get(i), $2.lvec.get(i));
+//                            }
+//                        }
+//                    }
+//                ;
+//
+//ExprT32         :   Oper32 Expr4 ExprT32
+//                    {
+//                        $$.svec = new Vector<Integer>();
+//                        $$.lvec = new Vector<Location>();
+//                        $$.evec = new Vector<Expr>();
+//                        $$.svec.add($1.counter);
+//                        $$.lvec.add($1.loc);
+//                        $$.evec.add($2.expr);
+//                        if ($3.svec != null) {
+//                            $$.svec.addAll($3.svec);
+//                            $$.lvec.addAll($3.lvec);
+//                            $$.evec.addAll($3.evec);
+//                        }
+//                    }
+//                |   /* empty */
+//                ;
 
 Expr4           :   Expr5 ExprT4
                     {
@@ -745,10 +819,65 @@ BreakStmt       :   BREAK
                     }
                 ;
 
-IfStmt          :   IF '(' Expr ')' Stmt ElseClause
+//IfStmt          : IfStmt2
+//                    {
+//                    }
+//                  ;
+//
+//IfStmt2          : IF '(' Expr ')' Stmt ElseClause
+//                     {
+//                         $$.stmt = new Tree.If($3.expr, $5.stmt, $6.stmt, $1.loc);
+//                     }
+//                 ;
+
+
+
+IfStmt          :   IF IfContent
                     {
-                        $$.stmt = new Tree.If($3.expr, $5.stmt, $6.stmt, $1.loc);
+                        $$.stmt = $2.stmt;
                     }
+                ;
+
+IfContent       :   '(' Expr ')' Stmt ElseClause
+                    {
+                        $$.stmt = new Tree.If($2.expr, $4.stmt, $5.stmt, $1.loc);
+                    }
+                |   '{' IfSubStmt1 IfBranch '}'
+                    {
+                        $$.expr = null;
+                        $$.slist = new ArrayList<Tree>();
+                        if ($2.stmt != null) {
+                            $$.slist.add($2.stmt);
+                        }
+                        if ($3.slist != null) {
+                            $$.slist.addAll($3.slist);
+                        }
+                        $$.stmt = new Tree.Guard($$.slist, $1.loc);
+                    }
+                ;
+
+IfSubStmt1      :   Expr ':' Stmt
+                    {
+                        $$.stmt = new Tree.IfG($1.expr, $3.stmt, $2.loc);
+                    }
+                |   /* empty */
+                ;
+
+IfSubStmt2      :   Expr ':' Stmt
+                    {
+                        $$.stmt = new Tree.IfG($1.expr, $3.stmt, $2.loc);
+                    }
+                ;
+
+IfBranch        :   DIVIDER IfSubStmt2 IfBranch
+                    {
+                        $$.slist = new ArrayList<Tree>();
+                        $$.slist.add($2.stmt);
+                        if ($3.slist != null) {
+                            $$.slist.addAll($3.slist);
+                        }
+                    }
+                |   /* empty */
                 ;
 
 ElseClause      :   ELSE Stmt // higher priority

@@ -126,10 +126,14 @@ public abstract class Tree {
      */
     public static final int IF = CONDEXPR + 1;
 
+    public static final int IFG = IF + 1;
+
+    public static final int GUARD = IFG + 1;
+
     /**
      * Guarded statements, of type Guarded.
      */
-    public static final int GUARDED = IF + 1;
+    public static final int GUARDED = GUARD + 1;
 
     /**
      * Branch statements, of type IfSubStmt.
@@ -318,6 +322,9 @@ public abstract class Tree {
     public static final int READINTEXPR = THISEXPR + 1;
     public static final int READLINEEXPR = READINTEXPR + 1;
     public static final int PRINT = READLINEEXPR + 1;
+
+    public static final int ARRAY_CONCAT = PRINT + 1;
+    public static final int ARRAY_REPEAT = ARRAY_CONCAT + 1;
 
     /**
      * Tags for Literal and TypeLiteral
@@ -742,68 +749,71 @@ public abstract class Tree {
     }
 
     /**
-      * An "if {IfBranch ||| ... }" block
-      */
-    public static class Guarded extends Tree {
+     * An "xx:xx;" clause inside guarded
+     */
 
-        public List<Tree> branch;
-
-        public Guarded(List<Tree> branch, Location loc) {
-            super(GUARDED, loc);
-            this.branch = branch;
-        }
-
-    	@Override
-        public void accept(Visitor v) {
-            v.visitGuarded(this);
-        }
-
-    	@Override
-    	public void printTo(IndentPrintWriter pw) {
-    		pw.println("guarded");
-    		pw.incIndent();
-            if (branch == null) {
-                pw.println("<empty>");
-            }
-            else {
-        		for (Tree t : branch) {
-        			t.printTo(pw);
-        		}
-            }
-            pw.decIndent();
-    	}
-    }
-
-    /**
-      * A guarded statement
-      */
-    public static class IfSubStmt extends Tree {
+    public static class IfG extends Tree {
 
         public Expr condition;
-        public Tree branch;
-        public Location loc;
+        public Tree trueBranch;
 
-        public IfSubStmt(Expr condition, Tree branch, Location loc) {
-            super(IFSUBSTMT, loc);
+        public IfG(Expr condition, Tree trueBranch, Location loc) {
+            super(IFG, loc);
             this.condition = condition;
-            this.branch = branch;
-            this.loc = loc;
+            this.trueBranch = trueBranch;
         }
 
         @Override
-        public void accept(Visitor v) {
-            v.visitIfSubStmt(this);
-        }
+        public void accept(Visitor v) { v.visitIfG(this); }
 
         @Override
         public void printTo(IndentPrintWriter pw) {
             pw.println("guard");
             pw.incIndent();
             condition.printTo(pw);
-            branch.printTo(pw);
+            trueBranch.printTo(pw);
             pw.decIndent();
         }
     }
+
+    /**
+     * Guarded statements
+     */
+
+    public static class Guard extends Tree{
+        public List<Tree> block;
+
+        public Guard(List<Tree> block, Location loc) {
+            super(GUARD, loc);
+            this.block = block;
+        }
+
+        @Override
+        public void accept(Visitor v) {v.visitGuard(this); }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("guarded");
+            pw.incIndent();
+            int cnt = 0;
+            if(block != null){
+                for (Tree s : block) {
+                    if (s != null) {
+                        cnt += 1;
+                        s.printTo(pw);
+                    }
+                }
+                if(cnt==0){
+                    pw.println("<empty>");
+                }
+            }
+            else{
+                pw.println("<empty>");
+            }
+            pw.decIndent();
+        }
+    }
+
 
     /**
       * an expression statement
@@ -1823,11 +1833,11 @@ public abstract class Tree {
             visitTree(that);
         }
 
-        public void visitGuarded(Guarded that) {
+        public void visitIfG(IfG that) {
             visitTree(that);
         }
 
-        public void visitIfSubStmt(IfSubStmt that) {
+        public void visitGuard(Guard that) {
             visitTree(that);
         }
 

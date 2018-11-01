@@ -1,17 +1,52 @@
-*** Error at (3,12): syntax error
-*** Error at (3,18): syntax error
-*** Error at (3,20): syntax error
-*** Error at (3,23): syntax error
-*** Error at (3,30): syntax error
-*** Error at (3,32): syntax error
-*** Error at (9,12): syntax error
-*** Error at (9,18): syntax error
-*** Error at (9,20): syntax error
-*** Error at (9,34): syntax error
-*** Error at (9,42): syntax error
-*** Error at (9,44): syntax error
-*** Error at (9,58): syntax error
-*** Error at (9,68): syntax error
-*** Error at (9,70): syntax error
-*** Error at (10,28): syntax error
-*** Error at (14,12): syntax error
+program
+    class Main <empty>
+        func foo voidtype
+            formals
+            stmtblock
+                guarded
+                    guard
+                        boolconst true
+                        guarded
+                            guard
+                                boolconst false
+                                print
+                                    stringconst "unreachable"
+        func bar voidtype
+            formals
+            stmtblock
+                vardef x inttype
+                assign
+                    varref x
+                    readint
+                guarded
+                    guard
+                        boolconst true
+                        if
+                            gtr
+                                varref x
+                                intconst 0
+                            guarded
+                                guard
+                                    equ
+                                        varref x
+                                        intconst 1
+                                    print
+                                        stringconst "x=1"
+                                guard
+                                    equ
+                                        varref x
+                                        intconst 2
+                                    print
+                                        stringconst "x=2"
+                        else
+                            guarded
+                                <empty>
+        static func main voidtype
+            formals
+            stmtblock
+                guarded
+                    <empty>
+                call foo
+                    <empty>
+                call bar
+                    <empty>

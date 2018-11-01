@@ -8,6 +8,39 @@
 
 第一天拿到作业代码的时候，我发现`parser.spec`和PA1-A的`parser.y`十分相似，于是就直接从那里粘贴了很多代码过来，然后遇到了错误。经过仔细看实验报告和ppt，我从现成代码入手看LL(1)分析的语法规则，照猫画虎开始写新增加的特性。
 
+在增加条件卫士特性的时候，我按照PA1A的习惯改代码后，总是报错，而且是以下这种情况，让我十分困惑。后来发现每次修改`parser.spec`后需要`clean`一下再`build`。
+
+```
+*** Error at (1,1): syntax error
+```
+
+我发现同样的函数在上一半PA的时候可以很好运行，但是到这次的环境中就不能运行到`<empty>`那部分。也就是会出现条件卫士内的语句为空但是`block!=null`的情况。这里我增加了一个方法来解决。
+
+```java
+public void printTo(IndentPrintWriter pw) {
+     pw.println("guarded");
+     pw.incIndent();
+     int cnt = 0;
+     if(block != null){
+     	for (Tree s : block) {
+     		if (s != null) {
+        		cnt += 1; //用传统方法判断block是否为空
+            	s.printTo(pw);
+        	}
+    	}
+    	if(cnt==0){
+    	pw.println("<empty>");
+    	}
+    }
+    else{
+    	pw.println("<empty>");
+    }
+    pw.decIndent();
+}
+```
+
+
+
 #### 步骤二:增加错误恢复功能
 
 在刚开始运行初始程序的时候，我看到报错NullPointerError，不知道怎么入手。参加了班级的编译原理讲座后理解了大致的写法，之后就根据报告中的算法描述写了。这样我们可以在遇到一个报错的时候，继续继续分析之后的语法，直到遇到了语法的终结符退出这个分支。
