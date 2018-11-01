@@ -795,16 +795,11 @@ public abstract class Tree {
         public void printTo(IndentPrintWriter pw) {
             pw.println("guarded");
             pw.incIndent();
-            int cnt = 0;
             if(block != null){
                 for (Tree s : block) {
                     if (s != null) {
-                        cnt += 1;
                         s.printTo(pw);
                     }
-                }
-                if(cnt==0){
-                    pw.println("<empty>");
                 }
             }
             else{

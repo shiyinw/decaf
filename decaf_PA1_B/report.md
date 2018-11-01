@@ -14,31 +14,6 @@
 *** Error at (1,1): syntax error
 ```
 
-我发现同样的函数在上一半PA的时候可以很好运行，但是到这次的环境中就不能运行到`<empty>`那部分。也就是会出现条件卫士内的语句为空但是`block!=null`的情况。这里我增加了一个方法来解决。
-
-```java
-public void printTo(IndentPrintWriter pw) {
-     pw.println("guarded");
-     pw.incIndent();
-     int cnt = 0;
-     if(block != null){
-     	for (Tree s : block) {
-     		if (s != null) {
-        		cnt += 1; //用传统方法判断block是否为空
-            	s.printTo(pw);
-        	}
-    	}
-    	if(cnt==0){
-    	pw.println("<empty>");
-    	}
-    }
-    else{
-    	pw.println("<empty>");
-    }
-    pw.decIndent();
-}
-```
-
 
 
 #### 步骤二:增加错误恢复功能

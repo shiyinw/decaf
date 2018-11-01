@@ -842,34 +842,36 @@ IfContent       :   '(' Expr ')' Stmt ElseClause
                     {
                         $$.stmt = new Tree.If($2.expr, $4.stmt, $5.stmt, $1.loc);
                     }
-                |   '{' IfSubStmt1 IfBranch '}'
+                |   '{' IfGContent
                     {
-                        $$.expr = null;
+                        $$.stmt = $2.stmt;
+                    }
+                ;
+
+IfGContent      :   IfG IfBranch '}'
+                    {
                         $$.slist = new ArrayList<Tree>();
-                        if ($2.stmt != null) {
-                            $$.slist.add($2.stmt);
+                        if ($1.stmt != null) {
+                            $$.slist.add($1.stmt);
                         }
-                        if ($3.slist != null) {
-                            $$.slist.addAll($3.slist);
+                        if ($2.slist != null) {
+                            $$.slist.addAll($2.slist);
                         }
                         $$.stmt = new Tree.Guard($$.slist, $1.loc);
                     }
-                ;
-
-IfSubStmt1      :   Expr ':' Stmt
+                |   '}'
                     {
-                        $$.stmt = new Tree.IfG($1.expr, $3.stmt, $2.loc);
-                    }
-                |   /* empty */
-                ;
-
-IfSubStmt2      :   Expr ':' Stmt
-                    {
-                        $$.stmt = new Tree.IfG($1.expr, $3.stmt, $2.loc);
+                        $$.stmt = new Tree.Guard(null, $1.loc);
                     }
                 ;
 
-IfBranch        :   DIVIDER IfSubStmt2 IfBranch
+IfG             :   Expr ':' Stmt
+                    {
+                        $$.stmt = new Tree.IfG($1.expr, $3.stmt, $2.loc);
+                    }
+                ;
+
+IfBranch        :   DIVIDER IfG IfBranch
                     {
                         $$.slist = new ArrayList<Tree>();
                         $$.slist.add($2.stmt);
