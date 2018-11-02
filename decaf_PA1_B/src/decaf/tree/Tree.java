@@ -307,10 +307,7 @@ public abstract class Tree {
     public static final int MOD = DIV + 1;
 
     public static final int NULL = MOD + 1;
-    public static final int REPEAT = NULL + 1;
-    public static final int CONCAT = REPEAT + 1;
-    public static final int SLICE = CONCAT + 1;
-    public static final int DEFAULT = SLICE + 1;
+    public static final int DEFAULT = NULL + 1;
     public static final int COMP = DEFAULT + 1;
     public static final int CALLEXPR = COMP + 1;
     public static final int THISEXPR = CALLEXPR + 1;
@@ -1469,89 +1466,6 @@ public abstract class Tree {
     	}
     }
 
-    public static class Repeat extends Expr {
-
-        public Expr value;
-        public Expr number;
-
-        public Repeat(Expr value, Expr number, Location loc) {
-            super(REPEAT, loc);
-            this.value = value;
-            this.number = number;
-        }
-
-        @Override
-        public void accept(Visitor visitor) {
-            visitor.visitRepeat(this);
-        }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.println("array repeat");
-            pw.incIndent();
-            value.printTo(pw);
-            number.printTo(pw);
-            pw.decIndent();
-        }
-    }
-
-    public static class Concat extends Expr {
-
-        public Expr value;
-        public Expr number;
-
-        public Concat(Expr value, Expr number, Location loc) {
-            super(CONCAT, loc);
-            this.value = value;
-            this.number = number;
-        }
-
-        @Override
-        public void accept(Visitor visitor) {
-            visitor.visitConcat(this);
-        }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.println("array concat");
-            pw.incIndent();
-            value.printTo(pw);
-            number.printTo(pw);
-            pw.decIndent();
-        }
-    }
-
-    public static class Slice extends Expr {
-
-        public Expr array;
-        public Expr lIndex;
-        public Expr rIndex;
-
-        public Slice(Expr array, Expr lIndex, Expr rIndex, Location loc) {
-            super(SLICE, loc);
-            this.array = array;
-            this.lIndex = lIndex;
-            this.rIndex = rIndex;
-        }
-
-        @Override
-        public void accept(Visitor visitor) {
-            visitor.visitSlice(this);
-        }
-
-        @Override
-        public void printTo(IndentPrintWriter pw) {
-            pw.println("arrref");
-            pw.incIndent();
-            array.printTo(pw);
-            pw.println("range");
-            pw.incIndent();
-            lIndex.printTo(pw);
-            rIndex.printTo(pw);
-            pw.decIndent();
-            pw.decIndent();
-        }
-    }
 
     public static class Default extends Expr {
 
@@ -1583,44 +1497,6 @@ public abstract class Tree {
             pw.decIndent();
     		pw.decIndent();
         }
-    }
-
-    public static class Comp extends Expr {
-
-        public Expr expr;
-        public String element;
-        public Expr array;
-        public Expr condition;
-
-        public Comp(Expr expr, String element, Expr array, Expr condition,
-                    Location loc) {
-            super(COMP, loc);
-            this.expr = expr;
-            this.element = element;
-            this.array = array;
-            this.condition = condition;
-        }
-
-    	@Override
-    	public void accept(Visitor visitor) {
-    		visitor.visitComp(this);
-    	}
-
-    	@Override
-    	public void printTo(IndentPrintWriter pw) {
-            pw.println("array comp");
-            pw.incIndent();
-            pw.println("varbind " + element);
-            array.printTo(pw);
-            if (condition == null) {
-                pw.println("boolconst true");
-            }
-            else {
-                condition.printTo(pw);
-            }
-            expr.printTo(pw);
-            pw.decIndent();
-    	}
     }
 
     public static class CallExpr extends Expr {
@@ -2112,23 +1988,7 @@ public abstract class Tree {
             visitTree(that);
         }
 
-        public void visitRepeat(Repeat that) {
-            visitTree(that);
-        }
-
-        public void visitConcat(Concat that) {
-            visitTree(that);
-        }
-
-        public void visitSlice(Slice that) {
-            visitTree(that);
-        }
-
         public void visitDefault(Default that) {
-            visitTree(that);
-        }
-
-        public void visitComp(Comp that) {
             visitTree(that);
         }
 

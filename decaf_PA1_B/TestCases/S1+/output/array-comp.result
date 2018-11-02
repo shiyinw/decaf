@@ -1,38 +1,56 @@
-*** Error at (7,18): unrecognized character '|'
-*** Error at (7,19): syntax error
-*** Error at (7,23): syntax error
-*** Error at (7,27): syntax error
-*** Error at (7,29): syntax error
-*** Error at (7,32): syntax error
-*** Error at (7,34): unrecognized character '|'
-*** Error at (7,35): syntax error
-*** Error at (7,36): syntax error
-*** Error at (10,24): unrecognized character '|'
-*** Error at (10,25): syntax error
-*** Error at (10,31): syntax error
-*** Error at (10,35): syntax error
-*** Error at (10,37): syntax error
-*** Error at (10,40): syntax error
-*** Error at (10,42): unrecognized character '|'
-*** Error at (10,43): syntax error
-*** Error at (10,44): syntax error
-*** Error at (13,21): unrecognized character '|'
-*** Error at (13,22): syntax error
-*** Error at (13,24): syntax error
-*** Error at (13,28): syntax error
-*** Error at (13,30): syntax error
-*** Error at (13,33): syntax error
-*** Error at (13,36): syntax error
-*** Error at (13,39): syntax error
-*** Error at (13,44): unrecognized character '|'
-*** Error at (13,45): syntax error
-*** Error at (18,20): unrecognized character '|'
-*** Error at (18,21): syntax error
-*** Error at (18,25): syntax error
-*** Error at (18,29): syntax error
-*** Error at (18,31): syntax error
-*** Error at (18,34): syntax error
-*** Error at (18,37): syntax error
-*** Error at (18,40): syntax error
-*** Error at (18,46): unrecognized character '|'
-*** Error at (18,47): syntax error
+program
+    class Main <empty>
+        static func main voidtype
+            formals
+            stmtblock
+                vardef xs arrtype inttype
+                assign
+                    varref xs
+                    newarray inttype
+                        intconst 10
+                vardef plus1 arrtype inttype
+                assign
+                    varref plus1
+                    array comp
+                        varbind x
+                        varref xs
+                        boolconst true
+                        add
+                            varref x
+                            intconst 1
+                vardef is_positive arrtype booltype
+                assign
+                    varref is_positive
+                    array comp
+                        varbind x
+                        varref xs
+                        boolconst true
+                        gtr
+                            varref x
+                            intconst 0
+                vardef positive arrtype inttype
+                assign
+                    varref positive
+                    array comp
+                        varbind x
+                        varref xs
+                        gtr
+                            varref x
+                            intconst 0
+                        varref x
+                vardef y inttype
+                assign
+                    varref y
+                    intconst 3
+                vardef times_y_ge_5 arrtype inttype
+                assign
+                    varref times_y
+                    array comp
+                        varbind x
+                        varref xs
+                        geq
+                            varref x
+                            intconst 5
+                        mul
+                            varref x
+                            varref y

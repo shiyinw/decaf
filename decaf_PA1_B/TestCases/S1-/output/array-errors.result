@@ -1,12 +1,4 @@
-*** Error at (4,26): syntax error
-*** Error at (5,20): unrecognized character '|'
-*** Error at (5,21): syntax error
-*** Error at (5,27): syntax error
-*** Error at (5,31): syntax error
-*** Error at (5,33): syntax error
-*** Error at (5,36): syntax error
-*** Error at (5,40): syntax error
-*** Error at (5,42): unrecognized character '|'
-*** Error at (5,43): syntax error
+*** Error at (4,33): syntax error
+*** Error at (5,42): syntax error
 *** Error at (6,36): syntax error
 *** Error at (9,24): syntax error

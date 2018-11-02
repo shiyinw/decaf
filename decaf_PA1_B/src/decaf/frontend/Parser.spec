@@ -21,6 +21,7 @@ LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL
 ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
 SCOPY VAR SEALED DIVIDER ':'
 ARRAY_REPEAT ARRAY_CONCAT DEFAULT IN FOREACH
+LISTFORL LISTFORR
 
 %%
 
@@ -477,7 +478,7 @@ ExprT2          :   Oper2 Expr3 ExprT2
                 |   /* empty */
                 ;
 
-Expr3           :   Expr4 ExprT3
+Expr3           :   Expr31 ExprT3
                     {
                         $$.expr = $1.expr;
                         if ($2.svec != null) {
@@ -489,7 +490,7 @@ Expr3           :   Expr4 ExprT3
                     }
                 ;
 
-ExprT3          :   Oper3 Expr4 ExprT3
+ExprT3          :   Oper3 Expr31 ExprT3
                     {
                         $$.svec = new Vector<Integer>();
                         $$.lvec = new Vector<Location>();
@@ -511,9 +512,9 @@ Expr31          :   Expr32 ExprT31
                         if ($2.svec != null && !$2.svec.isEmpty()) {
                             $$.expr = $2.evec.get($2.svec.size() - 1);
                             for (int i = (int)$2.svec.size() - 2; i >= 0; i--) {
-                                $$.expr = new Tree.Concat($2.evec.get(i), $$.expr, $2.lvec.get(i + 1));
+                                $$.expr = new Tree.ArrayConcat($2.evec.get(i), $$.expr, $2.lvec.get(i + 1));
                             }
-                            $$.expr = new Tree.Concat($1.expr, $$.expr, $2.lvec.get(0));
+                            $$.expr = new Tree.ArrayConcat($1.expr, $$.expr, $2.lvec.get(0));
                         }
                         else {
                             $$.expr = $1.expr;
@@ -543,7 +544,7 @@ Expr32          :   Expr4 ExprT32
                         $$.expr = $1.expr;
                         if ($2.svec != null) {
                             for (int i = 0; i < $2.svec.size(); ++i) {
-                                $$.expr = new Tree.Repeat($$.expr, $2.evec.get(i), $2.lvec.get(i));
+                                $$.expr = new Tree.ArrayInit($$.expr, $2.evec.get(i), $2.lvec.get(i));
                             }
                         }
                     }
@@ -670,7 +671,15 @@ Expr8           :   Expr9 ExprT8
                         if ($2.vec != null) {
                             for (SemValue v : $2.vec) {
                                 if (v.expr != null) {
-                                    $$.expr = new Tree.Indexed($$.expr, v.expr, $$.loc);
+                                    if (v.slist.size() > 0) {
+                                        $$.expr = new Tree.Default($$.expr, v.expr, (Expr)v.slist.get(0), $$.loc);
+                                    }
+                                    else if (v.stmt != null) {
+                                        $$.expr = new Tree.ArrayRef($$.expr, v.expr, (Expr)v.stmt, $$.loc);
+                                    }
+                                    else {
+                                        $$.expr = new Tree.Indexed($$.expr, v.expr, $$.loc);
+                                    }
                                 } else if (v.elist != null) {
                                     $$.expr = new Tree.CallExpr($$.expr, v.ident, v.elist, v.loc);
                                     $$.loc = v.loc;
@@ -681,12 +690,19 @@ Expr8           :   Expr9 ExprT8
                             }
                         }
                     }
-                ;
 
-ExprT8          :   '[' Expr ']' ExprT8
+
+ExprT8          :  '[' Expr ExprT82 ExprT8
                     {
                         SemValue sem = new SemValue();
                         sem.expr = $2.expr;
+                        if ($3.expr != null) {
+                            sem.stmt = $3.expr;
+                        }
+                        if ($3.stmt != null) {
+                            sem.slist = new ArrayList<Tree>();
+                            sem.slist.add($3.stmt);
+                        }
                         $$.vec = new Vector<SemValue>();
                         $$.vec.add(sem);
                         if ($4.vec != null) {
@@ -705,6 +721,30 @@ ExprT8          :   '[' Expr ']' ExprT8
                             $$.vec.addAll($4.vec);
                         }
                     }
+                |   DEFAULT Expr9
+                    {
+                        $$.expr = $2.expr;
+                    }
+                |   /* empty */
+                ;
+
+ExprT82        :   ']' ExprT83
+                    {
+                        if ($2.expr != null) {
+                            $$.stmt = $2.expr;
+                        }
+                    }
+                |   ':' Expr ']'
+                    {
+                        $$.expr = $2.expr;
+                        $$.stmt = null;
+                    }
+                ;
+
+ExprT83         :   DEFAULT Expr9
+                    {
+                        $$.expr = $2.expr;
+                    }
                 |   /* empty */
                 ;
 
@@ -715,7 +755,18 @@ AfterIdentExpr  :   '(' Actuals ')'
                 |   /* empty */
                 ;
 
-Expr9           :   Constant
+Expr9           :   LISTFORL Expr FOR IDENTIFIER IN Expr AfterList
+                    {
+                        if($7.expr==null)
+                        {
+                            $$.expr = new Expr.ArrayComp(false, $2.expr, $4.ident, $6.expr, null, $1.loc);
+                        }
+                        else
+                        {
+                            $$.expr = new Expr.ArrayComp(true, $2.expr, $4.ident, $6.expr, $7.expr, $1.loc);
+                        }
+                    }
+                |   Constant
                     {
                         $$.expr = $1.expr;
                     }
@@ -754,6 +805,16 @@ Expr9           :   Constant
                         } else {
                             $$.expr = new Tree.Ident(null, $1.ident, $1.loc);
                         }
+                    }
+                ;
+
+AfterList       :   IF Expr LISTFORR
+                    {
+                        $$.expr = $2.expr;
+                    }
+                |   LISTFORR
+                    {
+                        $$.expr = null;
                     }
                 ;
 
@@ -813,7 +874,7 @@ ARRAY           :   ']'
                     {
                         $$.expr = new Tree.ArrayConstant(null, $1.loc);
                     }
-                |   Constant ARRAY2 ']'
+                |   Constant ARRAY2
                     {
                         $$.elist = new ArrayList<Tree.Expr>();
                         $$.elist.add($1.expr);
@@ -829,7 +890,7 @@ ARRAY2          :   ',' Constant ARRAY2
                         $$.elist.add($2.expr);
                         $$.elist.addAll($3.elist);
                     }
-                |   /* empty */
+                |   ']'
                     {
                         $$.elist = new ArrayList<Tree.Expr>();
                     }
