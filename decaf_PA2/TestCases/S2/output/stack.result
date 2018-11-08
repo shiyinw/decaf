@@ -1,0 +1,4 @@
+*** Error at (13,17): incompatible operands: int unknow int
+*** Error at (18,15): array subscript must be an integer
+*** Error at (18,24): incompatible operands: int unknow int
+*** Error at (19,17): incompatible operands: int unknow int

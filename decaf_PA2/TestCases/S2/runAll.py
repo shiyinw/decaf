@@ -33,6 +33,7 @@ def main():
         subprocess.call(['java', '-jar', decaf_jar, '-l', '1', name],
                 stdout=open(os.path.join('output', bname + '.result'), 'w'),
                 stderr=subprocess.STDOUT)
+
         # Check the result
         expected = read_txt_file(os.path.join('result',bname+'.result'))
         actual = read_txt_file(os.path.join('output',bname+'.result'))
@@ -40,8 +41,8 @@ def main():
             info = 'OK :)'
         else:
             info = 'ERROR!'
-            print "actual\n", actual
-            print "expected\n", expected
+            print ("actual\n", actual)
+            print ("expected\n", expected)
         print('{0:<20}{1}'.format(name,info))
     if os.name == 'nt':
         print('Press Enter to continue...')

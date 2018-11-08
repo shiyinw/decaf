@@ -1,0 +1,28 @@
+*** Error at (36,24): incompatible operands: int unknow int
+*** Error at (37,18): incompatible operands: int unknow int
+*** Error at (49,18): incompatible operands: int unknow int
+*** Error at (52,22): incompatible operands: int unknow int
+*** Error at (53,28): incompatible operands: int unknow int
+*** Error at (60,19): incompatible operands: int unknow int
+*** Error at (72,15): incompatible operands: int unknow int
+*** Error at (75,22): incompatible operands: int unknow int
+*** Error at (76,28): incompatible operands: int unknow int
+*** Error at (76,36): array subscript must be an integer
+*** Error at (76,43): incompatible operands: int unknow int
+*** Error at (76,47): incompatible operands: int unknow int
+*** Error at (76,55): array subscript must be an integer
+*** Error at (76,65): incompatible operands: int unknow int
+*** Error at (76,68): incompatible operands: bool unknow int
+*** Error at (76,72): incompatible operands: int unknow int
+*** Error at (78,21): array subscript must be an integer
+*** Error at (78,28): incompatible operands: int unknow int
+*** Error at (79,21): array subscript must be an integer
+*** Error at (79,31): incompatible operands: int unknow int
+*** Error at (79,34): incompatible operands: bool unknow int
+*** Error at (81,26): incompatible operands: int unknow int
+*** Error at (83,21): array subscript must be an integer
+*** Error at (83,28): incompatible operands: int unknow int
+*** Error at (84,21): array subscript must be an integer
+*** Error at (84,31): incompatible operands: int unknow int
+*** Error at (84,34): incompatible operands: bool unknow int
+*** Error at (86,23): incompatible operands: int unknow int

@@ -182,6 +182,18 @@ public class SemValue {
 		case Parser.STATIC:
 			msg = "keyword : static";
 			break;
+		case Parser.SEALED:
+			msg = "keyword : sealed";
+			break;
+
+		case Parser.SCOPY:
+			msg = "keyword : scopy";
+			break;
+
+		case Parser.VAR:
+			msg = "keyword : var";
+			break;
+
 
 		// 常量
 		case Parser.LITERAL:

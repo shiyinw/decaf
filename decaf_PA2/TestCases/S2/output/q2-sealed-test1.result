@@ -1,0 +1,28 @@
+GLOBAL SCOPE:
+    (1,1) -> class Father
+    (13,1) -> class Child1 : Father
+    (17,1) -> class Child2
+    (22,1) -> class Main
+    CLASS SCOPE OF 'Father':
+        (2,7) -> variable age : int
+        (4,8) -> function setage : class : Father->int->void
+        (8,7) -> function getage : class : Father->int
+        FORMAL SCOPE OF 'setage':
+            (4,8) -> variable @this : class : Father
+            (4,19) -> variable @age : int
+            LOCAL SCOPE:
+        FORMAL SCOPE OF 'getage':
+            (8,7) -> variable @this : class : Father
+            LOCAL SCOPE:
+    CLASS SCOPE OF 'Child1':
+        (14,10) -> variable name : string
+    CLASS SCOPE OF 'Child2':
+        (18,9) -> variable name : string
+        (19,7) -> variable age : int
+    CLASS SCOPE OF 'Main':
+        (23,15) -> static function main : void
+        FORMAL SCOPE OF 'main':
+            LOCAL SCOPE:
+                (24,16) -> variable f : class : Father
+                (25,16) -> variable c1 : class : Child1
+                (26,16) -> variable c2 : class : Child2
