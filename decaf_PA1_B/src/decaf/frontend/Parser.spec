@@ -746,6 +746,9 @@ ExprT83         :   DEFAULT Expr9
                         $$.expr = $2.expr;
                     }
                 |   /* empty */
+                    {
+                        $$.expr = null;
+                    }
                 ;
 
 AfterIdentExpr  :   '(' Actuals ')'
