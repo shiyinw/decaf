@@ -1202,7 +1202,7 @@ break;
 case 40:
 //#line 218 "Parser.y"
 {
-                        yyval.stmt = new Tree.ArrayFor(false, val_peek(4).lvalue, val_peek(2).expr, val_peek(0).stmt, null, val_peek(6).loc);
+                    yyval.stmt = new Tree.ArrayFor(false, val_peek(4).lvalue, val_peek(2).expr, val_peek(0).stmt, null, val_peek(6).loc);
                     }
 break;
 case 41:
@@ -1394,7 +1394,7 @@ break;
 case 74:
 //#line 378 "Parser.y"
 {
-                        yyval.expr = new Tree.ArrayInit(val_peek(2).expr, val_peek(0).expr, val_peek(2).loc);
+                    yyval.expr = new Tree.ArrayInit(val_peek(2).expr, val_peek(0).expr, val_peek(2).loc);
                     }
 break;
 case 75:

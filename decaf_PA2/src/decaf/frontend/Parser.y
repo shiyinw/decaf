@@ -216,7 +216,7 @@ Stmt		    :	ForeachStmt
 
 ForeachStmt     :   FOREACH '(' BoundVariable IN Expr ')' Stmt
                     {
-                        $$.stmt = new Tree.ArrayFor(false, $3.lvalue, $5.expr, $7.stmt, null, $1.loc);
+                    $$.stmt = new Tree.ArrayFor(false, $3.lvalue, $5.expr, $7.stmt, null, $1.loc);
                     }
                 |   FOREACH '(' BoundVariable IN Expr WHILE Expr ')' Stmt
                     {
@@ -376,7 +376,7 @@ Expr            :	'[' Expr FOR IDENTIFIER IN Expr ']'
                 	}
                 |   Expr ARRAY_REPEAT Expr
                     {
-                        $$.expr = new Tree.ArrayInit($1.expr, $3.expr, $1.loc);
+                    $$.expr = new Tree.ArrayInit($1.expr, $3.expr, $1.loc);
                     }
                 |   Expr ARRAY_CONCAT Expr
                     {

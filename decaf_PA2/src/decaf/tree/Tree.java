@@ -400,7 +400,7 @@ public abstract class Tree {
     	public String parent;
     	public List<Tree> fields;
     	public Class symbol;
-        public boolean sealed;
+    	public boolean sealed;
 
         public ClassDef(boolean sealed, String name, String parent, List<Tree> fields,
     			Location loc) {
@@ -770,7 +770,9 @@ public abstract class Tree {
     		pw.println("stmtblock");
     		pw.incIndent();
     		for (Tree s : block) {
-    			s.printTo(pw);
+    		    if(s !=null) {
+                    s.printTo(pw);
+                }
     		}
     		pw.decIndent();
     	}
