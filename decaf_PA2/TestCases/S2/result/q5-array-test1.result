@@ -1,4 +1,4 @@
-GLOBAL SCOPE:
+pyGLOBAL SCOPE:
     (1,1) -> class Main
     CLASS SCOPE OF 'Main':
         (2,17) -> static function main : void

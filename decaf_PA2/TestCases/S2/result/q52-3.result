@@ -1,0 +1,3 @@
+*** Error at (17,4): incompatible operands: string = int[]
+*** Error at (17,8): array index must be int type
+*** Error at (18,6): Array Operation on non-array type
