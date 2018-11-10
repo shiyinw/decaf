@@ -7,30 +7,7 @@ import java.util.Stack;
 import decaf.Driver;
 import decaf.Location;
 import decaf.tree.Tree;
-import decaf.error.BadArgCountError;
-import decaf.error.BadArgTypeError;
-import decaf.error.BadArrElementError;
-import decaf.error.BadLengthArgError;
-import decaf.error.BadLengthError;
-import decaf.error.BadNewArrayLength;
-import decaf.error.BadPrintArgError;
-import decaf.error.BadReturnTypeError;
-import decaf.error.BadTestExpr;
-import decaf.error.BreakOutOfLoopError;
-import decaf.error.ClassNotFoundError;
-import decaf.error.DecafError;
-import decaf.error.FieldNotAccessError;
-import decaf.error.FieldNotFoundError;
-import decaf.error.IncompatBinOpError;
-import decaf.error.IncompatUnOpError;
-import decaf.error.NotArrayError;
-import decaf.error.NotClassError;
-import decaf.error.NotClassFieldError;
-import decaf.error.NotClassMethodError;
-import decaf.error.RefNonStaticError;
-import decaf.error.SubNotIntError;
-import decaf.error.ThisInStaticFuncError;
-import decaf.error.UndeclVarError;
+import decaf.error.*;
 import decaf.frontend.Parser;
 import decaf.scope.ClassScope;
 import decaf.scope.FormalScope;
@@ -403,6 +380,9 @@ public class TypeCheck extends Tree.Visitor {
 	@Override
 	public void visitClassDef(Tree.ClassDef classDef) {
 		table.open(classDef.symbol.getAssociatedScope());
+		if(classDef.sealed){
+
+		}
 		for (Tree f : classDef.fields) {
 			f.accept(this);
 		}
@@ -439,12 +419,8 @@ public class TypeCheck extends Tree.Visitor {
 	public void visitAssign(Tree.Assign assign) {
 		assign.left.accept(this);
 		assign.expr.accept(this);
-		if (!assign.left.type.equal(BaseType.ERROR)
-				&& (assign.left.type.isFuncType() || !assign.expr.type
-						.compatible(assign.left.type))) {
-			issueError(new IncompatBinOpError(assign.getLocation(),
-					assign.left.type.toString(), "=", assign.expr.type
-							.toString()));
+		if (!assign.left.type.equal(BaseType.ERROR) && (assign.left.type.isFuncType() || !assign.expr.type.compatible(assign.left.type))) {
+			issueError(new IncompatBinOpError(assign.getLocation(), assign.left.type.toString(), "=", assign.expr.type.toString()));
 		}
 	}
 
@@ -479,6 +455,14 @@ public class TypeCheck extends Tree.Visitor {
 		}
 		if (ifStmt.falseBranch != null) {
 			ifStmt.falseBranch.accept(this);
+		}
+	}
+
+	@Override
+	public void visitIfG(Tree.IfG IFG){
+		checkTestExpr(IFG.condition);
+		if (IFG.trueBranch != null) {
+			IFG.trueBranch.accept(this);
 		}
 	}
 
@@ -571,6 +555,16 @@ public class TypeCheck extends Tree.Visitor {
 			typeArray.type = new ArrayType(typeArray.elementType.type);
 		}
 	}
+
+	@Override
+	public void visitScopy(Tree.Scopy scopy) {
+		Symbol v = table.lookupBeforeLocation(scopy.indentifier, scopy.getLocation());
+		if (v == null) {
+			issueError(new UndeclVarError(scopy.getLocation(), scopy.indentifier));
+			scopy.type = BaseType.ERROR;
+		}
+	}
+
 
 	private void issueError(DecafError error) {
 		Driver.getDriver().issueError(error);
