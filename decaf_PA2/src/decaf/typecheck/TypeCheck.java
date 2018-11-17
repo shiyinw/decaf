@@ -572,8 +572,22 @@ public class TypeCheck extends Tree.Visitor {
 		Symbol v = table.lookupBeforeLocation(scopy.indentifier, scopy.getLocation());
 		if (v == null) {
 			issueError(new UndeclVarError(scopy.getLocation(), scopy.indentifier));
-			scopy.type = BaseType.ERROR;
 		}
+		else{
+			// TODO: check whether the expr is a class
+			if(!v.getType().isClassType()) {
+				issueError(new BadScopyArgError(scopy.getLocation(), "dst", v.getType().toString()));
+//				if(scopy.expr!= null && !scopy.expr.isClass){
+//					issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), scopy.expr.toString()));
+//				}
+			}
+			else{
+//				if(scopy.expr!= null && !scopy.expr.isClass){
+//					issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), scopy.expr.toString()));
+//				}
+			}
+		}
+
 	}
 
 
