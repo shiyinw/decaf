@@ -1,8 +1,14 @@
-GLOBAL SCOPE:
-    (1,1) -> class Main
-    CLASS SCOPE OF 'Main':
-        (2,15) -> static function main : void
-        FORMAL SCOPE OF 'main':
-            LOCAL SCOPE:
-                (3,6) -> variable a : int
-                (5,7) -> variable b : int
+Exception in thread "main" java.lang.NullPointerException
+	at decaf.scope.ScopeStack.open(ScopeStack.java:53)
+	at decaf.typecheck.TypeCheck.visitGuard(TypeCheck.java:467)
+	at decaf.tree.Tree$Guard.accept(Tree.java:941)
+	at decaf.typecheck.TypeCheck.visitBlock(TypeCheck.java:417)
+	at decaf.tree.Tree$Block.accept(Tree.java:765)
+	at decaf.typecheck.TypeCheck.visitMethodDef(TypeCheck.java:400)
+	at decaf.tree.Tree$MethodDef.accept(Tree.java:454)
+	at decaf.typecheck.TypeCheck.visitClassDef(TypeCheck.java:391)
+	at decaf.tree.Tree$ClassDef.accept(Tree.java:416)
+	at decaf.typecheck.TypeCheck.visitTopLevel(TypeCheck.java:408)
+	at decaf.typecheck.TypeCheck.checkType(TypeCheck.java:39)
+	at decaf.Driver.compile(Driver.java:93)
+	at decaf.Driver.main(Driver.java:107)

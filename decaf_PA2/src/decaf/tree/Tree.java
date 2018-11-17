@@ -930,6 +930,7 @@ public abstract class Tree {
 
     public static class Guard extends Tree{
         public List<Tree> block;
+        public LocalScope associatedScope;
 
         public Guard(List<Tree> block, Location loc) {
             super(GUARD, loc);

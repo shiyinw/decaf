@@ -28,6 +28,8 @@ public class TypeCheck extends Tree.Visitor {
 
 	private Function currentFunction;
 
+	private Class currentClass;
+
 	public TypeCheck(ScopeStack table) {
 		this.table = table;
 		breaks = new Stack<Tree>();
@@ -380,8 +382,10 @@ public class TypeCheck extends Tree.Visitor {
 	@Override
 	public void visitClassDef(Tree.ClassDef classDef) {
 		table.open(classDef.symbol.getAssociatedScope());
-		if(classDef.sealed){
+		Class parent = table.lookupClass(classDef.parent);
 
+		if(parent!=null && parent.isSealed()){
+			issueError(new BadSealedInherError(classDef.getLocation()));
 		}
 		for (Tree f : classDef.fields) {
 			f.accept(this);
@@ -456,6 +460,15 @@ public class TypeCheck extends Tree.Visitor {
 		if (ifStmt.falseBranch != null) {
 			ifStmt.falseBranch.accept(this);
 		}
+	}
+
+	@Override
+	public void visitGuard(Tree.Guard guard){
+		table.open(guard.associatedScope);
+		for (Tree s : guard.block) {
+			s.accept(this);
+		}
+		table.close();
 	}
 
 	@Override

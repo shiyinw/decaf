@@ -46,7 +46,7 @@ public class BuildSym extends Tree.Visitor {
 		program.globalScope = new GlobalScope();
 		table.open(program.globalScope);
 		for (Tree.ClassDef cd : program.classes) {
-			Class c = new Class(cd.name, cd.parent, cd.getLocation());
+			Class c = new Class(cd.name, cd.parent, cd.getLocation(), cd.sealed);
 			Class earlier = table.lookupClass(cd.name);
 			if (earlier != null) {
 				issueError(new DeclConflictError(cd.getLocation(), cd.name,
