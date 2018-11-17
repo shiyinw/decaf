@@ -79,6 +79,9 @@ public class TypeCheck extends Tree.Visitor {
 		case Tree.STRING:
 			literal.type = BaseType.STRING;
 			break;
+		case Tree.UNKNOWN:
+			literal.type = BaseType.UNKNOWN;
+			break;
 		}
 	}
 
@@ -577,14 +580,31 @@ public class TypeCheck extends Tree.Visitor {
 			// TODO: check whether the expr is a class
 			if(!v.getType().isClassType()) {
 				issueError(new BadScopyArgError(scopy.getLocation(), "dst", v.getType().toString()));
-//				if(scopy.expr!= null && !scopy.expr.isClass){
-//					issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), scopy.expr.toString()));
+				scopy.expr.accept(this);
+				if (!scopy.expr.type.isClassType())
+				{
+					issueError(new BadScopyArgError(scopy.expr.getLocation(), "src", scopy.expr.type.toString()));
+				}
+				scopy.type = scopy.expr.type;
+// 				Symbol right = table.lookup(scopy.expr.toString(), false);
+//				if(right!=null && right.isVariable()){
+//					if(!right.isClass()){
+//						issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), right.getType().toString()));
+//					}
+//				}
+//				if(right==null){
+//					if(scopy.expr!= null && !scopy.expr.isClass){
+//						issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), scopy.expr.toString()));
+//					}
 //				}
 			}
 			else{
-//				if(scopy.expr!= null && !scopy.expr.isClass){
-//					issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), scopy.expr.toString()));
-//				}
+				scopy.expr.accept(this);
+				if (!scopy.expr.type.isClassType())
+				{
+					issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), scopy.expr.type.toString()));
+				}
+				scopy.type = scopy.expr.type;
 			}
 		}
 

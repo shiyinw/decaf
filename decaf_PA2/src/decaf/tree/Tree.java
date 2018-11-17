@@ -330,7 +330,8 @@ public abstract class Tree {
     public static final int VOID = 0; 
     public static final int INT = VOID + 1; 
     public static final int BOOL = INT + 1; 
-    public static final int STRING = BOOL + 1; 
+    public static final int STRING = BOOL + 1;
+    public static final int UNKNOWN = STRING + 1;
 
 
     public Location loc;

@@ -173,6 +173,9 @@ public class BuildSym extends Tree.Visitor {
 		case Tree.BOOL:
 			type.type = BaseType.BOOL;
 			break;
+		case Tree.UNKNOWN:
+			type.type = BaseType.UNKNOWN;
+			break;
 		default:
 			type.type = BaseType.STRING;
 		}
