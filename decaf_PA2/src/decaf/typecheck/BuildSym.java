@@ -232,6 +232,21 @@ public class BuildSym extends Tree.Visitor {
 		}
 	}
 
+
+	@Override
+	public void visitIfG(Tree.IfG ifStmt) {
+		if (ifStmt.trueBranch != null) {
+			ifStmt.trueBranch.accept(this);
+		}
+	}
+
+	@Override
+	public void visitGuard(Tree.Guard guard){
+		for (Tree s : guard.block) {
+			s.accept(this);
+		}
+	}
+
 	@Override
 	public void visitWhileLoop(Tree.WhileLoop whileLoop) {
 		if (whileLoop.loopBody != null) {

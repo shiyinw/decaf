@@ -464,11 +464,9 @@ public class TypeCheck extends Tree.Visitor {
 
 	@Override
 	public void visitGuard(Tree.Guard guard){
-		table.open(guard.associatedScope);
 		for (Tree s : guard.block) {
 			s.accept(this);
 		}
-		table.close();
 	}
 
 	@Override
