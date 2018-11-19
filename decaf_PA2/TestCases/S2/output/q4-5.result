@@ -1,13 +1,3 @@
-Exception in thread "main" java.lang.NullPointerException
-	at decaf.typecheck.TypeCheck.visitAssign(TypeCheck.java:429)
-	at decaf.tree.Tree$Assign.accept(Tree.java:1221)
-	at decaf.typecheck.TypeCheck.visitBlock(TypeCheck.java:420)
-	at decaf.tree.Tree$Block.accept(Tree.java:766)
-	at decaf.typecheck.TypeCheck.visitMethodDef(TypeCheck.java:403)
-	at decaf.tree.Tree$MethodDef.accept(Tree.java:455)
-	at decaf.typecheck.TypeCheck.visitClassDef(TypeCheck.java:394)
-	at decaf.tree.Tree$ClassDef.accept(Tree.java:417)
-	at decaf.typecheck.TypeCheck.visitTopLevel(TypeCheck.java:411)
-	at decaf.typecheck.TypeCheck.checkType(TypeCheck.java:39)
-	at decaf.Driver.compile(Driver.java:93)
-	at decaf.Driver.main(Driver.java:107)
+*** Error at (6,15): function 'foo' expects 1 argument(s) but 0 given
+*** Error at (7,20): undeclared variable 'b'
+*** Error at (8,13): incompatible argument 1: var given, int/bool/string expected

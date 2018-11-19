@@ -79,8 +79,8 @@ public class TypeCheck extends Tree.Visitor {
 		case Tree.STRING:
 			literal.type = BaseType.STRING;
 			break;
-		case Tree.UNKNOWN:
-			literal.type = BaseType.UNKNOWN;
+		case Tree.VAR:
+			literal.type = BaseType.VAR;
 			break;
 		}
 	}
@@ -426,10 +426,16 @@ public class TypeCheck extends Tree.Visitor {
 	public void visitAssign(Tree.Assign assign) {
 		assign.left.accept(this);
 		assign.expr.accept(this);
-		if (!assign.left.type.equal(BaseType.ERROR) && (assign.left.type.isFuncType() || !assign.expr.type.compatible(assign.left.type))) {
+		if (!assign.left.type.equal(BaseType.VAR) && !assign.expr.type.equal(BaseType.ERROR) && !assign.left.type.equal(BaseType.ERROR) && (assign.left.type.isFuncType() || !assign.expr.type.compatible(assign.left.type))) {
 			issueError(new IncompatBinOpError(assign.getLocation(), assign.left.type.toString(), "=", assign.expr.type.toString()));
 		}
+		if (assign.left.type.equal(BaseType.VAR)){
+			assign.left.type = assign.expr.type;
+			assign.type = assign.expr.type;
+		}
+
 	}
+
 
 	@Override
 	public void visitBreak(Tree.Break breakStmt) {
@@ -540,6 +546,9 @@ public class TypeCheck extends Tree.Visitor {
 		case Tree.BOOL:
 			type.type = BaseType.BOOL;
 			break;
+		case Tree.VAR:
+			type.type = BaseType.VAR;
+			break;
 		default:
 			type.type = BaseType.STRING;
 		}
@@ -577,31 +586,17 @@ public class TypeCheck extends Tree.Visitor {
 			issueError(new UndeclVarError(scopy.getLocation(), scopy.indentifier));
 		}
 		else{
-			// TODO: check whether the expr is a class
 			if(!v.getType().isClassType()) {
 				issueError(new BadScopyArgError(scopy.getLocation(), "dst", v.getType().toString()));
 				scopy.expr.accept(this);
-				if (!scopy.expr.type.isClassType())
-				{
+				if (!scopy.expr.type.isClassType()) {
 					issueError(new BadScopyArgError(scopy.expr.getLocation(), "src", scopy.expr.type.toString()));
 				}
 				scopy.type = scopy.expr.type;
-// 				Symbol right = table.lookup(scopy.expr.toString(), false);
-//				if(right!=null && right.isVariable()){
-//					if(!right.isClass()){
-//						issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), right.getType().toString()));
-//					}
-//				}
-//				if(right==null){
-//					if(scopy.expr!= null && !scopy.expr.isClass){
-//						issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), scopy.expr.toString()));
-//					}
-//				}
 			}
 			else{
 				scopy.expr.accept(this);
-				if (!scopy.expr.type.isClassType())
-				{
+				if (!scopy.expr.type.isClassType()) {
 					issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), scopy.expr.type.toString()));
 				}
 				scopy.type = scopy.expr.type;
@@ -674,7 +669,14 @@ public class TypeCheck extends Tree.Visitor {
 		}
 
 		if (!compatible) {
-			issueError(new IncompatBinOpError(location, left.type.toString(),
+			Location printlocation = location;
+			if (right.type.equal(BaseType.VAR)){
+				printlocation = right.getLocation();
+			}
+			if (left.type.equal(BaseType.VAR)){
+				printlocation = left.getLocation();
+			}
+			issueError(new IncompatBinOpError(printlocation, left.type.toString(),
 					Parser.opStr(op), right.type.toString()));
 		}
 		return returnType;
@@ -685,6 +687,10 @@ public class TypeCheck extends Tree.Visitor {
 		if (!expr.type.equal(BaseType.ERROR) && !expr.type.equal(BaseType.BOOL)) {
 			issueError(new BadTestExpr(expr.getLocation()));
 		}
+	}
+
+	public void visitIdentVar(Tree.IdentVar that) {
+		that.type = BaseType.VAR;
 	}
 
 }

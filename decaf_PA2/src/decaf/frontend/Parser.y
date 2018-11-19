@@ -79,7 +79,12 @@ VariableDef     :	Variable ';'
 
 Variable        :	Type IDENTIFIER
 					{
-						$$.vdef = new Tree.VarDef($2.ident, $1.type, $2.loc);
+					    if($1.ident=="var"){
+					        $$.vdef = new Tree.VarDef($2.ident, $2.type, $2.loc);
+					    }
+					    else{
+					        $$.vdef = new Tree.VarDef($2.ident, $1.type, $2.loc);
+					    }
 					}
 				;
 				
@@ -103,7 +108,7 @@ Type            :	INT
                 	{
                 		$$.type = new Tree.TypeClass($2.ident, $1.loc);
                 	}
-                |	Type '[' ']'
+                |  	Type '[' ']'
                 	{
                 		$$.type = new Tree.TypeArray($1.type, $1.loc);
                 	}
@@ -224,13 +229,14 @@ ForeachStmt     :   FOREACH '(' BoundVariable IN Expr ')' Stmt
                     }
                 ;
 
-BoundVariable   :   VAR IDENTIFIER
+BoundVariable   :   Type IDENTIFIER
                     {
-                        $$.lvalue = new LValue.BoundVar(null, $2.ident, $1.loc);
-                    }
-                |   Type IDENTIFIER
-                    {
-                        $$.lvalue = new LValue.BoundVar($1.type, $2.ident, $1.loc);
+                        if($1.ident=="var"){
+                            $$.lvalue = new LValue.BoundVar($1.type, $2.ident, $2.loc);
+                        }
+                        else{
+                            $$.lvalue = new LValue.BoundVar($1.type, $2.ident, $1.loc);
+                        }
                     }
                 ;
 
@@ -273,7 +279,7 @@ OCStmt          :   SCOPY '(' IDENTIFIER ',' Expr ')'
 
 SimpleStmt      :	LValue '=' Expr
 					{
-						$$.stmt = new Tree.Assign($1.lvalue, $3.expr, $2.loc);
+						$$.stmt = new Tree.Assign($1.lvalue, $3.expr, $2.loc, $1.ident);
 					}
                 |	Call
                 	{
@@ -294,9 +300,10 @@ Receiver     	:	Expr '.'
 
 LValue          :	VAR IDENTIFIER
                     {
+                        $$.ident = $2.ident;
                         $$.lvalue = new Tree.IdentVar($2.ident, $2.loc);
                         if ($1.loc == null) {
-                        $$.loc = $2.loc;
+                            $$.loc = $2.loc;
                         }
                     }
                 |   Receiver IDENTIFIER

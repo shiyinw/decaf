@@ -131,6 +131,23 @@ public class BuildSym extends Tree.Visitor {
 		varDef.symbol = v;
 	}
 
+	// TODO: assign
+	@Override
+	public void visitAssign(Tree.Assign assign) {
+		assign.left.accept(this);
+		if (assign.left!=null && assign.left.type!= null && assign.left.type.equal(BaseType.VAR)) {
+			Variable v = new Variable(assign.name, assign.expr.type, assign.left.getLocation());
+			table.declare(v);
+		}
+
+	}
+
+
+	public void visitIdentVar(Tree.IdentVar assign) {
+		Variable v = new Variable(assign.name, BaseType.VAR, assign.getLocation());
+		table.declare(v);
+	}
+
 	@Override
 	public void visitMethodDef(Tree.MethodDef funcDef) {
 		funcDef.returnType.accept(this);
@@ -173,8 +190,8 @@ public class BuildSym extends Tree.Visitor {
 		case Tree.BOOL:
 			type.type = BaseType.BOOL;
 			break;
-		case Tree.UNKNOWN:
-			type.type = BaseType.UNKNOWN;
+		case Tree.VAR:
+			type.type = BaseType.VAR;
 			break;
 		default:
 			type.type = BaseType.STRING;

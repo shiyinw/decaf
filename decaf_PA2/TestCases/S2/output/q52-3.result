@@ -1,6 +1,6 @@
 Exception in thread "main" java.lang.NullPointerException
 	at decaf.typecheck.TypeCheck.visitAssign(TypeCheck.java:429)
-	at decaf.tree.Tree$Assign.accept(Tree.java:1221)
+	at decaf.tree.Tree$Assign.accept(Tree.java:1223)
 	at decaf.typecheck.TypeCheck.visitBlock(TypeCheck.java:420)
 	at decaf.tree.Tree$Block.accept(Tree.java:766)
 	at decaf.typecheck.TypeCheck.visitMethodDef(TypeCheck.java:403)

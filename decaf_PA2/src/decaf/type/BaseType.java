@@ -20,7 +20,7 @@ public class BaseType extends Type {
 	
 	public static final BaseType VOID = new BaseType("void");
 
-	public static final BaseType UNKNOWN = new BaseType("unknown");
+	public static final BaseType VAR = new BaseType("var");
 
 	@Override
 	public boolean isBaseType() {
@@ -33,6 +33,9 @@ public class BaseType extends Type {
 			return true;
 		}
 		if (equal(NULL) && type.isClassType()) {
+			return true;
+		}
+		if (this.typeName=="unknown"){
 			return true;
 		}
 		return equal(type);

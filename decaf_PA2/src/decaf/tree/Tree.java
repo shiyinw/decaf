@@ -331,7 +331,7 @@ public abstract class Tree {
     public static final int INT = VOID + 1; 
     public static final int BOOL = INT + 1; 
     public static final int STRING = BOOL + 1;
-    public static final int UNKNOWN = STRING + 1;
+    public static final int VAR = STRING + 1;
 
 
     public Location loc;
@@ -1209,11 +1209,13 @@ public abstract class Tree {
 
     	public LValue left;
     	public Expr expr;
+    	public String name;
 
-        public Assign(LValue left, Expr expr, Location loc) {
+        public Assign(LValue left, Expr expr, Location loc, String name) {
             super(ASSIGN, loc);
     		this.left = left;
     		this.expr = expr;
+    		this.name = name;
         }
 
     	@Override
@@ -1672,6 +1674,9 @@ public abstract class Tree {
     		case VOID:
     			pw.print("voidtype");
     			break;
+            case VAR:
+                pw.print("var");
+                break;
     		default:
     			pw.print("stringtype");
     		}
