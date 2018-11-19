@@ -143,9 +143,23 @@ public class BuildSym extends Tree.Visitor {
 	}
 
 
-	public void visitIdentVar(Tree.IdentVar assign) {
-		Variable v = new Variable(assign.name, BaseType.VAR, assign.getLocation());
-		table.declare(v);
+	public void visitIdentVar(Tree.IdentVar var) {
+		Variable v = new Variable(var.name, var.type, var.getLocation());
+		Symbol sym = table.lookup(var.name, true);
+		if (sym != null) {
+			if (table.getCurrentScope().equals(sym.getScope())) {
+				issueError(new DeclConflictError(v.getLocation(), v.getName(),
+						sym.getLocation()));
+			} else if ((sym.getScope().isFormalScope() && table.getCurrentScope().isLocalScope() && ((LocalScope)table.getCurrentScope()).isCombinedtoFormal() )) {
+				issueError(new DeclConflictError(v.getLocation(), v.getName(),
+						sym.getLocation()));
+			} else {
+				table.declare(v);
+			}
+		} else {
+			table.declare(v);
+		}
+
 	}
 
 	@Override

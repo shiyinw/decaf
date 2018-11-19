@@ -1,2 +1,1 @@
-*** Error at (12,16): incompatible operands: var + int
-*** Error at (13,13): incompatible argument 1: var given, int/bool/string expected
+*** Error at (11,11): declaration of 'k' here conflicts with earlier declaration at (10,8)

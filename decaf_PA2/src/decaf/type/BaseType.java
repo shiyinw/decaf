@@ -20,7 +20,7 @@ public class BaseType extends Type {
 	
 	public static final BaseType VOID = new BaseType("void");
 
-	public static final BaseType VAR = new BaseType("var");
+	public static final BaseType VAR = new BaseType("unknown");
 
 	@Override
 	public boolean isBaseType() {

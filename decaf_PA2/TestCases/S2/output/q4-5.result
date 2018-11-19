@@ -1,3 +1,1 @@
-*** Error at (6,15): function 'foo' expects 1 argument(s) but 0 given
-*** Error at (7,20): undeclared variable 'b'
-*** Error at (8,13): incompatible argument 1: var given, int/bool/string expected
+*** Error at (6,11): declaration of 'k' here conflicts with earlier declaration at (3,24)
