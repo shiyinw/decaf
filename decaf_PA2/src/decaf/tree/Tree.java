@@ -7,6 +7,7 @@
 package decaf.tree;
 
 import java.util.List;
+import java.util.Arrays;
 
 import decaf.*;
 import decaf.type.*;
@@ -592,19 +593,23 @@ public abstract class Tree {
 
     public static class ArrayFor extends Tree{
         public LValue e1;
-        public Tree e2;
+        public Tree.Block block;
         public Expr ident, j;
         public boolean judge;
+        public LocalScope associatedScope;
+        public Tree.Block virtualScope;
 
         public ArrayFor(boolean judege, LValue e1, Expr ident, Tree e2, Expr j, Location loc) {
             super(ARRAYFOR, loc);
             this.e1 = e1;
-            this.e2 = e2;
+            this.block = (Tree.Block) e2;
             this.ident = ident;
             this.judge = judege;
             this.j = j;
-        }
 
+            List <Tree> list = Arrays.asList(this);
+            this.virtualScope = new Expr.Block(list, loc);
+        }
         @Override
         public void accept(Visitor v) {v.visitArrayFor(this); }
 
@@ -622,8 +627,8 @@ public abstract class Tree {
             else{
                 pw.println("boolconst true");
             }
-            if(e2!=null){
-                e2.printTo(pw);
+            if(block!=null){
+                block.printTo(pw);
             }
             pw.decIndent();
         }

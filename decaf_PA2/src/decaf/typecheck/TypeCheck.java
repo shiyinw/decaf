@@ -820,5 +820,40 @@ public class TypeCheck extends Tree.Visitor {
 		arr.elementType = e1a.getElementType();
 	}
 
+	@Override
+	public void visitArrayFor(Tree.ArrayFor arrfor){
+		arrfor.ident.accept(this);
+		Tree.Ident ident = (Tree.Ident) arrfor.ident;
+		Variable arr = (Variable) table.lookup(ident.name, true);
+
+//		issueError(new PrintError(arrfor.getLocation(), arrfor.e1.toString()));
+//		issueError(new PrintError(arrfor.getLocation(), arrfor.e2.toString()));
+//		issueError(new PrintError(arrfor.getLocation(), arrfor.ident.toString()));
+//		issueError(new PrintError(arrfor.getLocation(), arrfor.j.toString()));
+
+//		if(arr!=null){
+//			issueError(new PrintError(arrfor.ident.getLocation(), arr.type.toString()));
+//		}
+
+		if(arr!=null && !arr.type.isArrayType()){
+			issueError(new BadArrOperArgError(arrfor.ident.getLocation()));
+		}
+
+		if(arrfor.j!=null){
+			checkTestExpr(arrfor.j);
+		}
+
+
+		table.open(arrfor.associatedScope);
+
+		for (Tree s : arrfor.block.block) {
+			s.accept(this);
+		}
+		table.close();
+
+
+		//issueError(new PrintError(arrfor.getLocation(), arrfor.e2.toString()));
+		//arrfor.e2.accept(this);
+	}
 
 }

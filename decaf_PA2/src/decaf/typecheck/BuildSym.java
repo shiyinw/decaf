@@ -4,15 +4,7 @@ import java.util.Iterator;
 
 import decaf.Driver;
 import decaf.tree.Tree;
-import decaf.error.BadArrElementError;
-import decaf.error.BadInheritanceError;
-import decaf.error.BadOverrideError;
-import decaf.error.BadVarTypeError;
-import decaf.error.ClassNotFoundError;
-import decaf.error.DecafError;
-import decaf.error.DeclConflictError;
-import decaf.error.NoMainClassError;
-import decaf.error.OverridingVarError;
+import decaf.error.*;
 import decaf.scope.ClassScope;
 import decaf.scope.GlobalScope;
 import decaf.scope.LocalScope;
@@ -113,8 +105,7 @@ public class BuildSym extends Tree.Visitor {
 					.getLocation());
 			return;
 		}
-		Variable v = new Variable(varDef.name, varDef.type.type, 
-				varDef.getLocation());
+		Variable v = new Variable(varDef.name, varDef.type.type, varDef.getLocation());
 		Symbol sym = table.lookup(varDef.name, true);
 		if (sym != null) {
 			if (table.getCurrentScope().equals(sym.getScope())) {
@@ -157,6 +148,9 @@ public class BuildSym extends Tree.Visitor {
 		}
 		var.symbol = v;
 	}
+
+
+
 
 	@Override
 	public void visitMethodDef(Tree.MethodDef funcDef) {
@@ -241,6 +235,21 @@ public class BuildSym extends Tree.Visitor {
 		for (Tree s : block.block) {
 			s.accept(this);
 		}
+		table.close();
+	}
+
+	@Override
+	public void visitArrayFor(Tree.ArrayFor arr){
+		arr.associatedScope = new LocalScope(arr.virtualScope);
+		table.open(arr.associatedScope);
+		arr.ident.accept(this);
+
+		issueError(new PrintError(arr.ident.getLocation(), arr.ident.toString()));
+
+		for (Tree s : arr.block.block) {
+			s.accept(this);
+		}
+
 		table.close();
 	}
 
