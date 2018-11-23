@@ -1,0 +1,34 @@
+GLOBAL SCOPE:
+    (1,1) -> class Math
+    (51,1) -> class Main
+    CLASS SCOPE OF 'Math':
+        (2,16) -> static function abs : int->int
+        (11,16) -> static function pow : int->int->int
+        (21,16) -> static function log : int->int
+        (34,16) -> static function max : int->int->int
+        (42,16) -> static function min : int->int->int
+        FORMAL SCOPE OF 'abs':
+            (2,24) -> variable @a : int
+            LOCAL SCOPE:
+        FORMAL SCOPE OF 'pow':
+            (11,24) -> variable @a : int
+            (11,31) -> variable @b : int
+            LOCAL SCOPE:
+                (12,13) -> variable i : int
+                (13,13) -> variable result : int
+        FORMAL SCOPE OF 'log':
+            (21,24) -> variable @a : int
+            LOCAL SCOPE:
+                (25,13) -> variable result : int
+        FORMAL SCOPE OF 'max':
+            (34,24) -> variable @a : int
+            (34,31) -> variable @b : int
+            LOCAL SCOPE:
+        FORMAL SCOPE OF 'min':
+            (42,24) -> variable @a : int
+            (42,31) -> variable @b : int
+            LOCAL SCOPE:
+    CLASS SCOPE OF 'Main':
+        (52,17) -> static function main : void
+        FORMAL SCOPE OF 'main':
+            LOCAL SCOPE:

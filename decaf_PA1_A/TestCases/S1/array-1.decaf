@@ -4,7 +4,7 @@ class Main {
             opt == 1:
                 return ["Bye"];
         ||| opt == 2: {
-                var arr1 = ["Hello"];
+var arr1 = ["Hello"];
                 var arr2 = ["World"];
                 return arr1 %% 2 ++ arr2;
             }

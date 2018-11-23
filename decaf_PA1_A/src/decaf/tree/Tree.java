@@ -481,6 +481,36 @@ public abstract class Tree {
     	}
     }
 
+    public static class VarAssign extends Tree {
+
+        public Expr expr;
+        public String name;
+        //public Type type;
+        //public Variable symbol;
+
+        public VarAssign(Expr expr, Location loc, String name) {
+            super(ASSIGN, loc);
+            this.expr = expr;
+            this.name = name;
+        }
+
+        @Override
+        public void accept(Visitor v) {
+            v.visitVarAssign(this);
+        }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("assign");
+            pw.incIndent();
+            pw.println("var " + name);
+            if(expr != null) {
+                expr.printTo(pw);
+            }
+            pw.decIndent();
+        }
+    }
+
     /**
      * Array
      */
@@ -1770,6 +1800,10 @@ public abstract class Tree {
         }
 
         public void visitAssign(Assign that) {
+            visitTree(that);
+        }
+
+        public void visitVarAssign(VarAssign that) {
             visitTree(that);
         }
 

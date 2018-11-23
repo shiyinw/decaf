@@ -139,12 +139,16 @@ public class BuildSym extends Tree.Visitor {
 			Variable v = new Variable(assign.name, assign.expr.type, assign.left.getLocation());
 			table.declare(v);
 		}
-
 	}
 
+	@Override
+	public void visitIdentVar(Tree.IdentVar that) {
+		that.type = BaseType.VAR;
+	}
 
-	public void visitIdentVar(Tree.IdentVar var) {
-		Variable v = new Variable(var.name, var.type, var.getLocation());
+	public void visitVarAssign(Tree.VarAssign var) {
+		var.type = var.expr.type;
+		Variable v = new Variable(var.name, var.expr.type, var.getLocation());
 		Symbol sym = table.lookup(var.name, true);
 		if (sym != null) {
 			if (table.getCurrentScope().equals(sym.getScope())) {
@@ -159,7 +163,7 @@ public class BuildSym extends Tree.Visitor {
 		} else {
 			table.declare(v);
 		}
-
+		var.symbol = v;
 	}
 
 	@Override

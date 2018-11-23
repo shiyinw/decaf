@@ -1191,7 +1191,7 @@ public abstract class Tree {
     }
 
     public abstract static class LValue extends Expr {
-
+        public boolean isDefined;
     	public enum Kind {
     		LOCAL_VAR, PARAM_VAR, MEMBER_VAR, ARRAY_ELEMENT
     	}
@@ -1209,13 +1209,11 @@ public abstract class Tree {
 
     	public LValue left;
     	public Expr expr;
-    	public String name;
 
-        public Assign(LValue left, Expr expr, Location loc, String name) {
+        public Assign(LValue left, Expr expr, Location loc) {
             super(ASSIGN, loc);
     		this.left = left;
     		this.expr = expr;
-    		this.name = name;
         }
 
     	@Override
@@ -1233,6 +1231,37 @@ public abstract class Tree {
             }
     		pw.decIndent();
     	}
+    }
+
+
+    public static class VarAssign extends Tree {
+
+        public Expr expr;
+        public String name;
+        public Type type;
+        public Variable symbol;
+
+        public VarAssign(Expr expr, Location loc, String name) {
+            super(ASSIGN, loc);
+            this.expr = expr;
+            this.name = name;
+        }
+
+        @Override
+        public void accept(Visitor v) {
+            v.visitVarAssign(this);
+        }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("assign");
+            pw.incIndent();
+            pw.println("var " + name);
+            if(expr != null) {
+                expr.printTo(pw);
+            }
+            pw.decIndent();
+        }
     }
 
     /**
@@ -1534,10 +1563,12 @@ public abstract class Tree {
 
         public String name;
         public boolean isDefined;
+        public Variable symbol;
 
         public IdentVar(String name, Location loc) {
             super(IDENTVAR, loc);
             this.name = name;
+            this.isDefined = false;
         }
 
         @Override
@@ -1565,6 +1596,7 @@ public abstract class Tree {
             super(IDENT, loc);
     		this.owner = owner;
     		this.name = name;
+    		this.isDefined = true;
         }
 
     	@Override
@@ -1807,6 +1839,10 @@ public abstract class Tree {
         }
 
         public void visitAssign(Assign that) {
+            visitTree(that);
+        }
+
+        public void visitVarAssign(VarAssign that) {
             visitTree(that);
         }
 

@@ -426,15 +426,19 @@ public class TypeCheck extends Tree.Visitor {
 	public void visitAssign(Tree.Assign assign) {
 		assign.left.accept(this);
 		assign.expr.accept(this);
-		if (!assign.left.type.equal(BaseType.VAR) && !assign.expr.type.equal(BaseType.ERROR) && !assign.left.type.equal(BaseType.ERROR) && (assign.left.type.isFuncType() || !assign.expr.type.compatible(assign.left.type))) {
-			issueError(new IncompatBinOpError(assign.getLocation(), assign.left.type.toString(), "=", assign.expr.type.toString()));
+		if (!assign.left.type.equal(BaseType.ERROR)
+				&& (assign.left.type.isFuncType() || !assign.expr.type
+						.compatible(assign.left.type))) {
+			issueError(new IncompatBinOpError(assign.getLocation(),
+					assign.left.type.toString(), "=", assign.expr.type
+							.toString()));
 		}
-		if (assign.left.type.equal(BaseType.VAR)){
-			assign.left.type = assign.expr.type;
-			assign.type = assign.expr.type;
-		}
-
 	}
+
+//	@Override
+//	public void visitIdentVar(Tree.IdentVar ident){
+//		ident.type = ident.symbol.getType();
+//	}
 
 
 	@Override
@@ -492,7 +496,7 @@ public class TypeCheck extends Tree.Visitor {
 		for (Tree.Expr e : printStmt.exprs) {
 			e.accept(this);
 			i++;
-			if (!e.type.equal(BaseType.ERROR) && !e.type.equal(BaseType.BOOL)
+			if (e.type!=null && !e.type.equal(BaseType.ERROR) && !e.type.equal(BaseType.BOOL)
 					&& !e.type.equal(BaseType.INT)
 					&& !e.type.equal(BaseType.STRING)) {
 				issueError(new BadPrintArgError(e.getLocation(), Integer
@@ -689,8 +693,29 @@ public class TypeCheck extends Tree.Visitor {
 		}
 	}
 
+	@Override
+	public void visitArrayInit(Tree.ArrayInit arr){
+		if(!arr.e2.type.equal(BaseType.INT)){
+			issueError(new BadArrTimesError(arr.getLocation()));
+			arr.type = BaseType.ERROR;
+		}
+	}
+
+	@Override
+	public void visitArrayDefault(Tree.ArrayDefault arr){
+		if(!arr.e2.type.equal(BaseType.INT)){
+			issueError(new BadArrTimesError(arr.getLocation()));
+			arr.type = BaseType.ERROR;
+		}
+		if(arr.e1.type.equal(arr.e3.type)){
+
+		}
+	}
+
+	@Override
 	public void visitIdentVar(Tree.IdentVar that) {
 		that.type = BaseType.VAR;
 	}
+
 
 }

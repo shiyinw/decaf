@@ -35,7 +35,7 @@ import java.util.*;
 %token '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
 %token ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
 %token SCOPY VAR SEALED DIVIDER ':'
-%token ARRAY_REPEAT ARRAY_CONCAT DEFAULT IN FOREACH
+%token ARRAY_REPEAT ARRAY_CONCAT DEFAULT IN FOREACH LISTFORR LISTFORL
 
 %left OR
 %left AND
@@ -271,10 +271,15 @@ OCStmt          :   SCOPY '(' IDENTIFIER ',' Expr ')'
                     }
                 ;
 
-SimpleStmt      :	LValue '=' Expr
+SimpleStmt      :	LValuel '=' Expr
 					{
 						$$.stmt = new Tree.Assign($1.lvalue, $3.expr, $2.loc);
 					}
+				|	VAR IDENTIFIER '=' Expr
+                    {
+                        $$.lvalue = new Tree.IdentVar($2.ident, $2.loc);
+                        $$.stmt = new Tree.VarAssign($4.expr, $2.loc, $2.ident);
+                    }
                 |	Call
                 	{
                 		$$.stmt = new Tree.Exec($1.expr, $1.loc);
@@ -290,7 +295,20 @@ Receiver     	:	Expr '.'
                 	{
                 		$$ = new SemValue();
                 	}
-                ; 
+                ;
+
+LValuel          :   Receiver IDENTIFIER
+					{
+						$$.lvalue = new Tree.Ident($1.expr, $2.ident, $2.loc);
+						if ($1.loc == null) {
+							$$.loc = $2.loc;
+						}
+					}
+                |	Expr '[' Expr ']'
+                	{
+                		$$.lvalue = new Tree.Indexed($1.expr, $3.expr, $1.loc);
+                	}
+                ;
 
 LValue          :	VAR IDENTIFIER
                     {

@@ -22,6 +22,8 @@ public class BaseType extends Type {
 
 	public static final BaseType VAR = new BaseType("unknown");
 
+	public static final BaseType ARRAY = new BaseType("array");
+
 	@Override
 	public boolean isBaseType() {
 		return true;
