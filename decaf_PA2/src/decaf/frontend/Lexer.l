@@ -92,6 +92,8 @@ WHITESPACE			= ([ \t]+)
 "|||"               { return operator(Parser.DIVIDER);      }
 "%%"				{ return operator(Parser.ARRAY_REPEAT);	}
 "++"				{ return operator(Parser.ARRAY_CONCAT);	}
+"[|"                { return operator(Parser.LISTFORL);     }
+"|]"                { return operator(Parser.LISTFORR);     }
 
 	// 识别常数的规则
 "true"				{ return boolConst(true);										}

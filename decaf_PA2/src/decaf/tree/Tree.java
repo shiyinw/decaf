@@ -252,7 +252,7 @@ public abstract class Tree {
 
     /**
      * Class types, of type TypeClass.
-     */    
+     */
     public static final int TYPECLASS = TYPEIDENT + 1;
 
     /**
@@ -323,13 +323,14 @@ public abstract class Tree {
     public static final int PRINT = READLINEEXPR + 1;
 
     public static final int DIVIDER = PRINT + 1;
+    public static final int SLICE = DIVIDER + 1;
 
     /**
      * Tags for Literal and TypeLiteral
      */
-    public static final int VOID = 0; 
-    public static final int INT = VOID + 1; 
-    public static final int BOOL = INT + 1; 
+    public static final int VOID = 0;
+    public static final int INT = VOID + 1;
+    public static final int BOOL = INT + 1;
     public static final int STRING = BOOL + 1;
     public static final int VAR = STRING + 1;
 
@@ -373,7 +374,7 @@ public abstract class Tree {
 		public List<ClassDef> classes;
 		public Class main;
 		public GlobalScope globalScope;
-		
+
 		public TopLevel(List<ClassDef> classes, Location loc) {
 			super(TOPLEVEL, loc);
 			this.classes = classes;
@@ -396,7 +397,7 @@ public abstract class Tree {
     }
 
     public static class ClassDef extends Tree {
-    	
+
     	public String name;
     	public String parent;
     	public List<Tree> fields;
@@ -416,7 +417,7 @@ public abstract class Tree {
         public void accept(Visitor v) {
             v.visitClassDef(this);
         }
-        
+
     	@Override
     	public void printTo(IndentPrintWriter pw) {
             if(sealed){
@@ -433,14 +434,14 @@ public abstract class Tree {
    }
 
     public static class MethodDef extends Tree {
-    	
+
     	public boolean statik;
     	public String name;
     	public TypeLiteral returnType;
     	public List<VarDef> formals;
     	public Block body;
     	public Function symbol;
-    	
+
         public MethodDef(boolean statik, String name, TypeLiteral returnType,
         		List<VarDef> formals, Block body, Location loc) {
             super(METHODDEF, loc);
@@ -454,7 +455,7 @@ public abstract class Tree {
         public void accept(Visitor v) {
             v.visitMethodDef(this);
         }
-    	
+
     	@Override
     	public void printTo(IndentPrintWriter pw) {
     		if (statik) {
@@ -476,7 +477,7 @@ public abstract class Tree {
     }
 
     public static class VarDef extends Tree {
-    	
+
     	public String name;
     	public TypeLiteral type;
     	public Variable symbol;
@@ -505,6 +506,7 @@ public abstract class Tree {
      */
     public static class Array extends Expr{
         public List<Expr> block;
+        public Type elementType;
 
         public Array(List<Expr> block, Location loc) {
             super(ARRAY, loc);
@@ -532,6 +534,7 @@ public abstract class Tree {
 
     public static class ArrayConcat extends Expr{
         public Expr e1, e2;
+        public Type elementType;
 
         public ArrayConcat(Expr e1, Expr e2, Location loc) {
             super(ARRAYCONCAT, loc);
@@ -657,6 +660,7 @@ public abstract class Tree {
 
     public static class ArrayInit extends Expr{
         public Expr e1, e2;
+        public Type elementType;
 
         public ArrayInit(Expr e1, Expr e2, Location loc) {
             super(ARRAYCONCAT, loc);
@@ -705,13 +709,14 @@ public abstract class Tree {
     }
 
     public static class ArrayDefault extends Expr{
-        public Expr e1, e2, e3;
+        public LValue index;
+        public Expr e;
+        public Type elementType;
 
-        public ArrayDefault(Expr e1, Expr e2, Expr e3, Location loc) {
+        public ArrayDefault(LValue slice, Expr e, Location loc) {
             super(ARRAYDEFAULT, loc);
-            this.e1 = e1;
-            this.e2 = e2;
-            this.e3 = e3;
+            this.index = slice;
+            this.e = e;
         }
 
         @Override
@@ -719,14 +724,10 @@ public abstract class Tree {
 
         @Override
         public void printTo(IndentPrintWriter pw) {
-            pw.println("arrref");
-            pw.incIndent();
-            e1.printTo(pw);
-            e2.printTo(pw);
+            this.index.printTo(pw);
             pw.println("default");
             pw.incIndent();
-            e3.printTo(pw);
-            pw.decIndent();
+            e.printTo(pw);
             pw.decIndent();
         }
     }
@@ -765,7 +766,7 @@ public abstract class Tree {
         public void accept(Visitor v) {
             v.visitBlock(this);
         }
-    	
+
     	@Override
     	public void printTo(IndentPrintWriter pw) {
     		pw.println("stmtblock");
@@ -860,7 +861,7 @@ public abstract class Tree {
       * An "if ( ) { } else { }" block
       */
     public static class If extends Tree {
-    	
+
     	public Expr condition;
     	public Tree trueBranch;
     	public Tree falseBranch;
@@ -1089,7 +1090,7 @@ public abstract class Tree {
     	public Type type;
     	public boolean isClass;
     	public boolean usedForRef;
-    	
+
     	public Expr(int tag, Location loc) {
     		super(tag, loc);
     	}
@@ -1128,7 +1129,7 @@ public abstract class Tree {
     		} else {
     			pw.println("<empty>");
     		}
-    		
+
     		for (Expr e : actuals) {
     			e.printTo(pw);
     		}
@@ -1196,7 +1197,7 @@ public abstract class Tree {
     		LOCAL_VAR, PARAM_VAR, MEMBER_VAR, ARRAY_ELEMENT
     	}
     	public Kind lvKind;
-    	
+
     	LValue(int tag, Location loc) {
     		super(tag, loc);
     	}
@@ -1408,7 +1409,7 @@ public abstract class Tree {
     		} else {
     			pw.println("<empty>");
     		}
-    		
+
     		for (Expr e : actuals) {
     			e.printTo(pw);
     		}
@@ -1501,7 +1502,7 @@ public abstract class Tree {
       * instanceof expression
       */
     public static class TypeTest extends Expr {
-    	
+
     	public Expr instance;
     	public String className;
     	public Class symbol;
@@ -1554,6 +1555,32 @@ public abstract class Tree {
     		index.printTo(pw);
     		pw.decIndent();
     	}
+    }
+
+    public static class Slice extends LValue {
+
+        public Expr array;
+        public Expr index;
+
+        public Slice(Expr array, Expr index, Location loc) {
+            super(SLICE, loc);
+            this.array = array;
+            this.index = index;
+        }
+
+        @Override
+        public void accept(Visitor v) {
+            v.visitSlice(this);
+        }
+
+        @Override
+        public void printTo(IndentPrintWriter pw) {
+            pw.println("arrref");
+            pw.incIndent();
+            array.printTo(pw);
+            index.printTo(pw);
+            pw.decIndent();
+        }
     }
 
     /**
@@ -1623,11 +1650,26 @@ public abstract class Tree {
 
     	public int typeTag;
         public Object value;
+        public Type arraytype;
 
         public Literal(int typeTag, Object value, Location loc) {
             super(LITERAL, loc);
             this.typeTag = typeTag;
             this.value = value;
+
+            switch (typeTag) {
+                case INT:
+                    this.arraytype = BaseType.INT;
+                    break;
+                case BOOL:
+                    this.arraytype = BaseType.BOOL;
+                    break;
+                case STRING:
+                    this.arraytype = BaseType.STRING;
+                default:
+                    this.arraytype = BaseType.ERROR;
+            }
+
         }
 
     	@Override
@@ -1667,21 +1709,21 @@ public abstract class Tree {
     }
 
     public static abstract class TypeLiteral extends Tree {
-    	
+
     	public Type type;
-    	
+
     	public TypeLiteral(int tag, Location loc){
     		super(tag, loc);
     	}
     }
-    
+
     /**
       * Identifies a basic type.
       * @param tag the basic type id
       * @see SemanticConstants
       */
     public static class TypeIdent extends TypeLiteral {
-    	
+
         public int typeTag;
 
         public TypeIdent(int typeTag, Location loc) {
@@ -1937,5 +1979,7 @@ public abstract class Tree {
         public void visitArrayFor(ArrayFor that) { visitTree(that); }
 
         public void visitBoundVar(BoundVar that) { visitTree(that); }
+
+        public void visitSlice(Slice that) {visitTree(that);}
     }
 }

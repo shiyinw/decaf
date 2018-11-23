@@ -35,7 +35,8 @@ import java.util.*;
 %token '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
 %token ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
 %token SCOPY VAR SEALED DIVIDER ':'
-%token ARRAY_REPEAT ARRAY_CONCAT DEFAULT IN FOREACH LISTFORR LISTFORL
+%token ARRAY_REPEAT ARRAY_CONCAT IN FOREACH LISTFORR LISTFORL
+%token DEFAULT
 
 %left OR
 %left AND
@@ -303,18 +304,24 @@ LValuel          :   Receiver IDENTIFIER
 							$$.loc = $2.loc;
 						}
 					}
-                |	Expr '[' Expr ']'
-                	{
-                		$$.lvalue = new Tree.Indexed($1.expr, $3.expr, $1.loc);
-                	}
+                |	ArrayIndex
+                ;
+
+ArrayIndex      :   Expr '[' Expr ']'
+                    {
+                        $$.lvalue = new Tree.Indexed($1.expr, $3.expr, $1.loc);
+                    }
+                ;
+
+ArraySlice      :   Expr '[' Expr ']'
+                    {
+                        $$.lvalue = new Tree.Slice($1.expr, $3.expr, $1.loc);
+                    }
                 ;
 
 LValue          :	VAR IDENTIFIER
                     {
                         $$.lvalue = new Tree.IdentVar($2.ident, $2.loc);
-                        if ($1.loc == null) {
-                        $$.loc = $2.loc;
-                        }
                     }
                 |   Receiver IDENTIFIER
 					{
@@ -323,10 +330,7 @@ LValue          :	VAR IDENTIFIER
 							$$.loc = $2.loc;
 						}
 					}
-                |	Expr '[' Expr ']'
-                	{
-                		$$.lvalue = new Tree.Indexed($1.expr, $3.expr, $1.loc);
-                	}
+                |	ArrayIndex
                 ;
 
 Call            :	Receiver IDENTIFIER '(' Actuals ')'
@@ -341,11 +345,11 @@ Call            :	Receiver IDENTIFIER '(' Actuals ')'
 BoolExpr        : Expr
                 ;
 
-Expr            :	'[' Expr FOR IDENTIFIER IN Expr ']'
+Expr            :	LISTFORL Expr FOR IDENTIFIER IN Expr LISTFORR
                     {
                         $$.expr = new Tree.ArrayComp(false, $2.expr, $4.ident, $6.expr, null, $1.loc);
                     }
-                |   '[' Expr FOR IDENTIFIER IN Expr IF BoolExpr ']'
+                |   LISTFORL Expr FOR IDENTIFIER IN Expr IF BoolExpr LISTFORR
                     {
                         $$.expr = new Tree.ArrayComp(true, $2.expr, $4.ident, $6.expr, $8.expr, $1.loc);
                     }
@@ -353,9 +357,9 @@ Expr            :	'[' Expr FOR IDENTIFIER IN Expr ']'
                     {
                         $$.expr = new Tree.ArrayRef($1.expr, $3.expr, $5.expr, $1.loc);
                     }
-                |   Expr '[' Expr ']' DEFAULT Expr
+                |   ArraySlice DEFAULT Expr
                     {
-                        $$.expr = new Tree.ArrayDefault($1.expr, $3.expr, $6.expr, $1.loc);
+                        $$.expr = new Tree.ArrayDefault($1.lvalue, $3.expr, $1.loc);
                     }
                 |   LValue
 					{

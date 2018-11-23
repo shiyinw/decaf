@@ -108,12 +108,28 @@ public class TypeCheck extends Tree.Visitor {
 			issueError(new NotArrayError(indexed.array.getLocation()));
 			indexed.type = BaseType.ERROR;
 		} else {
-			indexed.type = ((ArrayType) indexed.array.type)
-					.getElementType();
+			indexed.type = ((ArrayType) indexed.array.type).getElementType();
 		}
 		indexed.index.accept(this);
 		if (!indexed.index.type.equal(BaseType.INT)) {
 			issueError(new SubNotIntError(indexed.getLocation()));
+		}
+	}
+
+	@Override
+	public void visitSlice(Tree.Slice indexed) {
+		indexed.lvKind = Tree.LValue.Kind.ARRAY_ELEMENT;
+		indexed.array.accept(this);
+		if (!indexed.array.type.isArrayType()) {
+			issueError(new BadArrOperArgError(indexed.array.getLocation()));
+			indexed.type = BaseType.ERROR;
+			return;
+		} else {
+			indexed.type = ((ArrayType) indexed.array.type).getElementType();
+		}
+		indexed.index.accept(this);
+		if (!indexed.index.type.equal(BaseType.INT)) {
+			issueError(new BadArrIndexError(indexed.index.getLocation()));
 		}
 	}
 
@@ -172,7 +188,7 @@ public class TypeCheck extends Tree.Visitor {
 					Tree.Expr e = iter2.next();
 					Type t2 = e.type;
 					if (!t2.equal(BaseType.ERROR) && !t2.compatible(t1)) {
-						issueError(new BadArgTypeError(e.getLocation(), i, 
+						issueError(new BadArgTypeError(e.getLocation(), i,
 								t2.toString(), t1.toString()));
 					}
 				}
@@ -225,7 +241,7 @@ public class TypeCheck extends Tree.Visitor {
 	public void visitExec(Tree.Exec exec){
 		exec.expr.accept(this);
 	}
-	
+
 	@Override
 	public void visitNewArray(Tree.NewArray newArrayExpr) {
 		newArrayExpr.elementType.accept(this);
@@ -426,9 +442,25 @@ public class TypeCheck extends Tree.Visitor {
 	public void visitAssign(Tree.Assign assign) {
 		assign.left.accept(this);
 		assign.expr.accept(this);
-		if (!assign.left.type.equal(BaseType.ERROR)
-				&& (assign.left.type.isFuncType() || assign.expr.type.equal(BaseType.VAR)|| !assign.expr.type
-						.compatible(assign.left.type))) {
+
+		//issueError(new PrintError(assign.getLocation(), assign.expr.toString()));
+
+		boolean run = true;
+
+		//TODO: delete it
+//		if(assign.expr.type.isArrayType()){
+//			ArrayType a = (ArrayType) assign.expr.type;
+//			if(a.getElementType()==null) {
+//				issueError(new PrintError(assign.getLocation(), assign.expr.toString()));
+//			}
+//			run = false;
+//		}
+
+		if (run  &&
+				!assign.left.type.equal(BaseType.ERROR)
+				&& (assign.left.type.isFuncType() ||
+				assign.expr.type.equal(BaseType.VAR)||
+				!assign.expr.type.compatible(assign.left.type))) {
 			issueError(new IncompatBinOpError(assign.getLocation(),
 					assign.left.type.toString(), "=", assign.expr.type
 							.toString()));
@@ -699,21 +731,76 @@ public class TypeCheck extends Tree.Visitor {
 
 	@Override
 	public void visitArrayInit(Tree.ArrayInit arr){
-		if(!arr.e2.type.equal(BaseType.INT)){
+		arr.e1.accept(this);
+		arr.e2.accept(this);
+		if(arr.e1.type.equal(BaseType.VAR)){
+			issueError(new BadArrElementError(arr.e1.getLocation()));
+			arr.type = BaseType.ERROR;
+			return;
+		}
+		else if(!arr.e2.type.equal(BaseType.INT)){
 			issueError(new BadArrTimesError(arr.getLocation()));
 			arr.type = BaseType.ERROR;
+			return;
 		}
+		arr.elementType = arr.e1.type;
+		arr.type = new ArrayType(arr.elementType);
+	}
+
+	@Override
+	public void visitArray(Tree.Array arr){
+		arr.elementType = null;
+		for(Tree.Expr e: arr.block){
+			if(arr.elementType!=null && arr.elementType!=e.type){
+				// raise not equal type error
+			}
+			Tree.Literal el = (Tree.Literal) e;
+			arr.elementType = el.arraytype;
+			//issueError(new PrintError(arr.getLocation(), e.toString()));
+		}
+		arr.type = new ArrayType(arr.elementType);
 	}
 
 	@Override
 	public void visitArrayDefault(Tree.ArrayDefault arr){
-		if(!arr.e2.type.equal(BaseType.INT)){
-			issueError(new BadArrTimesError(arr.getLocation()));
-			arr.type = BaseType.ERROR;
-		}
-		if(arr.e1.type.equal(arr.e3.type)){
+		arr.e.accept(this);
+		arr.index.accept(this);
+//		issueError(new PrintError(arr.e1.getLocation(), arr.e1.toString()));
+//		issueError(new PrintError(arr.e1.getLocation(), arr.e1.type.toString()));
+//		issueError(new PrintError(arr.e2.getLocation(), arr.e2.type.toString()));
+//		issueError(new PrintError(arr.e3.getLocation(), arr.e3.type.toString()));
+//		issueError(new PrintError(arr.e3.getLocation(), arr.e3.toString()));
 
+//		if(!arr.e2.type.equal(BaseType.INT)){
+//			issueError(new BadArrTimesError(arr.getLocation()));
+//			arr.type = BaseType.ERROR;
+//		}
+
+		if(arr.index.type.equal(BaseType.ERROR)){
+			arr.type = BaseType.ERROR;
+			return;
 		}
+
+		if(arr.e.type.equal(arr.index.type)) {
+			arr.type = arr.e.type;
+			return;
+		}
+		else{
+			issueError(new BadDefError(arr.getLocation(), arr.index.type.toString(), arr.e.type.toString()));
+		}
+
+		if(arr.index.type.equal(BaseType.INT) || arr.index.type.equal(BaseType.STRING) ||
+				arr.index.type.equal(BaseType.BOOL)||arr.index.type.isArrayType()){
+			arr.type = arr.index.type;
+			return;
+		}
+
+		if(arr.e.type.equal(BaseType.INT) || arr.e.type.equal(BaseType.STRING) ||
+				arr.e.type.equal(BaseType.BOOL)||arr.e.type.isArrayType()){
+			arr.type = arr.e.type;
+			return;
+		}
+		arr.type = BaseType.ERROR;
 	}
 
 	@Override
@@ -730,6 +817,20 @@ public class TypeCheck extends Tree.Visitor {
 			v.type = var.expr.type;
 		}
 		var.symbol = (Variable) v;
+	}
+
+	@Override
+	public void visitArrayConcat(Tree.ArrayConcat arr){
+		arr.e1.accept(this);
+		arr.e2.accept(this);
+		//issueError(new PrintError(arr.getLocation(), arr.e1.type.toString()));
+		//issueError(new PrintError(arr.getLocation(), arr.e2.type.toString()));
+		if(!arr.e2.type.equal(arr.e1.type)){
+
+		}
+		ArrayType e1a = (ArrayType) arr.e1.type;
+		arr.type = e1a;
+		arr.elementType = e1a.getElementType();
 	}
 
 

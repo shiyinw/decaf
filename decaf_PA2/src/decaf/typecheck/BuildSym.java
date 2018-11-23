@@ -23,6 +23,7 @@ import decaf.symbol.Symbol;
 import decaf.symbol.Variable;
 import decaf.type.BaseType;
 import decaf.type.FuncType;
+import decaf.type.ArrayType;
 
 public class BuildSym extends Tree.Visitor {
 
@@ -228,8 +229,7 @@ public class BuildSym extends Tree.Visitor {
 			issueError(new BadArrElementError(typeArray.getLocation()));
 			typeArray.type = BaseType.ERROR;
 		} else {
-			typeArray.type = new decaf.type.ArrayType(
-					typeArray.elementType.type);
+			typeArray.type = new decaf.type.ArrayType(typeArray.elementType.type);
 		}
 	}
 
