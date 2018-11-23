@@ -1,5 +1,8 @@
 Exception in thread "main" java.lang.NullPointerException
-	at decaf.typecheck.TypeCheck.visitVarAssign(TypeCheck.java:725)
+	at decaf.typecheck.TypeCheck.checkBinaryOp(TypeCheck.java:624)
+	at decaf.typecheck.TypeCheck.visitBinary(TypeCheck.java:44)
+	at decaf.tree.Tree$Binary.accept(Tree.java:1328)
+	at decaf.typecheck.TypeCheck.visitVarAssign(TypeCheck.java:722)
 	at decaf.tree.Tree$VarAssign.accept(Tree.java:1252)
 	at decaf.typecheck.TypeCheck.visitBlock(TypeCheck.java:420)
 	at decaf.tree.Tree$Block.accept(Tree.java:766)
