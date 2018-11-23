@@ -756,7 +756,6 @@ public class TypeCheck extends Tree.Visitor {
 			}
 			Tree.Literal el = (Tree.Literal) e;
 			arr.elementType = el.arraytype;
-			//issueError(new PrintError(arr.getLocation(), e.toString()));
 		}
 		arr.type = new ArrayType(arr.elementType);
 	}
@@ -765,16 +764,6 @@ public class TypeCheck extends Tree.Visitor {
 	public void visitArrayDefault(Tree.ArrayDefault arr){
 		arr.e.accept(this);
 		arr.index.accept(this);
-//		issueError(new PrintError(arr.e1.getLocation(), arr.e1.toString()));
-//		issueError(new PrintError(arr.e1.getLocation(), arr.e1.type.toString()));
-//		issueError(new PrintError(arr.e2.getLocation(), arr.e2.type.toString()));
-//		issueError(new PrintError(arr.e3.getLocation(), arr.e3.type.toString()));
-//		issueError(new PrintError(arr.e3.getLocation(), arr.e3.toString()));
-
-//		if(!arr.e2.type.equal(BaseType.INT)){
-//			issueError(new BadArrTimesError(arr.getLocation()));
-//			arr.type = BaseType.ERROR;
-//		}
 
 		if(arr.index.type.equal(BaseType.ERROR)){
 			arr.type = BaseType.ERROR;
@@ -823,8 +812,6 @@ public class TypeCheck extends Tree.Visitor {
 	public void visitArrayConcat(Tree.ArrayConcat arr){
 		arr.e1.accept(this);
 		arr.e2.accept(this);
-		//issueError(new PrintError(arr.getLocation(), arr.e1.type.toString()));
-		//issueError(new PrintError(arr.getLocation(), arr.e2.type.toString()));
 		if(!arr.e2.type.equal(arr.e1.type)){
 
 		}
