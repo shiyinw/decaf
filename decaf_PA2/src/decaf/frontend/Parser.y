@@ -277,7 +277,6 @@ SimpleStmt      :	LValuel '=' Expr
 					}
 				|	VAR IDENTIFIER '=' Expr
                     {
-                        $$.lvalue = new Tree.IdentVar($2.ident, $2.loc);
                         $$.stmt = new Tree.VarAssign($4.expr, $2.loc, $2.ident);
                     }
                 |	Call

@@ -617,7 +617,10 @@ public class TypeCheck extends Tree.Visitor {
 	private Type checkBinaryOp(Tree.Expr left, Tree.Expr right, int op, Location location) {
 		left.accept(this);
 		right.accept(this);
-
+		if(left.type==null || right.type==null){
+			issueError(new PrintError(location, left.toString()));
+			return null;
+		}
 		if (left.type.equal(BaseType.ERROR) || right.type.equal(BaseType.ERROR)) {
 			switch (op) {
 			case Tree.PLUS:
@@ -672,15 +675,12 @@ public class TypeCheck extends Tree.Visitor {
 			break;
 		}
 
+		if(left.type.equal(BaseType.VAR) || right.type.equal(BaseType.VAR)){
+			compatible = false;
+		}
+
 		if (!compatible) {
-			Location printlocation = location;
-			if (right.type.equal(BaseType.VAR)){
-				printlocation = right.getLocation();
-			}
-			if (left.type.equal(BaseType.VAR)){
-				printlocation = left.getLocation();
-			}
-			issueError(new IncompatBinOpError(printlocation, left.type.toString(),
+			issueError(new IncompatBinOpError(location, left.type.toString(),
 					Parser.opStr(op), right.type.toString()));
 		}
 		return returnType;
@@ -715,6 +715,17 @@ public class TypeCheck extends Tree.Visitor {
 	@Override
 	public void visitIdentVar(Tree.IdentVar that) {
 		that.type = BaseType.VAR;
+	}
+
+	@Override
+	public void visitVarAssign(Tree.VarAssign var) {
+		var.expr.accept(this);
+		var.type = var.expr.type;
+		if(var.type==null){
+			issueError(new PrintError(var.getLocation(), var.expr.type.toString()));
+		}
+		Variable v = new Variable(var.name, var.expr.type, var.getLocation());
+		var.symbol = v;
 	}
 
 

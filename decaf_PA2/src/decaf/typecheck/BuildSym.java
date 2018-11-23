@@ -131,22 +131,13 @@ public class BuildSym extends Tree.Visitor {
 		varDef.symbol = v;
 	}
 
-	// TODO: assign
-	@Override
-	public void visitAssign(Tree.Assign assign) {
-		assign.left.accept(this);
-		if (assign.left!=null && assign.left.type!= null && assign.left.type.equal(BaseType.VAR)) {
-			Variable v = new Variable(assign.name, assign.expr.type, assign.left.getLocation());
-			table.declare(v);
-		}
-	}
-
 	@Override
 	public void visitIdentVar(Tree.IdentVar that) {
 		that.type = BaseType.VAR;
 	}
 
 	public void visitVarAssign(Tree.VarAssign var) {
+		var.expr.accept(this);
 		var.type = var.expr.type;
 		Variable v = new Variable(var.name, var.expr.type, var.getLocation());
 		Symbol sym = table.lookup(var.name, true);
