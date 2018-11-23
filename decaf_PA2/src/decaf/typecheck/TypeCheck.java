@@ -443,18 +443,7 @@ public class TypeCheck extends Tree.Visitor {
 		assign.left.accept(this);
 		assign.expr.accept(this);
 
-		//issueError(new PrintError(assign.getLocation(), assign.expr.toString()));
-
 		boolean run = true;
-
-		//TODO: delete it
-//		if(assign.expr.type.isArrayType()){
-//			ArrayType a = (ArrayType) assign.expr.type;
-//			if(a.getElementType()==null) {
-//				issueError(new PrintError(assign.getLocation(), assign.expr.toString()));
-//			}
-//			run = false;
-//		}
 
 		if (run  &&
 				!assign.left.type.equal(BaseType.ERROR)
@@ -643,19 +632,6 @@ public class TypeCheck extends Tree.Visitor {
 	private Type checkBinaryOp(Tree.Expr left, Tree.Expr right, int op, Location location) {
 		left.accept(this);
 		right.accept(this);
-
-		if(left.type==null || right.type==null){
-			Tree.Ident lefti = (Tree.Ident) left;
-			Symbol leftv = table.lookup(lefti.name, true);
-			if(leftv.isVariable()){
-				issueError(new PrintError(location, lefti.toString()));
-				issueError(new PrintError(location, lefti.name));
-				issueError(new PrintError(location, leftv.toString()));
-
-				//issueError(new PrintError(location, leftv.getType().toString()));
-			}
-			return null;
-		}
 
 		if (left.type.equal(BaseType.ERROR) || right.type.equal(BaseType.ERROR)) {
 			switch (op) {

@@ -599,7 +599,7 @@ public abstract class Tree {
         public LocalScope associatedScope;
         public Tree.Block virtualScope;
 
-        public ArrayFor(boolean judege, LValue e1, Expr ident, Tree e2, Expr j, Location loc) {
+        public ArrayFor(boolean judege, LValue e1, Expr ident, Tree e2, Expr j, Location loc, VarDef vdef, String varname) {
             super(ARRAYFOR, loc);
             this.e1 = e1;
             this.block = (Tree.Block) e2;
@@ -730,9 +730,11 @@ public abstract class Tree {
         @Override
         public void printTo(IndentPrintWriter pw) {
             this.index.printTo(pw);
+            pw.incIndent();
             pw.println("default");
             pw.incIndent();
             e.printTo(pw);
+            pw.decIndent();
             pw.decIndent();
         }
     }

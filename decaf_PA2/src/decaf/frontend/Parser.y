@@ -217,20 +217,24 @@ Stmt		    :	ForeachStmt
 
 ForeachStmt     :   FOREACH '(' BoundVariable IN Expr ')' Stmt
                     {
-                        $$.stmt = new Tree.ArrayFor(false, $3.lvalue, $5.expr, $7.stmt, null, $1.loc);
+                        $$.stmt = new Tree.ArrayFor(false, $3.lvalue, $5.expr, $7.stmt, null, $1.loc, $3.vdef, $3.ident);
                     }
                 |   FOREACH '(' BoundVariable IN Expr WHILE Expr ')' Stmt
                     {
-                        $$.stmt = new Tree.ArrayFor(true, $3.lvalue, $5.expr, $9.stmt, $7.expr, $1.loc);
+                        $$.stmt = new Tree.ArrayFor(true, $3.lvalue, $5.expr, $9.stmt, $7.expr, $1.loc, $3.vdef, $3.ident);
                     }
                 ;
 
 BoundVariable   :   VAR IDENTIFIER
                     {
+                        $$.vdef = null;
+                        $$.ident = $2.ident;
                         $$.lvalue = new LValue.BoundVar(null, $2.ident, $1.loc);
                     }
                 |   Type IDENTIFIER
                     {
+                        $$.vdef = new Tree.VarDef($2.ident, $1.type, $2.loc);
+                        $$.ident = null;
                         $$.lvalue = new LValue.BoundVar($1.type, $2.ident, $1.loc);
                     }
                 ;

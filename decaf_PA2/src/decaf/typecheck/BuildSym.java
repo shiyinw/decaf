@@ -244,7 +244,7 @@ public class BuildSym extends Tree.Visitor {
 		table.open(arr.associatedScope);
 		arr.ident.accept(this);
 
-		issueError(new PrintError(arr.ident.getLocation(), arr.ident.toString()));
+		//issueError(new PrintError(arr.ident.getLocation(), arr.ident.toString()));
 
 		for (Tree s : arr.block.block) {
 			s.accept(this);

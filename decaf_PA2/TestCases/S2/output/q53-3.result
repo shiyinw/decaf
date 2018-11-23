@@ -1,4 +1,6 @@
-*** Error at (18,20): decaf.tree.Tree$Ident@7f9a81e8
-*** Error at (22,20): decaf.tree.Tree$Ident@9629756
-*** Error at (26,20): decaf.tree.Tree$Ident@62ee68d8
-*** Error at (30,20): decaf.tree.Tree$Ident@735b5592
+*** Error at (20,8): undeclared variable 'i'
+*** Error at (24,8): undeclared variable 'i'
+*** Error at (26,20): Array Operation on non-array type
+*** Error at (28,8): undeclared variable 'i'
+*** Error at (30,20): undeclared variable 'u'
+*** Error at (32,8): undeclared variable 'i'
