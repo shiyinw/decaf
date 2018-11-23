@@ -1,5 +1,5 @@
 Exception in thread "main" java.lang.NullPointerException
-	at decaf.typecheck.TypeCheck.visitArrayInit(TypeCheck.java:698)
+	at decaf.typecheck.TypeCheck.visitArrayInit(TypeCheck.java:708)
 	at decaf.tree.Tree$ArrayInit.accept(Tree.java:668)
 	at decaf.typecheck.TypeCheck.visitAssign(TypeCheck.java:428)
 	at decaf.tree.Tree$Assign.accept(Tree.java:1221)

@@ -435,12 +435,6 @@ public class TypeCheck extends Tree.Visitor {
 		}
 	}
 
-//	@Override
-//	public void visitIdentVar(Tree.IdentVar ident){
-//		ident.type = ident.symbol.getType();
-//	}
-
-
 	@Override
 	public void visitBreak(Tree.Break breakStmt) {
 		if (breaks.empty()) {
@@ -617,10 +611,20 @@ public class TypeCheck extends Tree.Visitor {
 	private Type checkBinaryOp(Tree.Expr left, Tree.Expr right, int op, Location location) {
 		left.accept(this);
 		right.accept(this);
-//		if(left.type==null || right.type==null){
-//			issueError(new PrintError(location, left.toString()));
-//			return null;
-//		}
+
+		if(left.type==null || right.type==null){
+			Tree.Ident lefti = (Tree.Ident) left;
+			Symbol leftv = table.lookup(lefti.name, true);
+			if(leftv.isVariable()){
+				issueError(new PrintError(location, lefti.toString()));
+				issueError(new PrintError(location, lefti.name));
+				issueError(new PrintError(location, leftv.toString()));
+
+				//issueError(new PrintError(location, leftv.getType().toString()));
+			}
+			return null;
+		}
+
 		if (left.type.equal(BaseType.ERROR) || right.type.equal(BaseType.ERROR)) {
 			switch (op) {
 			case Tree.PLUS:
@@ -721,11 +725,11 @@ public class TypeCheck extends Tree.Visitor {
 	public void visitVarAssign(Tree.VarAssign var) {
 		var.expr.accept(this);
 		var.type = var.expr.type;
-//		if(var.type==null){
-//			issueError(new PrintError(var.getLocation(), var.expr.type.toString()));
-//		}
-		Variable v = new Variable(var.name, var.expr.type, var.getLocation());
-		var.symbol = v;
+		Symbol v = table.lookup(var.name, true);
+		if(v.isVariable()){
+			v.type = var.expr.type;
+		}
+		var.symbol = (Variable) v;
 	}
 
 

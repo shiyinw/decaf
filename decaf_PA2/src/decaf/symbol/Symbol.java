@@ -11,7 +11,7 @@ public abstract class Symbol {
 
 	protected Scope definedIn;
 
-	protected Type type;
+	public Type type;
 
 	protected int order;
 
