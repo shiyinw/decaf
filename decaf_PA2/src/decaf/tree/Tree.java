@@ -592,23 +592,34 @@ public abstract class Tree {
 
 
     public static class ArrayFor extends Tree{
-        public LValue e1;
+        public LValue iter;
         public Tree.Block block;
-        public Expr ident, j;
+        public Expr array, j;
         public boolean judge;
         public LocalScope associatedScope;
         public Tree.Block virtualScope;
+        public VarDef vardef;
+        public IdentVar identvar;
 
-        public ArrayFor(boolean judege, LValue e1, Expr ident, Tree e2, Expr j, Location loc, VarDef vdef, String varname) {
+        public ArrayFor(boolean judege, LValue iter, Expr array, Tree e2, Expr j, Location loc, VarDef vdef, String varname, Location varloc) {
             super(ARRAYFOR, loc);
-            this.e1 = e1;
+            this.iter = iter;
             this.block = (Tree.Block) e2;
-            this.ident = ident;
+            this.array = array;
             this.judge = judege;
             this.j = j;
 
             List <Tree> list = Arrays.asList(this);
             this.virtualScope = new Expr.Block(list, loc);
+
+            assert (vdef==null && varname!=null) || (vdef!=null && varname==null);
+            if(varname!=null){
+                this.identvar = new IdentVar(varname, varloc);
+            }
+            if(vdef!= null){
+                this.vardef = vdef;
+            }
+
         }
         @Override
         public void accept(Visitor v) {v.visitArrayFor(this); }
@@ -617,10 +628,8 @@ public abstract class Tree {
         public void printTo(IndentPrintWriter pw) {
             pw.println("foreach");
             pw.incIndent();
-            e1.printTo(pw);
-
-            ident.printTo(pw);
-
+            iter.printTo(pw);
+            array.printTo(pw);
             if(judge){
                 j.printTo(pw);
             }

@@ -62,6 +62,7 @@ public void visitClassDef(Tree.ClassDef classDef) {
 ### 3. 串行条件卫士
 
 * 修改文件TypeCheck.java：增加两个visit函数定义
+* 修改文件BuildSym.java：增加两个visit函数定义
 
 仿照`visitIf`，我利用了事先写好的`checkTestExpr(IFG.condition);`完成了检查：
 
@@ -278,7 +279,150 @@ public void visitArrayDefault(Tree.ArrayDefault arr){
 }
 ```
 
-#### 5.3
+#### 5.3 数组迭代语句
+
+* 修改文件 Tree.java
+
+我利用事先写好的`VarDef`和`IdentVar`，定义循环变量，具体实现如下。因为要兼顾PA1的功能，写起来有点冗余。另外，根据实验文档的提示，我新建了一个虚拟的`Block`用于定义局部变量的作用范围，这个`Block`中只有`ArrayFor`一条语句，满足要求。
+
+```java
+public static class ArrayFor extends Tree{
+    public LValue iter;
+    public Tree.Block block;
+    public Expr array, j;
+    public LocalScope associatedScope;
+    public Tree.Block virtualScope;
+    public VarDef vardef;
+    public IdentVar identvar;
+
+    public ArrayFor(LValue iter, Expr array, Tree e2, Expr j, Location loc, VarDef vdef, String varname, Location varloc) {
+        super(ARRAYFOR, loc);
+        this.iter = iter;
+        this.block = (Tree.Block) e2;
+        this.array = array;
+        this.j = j;
+
+        List <Tree> list = Arrays.asList(this);
+        this.virtualScope = new Expr.Block(list, loc);
+
+        assert (vdef==null && varname!=null) || (vdef!=null && varname==null);
+        if(varname!=null){
+            this.identvar = new IdentVar(varname, varloc);
+        }
+        if(vdef!= null){
+            this.vardef = vdef;
+        }
+
+    }
+    @Override
+    public void accept(Visitor v) {v.visitArrayFor(this); }
+
+    @Override
+    public void printTo(IndentPrintWriter pw) {
+        pw.println("foreach");
+        pw.incIndent();
+        iter.printTo(pw);
+        array.printTo(pw);
+        if(j!=null){
+            j.printTo(pw);
+        }
+        else{
+            pw.println("boolconst true");
+        }
+        if(block!=null){
+            block.printTo(pw);
+        }
+        pw.decIndent();
+    }
+}
+```
+
+* 修改文件BuildSym.java：
+
+和之前一样，在局部中，定义循环变量。
+
+```java
+@Override
+public void visitArrayFor(Tree.ArrayFor arr){
+    arr.associatedScope = new LocalScope(arr.virtualScope);
+    table.open(arr.associatedScope);
+    arr.array.accept(this);
+
+    if(arr.vardef!=null){
+        arr.vardef.accept(this);
+    }
+
+    if(arr.identvar!=null){
+        arr.array.accept(this);
+        Variable v = new Variable(arr.identvar.name, BaseType.VAR, arr.identvar.getLocation());
+        Symbol sym = table.lookup(arr.identvar.name, true);
+        if (sym != null) {
+            if (table.getCurrentScope().equals(sym.getScope())) {
+                issueError(new DeclConflictError(v.getLocation(), v.getName(),
+                                                 sym.getLocation()));
+            } else if ((sym.getScope().isFormalScope() && table.getCurrentScope().isLocalScope() && ((LocalScope)table.getCurrentScope()).isCombinedtoFormal() )) {
+                issueError(new DeclConflictError(v.getLocation(), v.getName(),
+                                                 sym.getLocation()));
+            } else {
+                table.declare(v);
+            }
+        } else {
+            table.declare(v);
+        }
+        arr.identvar.symbol = v;
+        arr.identvar.type = BaseType.VAR;
+    }
+
+    for (Tree s : arr.block.block) {
+        s.accept(this);
+    }
+
+    table.close();
+}
+```
+
+* 修改文件TypeCheck.java：完成循环变量的类型推导，并进行一些简单的查错。
+
+```java
+@Override
+public void visitArrayFor(Tree.ArrayFor arrfor){
+    arrfor.array.accept(this);
+    Tree.Ident array = (Tree.Ident) arrfor.array;
+    table.open(arrfor.associatedScope);
+    Variable arr = (Variable) table.lookup(array.name, true);
+    if(arrfor.j!=null){
+        checkTestExpr(arrfor.j);
+        if(arrfor.j.type.equal(BaseType.ERROR)){
+            return;
+        }
+    }
+    if(arrfor.array.type.equal(BaseType.ERROR)){
+        return;
+    }
+    else if(arr==null){
+        issueError(new BadArrOperArgError(arrfor.array.getLocation()));
+        arrfor.array.type = BaseType.ERROR;
+        return;
+    }
+    else if(!arr.type.isArrayType()){
+        issueError(new BadArrOperArgError(arrfor.array.getLocation()));
+        arrfor.array.type = BaseType.ERROR;
+        return;
+    }
+    else{
+        arrfor.array.type = arr.getType();
+        if(arrfor.identvar!=null && arrfor.identvar.type.equal(BaseType.VAR)) {
+            Variable ident = (Variable) table.lookup(arrfor.identvar.name, true);
+            ident.type = ((ArrayType) arrfor.array.type).getElementType();
+        }
+    }
+    for (Tree s : arrfor.block.block) {
+        s.accept(this);
+    }
+    table.close();
+
+}
+```
 
 ### 实验总结和体会
 

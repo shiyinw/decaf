@@ -242,8 +242,32 @@ public class BuildSym extends Tree.Visitor {
 	public void visitArrayFor(Tree.ArrayFor arr){
 		arr.associatedScope = new LocalScope(arr.virtualScope);
 		table.open(arr.associatedScope);
-		arr.ident.accept(this);
+		arr.array.accept(this);
 
+		if(arr.vardef!=null){
+			arr.vardef.accept(this);
+		}
+
+		if(arr.identvar!=null){
+			arr.array.accept(this);
+			Variable v = new Variable(arr.identvar.name, BaseType.VAR, arr.identvar.getLocation());
+			Symbol sym = table.lookup(arr.identvar.name, true);
+			if (sym != null) {
+				if (table.getCurrentScope().equals(sym.getScope())) {
+					issueError(new DeclConflictError(v.getLocation(), v.getName(),
+							sym.getLocation()));
+				} else if ((sym.getScope().isFormalScope() && table.getCurrentScope().isLocalScope() && ((LocalScope)table.getCurrentScope()).isCombinedtoFormal() )) {
+					issueError(new DeclConflictError(v.getLocation(), v.getName(),
+							sym.getLocation()));
+				} else {
+					table.declare(v);
+				}
+			} else {
+				table.declare(v);
+			}
+			arr.identvar.symbol = v;
+			arr.identvar.type = BaseType.VAR;
+		}
 		//issueError(new PrintError(arr.ident.getLocation(), arr.ident.toString()));
 
 		for (Tree s : arr.block.block) {

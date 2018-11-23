@@ -798,38 +798,41 @@ public class TypeCheck extends Tree.Visitor {
 
 	@Override
 	public void visitArrayFor(Tree.ArrayFor arrfor){
-		arrfor.ident.accept(this);
-		Tree.Ident ident = (Tree.Ident) arrfor.ident;
-		Variable arr = (Variable) table.lookup(ident.name, true);
-
-//		issueError(new PrintError(arrfor.getLocation(), arrfor.e1.toString()));
-//		issueError(new PrintError(arrfor.getLocation(), arrfor.e2.toString()));
-//		issueError(new PrintError(arrfor.getLocation(), arrfor.ident.toString()));
-//		issueError(new PrintError(arrfor.getLocation(), arrfor.j.toString()));
-
-//		if(arr!=null){
-//			issueError(new PrintError(arrfor.ident.getLocation(), arr.type.toString()));
-//		}
-
-		if(arr!=null && !arr.type.isArrayType()){
-			issueError(new BadArrOperArgError(arrfor.ident.getLocation()));
-		}
-
+		arrfor.array.accept(this);
+		Tree.Ident array = (Tree.Ident) arrfor.array;
+		table.open(arrfor.associatedScope);
+		Variable arr = (Variable) table.lookup(array.name, true);
 		if(arrfor.j!=null){
 			checkTestExpr(arrfor.j);
+			if(arrfor.j.type.equal(BaseType.ERROR)){
+				return;
+			}
 		}
-
-
-		table.open(arrfor.associatedScope);
-
+		if(arrfor.array.type.equal(BaseType.ERROR)){
+			return;
+		}
+		else if(arr==null){
+			issueError(new BadArrOperArgError(arrfor.array.getLocation()));
+			arrfor.array.type = BaseType.ERROR;
+			return;
+		}
+		else if(!arr.type.isArrayType()){
+			issueError(new BadArrOperArgError(arrfor.array.getLocation()));
+			arrfor.array.type = BaseType.ERROR;
+			return;
+		}
+		else{
+			arrfor.array.type = arr.getType();
+			if(arrfor.identvar!=null && arrfor.identvar.type.equal(BaseType.VAR)) {
+				Variable ident = (Variable) table.lookup(arrfor.identvar.name, true);
+				ident.type = ((ArrayType) arrfor.array.type).getElementType();
+			}
+		}
 		for (Tree s : arrfor.block.block) {
 			s.accept(this);
 		}
 		table.close();
 
-
-		//issueError(new PrintError(arrfor.getLocation(), arrfor.e2.toString()));
-		//arrfor.e2.accept(this);
 	}
 
 }
