@@ -181,9 +181,36 @@ public class Translater {
 
 	public Temp genDiv(Temp src1, Temp src2) {
 		Temp dst = Temp.createTempI4();
+//
+//		Label exit = Label.createLabel();
+//		Temp cond = genNZero(genLoadImm4(0));
+//		genBeqz(cond, exit);
+//		Temp msg = genLoadStrConst(RuntimeError.DIVIDE_BY_ZERO);
+//		genParm(msg);
+//		genIntrinsicCall(Intrinsic.PRINT_STRING);
+//		genIntrinsicCall(Intrinsic.HALT);
+//		genMark(exit);
+
 		append(Tac.genDiv(dst, src1, src2));
 		return dst;
+
 	}
+
+//	public void genCheckArrayIndex(Temp array, Temp index) {
+//		Temp length = genLoad(array, -OffsetCounter.WORD_SIZE);
+//		Temp cond = genLes(index, length);
+//		Label err = Label.createLabel();
+//		genBeqz(cond, err);
+//		cond = genLes(index, genLoadImm4(0));
+//		Label exit = Label.createLabel();
+//		genBeqz(cond, exit);
+//		genMark(err);
+//		Temp msg = genLoadStrConst(RuntimeError.ARRAY_INDEX_OUT_OF_BOUND);
+//		genParm(msg);
+//		genIntrinsicCall(Intrinsic.PRINT_STRING);
+//		genIntrinsicCall(Intrinsic.HALT);
+//		genMark(exit);
+//	}
 
 	public Temp genMod(Temp src1, Temp src2) {
 		Temp dst = Temp.createTempI4();
@@ -230,6 +257,12 @@ public class Translater {
 	public Temp genEqu(Temp src1, Temp src2) {
 		Temp dst = Temp.createTempI4();
 		append(Tac.genEqu(dst, src1, src2));
+		return dst;
+	}
+
+	public Temp genNZero(Temp src) {
+		Temp dst = Temp.createTempI4();
+		append(Tac.genNZero(dst, src));
 		return dst;
 	}
 
@@ -365,6 +398,17 @@ public class Translater {
 		Temp cond = genLes(size, genLoadImm4(0));
 		genBeqz(cond, exit);
 		Temp msg = genLoadStrConst(RuntimeError.NEGATIVE_ARR_SIZE);
+		genParm(msg);
+		genIntrinsicCall(Intrinsic.PRINT_STRING);
+		genIntrinsicCall(Intrinsic.HALT);
+		genMark(exit);
+	}
+
+	public void genCheckNZero(Temp size){
+		Label exit = Label.createLabel();
+		Temp cond = genEqu(size, genLoadImm4(0));
+		genBeqz(cond, exit);
+		Temp msg = genLoadStrConst(RuntimeError.DIVIDE_BY_ZERO);
 		genParm(msg);
 		genIntrinsicCall(Intrinsic.PRINT_STRING);
 		genIntrinsicCall(Intrinsic.HALT);

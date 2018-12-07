@@ -8,7 +8,7 @@ public class Tac {
 	public enum Kind {
 		ADD, SUB, MUL, DIV, MOD, NEG, LAND, LOR, LNOT, GTR, GEQ, EQU, NEQ, LEQ,
 		LES, ASSIGN, LOAD_VTBL, INDIRECT_CALL, DIRECT_CALL, RETURN, BRANCH,
-		BEQZ, BNEZ, LOAD, STORE, LOAD_IMM4, LOAD_STR_CONST, MEMO, MARK, PARM
+		BEQZ, BNEZ, LOAD, STORE, LOAD_IMM4, LOAD_STR_CONST, MEMO, MARK, PARM, ZERO
 	}
 
 	public Kind opc;
@@ -126,6 +126,10 @@ public class Tac {
 
 	public static Tac genEqu(Temp dst, Temp src1, Temp src2) {
 		return new Tac(Kind.EQU, dst, src1, src2);
+	}
+
+	public static Tac genNZero(Temp dst, Temp src) {
+		return new Tac(Kind.ZERO, dst, src);
 	}
 
 	public static Tac genNeq(Temp dst, Temp src1, Temp src2) {
