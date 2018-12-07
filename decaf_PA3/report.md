@@ -68,6 +68,36 @@ public void visitIfG(Tree.IfG ifStmt){
 }
 ```
 
+### var 类型推导
+
+* 修改文件translate/TransPass1.java 定义变量
+
+```java
+@Override
+public void visitVarAssign(Tree.VarAssign varDef) {
+    vars.add(varDef.symbol);
+    objectSize += OffsetCounter.WORD_SIZE;
+}
+```
+
+* 修改文件translate/TransPass2.java 计算类型的值
+
+结合了`visitVarDef`和`visitAssign`两个函数
+
+```java
+@Override
+public void visitVarAssign(Tree.VarAssign var) {
+    var.expr.accept(this);
+
+    if (var.symbol.isLocalVar()) {
+        Temp t = Temp.createTempI4();
+        t.sym = var.symbol;
+        var.symbol.setTemp(t);
+    }
+    tr.genAssign(((Tree.VarAssign) var).symbol.getTemp(), var.expr.val);
+}
+```
+
 
 
 ### 实验总结和体会

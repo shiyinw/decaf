@@ -124,6 +124,18 @@ public class TransPass2 extends Tree.Visitor {
 	}
 
 	@Override
+	public void visitVarAssign(Tree.VarAssign var) {
+		var.expr.accept(this);
+
+		if (var.symbol.isLocalVar()) {
+			Temp t = Temp.createTempI4();
+			t.sym = var.symbol;
+			var.symbol.setTemp(t);
+		}
+		tr.genAssign(((Tree.VarAssign) var).symbol.getTemp(), var.expr.val);
+	}
+
+	@Override
 	public void visitAssign(Tree.Assign assign) {
 		assign.left.accept(this);
 		assign.expr.accept(this);
