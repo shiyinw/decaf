@@ -126,7 +126,6 @@ public class TransPass2 extends Tree.Visitor {
 	@Override
 	public void visitVarAssign(Tree.VarAssign var) {
 		var.expr.accept(this);
-
 		if (var.symbol.isLocalVar()) {
 			Temp t = Temp.createTempI4();
 			t.sym = var.symbol;
@@ -157,6 +156,25 @@ public class TransPass2 extends Tree.Visitor {
 			tr.genAssign(((Tree.Ident) assign.left).symbol.getTemp(),
 					assign.expr.val);
 			break;
+		}
+	}
+
+	@Override
+	public void visitArrayDefault(Tree.ArrayDefault arr){
+		Tree.LValue.Slice indexed = (Tree.LValue.Slice) arr.index;
+		indexed.array.accept(this);
+		indexed.index.accept(this);
+		arr.e.accept(this);
+		if(!tr.genCheckArrayDefault(indexed.array.val, indexed.index.val)){
+//			Temp esz = tr.genLoadImm4(OffsetCounter.WORD_SIZE);
+//			Temp t = tr.genMul(indexed.index.val, esz);
+//			Temp base = tr.genAdd(indexed.array.val, t);
+//			indexed.val = tr.genLoad(base, 0);
+//			arr.val = indexed.val;
+			arr.val = indexed.array.val;
+		}
+		else{
+			arr.val = arr.e.val;
 		}
 	}
 
@@ -267,7 +285,6 @@ public class TransPass2 extends Tree.Visitor {
 		indexed.array.accept(this);
 		indexed.index.accept(this);
 		tr.genCheckArrayIndex(indexed.array.val, indexed.index.val);
-		
 		Temp esz = tr.genLoadImm4(OffsetCounter.WORD_SIZE);
 		Temp t = tr.genMul(indexed.index.val, esz);
 		Temp base = tr.genAdd(indexed.array.val, t);
@@ -391,6 +408,13 @@ public class TransPass2 extends Tree.Visitor {
 	public void visitNewArray(Tree.NewArray newArray) {
 		newArray.length.accept(this);
 		newArray.val = tr.genNewArray(newArray.length.val);
+	}
+
+	@Override
+	public void visitArrayInit(Tree.ArrayInit arr){
+		arr.e1.accept(this);
+		arr.e2.accept(this);
+		arr.val = tr.genInitArray(arr.e1.val, arr.e2.val);
 	}
 
 	@Override

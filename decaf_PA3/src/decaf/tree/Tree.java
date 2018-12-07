@@ -678,7 +678,7 @@ public abstract class Tree {
         public Type elementType;
 
         public ArrayInit(Expr e1, Expr e2, Location loc) {
-            super(ARRAYCONCAT, loc);
+            super(ARRAYINIT, loc);
             this.e1 = e1;
             this.e2 = e2;
         }
@@ -727,6 +727,7 @@ public abstract class Tree {
         public LValue index;
         public Expr e;
         public Type elementType;
+        public boolean indextrue;
 
         public ArrayDefault(LValue slice, Expr e, Location loc) {
             super(ARRAYDEFAULT, loc);

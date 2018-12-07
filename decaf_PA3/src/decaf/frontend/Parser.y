@@ -299,6 +299,9 @@ SimpleStmt      :	LValuel '=' Expr
                 ;
 
 Receiver     	:	Expr '.'
+                    {
+                        $$.expr = $1.expr;
+                    }
                 |	/* empty */
                 	{
                 		$$ = new SemValue();

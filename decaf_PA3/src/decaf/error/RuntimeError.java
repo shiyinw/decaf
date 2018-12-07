@@ -17,6 +17,8 @@ public final class RuntimeError {
 	public static final String CLASS_CAST_ERROR2 = " cannot be cast to ";
 
 	public static final String DIVIDE_BY_ZERO = "Decaf runtime error: Division by zero error.\n";
+
+	public static final String INIT_ARR_NEG = "Decaf runtime error: The length of the created array should not be less than 0.\n";
 	
 	public static final String CLASS_CAST_ERROR3 = "\n";
 }

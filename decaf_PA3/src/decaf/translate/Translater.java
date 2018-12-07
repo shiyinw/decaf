@@ -181,36 +181,10 @@ public class Translater {
 
 	public Temp genDiv(Temp src1, Temp src2) {
 		Temp dst = Temp.createTempI4();
-//
-//		Label exit = Label.createLabel();
-//		Temp cond = genNZero(genLoadImm4(0));
-//		genBeqz(cond, exit);
-//		Temp msg = genLoadStrConst(RuntimeError.DIVIDE_BY_ZERO);
-//		genParm(msg);
-//		genIntrinsicCall(Intrinsic.PRINT_STRING);
-//		genIntrinsicCall(Intrinsic.HALT);
-//		genMark(exit);
-
 		append(Tac.genDiv(dst, src1, src2));
 		return dst;
 
 	}
-
-//	public void genCheckArrayIndex(Temp array, Temp index) {
-//		Temp length = genLoad(array, -OffsetCounter.WORD_SIZE);
-//		Temp cond = genLes(index, length);
-//		Label err = Label.createLabel();
-//		genBeqz(cond, err);
-//		cond = genLes(index, genLoadImm4(0));
-//		Label exit = Label.createLabel();
-//		genBeqz(cond, exit);
-//		genMark(err);
-//		Temp msg = genLoadStrConst(RuntimeError.ARRAY_INDEX_OUT_OF_BOUND);
-//		genParm(msg);
-//		genIntrinsicCall(Intrinsic.PRINT_STRING);
-//		genIntrinsicCall(Intrinsic.HALT);
-//		genMark(exit);
-//	}
 
 	public Temp genMod(Temp src1, Temp src2) {
 		Temp dst = Temp.createTempI4();
@@ -393,11 +367,36 @@ public class Translater {
 		genMark(exit);
 	}
 
+	public boolean genCheckArrayDefault(Temp array, Temp index){
+		Temp length = genLoad(array, -OffsetCounter.WORD_SIZE);
+		Temp cond = genLes(index, length);
+		Label err = Label.createLabel();
+		genBeqz(cond, err);
+		genMark(err);
+		Temp msg = genLoadStrConst(RuntimeError.ARRAY_INDEX_OUT_OF_BOUND);
+		genParm(msg);
+		genIntrinsicCall(Intrinsic.PRINT_STRING);
+		return true;
+		//genMark(exit);
+
+	}
+
 	public void genCheckNewArraySize(Temp size) {
 		Label exit = Label.createLabel();
 		Temp cond = genLes(size, genLoadImm4(0));
 		genBeqz(cond, exit);
 		Temp msg = genLoadStrConst(RuntimeError.NEGATIVE_ARR_SIZE);
+		genParm(msg);
+		genIntrinsicCall(Intrinsic.PRINT_STRING);
+		genIntrinsicCall(Intrinsic.HALT);
+		genMark(exit);
+	}
+
+	public void genCheckNewArraySizeInit(Temp size) {
+		Label exit = Label.createLabel();
+		Temp cond = genLes(size, genLoadImm4(0));
+		genBeqz(cond, exit);
+		Temp msg = genLoadStrConst(RuntimeError.INIT_ARR_NEG);
 		genParm(msg);
 		genIntrinsicCall(Intrinsic.PRINT_STRING);
 		genIntrinsicCall(Intrinsic.HALT);
@@ -413,6 +412,26 @@ public class Translater {
 		genIntrinsicCall(Intrinsic.PRINT_STRING);
 		genIntrinsicCall(Intrinsic.HALT);
 		genMark(exit);
+	}
+
+	public Temp genInitArray(Temp initvar, Temp length) {
+		genCheckNewArraySizeInit(length);
+		Temp unit = genLoadImm4(OffsetCounter.WORD_SIZE);
+		Temp size = genAdd(unit, genMul(unit, length));
+		genParm(size);
+		Temp obj = genIntrinsicCall(Intrinsic.ALLOCATE);
+		genStore(length, obj, 0);
+		Label loop = Label.createLabel();
+		Label exit = Label.createLabel();
+		append(Tac.genAdd(obj, obj, size));
+		genMark(loop);
+		append(Tac.genSub(size, size, unit));
+		genBeqz(size, exit);
+		append(Tac.genSub(obj, obj, unit));
+		genStore(initvar, obj, 0);
+		genBranch(loop);
+		genMark(exit);
+		return obj;
 	}
 
 	public Temp genNewArray(Temp length) {

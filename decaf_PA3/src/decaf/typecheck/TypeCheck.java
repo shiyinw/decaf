@@ -751,12 +751,14 @@ public class TypeCheck extends Tree.Visitor {
 		if(arr.index.type.equal(BaseType.INT) || arr.index.type.equal(BaseType.STRING) ||
 				arr.index.type.equal(BaseType.BOOL)||arr.index.type.isArrayType()){
 			arr.type = arr.index.type;
+			arr.indextrue = true;
 			return;
 		}
 
 		if(arr.e.type.equal(BaseType.INT) || arr.e.type.equal(BaseType.STRING) ||
 				arr.e.type.equal(BaseType.BOOL)||arr.e.type.isArrayType()){
 			arr.type = arr.e.type;
+			arr.indextrue = false;
 			return;
 		}
 		arr.type = BaseType.ERROR;
