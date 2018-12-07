@@ -148,6 +148,24 @@ public class TransPass2 extends Tree.Visitor {
 		}
 	}
 
+    @Override
+    public void visitGuard(Tree.Guard guard){
+        for (Tree s : guard.block) {
+            s.accept(this);
+        }
+    }
+
+    @Override
+    public void visitIfG(Tree.IfG ifStmt){
+        ifStmt.condition.accept(this);
+        Label exit = Label.createLabel();
+        tr.genBeqz(ifStmt.condition.val, exit);
+        if (ifStmt.trueBranch != null) {
+            ifStmt.trueBranch.accept(this);
+        }
+        tr.genMark(exit);
+    }
+
 	@Override
 	public void visitLiteral(Tree.Literal literal) {
 		switch (literal.typeTag) {
