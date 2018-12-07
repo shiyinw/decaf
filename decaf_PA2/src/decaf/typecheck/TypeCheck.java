@@ -442,11 +442,7 @@ public class TypeCheck extends Tree.Visitor {
 	public void visitAssign(Tree.Assign assign) {
 		assign.left.accept(this);
 		assign.expr.accept(this);
-
-		boolean run = true;
-
-		if (run  &&
-				!assign.left.type.equal(BaseType.ERROR)
+		if (!assign.left.type.equal(BaseType.ERROR)
 				&& (assign.left.type.isFuncType() ||
 				assign.expr.type.equal(BaseType.VAR)||
 				!assign.expr.type.compatible(assign.left.type))) {
@@ -511,7 +507,7 @@ public class TypeCheck extends Tree.Visitor {
 		for (Tree.Expr e : printStmt.exprs) {
 			e.accept(this);
 			i++;
-			if (e.type!=null && !e.type.equal(BaseType.ERROR) && !e.type.equal(BaseType.BOOL)
+			if (!e.type.equal(BaseType.ERROR) && !e.type.equal(BaseType.BOOL)
 					&& !e.type.equal(BaseType.INT)
 					&& !e.type.equal(BaseType.STRING)) {
 				issueError(new BadPrintArgError(e.getLocation(), Integer

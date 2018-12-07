@@ -24,8 +24,9 @@ import java.util.*;
 %Jnodebug
 %Jnoconstruct
 
-%token VOID   BOOL  INT   STRING  CLASS 
-%token NULL   EXTENDS     THIS     WHILE   FOR   
+
+%token VOID   BOOL  INT   STRING  CLASS
+%token NULL   EXTENDS     THIS     WHILE   FOR
 %token IF     ELSE        RETURN   BREAK   NEW
 %token PRINT  READ_INTEGER         READ_LINE
 %token LITERAL
@@ -33,17 +34,26 @@ import java.util.*;
 %token LESS_EQUAL   GREATER_EQUAL  EQUAL   NOT_EQUAL
 %token '+'  '-'  '*'  '/'  '%'  '='  '>'  '<'  '.'
 %token ','  ';'  '!'  '('  ')'  '['  ']'  '{'  '}'
+%token SCOPY VAR SEALED DIVIDER ':'
+%token ARRAY_REPEAT ARRAY_CONCAT IN FOREACH LISTFORR LISTFORL
+%token DEFAULT
 
 %left OR
-%left AND 
+%left AND
 %nonassoc EQUAL NOT_EQUAL
+%right ARRAY_CONCAT
+%left ARRAY_REPEAT
 %nonassoc LESS_EQUAL GREATER_EQUAL '<' '>'
 %left  '+' '-'
-%left  '*' '/' '%'  
-%nonassoc UMINUS '!' 
-%nonassoc '[' '.' 
+%left  '*' '/' '%'
+%nonassoc UMINUS '!'
+%nonassoc '[' '.' DEFAULT
 %nonassoc ')' EMPTY
 %nonassoc ELSE
+
+
+
+
 
 %start Program
 
@@ -73,7 +83,7 @@ Variable        :	Type IDENTIFIER
 						$$.vdef = new Tree.VarDef($2.ident, $1.type, $2.loc);
 					}
 				;
-				
+
 Type            :	INT
 					{
 						$$.type = new Tree.TypeIdent(Tree.INT, $1.loc);
@@ -100,10 +110,14 @@ Type            :	INT
                 	}
                 ;
 
-ClassDef        :	CLASS IDENTIFIER ExtendsClause '{' FieldList '}'
+ClassDef        :	SEALED CLASS IDENTIFIER ExtendsClause '{' FieldList '}'
 					{
-						$$.cdef = new Tree.ClassDef($2.ident, $3.ident, $5.flist, $1.loc);
+						$$.cdef = new Tree.ClassDef(true, $3.ident, $4.ident, $6.flist, $1.loc);
 					}
+				|   CLASS IDENTIFIER ExtendsClause '{' FieldList '}'
+                    {
+                        $$.cdef = new Tree.ClassDef(false, $2.ident, $3.ident, $5.flist, $1.loc);
+                    }
                 ;
 
 ExtendsClause	:	EXTENDS IDENTIFIER
@@ -130,12 +144,12 @@ FieldList       :	FieldList VariableDef
                 		$$.flist = new ArrayList<Tree>();
                 	}
                 ;
- 
+
 Formals         :	VariableList
                 |	/* empty */
                 	{
                 		$$ = new SemValue();
-                		$$.vlist = new ArrayList<Tree.VarDef>(); 
+                		$$.vlist = new ArrayList<Tree.VarDef>();
                 	}
                 ;
 
@@ -150,6 +164,7 @@ VariableList    :	VariableList ',' Variable
                 	}
                 ;
 
+/* function definition */
 FunctionDef    :	STATIC Type IDENTIFIER '(' Formals ')' StmtBlock
 					{
 						$$.fdef = new MethodDef(true, $3.ident, $2.type, $5.vlist, (Block) $7.stmt, $3.loc);
@@ -165,7 +180,7 @@ StmtBlock       :	'{' StmtList '}'
 						$$.stmt = new Block($2.slist, $1.loc);
 					}
                 ;
-	
+
 StmtList        :	StmtList Stmt
 					{
 						$$.slist.add($2.stmt);
@@ -177,11 +192,14 @@ StmtList        :	StmtList Stmt
                 	}
                 ;
 
-Stmt		    :	VariableDef
+Stmt		    :	ForeachStmt
+                |   OCStmt ';'
+                |   GuardedStmt
+                |   VariableDef
 					{
 						$$.stmt = $1.vdef;
 					}
-					
+
                 |	SimpleStmt ';'
                 	{
                 		if ($$.stmt == null) {
@@ -197,10 +215,79 @@ Stmt		    :	VariableDef
                 |	StmtBlock
                 ;
 
-SimpleStmt      :	LValue '=' Expr
+ForeachStmt     :   FOREACH '(' BoundVariable IN Expr ')' Stmt
+                    {
+                        $$.stmt = new Tree.ArrayFor(false, $3.lvalue, $5.expr, $7.stmt, null, $1.loc, $3.vdef, $3.ident, $3.loc);
+                    }
+                |   FOREACH '(' BoundVariable IN Expr WHILE Expr ')' Stmt
+                    {
+                        $$.stmt = new Tree.ArrayFor(true, $3.lvalue, $5.expr, $9.stmt, $7.expr, $1.loc, $3.vdef, $3.ident, $3.loc);
+                    }
+                ;
+
+BoundVariable   :   VAR IDENTIFIER
+                    {
+                        $$.loc = $2.loc;
+                        $$.vdef = null;
+                        $$.ident = $2.ident;
+                        $$.lvalue = new LValue.BoundVar(null, $2.ident, $2.loc);
+
+                    }
+                |   Type IDENTIFIER
+                    {
+                        $$.loc = $2.loc;
+                        $$.vdef = new Tree.VarDef($2.ident, $1.type, $2.loc);
+                        $$.ident = null;
+                        $$.lvalue = new LValue.BoundVar($1.type, $2.ident, $2.loc);
+
+                    }
+                ;
+
+
+GuardedStmt     :   IF '{' IfBranchG IfStmtG '}'
+                {
+                    $3.slist.add($4.stmt);
+                    $$.stmt = new Tree.Guard($3.slist, $1.loc);
+
+                }
+                |   IF '{' '}'
+                {
+                    $$.stmt = new Tree.Guard(null, $1.loc);
+                }
+                ;
+
+IfBranchG       :   IfBranchG IfStmtG DIVIDER
+                    {
+                        $$.slist.add($2.stmt);
+                    }
+                |	/* empty */
+                    {
+                        $$ = new SemValue();
+                        $$.slist = new ArrayList<Tree>();
+                    }
+                ;
+
+IfStmtG         :   Expr ':' Stmt
+                    {
+                        $$.stmt = new Tree.IfG($1.expr, $3.stmt, $1.loc);
+                    }
+                ;
+
+
+OCStmt          :   SCOPY '(' IDENTIFIER ',' Expr ')'
+                    {
+                        $$.stmt = new Tree.Scopy($3.ident, $5.expr, $3.loc);
+                    }
+                ;
+
+SimpleStmt      :	LValuel '=' Expr
 					{
 						$$.stmt = new Tree.Assign($1.lvalue, $3.expr, $2.loc);
 					}
+				|	VAR IDENTIFIER '=' Expr
+                    {
+                        $$.stmt = new Tree.VarAssign($4.expr, $2.loc, $2.ident);
+                    }
                 |	Call
                 	{
                 		$$.stmt = new Tree.Exec($1.expr, $1.loc);
@@ -216,19 +303,42 @@ Receiver     	:	Expr '.'
                 	{
                 		$$ = new SemValue();
                 	}
-                ; 
+                ;
 
-LValue          :	Receiver IDENTIFIER
+LValuel          :   Receiver IDENTIFIER
 					{
 						$$.lvalue = new Tree.Ident($1.expr, $2.ident, $2.loc);
 						if ($1.loc == null) {
 							$$.loc = $2.loc;
 						}
 					}
-                |	Expr '[' Expr ']'
-                	{
-                		$$.lvalue = new Tree.Indexed($1.expr, $3.expr, $1.loc);
-                	}
+                |	ArrayIndex
+                ;
+
+ArrayIndex      :   Expr '[' Expr ']'
+                    {
+                        $$.lvalue = new Tree.Indexed($1.expr, $3.expr, $1.loc);
+                    }
+                ;
+
+ArraySlice      :   Expr '[' Expr ']'
+                    {
+                        $$.lvalue = new Tree.Slice($1.expr, $3.expr, $1.loc);
+                    }
+                ;
+
+LValue          :	VAR IDENTIFIER
+                    {
+                        $$.lvalue = new Tree.IdentVar($2.ident, $2.loc);
+                    }
+                |   Receiver IDENTIFIER
+					{
+						$$.lvalue = new Tree.Ident($1.expr, $2.ident, $2.loc);
+						if ($1.loc == null) {
+							$$.loc = $2.loc;
+						}
+					}
+                |	ArrayIndex
                 ;
 
 Call            :	Receiver IDENTIFIER '(' Actuals ')'
@@ -240,7 +350,26 @@ Call            :	Receiver IDENTIFIER '(' Actuals ')'
 					}
                 ;
 
-Expr            :	LValue
+BoolExpr        : Expr
+                ;
+
+Expr            :	LISTFORL Expr FOR IDENTIFIER IN Expr LISTFORR
+                    {
+                        $$.expr = new Tree.ArrayComp(false, $2.expr, $4.ident, $6.expr, null, $1.loc);
+                    }
+                |   LISTFORL Expr FOR IDENTIFIER IN Expr IF BoolExpr LISTFORR
+                    {
+                        $$.expr = new Tree.ArrayComp(true, $2.expr, $4.ident, $6.expr, $8.expr, $1.loc);
+                    }
+                |   Expr '[' Expr ':' Expr ']'
+                    {
+                        $$.expr = new Tree.ArrayRef($1.expr, $3.expr, $5.expr, $1.loc);
+                    }
+                |   ArraySlice DEFAULT Expr
+                    {
+                        $$.expr = new Tree.ArrayDefault($1.lvalue, $3.expr, $1.loc);
+                    }
+                |   LValue
 					{
 						$$.expr = $1.lvalue;
 					}
@@ -274,6 +403,14 @@ Expr            :	LValue
                 	{
                 		$$.expr = new Tree.Binary(Tree.NE, $1.expr, $3.expr, $2.loc);
                 	}
+                |   Expr ARRAY_REPEAT Expr
+                    {
+                        $$.expr = new Tree.ArrayInit($1.expr, $3.expr, $1.loc);
+                    }
+                |   Expr ARRAY_CONCAT Expr
+                    {
+                        $$.expr = new Tree.ArrayConcat($1.expr, $3.expr, $1.loc);
+                    }
                 |	Expr '<' Expr
                 	{
                 		$$.expr = new Tree.Binary(Tree.LT, $1.expr, $3.expr, $2.loc);
@@ -340,7 +477,8 @@ Expr            :	LValue
                 	} 
                 ;
 	
-Constant        :	LITERAL
+Constant        :	ArrayConstant
+                |   LITERAL
 					{
 						$$.expr = new Tree.Literal($1.typeTag, $1.literal, $1.loc);
 					}
@@ -348,6 +486,27 @@ Constant        :	LITERAL
                 	{
 						$$.expr = new Null($1.loc);
 					}
+                ;
+
+ArrayConstant   : '[' ']'
+                    {
+                        $$.expr = new Tree.Array(null, $1.loc);
+                    }
+                | '[' ArrayInsider ']'
+                    {
+                        $$.expr = new Tree.Array($2.elist, $1.loc);
+                    }
+                ;
+
+ArrayInsider    :	ArrayInsider ',' Constant
+					{
+						$$.elist.add($3.expr);
+					}
+                |	Constant
+                	{
+                		$$.elist = new ArrayList<Tree.Expr>();
+						$$.elist.add($1.expr);
+                	}
                 ;
 
 Actuals         :	ExprList

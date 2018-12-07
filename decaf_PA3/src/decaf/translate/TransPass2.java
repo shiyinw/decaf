@@ -243,6 +243,18 @@ public class TransPass2 extends Tree.Visitor {
 	}
 
 	@Override
+	public void visitSlice(Tree.Slice indexed) {
+		indexed.array.accept(this);
+		indexed.index.accept(this);
+		tr.genCheckArrayIndex(indexed.array.val, indexed.index.val);
+
+		Temp esz = tr.genLoadImm4(OffsetCounter.WORD_SIZE);
+		Temp t = tr.genMul(indexed.index.val, esz);
+		Temp base = tr.genAdd(indexed.array.val, t);
+		indexed.val = tr.genLoad(base, 0);
+	}
+
+	@Override
 	public void visitIdent(Tree.Ident ident) {
 		if(ident.lvKind == Tree.LValue.Kind.MEMBER_VAR){
 			ident.owner.accept(this);

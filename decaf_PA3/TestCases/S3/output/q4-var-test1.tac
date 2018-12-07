@@ -1,34 +1,6 @@
-VTABLE(_Main) {
-    <empty>
-    Main
-}
-
-FUNCTION(_Main_New) {
-memo ''
-_Main_New:
-    _T0 = 4
-    parm _T0
-    _T1 =  call _Alloc
-    _T2 = VTBL <_Main>
-    *(_T1 + 0) = _T2
-    return _T1
-}
-
-FUNCTION(_Main.foo) {
-memo ''
-_Main.foo:
-    _T4 = 100
-    _T3 = _T4
-    return _T3
-}
-
-FUNCTION(main) {
-memo ''
-main:
-    _T6 = 30
-    _T5 = _T6
-    _T7 = _T5
-    parm _T7
-    call _PrintInt
-}
-
+Exception in thread "main" java.lang.NullPointerException
+	at decaf.tac.Tac.toString(Tac.java:308)
+	at java.base/java.lang.String.valueOf(String.java:2951)
+	at decaf.translate.Translater.printTo(Translater.java:69)
+	at decaf.Driver.compile(Driver.java:107)
+	at decaf.Driver.main(Driver.java:117)
