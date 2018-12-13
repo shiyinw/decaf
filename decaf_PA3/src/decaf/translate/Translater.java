@@ -367,18 +367,35 @@ public class Translater {
 		genMark(exit);
 	}
 
-	public boolean genCheckArrayDefault(Temp array, Temp index){
-		Temp length = genLoad(array, -OffsetCounter.WORD_SIZE);
-		Temp cond = genLes(index, length);
-		Label err = Label.createLabel();
-		genBeqz(cond, err);
-		genMark(err);
-		Temp msg = genLoadStrConst(RuntimeError.ARRAY_INDEX_OUT_OF_BOUND);
-		genParm(msg);
-		genIntrinsicCall(Intrinsic.PRINT_STRING);
-		return true;
-		//genMark(exit);
+	public Temp genArrayDefault(Temp array, Temp index, Temp expr){
 
+		Temp length = genLoad(array, -OffsetCounter.WORD_SIZE);
+
+		//check whether the index of a[x] < length
+		Temp cond1 = genLes(index, length);
+		Label lessthanlength = Label.createLabel();
+		genBeqz(cond1, lessthanlength);
+
+		//check whether the index of a[x] >= 0
+		Temp cond2 = genLeq(genLoadImm4(0), index);
+		Label greaterthanzero = Label.createLabel();
+		genBeqz(cond2, greaterthanzero);
+
+		// return the value of a[x]
+		Temp t = genMul(index, genLoadImm4(OffsetCounter.WORD_SIZE));
+		Temp base = genAdd(array, t);
+		Temp ans = Temp.createTempI4();
+		genAssign(ans, genLoad(base, 0));
+
+		Label exit = Label.createLabel();
+		genBranch(exit);
+
+		genMark(greaterthanzero);
+		genMark(lessthanlength);
+		genAssign(ans, expr);
+		genMark(exit);
+
+		return ans;
 	}
 
 	public void genCheckNewArraySize(Temp size) {

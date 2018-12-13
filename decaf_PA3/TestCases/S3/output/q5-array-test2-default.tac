@@ -47,24 +47,42 @@ _L12:
     _T16 = *(_T3 - 4)
     _T17 = (_T14 < _T16)
     if (_T17 == 0) branch _L13
-_L13:
-    _T18 = "Decaf runtime error: Array subscript out of bounds\n"
-    parm _T18
-    call _PrintString
-    _T13 = _T15
-    _T20 = 2
-    _T21 = "pa3"
-    _T22 = *(_T3 - 4)
-    _T23 = (_T20 < _T22)
-    if (_T23 == 0) branch _L14
+    _T18 = 0
+    _T19 = (_T18 <= _T14)
+    if (_T19 == 0) branch _L14
+    _T20 = 4
+    _T21 = (_T14 * _T20)
+    _T22 = (_T3 + _T21)
+    _T24 = *(_T22 + 0)
+    _T23 = _T24
+    branch _L15
 _L14:
-    _T24 = "Decaf runtime error: Array subscript out of bounds\n"
-    parm _T24
-    call _PrintString
-    _T19 = _T21
+_L13:
+    _T23 = _T15
+_L15:
+    _T13 = _T23
+    _T26 = 2
+    _T27 = "pa3"
+    _T28 = *(_T3 - 4)
+    _T29 = (_T26 < _T28)
+    if (_T29 == 0) branch _L16
+    _T30 = 0
+    _T31 = (_T30 <= _T26)
+    if (_T31 == 0) branch _L17
+    _T32 = 4
+    _T33 = (_T26 * _T32)
+    _T34 = (_T3 + _T33)
+    _T36 = *(_T34 + 0)
+    _T35 = _T36
+    branch _L18
+_L17:
+_L16:
+    _T35 = _T27
+_L18:
+    _T25 = _T35
     parm _T13
     call _PrintString
-    parm _T19
+    parm _T25
     call _PrintString
 }
 

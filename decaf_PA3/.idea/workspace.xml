@@ -3,76 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="c9341579-b852-4164-aa76-827ce451bd09" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/blackjack.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/blackjack.tac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-bool.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-bool.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-bool.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-bool.tac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-class.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-class.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-class.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-class.tac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-error.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-error.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-error.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-error.tac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-int.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-int.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-int.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-int.tac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-string.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-string.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-string.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-string.tac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test3.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test3.tac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/strcmp.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/strcmp.tac" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-default.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-default.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-default.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-default.tac" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-normal.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-normal.result" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-normal.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-normal.tac" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/error/RuntimeError.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/error/RuntimeError.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/frontend/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/frontend/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/translate/TransPass2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/translate/TransPass2$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/translate/TransPass2.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/translate/TransPass2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/bin/decaf/translate/Translater.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/translate/Translater.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Apply.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Apply.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ArrayDefault.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ArrayDefault.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ArrayInit.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ArrayInit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Assign.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Assign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Binary.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Binary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Block.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Break.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Break.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$CallExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$CallExpr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Exec.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Exec.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Expr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Expr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ForLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ForLoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Guard.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Guard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Ident.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Ident.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$IdentVar.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$IdentVar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$If.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$If.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$IfG.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$IfG.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Indexed.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Indexed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue$Kind.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue$Kind.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$LValue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Literal.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Literal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$NewArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$NewArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$NewClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$NewClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Null.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Null.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Print.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Print.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadIntExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadIntExpr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadLineExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ReadLineExpr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Return.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Return.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Scopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Scopy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Skip.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Skip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Slice.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Slice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ThisExpr.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$ThisExpr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeCast.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeCast.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeIdent.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeIdent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeLiteral.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeLiteral.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$TypeTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Unary.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Unary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$VarAssign.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$VarAssign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Visitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$Visitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$WhileLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tree/Tree$WhileLoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/typecheck/TypeCheck.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/typecheck/TypeCheck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/result/decaf.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/error/RuntimeError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/error/RuntimeError.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Parser.y" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Parser.y" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/translate/TransPass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/translate/TransPass2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/translate/Translater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/translate/Translater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/tree/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/tree/Tree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/typecheck/TypeCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/typecheck/TypeCheck.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,14 +35,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="decaf" value="25" />
+          <entry key="decaf" value="26" />
           <entry key="iml" value="1" />
-          <entry key="java" value="50" />
+          <entry key="java" value="55" />
           <entry key="l" value="1" />
           <entry key="log" value="1" />
           <entry key="project" value="2" />
-          <entry key="result" value="43" />
-          <entry key="tac" value="11" />
+          <entry key="result" value="46" />
+          <entry key="tac" value="12" />
           <entry key="xml" value="1" />
           <entry key="y" value="3" />
         </counts>
@@ -110,22 +51,23 @@
         <counts>
           <entry key="Eclipse" value="2" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="50" />
-          <entry key="PLAIN_TEXT" value="84" />
+          <entry key="JAVA" value="55" />
+          <entry key="PLAIN_TEXT" value="89" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="decaf" value="47" />
-          <entry key="java" value="2441" />
+          <entry key="decaf" value="106" />
+          <entry key="java" value="3519" />
+          <entry key="tac" value="334" />
           <entry key="y" value="60" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2441" />
-          <entry key="PLAIN_TEXT" value="107" />
+          <entry key="JAVA" value="3519" />
+          <entry key="PLAIN_TEXT" value="500" />
         </counts>
       </usages-collector>
     </session>
@@ -135,29 +77,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/decaf/translate/TransPass2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="168" selection-start-line="168" selection-start-column="2" selection-end-line="172" selection-end-column="34" />
+            <state relative-caret-position="83">
+              <caret line="168" column="27" selection-start-line="168" selection-start-column="27" selection-end-line="168" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5317#5318#0" expanded="true" />
+                <element signature="e#5346#5347#0" expanded="true" />
+                <element signature="e#5631#5632#0" expanded="true" />
+                <element signature="e#5670#5671#0" expanded="true" />
+                <element signature="e#5848#5849#0" expanded="true" />
+                <element signature="e#5881#5882#0" expanded="true" />
+                <element signature="e#7936#7937#0" expanded="true" />
+                <element signature="e#7973#7974#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S3/q5-array-test2-default.decaf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-default.tac">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -168,12 +100,44 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-default.tac">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="88" selection-start-line="88" selection-end-line="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/S3/q5-array-test2-default.decaf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/decaf/translate/Translater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="376" column="19" selection-start-line="376" selection-start-column="19" selection-end-line="376" selection-end-column="19" />
+            <state relative-caret-position="402">
+              <caret line="396" lean-forward="true" selection-start-line="396" selection-end-line="396" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#6923#6924#0" expanded="true" />
+                <element signature="e#6956#6957#0" expanded="true" />
+                <element signature="e#6993#6994#0" expanded="true" />
+                <element signature="e#7026#7027#0" expanded="true" />
+                <element signature="e#7072#7073#0" expanded="true" />
+                <element signature="e#7109#7110#0" expanded="true" />
+                <element signature="e#7155#7156#0" expanded="true" />
+                <element signature="e#7192#7193#0" expanded="true" />
+                <element signature="e#7807#7808#0" expanded="true" />
+                <element signature="e#7842#7843#0" expanded="true" />
+                <element signature="e#7879#7880#0" expanded="true" />
+                <element signature="e#7912#7913#0" expanded="true" />
+                <element signature="e#7947#7948#0" expanded="true" />
+                <element signature="e#7979#7980#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -183,11 +147,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Call</find>
-      <find>Stmt</find>
-      <find>Stmt</find>
       <find>Assign(</find>
-      <find>Call</find>
       <find>CallExpr</find>
       <find>visitCallExpr</find>
       <find>Receiver</find>
@@ -202,17 +162,21 @@
       <find>genStore</find>
       <find>DEFAULT</find>
       <find>CheckArr</find>
-      <find>DEFAULT</find>
       <find>LValue</find>
       <find>Indexed</find>
       <find>toString()</find>
       <find>Error: no label named</find>
       <find>genLes</find>
-      <find>Default</find>
       <find>visitIndexed</find>
-      <find>CheckArray</find>
-      <find>visitIndex</find>
       <find>Defau</find>
+      <find>MEMO</find>
+      <find>CheckArray</find>
+      <find>Default</find>
+      <find>Array</find>
+      <find>genMemo</find>
+      <find>visitIndex</find>
+      <find>Init</find>
+      <find>Branch</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -240,8 +204,9 @@
         <option value="$PROJECT_DIR$/src/decaf/typecheck/TypeCheck.java" />
         <option value="$PROJECT_DIR$/src/decaf/tree/Tree.java" />
         <option value="$PROJECT_DIR$/TestCases/S3/q5-array-test2-default.decaf" />
-        <option value="$PROJECT_DIR$/src/decaf/translate/Translater.java" />
+        <option value="$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-default.tac" />
         <option value="$PROJECT_DIR$/src/decaf/translate/TransPass2.java" />
+        <option value="$PROJECT_DIR$/src/decaf/translate/Translater.java" />
       </list>
     </option>
   </component>
@@ -255,7 +220,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
@@ -281,13 +245,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="decaf" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PA3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="decaf_PA3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="decaf" type="462c0819:PsiDirectoryNode" />
-              <item name="error" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PA3" type="b2602c69:ProjectViewProjectNode" />
@@ -382,12 +339,13 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544200303242" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../decaf_PA2/src/decaf/scope/LocalScope.java" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../decaf_PA2/src/decaf/scope/Scope.java" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -423,7 +381,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27825466" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -438,7 +396,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.26746988" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.26746988" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
@@ -472,33 +430,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/decaf/frontend/Lexer.l">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1015" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/backend/OffsetCounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#825#826#0" expanded="true" />
-            <element signature="e#865#866#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S3/blackjack.tac">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S3/casterror.decaf">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S3/hs_err_pid15474.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1467" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S3/indexout.decaf">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -579,18 +510,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-class.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/error/Pring.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/error/Pring.java" />
     <entry file="file://$PROJECT_DIR$/src/decaf/error/RuntimeError.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -601,20 +527,7 @@
     <entry file="file://$PROJECT_DIR$/src/decaf/error/NotClassMethodError.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/error/Print.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/tac/Tac.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="188" column="30" selection-start-line="188" selection-start-column="22" selection-end-line="188" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/error/Print.java" />
     <entry file="file://$PROJECT_DIR$/TestCases/S3/q5-array-test2-normal.decaf">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -648,9 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/tac/Temp.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/typecheck/TypeCheck.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
@@ -683,40 +593,102 @@
     <entry file="file://$PROJECT_DIR$/src/decaf/error/BadArrElementError.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/translate/Translater.java">
+    <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-normal.tac">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="376" column="19" selection-start-line="376" selection-start-column="19" selection-end-line="376" selection-end-column="19" />
+        <state relative-caret-position="720">
+          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/tac/Tac.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="207" column="32" selection-start-line="207" selection-start-column="28" selection-end-line="207" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/translate/TransPass2.java">
+    <entry file="file://$PROJECT_DIR$/src/decaf/tac/Label.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-normal.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/tac/Temp.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/scope/Scope.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="168" selection-start-line="168" selection-start-column="2" selection-end-line="172" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="111">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/scope/LocalScope.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S3/q5-array-test2-default.decaf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-default.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S3/q5-array-test2-default.decaf">
+    <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-default.tac">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        <state relative-caret-position="493">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test2-default.tac">
+    <entry file="file://$PROJECT_DIR$/src/decaf/translate/TransPass2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state relative-caret-position="83">
+          <caret line="168" column="27" selection-start-line="168" selection-start-column="27" selection-end-line="168" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5317#5318#0" expanded="true" />
+            <element signature="e#5346#5347#0" expanded="true" />
+            <element signature="e#5631#5632#0" expanded="true" />
+            <element signature="e#5670#5671#0" expanded="true" />
+            <element signature="e#5848#5849#0" expanded="true" />
+            <element signature="e#5881#5882#0" expanded="true" />
+            <element signature="e#7936#7937#0" expanded="true" />
+            <element signature="e#7973#7974#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/translate/Translater.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="396" lean-forward="true" selection-start-line="396" selection-end-line="396" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6923#6924#0" expanded="true" />
+            <element signature="e#6956#6957#0" expanded="true" />
+            <element signature="e#6993#6994#0" expanded="true" />
+            <element signature="e#7026#7027#0" expanded="true" />
+            <element signature="e#7072#7073#0" expanded="true" />
+            <element signature="e#7109#7110#0" expanded="true" />
+            <element signature="e#7155#7156#0" expanded="true" />
+            <element signature="e#7192#7193#0" expanded="true" />
+            <element signature="e#7807#7808#0" expanded="true" />
+            <element signature="e#7842#7843#0" expanded="true" />
+            <element signature="e#7879#7880#0" expanded="true" />
+            <element signature="e#7912#7913#0" expanded="true" />
+            <element signature="e#7947#7948#0" expanded="true" />
+            <element signature="e#7979#7980#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

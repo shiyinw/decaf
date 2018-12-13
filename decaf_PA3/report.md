@@ -100,7 +100,11 @@ public void visitVarAssign(Tree.VarAssign var) {
 
 ### Array 数组
 
-#### 
+#### default 数组下标动态访问表达式
+
+前面的实现可以直接考模仿已有的代码迅速写出，但是数组这部分的实现就需要读懂其他文件中的代码。比如在实现default的时候，我按照下面左图的方式写，得到了右图的结果。一开始我以为右图中的赋值被放到了下面，但是经过微信群里大家的指点，我发现赋值语句不应该这么写。
+
+####![Screen Shot 2018-12-13 at 20.22.31](/Users/sherilynw/Desktop/Screen Shot 2018-12-13 at 20.22.31.png) ![Screen Shot 2018-12-13 at 20.22.38](/Users/sherilynw/Desktop/Screen Shot 2018-12-13 at 20.22.38.png)
 
 ### 实验总结和体会
 

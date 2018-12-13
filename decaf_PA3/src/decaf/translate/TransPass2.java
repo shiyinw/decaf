@@ -165,17 +165,9 @@ public class TransPass2 extends Tree.Visitor {
 		indexed.array.accept(this);
 		indexed.index.accept(this);
 		arr.e.accept(this);
-		if(!tr.genCheckArrayDefault(indexed.array.val, indexed.index.val)){
-//			Temp esz = tr.genLoadImm4(OffsetCounter.WORD_SIZE);
-//			Temp t = tr.genMul(indexed.index.val, esz);
-//			Temp base = tr.genAdd(indexed.array.val, t);
-//			indexed.val = tr.genLoad(base, 0);
-//			arr.val = indexed.val;
-			arr.val = indexed.array.val;
-		}
-		else{
-			arr.val = arr.e.val;
-		}
+
+		arr.val = tr.genArrayDefault(indexed.array.val, indexed.index.val, arr.e.val);
+
 	}
 
     @Override
