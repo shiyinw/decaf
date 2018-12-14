@@ -370,7 +370,12 @@ public class TransPass2 extends Tree.Visitor {
 
 		Temp unit = tr.genLoadImm4(OffsetCounter.WORD_SIZE);
 		Temp length = tr.genLoad(foreach.array.val, -OffsetCounter.WORD_SIZE);
-		Temp iter = foreach.array.val;
+
+		tr.genParm(unit);
+		Temp iter = tr.genIntrinsicCall(Intrinsic.ALLOCATE);
+		tr.genAssign(iter, foreach.array.val);
+
+
 		Temp end = tr.genAdd(iter, tr.genMul(length, unit)); //[length][-begin 0][1][2]-end
 
 		Label loop = Label.createLabel();

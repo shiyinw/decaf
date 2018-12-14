@@ -91,26 +91,29 @@ _L15:
     _T13 = _T23
     _T25 = 4
     _T26 = *(_T13 - 4)
-    _T27 = (_T26 * _T25)
-    _T28 = (_T13 + _T27)
+    parm _T25
+    _T27 =  call _Alloc
+    _T27 = _T13
+    _T28 = (_T26 * _T25)
+    _T29 = (_T27 + _T28)
 _L16:
-    _T29 = (_T13 < _T28)
-    if (_T29 == 0) branch _L17
-    _T30 = *(_T13 + 0)
-    _T24 = _T30
-    _T31 = (_T13 + _T25)
-    _T13 = _T31
-    _T32 = 2
-    _T33 = (_T14 > _T32)
-    if (_T33 == 0) branch _L16
-    _T34 = (_T14 + _T24)
-    _T14 = _T34
+    _T30 = (_T27 < _T29)
+    if (_T30 == 0) branch _L17
+    _T31 = *(_T27 + 0)
+    _T24 = _T31
+    _T32 = (_T27 + _T25)
+    _T27 = _T32
+    _T33 = 2
+    _T34 = (_T14 > _T33)
+    if (_T34 == 0) branch _L16
+    _T35 = (_T14 + _T24)
+    _T14 = _T35
     parm _T24
     call _PrintInt
     parm _T14
     call _PrintInt
-    _T35 = "\n"
-    parm _T35
+    _T36 = "\n"
+    parm _T36
     call _PrintString
     branch _L16
 _L17:
