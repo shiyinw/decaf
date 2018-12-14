@@ -1,1 +1,13 @@
-*** Error at (23,38): incompatible operands: unknown < int
+Exception in thread "main" java.lang.NullPointerException
+	at decaf.translate.TransPass2.visitArrayFor(TransPass2.java:354)
+	at decaf.tree.Tree$ArrayFor.accept(Tree.java:627)
+	at decaf.translate.TransPass2.visitBlock(TransPass2.java:230)
+	at decaf.tree.Tree$Block.accept(Tree.java:786)
+	at decaf.translate.TransPass2.visitMethodDef(TransPass2.java:40)
+	at decaf.tree.Tree$MethodDef.accept(Tree.java:458)
+	at decaf.translate.TransPass2.visitClassDef(TransPass2.java:29)
+	at decaf.tree.Tree$ClassDef.accept(Tree.java:420)
+	at decaf.translate.TransPass2.visitTopLevel(TransPass2.java:48)
+	at decaf.translate.Translater.translate(Translater.java:42)
+	at decaf.Driver.compile(Driver.java:104)
+	at decaf.Driver.main(Driver.java:117)

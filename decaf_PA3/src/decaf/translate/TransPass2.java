@@ -379,9 +379,11 @@ public class TransPass2 extends Tree.Visitor {
 			tr.genBeqz(foreach.j.val, loop);
 		}
 
+        loopExits.push(exit);
 		foreach.block.accept(this);
 
 		tr.genBranch(loop);
+        loopExits.pop();
 		tr.genMark(exit);
 	}
 

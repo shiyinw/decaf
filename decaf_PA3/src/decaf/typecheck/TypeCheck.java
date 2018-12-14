@@ -799,12 +799,7 @@ public class TypeCheck extends Tree.Visitor {
 		table.open(arrfor.associatedScope);
 		Variable arr = (Variable) table.lookup(array.name, true);
 		arrfor.symbol = arr;
-		if(arrfor.j!=null){
-			checkTestExpr(arrfor.j);
-			if(arrfor.j.type.equal(BaseType.ERROR)){
-				return;
-			}
-		}
+
 		if(arrfor.array.type.equal(BaseType.ERROR)){
 			return;
 		}
@@ -825,9 +820,18 @@ public class TypeCheck extends Tree.Visitor {
 				ident.type = ((ArrayType) arrfor.array.type).getElementType();
 			}
 		}
+		if(arrfor.j!=null){
+			checkTestExpr(arrfor.j);
+			if(arrfor.j.type.equal(BaseType.ERROR)){
+				return;
+			}
+		}
+		breaks.add(arrfor);
 		for (Tree s : arrfor.block.block) {
 			s.accept(this);
 		}
+		breaks.pop();
+
 		table.close();
 
 	}
