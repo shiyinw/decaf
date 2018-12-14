@@ -186,7 +186,7 @@ public class TypeCheck extends Tree.Visitor {
 					Tree.Expr e = iter2.next();
 					Type t2 = e.type;
 					if (!t2.equal(BaseType.ERROR) && !t2.compatible(t1)) {
-						issueError(new BadArgTypeError(e.getLocation(), i, 
+						issueError(new BadArgTypeError(e.getLocation(), i,
 								t2.toString(), t1.toString()));
 					}
 				}
@@ -239,7 +239,7 @@ public class TypeCheck extends Tree.Visitor {
 	public void visitExec(Tree.Exec exec){
 		exec.expr.accept(this);
 	}
-	
+
 	@Override
 	public void visitNewArray(Tree.NewArray newArrayExpr) {
 		newArrayExpr.elementType.accept(this);
@@ -798,6 +798,7 @@ public class TypeCheck extends Tree.Visitor {
 		Tree.Ident array = (Tree.Ident) arrfor.array;
 		table.open(arrfor.associatedScope);
 		Variable arr = (Variable) table.lookup(array.name, true);
+		arrfor.symbol = arr;
 		if(arrfor.j!=null){
 			checkTestExpr(arrfor.j);
 			if(arrfor.j.type.equal(BaseType.ERROR)){

@@ -170,7 +170,14 @@ public class BuildSym extends Tree.Visitor {
 			d.accept(this);
 			f.appendParam(d.symbol);
 		}
-		funcDef.body.accept(this);
+
+		funcDef.body.associatedScope = new LocalScope(funcDef.body);
+		funcDef.body.associatedScope.setCombinedtoFormal(true);
+		table.open(funcDef.body.associatedScope);
+		for (Tree s : funcDef.body.block) {
+			s.accept(this);
+		}
+		table.close();
 		table.close();
 	}
 

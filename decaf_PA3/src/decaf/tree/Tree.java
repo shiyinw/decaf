@@ -601,6 +601,7 @@ public abstract class Tree {
         public Tree.Block virtualScope;
         public VarDef vardef;
         public IdentVar identvar;
+        public Variable symbol;
 
         public ArrayFor(boolean judege, LValue iter, Expr array, Tree e2, Expr j, Location loc, VarDef vdef, String varname, Location varloc) {
             super(ARRAYFOR, loc);

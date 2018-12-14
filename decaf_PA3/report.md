@@ -25,7 +25,7 @@ case Tree.MOD:
     break;
 ```
 
-* 修改文件 translate/translator.java
+* 修改文件 translate/Translator.java
 
 仿照其他的比较大小的函数，我定义了判断是否为0的函数
 
@@ -99,6 +99,63 @@ public void visitVarAssign(Tree.VarAssign var) {
 ```
 
 ### Array 数组
+
+#### E%%n 数组初始化常量表达式
+
+和`NewArray`的实现方式很类似，仅改动赋值的那一步并增加新的错误类型即可。
+
+* 修改文件 translate/TransPass2.java
+
+```java
+@Override
+public void visitArrayInit(Tree.ArrayInit arr){
+    arr.e1.accept(this);
+    arr.e2.accept(this);
+    arr.val = tr.genInitArray(arr.e1.val, arr.e2.val);
+}
+```
+
+* 修改文件 translate/Translator.java
+
+```java
+public Temp genInitArray(Temp initvar, Temp length) {
+    genCheckNewArraySizeInit(length);
+    Temp unit = genLoadImm4(OffsetCounter.WORD_SIZE);
+    Temp size = genAdd(unit, genMul(unit, length));
+    genParm(size);
+    Temp obj = genIntrinsicCall(Intrinsic.ALLOCATE);
+    genStore(length, obj, 0);
+    Label loop = Label.createLabel();
+    Label exit = Label.createLabel();
+    append(Tac.genAdd(obj, obj, size));
+    genMark(loop);
+    append(Tac.genSub(size, size, unit));
+    genBeqz(size, exit);
+    append(Tac.genSub(obj, obj, unit));
+    genStore(initvar, obj, 0);
+    genBranch(loop);
+    genMark(exit);
+    return obj;
+	}
+public void genCheckNewArraySizeInit(Temp size) {
+    Label exit = Label.createLabel();
+    Temp cond = genLes(size, genLoadImm4(0));
+    genBeqz(cond, exit);
+    Temp msg = genLoadStrConst(RuntimeError.INIT_ARR_NEG);
+    genParm(msg);
+    genIntrinsicCall(Intrinsic.PRINT_STRING);
+    genIntrinsicCall(Intrinsic.HALT);
+    genMark(exit);
+	}
+```
+
+* 修改文件 error/RuntimeError.java
+
+增加一个错误类型
+
+```java
+public static final String DIVIDE_BY_ZERO = "Decaf runtime error: Division by zero error.\n";
+```
 
 #### default 数组下标动态访问表达式
 
