@@ -21,7 +21,6 @@ class Main {
         int a;
         a = 0;
         foreach (var s in ss while s < 140) {
-
             a = a+1;
         }
         Print(a);

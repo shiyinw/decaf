@@ -9,6 +9,7 @@ import decaf.symbol.Variable;
 import decaf.tac.Label;
 import decaf.tac.Temp;
 import decaf.type.BaseType;
+import decaf.symbol.Symbol;
 
 public class TransPass2 extends Tree.Visitor {
 
@@ -351,7 +352,17 @@ public class TransPass2 extends Tree.Visitor {
 
 	@Override
 	public void visitArrayFor(Tree.ArrayFor foreach){
-		foreach.vardef.accept(this);
+		Variable sym;
+		if(foreach.vardef!=null) {
+			foreach.vardef.accept(this);
+			sym = foreach.vardef.symbol;
+		}else{
+			Temp t = Temp.createTempI4();
+			t.sym = foreach.identvar.symbol;
+			foreach.identvar.symbol.setTemp(t);
+			sym = foreach.identvar.symbol;
+		}
+
 		foreach.array.accept(this);
 
 		// foreach loop
@@ -371,7 +382,7 @@ public class TransPass2 extends Tree.Visitor {
 		tr.genBeqz(loopcond, exit);
 		//tr.genAssign(t, tr.genLoad(iter, 0));
 
-        tr.genAssign(((Tree.VarDef) foreach.vardef).symbol.getTemp(), tr.genLoad(iter, 0));
+        tr.genAssign(sym.getTemp(), tr.genLoad(iter, 0));
         tr.genAssign(iter, tr.genAdd(iter, unit));
 
 		if(foreach.j!=null){

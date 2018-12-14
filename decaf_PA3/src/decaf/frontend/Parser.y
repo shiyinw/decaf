@@ -228,7 +228,6 @@ ForeachStmt     :   FOREACH '(' BoundVariable IN Expr ')' Stmt
 BoundVariable   :   VAR IDENTIFIER
                     {
                         $$.loc = $2.loc;
-                        $$.vdef = null;
                         $$.ident = $2.ident;
                         $$.lvalue = new LValue.BoundVar(null, $2.ident, $2.loc);
 
@@ -237,7 +236,6 @@ BoundVariable   :   VAR IDENTIFIER
                     {
                         $$.loc = $2.loc;
                         $$.vdef = new Tree.VarDef($2.ident, $1.type, $2.loc);
-                        $$.ident = null;
                         $$.lvalue = new LValue.BoundVar($1.type, $2.ident, $2.loc);
 
                     }
