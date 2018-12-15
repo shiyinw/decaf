@@ -6,6 +6,7 @@ import decaf.tree.Tree;
 import decaf.backend.OffsetCounter;
 import decaf.machdesc.Intrinsic;
 import decaf.symbol.Variable;
+import decaf.symbol.Class;
 import decaf.tac.Label;
 import decaf.tac.Temp;
 import decaf.type.BaseType;
@@ -42,6 +43,19 @@ public class TransPass2 extends Tree.Visitor {
 		funcDefn.body.accept(this);
 		tr.endFunc();
 		currentThis = null;
+	}
+
+	@Override
+	public void visitSCopyExpr(Tree.ScopyExpr scopy) {
+		scopy.expr.accept(this);
+		int width = ((ClassType)(sCopyExpr.expr.type)).getSymbol().getSize();
+		Temp dstAddr = tr.genDirectCall(((ClassType)(sCopyExpr.expr.type)).getSymbol().getNewFuncLabel(), BaseType.INT);
+		Temp srcAddr =  sCopyExpr.expr.val;
+		sCopyExpr.val = dstAddr;
+		for (int i = 0; i < width; i += 4) {
+			Temp temp = tr.genLoad(srcAddr, i);
+			tr.genStore(temp, dstAddr, i);
+		}
 	}
 
 	@Override
@@ -463,32 +477,10 @@ public class TransPass2 extends Tree.Visitor {
 		arr.e2.accept(this);
 		Temp length = arr.e2.val;
 		tr.genCheckNewArraySizeInit(length);
-		if(arr.type.isClassType()){
-			Temp unit = tr.genLoadImm4(OffsetCounter.WORD_SIZE);
-			Temp size = tr.genAdd(unit, tr.genMul(unit, length));
-			tr.genParm(size);
-			Temp obj = tr.genIntrinsicCall(Intrinsic.ALLOCATE);
-			tr.genStore(length, obj, 0);
-			Label loop = Label.createLabel();
-			Label exit = Label.createLabel();
-			obj = tr.genAdd(obj, size);
-			tr.genMark(loop);
-			size = tr.genSub(size, unit);
-			tr.genBeqz(size, exit);
-			obj = tr.genSub(obj, unit);
-
-
+		if(arr.e1.type.isClassType()){
 			int width = ((ClassType)(arr.e1.type)).getSymbol().getSize();
-			Temp dstAddr = tr.genDirectCall(((ClassType)(arr.e1.type)).getSymbol().getNewFuncLabel(), BaseType.INT);
-			tr.genStore(dstAddr, obj, 0);
-			for (int i = 0; i < width; i += 4) {
-				Temp temp = tr.genLoad(arr.e1.val, i);
-				tr.genStore(temp, dstAddr, i);
-			}
-
-			tr.genBranch(loop);
-			tr.genMark(exit);
-			arr.val = obj;
+			Class symbol= ((ClassType)(arr.e1.type)).getSymbol();
+			arr.val = tr.genInitArrayClass(arr.e1.val, arr.e2.val, width, symbol);
 		}else{
 			arr.val = tr.genInitArray(arr.e1.val, arr.e2.val);
 		}

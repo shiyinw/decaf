@@ -450,6 +450,34 @@ public class Translater {
 		return obj;
 	}
 
+	public Temp genInitArrayClass(Temp initvar, Temp length, int width, Class sym){
+		Temp unit = genLoadImm4(OffsetCounter.WORD_SIZE);
+		Temp size = genAdd(unit, genMul(unit, length));
+		genParm(size);
+		Temp obj = genIntrinsicCall(Intrinsic.ALLOCATE);
+		genStore(length, obj, 0);
+		Label loop = Label.createLabel();
+		Label exit = Label.createLabel();
+		append(Tac.genAdd(obj, obj, size));
+		genMark(loop);
+		append(Tac.genSub(size, size, unit));
+		genBeqz(size, exit);
+		append(Tac.genSub(obj, obj, unit));
+
+		Temp dstAddr = genDirectCall(sym.getNewFuncLabel(), BaseType.INT);
+		Temp srcAddr =  initvar;
+		Temp result = dstAddr;
+		for (int i = 0; i < width; i += 4) {
+			Temp temp = genLoad(srcAddr, i);
+			genStore(temp, dstAddr, i);
+		}
+
+		genStore(result, obj, 0);
+		genBranch(loop);
+		genMark(exit);
+		return obj;
+	}
+
 	public Temp genNewArray(Temp length) {
 		genCheckNewArraySize(length);
 		Temp unit = genLoadImm4(OffsetCounter.WORD_SIZE);
