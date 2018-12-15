@@ -44,7 +44,23 @@ public void genCheckNZero(Temp size){
 
 ### Scopy 浅复制
 
+* 修改文件 translate/TransPass2.java
 
+```java
+@Override
+public void visitScopy(Tree.Scopy scopy) {
+    scopy.expr.accept(this);
+    int width = ((ClassType)(scopy.expr.type)).getSymbol().getSize();
+    Temp dstAddr = tr.genDirectCall(((ClassType)(scopy.expr.type)).getSymbol().getNewFuncLabel(), BaseType.INT);
+    for (int i = 0; i < width; i += 4) {
+        tr.genStore(tr.genLoad(scopy.expr.val, i), dstAddr, i);
+    }
+    scopy.symbol.setTemp(dstAddr);
+}
+```
+
+* 修改文件 tree/tree.java：增加`Variable symbol`属性
+* 修改文件 typecheck/TypeCheck.java：在检查类型的时候记录上`Variable symbol`对应的变量
 
 ### Guard条件卫士
 
@@ -115,7 +131,18 @@ public void visitVarAssign(Tree.VarAssign var) {
 public void visitArrayInit(Tree.ArrayInit arr){
     arr.e1.accept(this);
     arr.e2.accept(this);
-    arr.val = tr.genInitArray(arr.e1.val, arr.e2.val);
+    if(arr.e1.type.equal(BaseType.VAR)){
+        issueError(new BadArrElementError(arr.e1.getLocation()));
+        arr.type = BaseType.ERROR;
+        return;
+    }
+    else if(!arr.e2.type.equal(BaseType.INT)){
+        issueError(new BadArrTimesError(arr.getLocation()));
+        arr.type = BaseType.ERROR;
+        return;
+    }
+    arr.elementType = arr.e1.type;
+    arr.type = new ArrayType(arr.elementType);
 }
 ```
 
@@ -140,7 +167,32 @@ public Temp genInitArray(Temp initvar, Temp length) {
     genBranch(loop);
     genMark(exit);
     return obj;
-	}
+}
+public Temp genInitArrayClass(Temp initvar, Temp length, int width, Class sym){
+    Temp unit = genLoadImm4(OffsetCounter.WORD_SIZE);
+    Temp size = genAdd(unit, genMul(unit, length));
+    genParm(size);
+    Temp obj = genIntrinsicCall(Intrinsic.ALLOCATE);
+    genStore(length, obj, 0);
+    Label loop = Label.createLabel();
+    Label exit = Label.createLabel();
+    append(Tac.genAdd(obj, obj, size));
+    genMark(loop);
+    append(Tac.genSub(size, size, unit));
+    genBeqz(size, exit);
+    append(Tac.genSub(obj, obj, unit));
+    Temp dstAddr = genDirectCall(sym.getNewFuncLabel(), BaseType.INT);
+    Temp srcAddr =  initvar;
+    Temp result = dstAddr;
+    for (int i = 0; i < width; i += 4) {
+        Temp temp = genLoad(srcAddr, i);
+        genStore(temp, dstAddr, i);
+    }
+    genStore(result, obj, 0);
+    genBranch(loop);
+    genMark(exit);
+    return obj;
+}
 public void genCheckNewArraySizeInit(Temp size) {
     Label exit = Label.createLabel();
     Temp cond = genLes(size, genLoadImm4(0));
@@ -150,15 +202,7 @@ public void genCheckNewArraySizeInit(Temp size) {
     genIntrinsicCall(Intrinsic.PRINT_STRING);
     genIntrinsicCall(Intrinsic.HALT);
     genMark(exit);
-	}
-```
-
-* 修改文件 error/RuntimeError.java
-
-增加一个错误类型
-
-```java
-public static final String DIVIDE_BY_ZERO = "Decaf runtime error: Division by zero error.\n";
+}
 ```
 
 #### default 数组下标动态访问表达式

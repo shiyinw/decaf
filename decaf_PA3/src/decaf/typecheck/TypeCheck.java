@@ -613,6 +613,7 @@ public class TypeCheck extends Tree.Visitor {
 					issueError(new BadScopySrcError(scopy.getLocation(), v.getType().toString(), scopy.expr.type.toString()));
 				}
 				scopy.type = scopy.expr.type;
+				scopy.symbol = (Variable)v;
 			}
 		}
 

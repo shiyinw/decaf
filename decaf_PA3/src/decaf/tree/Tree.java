@@ -982,6 +982,7 @@ public abstract class Tree {
     public static class Scopy extends Tree{
         public String indentifier;
         public Expr expr;
+        public Variable symbol;
 
         public Scopy(String indentifier, Expr expr, Location loc){
             super(SCOPY, loc);

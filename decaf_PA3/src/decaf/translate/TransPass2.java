@@ -46,16 +46,14 @@ public class TransPass2 extends Tree.Visitor {
 	}
 
 	@Override
-	public void visitSCopyExpr(Tree.ScopyExpr scopy) {
+	public void visitScopy(Tree.Scopy scopy) {
 		scopy.expr.accept(this);
-		int width = ((ClassType)(sCopyExpr.expr.type)).getSymbol().getSize();
-		Temp dstAddr = tr.genDirectCall(((ClassType)(sCopyExpr.expr.type)).getSymbol().getNewFuncLabel(), BaseType.INT);
-		Temp srcAddr =  sCopyExpr.expr.val;
-		sCopyExpr.val = dstAddr;
+		int width = ((ClassType)(scopy.expr.type)).getSymbol().getSize();
+		Temp dstAddr = tr.genDirectCall(((ClassType)(scopy.expr.type)).getSymbol().getNewFuncLabel(), BaseType.INT);
 		for (int i = 0; i < width; i += 4) {
-			Temp temp = tr.genLoad(srcAddr, i);
-			tr.genStore(temp, dstAddr, i);
+			tr.genStore(tr.genLoad(scopy.expr.val, i), dstAddr, i);
 		}
+		scopy.symbol.setTemp(dstAddr);
 	}
 
 	@Override
