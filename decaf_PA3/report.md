@@ -42,6 +42,10 @@ public void genCheckNZero(Temp size){
 }
 ```
 
+### Scopy 浅复制
+
+
+
 ### Guard条件卫士
 
 * 修改文件 translate/TransPass2.java
@@ -159,12 +163,110 @@ public static final String DIVIDE_BY_ZERO = "Decaf runtime error: Division by ze
 
 #### default 数组下标动态访问表达式
 
+* 修改文件 translate/TransPass2.java：增加default的类型判别
+
+```java
+@Override
+public void visitArrayDefault(Tree.ArrayDefault arr){
+    Tree.LValue.Slice indexed = (Tree.LValue.Slice) arr.index;
+    indexed.array.accept(this);
+    indexed.index.accept(this);
+    arr.e.accept(this);
+    arr.val = tr.genArrayDefault(indexed.array.val, indexed.index.val, arr.e.val);
+}
+```
+
+* 修改文件 translate/Translater.java：增加default的类型判别
+
+```java
+public Temp genArrayDefault(Temp array, Temp index, Temp expr){
+
+    Temp length = genLoad(array, -OffsetCounter.WORD_SIZE);
+
+    //check whether the index of a[x] < length
+    Temp cond1 = genLes(index, length);
+    Label lessthanlength = Label.createLabel();
+    genBeqz(cond1, lessthanlength);
+
+    //check whether the index of a[x] >= 0
+    Temp cond2 = genLeq(genLoadImm4(0), index);
+    Label greaterthanzero = Label.createLabel();
+    genBeqz(cond2, greaterthanzero);
+
+    // return the value of a[x]
+    Temp t = genMul(index, genLoadImm4(OffsetCounter.WORD_SIZE));
+    Temp base = genAdd(array, t);
+    Temp ans = Temp.createTempI4();
+    genAssign(ans, genLoad(base, 0));
+
+    Label exit = Label.createLabel();
+    genBranch(exit);
+
+    genMark(greaterthanzero);
+    genMark(lessthanlength);
+    genAssign(ans, expr);
+    genMark(exit);
+
+    return ans;
+}
+```
+
 前面的实现可以直接考模仿已有的代码迅速写出，但是数组这部分的实现就需要读懂其他文件中的代码。比如在实现default的时候，我按照下面左图的方式写，得到了右图的结果。一开始我以为右图中的赋值被放到了下面，但是经过微信群里大家的指点，我发现赋值语句不应该这么写。
 
-####![Screen Shot 2018-12-13 at 20.22.31](/Users/sherilynw/Desktop/Screen Shot 2018-12-13 at 20.22.31.png) ![Screen Shot 2018-12-13 at 20.22.38](/Users/sherilynw/Desktop/Screen Shot 2018-12-13 at 20.22.38.png)
+####![Screen Shot 2018-12-13 at 20.22.31](./Screen Shot 2018-12-13 at 20.22.31.png) ![Screen Shot 2018-12-13 at 20.22.38](./Screen Shot 2018-12-13 at 20.22.38.png)
+
+#### foreach 数组迭代语句
+
+* 修改文件 translate/TransPass2.java：增加foreach的类型判别
+
+```java
+@Override
+public void visitArrayFor(Tree.ArrayFor foreach){
+    Variable sym;
+    if(foreach.vardef!=null) {
+        foreach.vardef.accept(this);
+        sym = foreach.vardef.symbol;
+    }else{
+        Temp t = Temp.createTempI4();
+        t.sym = foreach.identvar.symbol;
+        foreach.identvar.symbol.setTemp(t);
+        sym = foreach.identvar.symbol;
+    }
+    foreach.array.accept(this);
+
+    // foreach loop
+    Temp unit = tr.genLoadImm4(OffsetCounter.WORD_SIZE);
+    Temp length = tr.genLoad(foreach.array.val, -OffsetCounter.WORD_SIZE);
+    tr.genParm(unit);
+    Temp iter = tr.genIntrinsicCall(Intrinsic.ALLOCATE);
+    tr.genAssign(iter, foreach.array.val);
+    Temp end = tr.genAdd(iter, tr.genMul(length, unit)); //[length][-begin 0][1][2]-end
+    Label loop = Label.createLabel();
+    Label exit = Label.createLabel();
+    tr.genMark(loop);
+    
+    // inside loop
+    Temp loopcond = tr.genLes(iter, end);
+    tr.genBeqz(loopcond, exit);
+    tr.genAssign(sym.getTemp(), tr.genLoad(iter, 0));
+    tr.genAssign(iter, tr.genAdd(iter, unit));
+    if(foreach.j!=null){
+        foreach.j.accept(this);
+        tr.genBeqz(foreach.j.val, exit);  // exit the loop
+    }
+    loopExits.push(exit);
+    foreach.block.accept(this);
+
+    tr.genBranch(loop);
+    loopExits.pop();
+    tr.genMark(exit);
+}
+```
+
+需要注意的一点是需要给`iter`新分配内存空间，否则在java的语法中它会被视为`foreach.array.val`的一个指针，对它本身的值造成变化。
 
 ### 实验总结和体会
 
-照猫画虎固然可行，但是提前摸清楚算法的原理，可以让我们少走许多弯路，对于实验也有一个高屋建瓴的把控。visitor模式太巧妙了，我体会到了数据结构设计的魅力，这个思想我会好好记住，没准日后会再用上。
+照猫画虎固然可行，但是提前摸清楚算法的原理，可以让我们少走许多弯路，对于实验也有一个高屋建瓴的把控。visitor模式太巧妙了，我体会到了数据结构设计的魅力，这个思想我会好好记住，日后大概率会再用上。
 
 我注意到在Intellij IDE中，编译的时候会进行冲突检查，在继承关系复杂的时候，因为不知道具体的输入是子类还是父类，使用只有子类中有的属性的时候会报错。所以有的时候需要强制类型转化一下。

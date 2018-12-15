@@ -432,7 +432,6 @@ public class Translater {
 	}
 
 	public Temp genInitArray(Temp initvar, Temp length) {
-		genCheckNewArraySizeInit(length);
 		Temp unit = genLoadImm4(OffsetCounter.WORD_SIZE);
 		Temp size = genAdd(unit, genMul(unit, length));
 		genParm(size);

@@ -460,7 +460,30 @@ public class TransPass2 extends Tree.Visitor {
 	public void visitArrayInit(Tree.ArrayInit arr){
 		arr.e1.accept(this);
 		arr.e2.accept(this);
-		arr.val = tr.genInitArray(arr.e1.val, arr.e2.val);
+		Temp length = arr.e2.val;
+		tr.genCheckNewArraySizeInit(length);
+		if(arr.type.isClassType()){
+			Temp unit = tr.genLoadImm4(OffsetCounter.WORD_SIZE);
+			Temp size = tr.genAdd(unit, tr.genMul(unit, length));
+			tr.genParm(size);
+			Temp obj = tr.genIntrinsicCall(Intrinsic.ALLOCATE);
+			tr.genStore(length, obj, 0);
+			Label loop = Label.createLabel();
+			Label exit = Label.createLabel();
+			obj = tr.genAdd(obj, size);
+			tr.genMark(loop);
+			size = tr.genSub(size, unit);
+			tr.genBeqz(size, exit);
+			obj = tr.genSub(obj, unit);
+
+			tr.genStore(arr.e1.val, obj, 0);
+
+			tr.genBranch(loop);
+			tr.genMark(exit);
+			arr.val = obj;
+		}else{
+			arr.val = tr.genInitArray(arr.e1.val, arr.e2.val);
+		}
 	}
 
 	@Override
