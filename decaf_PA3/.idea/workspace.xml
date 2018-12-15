@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c9341579-b852-4164-aa76-827ce451bd09" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Decaf PA3 README.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Decaf PA3 README.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S3/result/q5-array-test3-var.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/result/q5-array-test3-var.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test3-var.tac" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S3/output/q5-array-test3-var.tac" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/translate/TransPass2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/translate/TransPass2$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/translate/TransPass2.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/translate/TransPass2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/result/decaf.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/translate/TransPass2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/translate/TransPass2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/translate/Translater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/translate/Translater.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,7 +56,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="decaf" value="211" />
-          <entry key="java" value="7085" />
+          <entry key="java" value="7194" />
           <entry key="result" value="10" />
           <entry key="tac" value="357" />
           <entry key="y" value="60" />
@@ -65,7 +64,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7085" />
+          <entry key="JAVA" value="7194" />
           <entry key="PLAIN_TEXT" value="638" />
         </counts>
       </usages-collector>
@@ -76,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/decaf/translate/TransPass2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="464" column="35" selection-start-line="464" selection-start-column="35" selection-end-line="464" selection-end-column="35" />
+            <state relative-caret-position="232">
+              <caret line="460" column="30" selection-start-line="460" selection-start-column="21" selection-end-line="460" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5130#5131#0" expanded="true" />
@@ -93,7 +92,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-class.result">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -103,7 +102,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/decaf/translate/Translater.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="173">
@@ -248,8 +247,8 @@
         <option value="$PROJECT_DIR$/src/decaf/symbol/Class.java" />
         <option value="$PROJECT_DIR$/src/decaf/typecheck/TypeCheck.java" />
         <option value="$PROJECT_DIR$/src/decaf/tree/Tree.java" />
-        <option value="$PROJECT_DIR$/src/decaf/translate/TransPass2.java" />
         <option value="$PROJECT_DIR$/src/decaf/translate/Translater.java" />
+        <option value="$PROJECT_DIR$/src/decaf/translate/TransPass2.java" />
       </list>
     </option>
   </component>
@@ -387,7 +386,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544840427285" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544840547675" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../decaf_PA2/src/decaf/typecheck/TypeCheck.java" />
   </component>
@@ -440,10 +439,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.24698795" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.24698795" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.14806867" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -777,27 +776,6 @@
     <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-class.tac">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-class.result">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/translate/TransPass2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="464" column="35" selection-start-line="464" selection-start-column="35" selection-end-line="464" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5130#5131#0" expanded="true" />
-            <element signature="e#5159#5160#0" expanded="true" />
-            <element signature="e#5444#5445#0" expanded="true" />
-            <element signature="e#5483#5484#0" expanded="true" />
-            <element signature="e#5661#5662#0" expanded="true" />
-            <element signature="e#5694#5695#0" expanded="true" />
-            <element signature="e#7749#7750#0" expanded="true" />
-            <element signature="e#7786#7787#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/translate/Translater.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="173">
@@ -821,6 +799,27 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/translate/TransPass2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="460" column="30" selection-start-line="460" selection-start-column="21" selection-end-line="460" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5130#5131#0" expanded="true" />
+            <element signature="e#5159#5160#0" expanded="true" />
+            <element signature="e#5444#5445#0" expanded="true" />
+            <element signature="e#5483#5484#0" expanded="true" />
+            <element signature="e#5661#5662#0" expanded="true" />
+            <element signature="e#5694#5695#0" expanded="true" />
+            <element signature="e#7749#7750#0" expanded="true" />
+            <element signature="e#7786#7787#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S3/output/q5-array-test1-class.result">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

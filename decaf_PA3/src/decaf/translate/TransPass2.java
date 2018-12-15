@@ -10,6 +10,7 @@ import decaf.tac.Label;
 import decaf.tac.Temp;
 import decaf.type.BaseType;
 import decaf.symbol.Symbol;
+import decaf.type.ClassType;
 
 public class TransPass2 extends Tree.Visitor {
 
@@ -392,7 +393,7 @@ public class TransPass2 extends Tree.Visitor {
 
 		if(foreach.j!=null){
 			foreach.j.accept(this);
-			tr.genBeqz(foreach.j.val, loop);
+			tr.genBeqz(foreach.j.val, exit);
 		}
 
         loopExits.push(exit);
@@ -476,7 +477,14 @@ public class TransPass2 extends Tree.Visitor {
 			tr.genBeqz(size, exit);
 			obj = tr.genSub(obj, unit);
 
-			tr.genStore(arr.e1.val, obj, 0);
+
+			int width = ((ClassType)(arr.e1.type)).getSymbol().getSize();
+			Temp dstAddr = tr.genDirectCall(((ClassType)(arr.e1.type)).getSymbol().getNewFuncLabel(), BaseType.INT);
+			tr.genStore(dstAddr, obj, 0);
+			for (int i = 0; i < width; i += 4) {
+				Temp temp = tr.genLoad(arr.e1.val, i);
+				tr.genStore(temp, dstAddr, i);
+			}
 
 			tr.genBranch(loop);
 			tr.genMark(exit);
