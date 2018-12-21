@@ -1,0 +1,6 @@
+Exception in thread "main" java.lang.ClassCastException: class decaf.tree.Tree$Print cannot be cast to class decaf.tree.Tree$Block (decaf.tree.Tree$Print and decaf.tree.Tree$Block are in unnamed module of loader 'app')
+	at decaf.tree.Tree$ArrayFor.<init>(Tree.java:607)
+	at decaf.frontend.Parser.yyparse(Parser.java:1262)
+	at decaf.frontend.BaseParser.parseFile(BaseParser.java:44)
+	at decaf.Driver.compile(Driver.java:83)
+	at decaf.Driver.main(Driver.java:107)
