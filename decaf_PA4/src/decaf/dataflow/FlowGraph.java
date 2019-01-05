@@ -6,10 +6,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import decaf.tac.Functy;
 import decaf.tac.Tac;
 import decaf.tac.Tac.Kind;
+import decaf.tac.Temp;
 
 public class FlowGraph implements Iterable<BasicBlock> {
 
@@ -31,6 +34,23 @@ public class FlowGraph implements Iterable<BasicBlock> {
         for (BasicBlock bb : bbs) {
             bb.analyzeLiveness();
         }
+        for (BasicBlock bb : bbs) {
+            Tac taclist = bb.tacList;
+            for (Tac t = taclist; t != null; t = t.next){
+
+                // search the DU chain for each definition
+                if (t.def != null){
+                    Pair pair = new Pair(t.id, t.def);
+                    Set<Integer> locations = new TreeSet<Integer>();
+                    for (BasicBlock blk : bbs){
+                        blk.visited = false;
+                    }
+                    search(t.def, locations, t.next, bb, true);
+                    bb.DUChain.put(pair, locations);
+                }
+            }
+        }
+
     }
 
     private void deleteMemo(Functy func) {
@@ -173,7 +193,7 @@ public class FlowGraph implements Iterable<BasicBlock> {
         return bbs.size();
     }
 
-    public void analyzeLiveness() {
+    public void analyzeLiveness() { //update the livein and liveout sets
         for (BasicBlock bb : bbs) {
             bb.computeDefAndLiveUse();
         }
@@ -183,10 +203,10 @@ public class FlowGraph implements Iterable<BasicBlock> {
             for (BasicBlock bb : bbs) {
                 for (int i = 0; i < 2; i++) {
                     if (bb.next[i] >= 0) { // Not RETURN
-                        bb.liveOut.addAll(bbs.get(bb.next[i]).liveIn);
+                        bb.liveOut.addAll(bbs.get(bb.next[i]).liveIn); // add all the livein of its sons
                     }
                 }
-                bb.liveOut.removeAll(bb.def);
+                bb.liveOut.removeAll(bb.def); // remove all the defined inside
                 if (bb.liveIn.addAll(bb.liveOut))
                     changed = true;
                 for (int i = 0; i < 2; i++) {
@@ -289,4 +309,44 @@ public class FlowGraph implements Iterable<BasicBlock> {
     public Functy getFuncty() {
         return functy;
     }
+
+	private void search(Temp variable, Set<Integer> locations, Tac start, BasicBlock bb, boolean begin) {
+        if (bb.visited) {
+            return;
+        }
+
+        if (!begin){
+            start = bb.tacList;
+            bb.visited = true;
+        }
+
+        for (Tac t = start; t != null; t = t.next) {
+            if (t.used1==variable || t.used2==variable) {
+                locations.add(t.id);
+            }
+            if (t.def==variable) { // if the variable is redefined, then end search
+                return;
+            }
+        }
+
+        // search following BasicBlocks
+        switch (bb.endKind) {
+            case BY_BEQZ:
+            case BY_BNEZ:
+                if (bb.var == variable) {
+                    locations.add(bb.endId);
+                }
+                search(variable, locations, null, getBlock(bb.next[1]), false);
+            case BY_BRANCH:
+                search(variable, locations, null, getBlock(bb.next[0]), false);
+                break;
+            case BY_RETURN:
+                if (bb.var == variable) {
+                    locations.add(bb.endId);
+                }
+                break;
+        }
+    }
+
+
 }

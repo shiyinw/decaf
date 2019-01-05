@@ -1,6 +1,7 @@
 package decaf.dataflow;
 
 import java.io.PrintWriter;
+import decaf.utils.MiscUtils;
 import java.util.*;
 
 import decaf.machdesc.Asm;
@@ -48,13 +49,16 @@ public class BasicBlock {
 
     private List<Asm> asms;
 
+    public boolean visited;
+
+
     /**
      * DUChain.
      *
      * 表中的每一项 `Pair(p, A) -> ds` 表示 变量 `A` 在定值点 `p` 的 DU 链为 `ds`.
      * 这里 `p` 和 `ds` 中的每一项均指的定值点或引用点对应的那一条 TAC 的 `id`.
      */
-    private Map<Pair, Set<Integer>> DUChain;
+    public Map<Pair, Set<Integer>> DUChain;
 
     public BasicBlock() {
         def = new TreeSet<Temp>(Temp.ID_COMPARATOR);
