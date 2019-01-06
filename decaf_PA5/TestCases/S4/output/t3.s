@@ -62,11 +62,11 @@ _Main.test:                             # function entry
           addiu $sp, $sp, -12           
 _L13:                                   
           lw    $t1, 8($fp)             
-          lw    $t0, 4($fp)             
-          add   $t2, $t0, $t1           
-          sw    $t0, 4($fp)             
+          lw    $t2, 4($fp)             
+          add   $t0, $t2, $t1           
+          sw    $t2, 4($fp)             
           sw    $t1, 8($fp)             
-          move  $v0, $t2                
+          move  $v0, $t0                
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             

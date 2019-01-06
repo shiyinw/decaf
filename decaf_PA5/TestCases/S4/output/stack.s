@@ -65,14 +65,14 @@ _Stack.Init:                            # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -40           
 _L25:                                   
-          lw    $t0, 4($fp)             
-          lw    $t1, 8($t0)             
-          li    $t2, 100                
-          li    $t1, 0                  
-          slt   $t1, $t2, $t1           
-          sw    $t0, 4($fp)             
-          sw    $t2, -8($fp)            
-          beqz  $t1, _L27               
+          lw    $t2, 4($fp)             
+          lw    $t0, 8($t2)             
+          li    $t1, 100                
+          li    $t0, 0                  
+          slt   $t0, $t1, $t0           
+          sw    $t2, 4($fp)             
+          sw    $t1, -8($fp)            
+          beqz  $t0, _L27               
 _L26:                                   
           la    $t1, _STRING2           
           sw    $t1, 4($sp)             
@@ -100,21 +100,21 @@ _L27:
           sw    $t2, -20($fp)           
           sw    $t1, -24($fp)           
 _L28:                                   
-          lw    $t2, -16($fp)           
+          lw    $t1, -16($fp)           
+          lw    $t0, -12($fp)           
+          sub   $t1, $t1, $t0           
+          sw    $t0, -12($fp)           
+          sw    $t1, -16($fp)           
+          beqz  $t1, _L30               
+_L29:                                   
+          lw    $t1, -24($fp)           
+          lw    $t2, -20($fp)           
           lw    $t0, -12($fp)           
           sub   $t2, $t2, $t0           
+          sw    $t1, 0($t2)             
           sw    $t0, -12($fp)           
-          sw    $t2, -16($fp)           
-          beqz  $t2, _L30               
-_L29:                                   
-          lw    $t2, -24($fp)           
-          lw    $t3, -20($fp)           
-          lw    $t0, -12($fp)           
-          sub   $t3, $t3, $t0           
-          sw    $t2, 0($t3)             
-          sw    $t0, -12($fp)           
-          sw    $t3, -20($fp)           
-          sw    $t2, -24($fp)           
+          sw    $t2, -20($fp)           
+          sw    $t1, -24($fp)           
           b     _L28                    
 _L30:                                   
           lw    $t1, -20($fp)           
@@ -143,46 +143,46 @@ _Stack.Push:                            # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -24           
 _L31:                                   
-          lw    $t0, 4($fp)             
-          lw    $t3, 8($t0)             
-          lw    $t2, 4($t0)             
-          lw    $t1, -4($t3)            
-          slt   $t1, $t2, $t1           
-          sw    $t0, 4($fp)             
-          sw    $t3, -8($fp)            
-          sw    $t2, -12($fp)           
-          beqz  $t1, _L33               
+          lw    $t3, 4($fp)             
+          lw    $t2, 8($t3)             
+          lw    $t1, 4($t3)             
+          lw    $t0, -4($t2)            
+          slt   $t0, $t1, $t0           
+          sw    $t3, 4($fp)             
+          sw    $t2, -8($fp)            
+          sw    $t1, -12($fp)           
+          beqz  $t0, _L33               
 _L32:                                   
-          lw    $t0, -12($fp)           
-          li    $t1, 0                  
-          slt   $t1, $t0, $t1           
-          sw    $t0, -12($fp)           
-          beqz  $t1, _L34               
+          lw    $t1, -12($fp)           
+          li    $t0, 0                  
+          slt   $t0, $t1, $t0           
+          sw    $t1, -12($fp)           
+          beqz  $t0, _L34               
 _L33:                                   
           la    $t1, _STRING3           
           sw    $t1, 4($sp)             
           jal   _PrintString            
           jal   _Halt                   
 _L34:                                   
-          lw    $t3, -12($fp)           
+          lw    $t1, -12($fp)           
           lw    $t2, -8($fp)            
-          lw    $t1, 8($fp)             
+          lw    $t4, 8($fp)             
           lw    $t0, 4($fp)             
-          li    $t4, 4                  
-          mul   $t4, $t3, $t4           
-          add   $t4, $t2, $t4           
-          lw    $t4, 0($t4)             
-          li    $t4, 4                  
-          mul   $t3, $t3, $t4           
-          add   $t2, $t2, $t3           
-          sw    $t1, 0($t2)             
+          li    $t3, 4                  
+          mul   $t3, $t1, $t3           
+          add   $t3, $t2, $t3           
+          lw    $t3, 0($t3)             
+          li    $t3, 4                  
+          mul   $t1, $t1, $t3           
+          add   $t1, $t2, $t1           
+          sw    $t4, 0($t1)             
+          lw    $t1, 4($t0)             
           lw    $t2, 4($t0)             
-          lw    $t3, 4($t0)             
-          li    $t2, 1                  
-          add   $t2, $t3, $t2           
-          sw    $t2, 4($t0)             
+          li    $t1, 1                  
+          add   $t1, $t2, $t1           
+          sw    $t1, 4($t0)             
           sw    $t0, 4($fp)             
-          sw    $t1, 8($fp)             
+          sw    $t4, 8($fp)             
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -194,43 +194,43 @@ _Stack.Pop:                             # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -24           
 _L35:                                   
-          lw    $t0, 4($fp)             
-          lw    $t3, 8($t0)             
-          lw    $t2, 4($t0)             
-          li    $t1, 1                  
-          sub   $t2, $t2, $t1           
-          lw    $t1, -4($t3)            
-          slt   $t1, $t2, $t1           
-          sw    $t2, -12($fp)           
-          sw    $t0, 4($fp)             
-          sw    $t3, -8($fp)            
-          beqz  $t1, _L37               
+          lw    $t3, 4($fp)             
+          lw    $t2, 8($t3)             
+          lw    $t1, 4($t3)             
+          li    $t0, 1                  
+          sub   $t1, $t1, $t0           
+          lw    $t0, -4($t2)            
+          slt   $t0, $t1, $t0           
+          sw    $t1, -12($fp)           
+          sw    $t3, 4($fp)             
+          sw    $t2, -8($fp)            
+          beqz  $t0, _L37               
 _L36:                                   
-          lw    $t0, -12($fp)           
-          li    $t1, 0                  
-          slt   $t1, $t0, $t1           
-          sw    $t0, -12($fp)           
-          beqz  $t1, _L38               
+          lw    $t1, -12($fp)           
+          li    $t0, 0                  
+          slt   $t0, $t1, $t0           
+          sw    $t1, -12($fp)           
+          beqz  $t0, _L38               
 _L37:                                   
-          la    $t1, _STRING3           
-          sw    $t1, 4($sp)             
+          la    $t0, _STRING3           
+          sw    $t0, 4($sp)             
           jal   _PrintString            
           jal   _Halt                   
 _L38:                                   
           lw    $t2, -12($fp)           
-          lw    $t1, -8($fp)            
-          lw    $t0, 4($fp)             
-          li    $t3, 4                  
-          mul   $t2, $t2, $t3           
-          add   $t1, $t1, $t2           
-          lw    $t1, 0($t1)             
-          move  $t3, $t1                
-          lw    $t1, 4($t0)             
-          lw    $t2, 4($t0)             
-          li    $t1, 1                  
-          sub   $t1, $t2, $t1           
-          sw    $t1, 4($t0)             
-          sw    $t0, 4($fp)             
+          lw    $t3, -8($fp)            
+          lw    $t1, 4($fp)             
+          li    $t0, 4                  
+          mul   $t0, $t2, $t0           
+          add   $t0, $t3, $t0           
+          lw    $t0, 0($t0)             
+          move  $t3, $t0                
+          lw    $t0, 4($t1)             
+          lw    $t2, 4($t1)             
+          li    $t0, 1                  
+          sub   $t0, $t2, $t0           
+          sw    $t0, 4($t1)             
+          sw    $t1, 4($fp)             
           move  $v0, $t3                
           move  $sp, $fp                
           lw    $ra, -4($fp)            
@@ -243,10 +243,10 @@ _Stack.NumElems:                        # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L39:                                   
-          lw    $t0, 4($fp)             
-          lw    $t1, 4($t0)             
-          sw    $t0, 4($fp)             
-          move  $v0, $t1                
+          lw    $t1, 4($fp)             
+          lw    $t0, 4($t1)             
+          sw    $t1, 4($fp)             
+          move  $v0, $t0                
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             

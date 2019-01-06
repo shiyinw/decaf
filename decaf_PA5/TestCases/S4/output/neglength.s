@@ -58,40 +58,40 @@ _Main.create:                           # function entry
           addiu $sp, $sp, -32           
 _L16:                                   
           lw    $t1, 8($fp)             
-          lw    $t0, 4($fp)             
-          lw    $t2, 4($t0)             
-          li    $t2, 0                  
-          slt   $t2, $t1, $t2           
-          sw    $t0, 4($fp)             
+          lw    $t2, 4($fp)             
+          lw    $t0, 4($t2)             
+          li    $t0, 0                  
+          slt   $t0, $t1, $t0           
+          sw    $t2, 4($fp)             
           sw    $t1, 8($fp)             
-          beqz  $t2, _L18               
+          beqz  $t0, _L18               
 _L17:                                   
-          la    $t2, _STRING1           
-          sw    $t2, 4($sp)             
+          la    $t0, _STRING1           
+          sw    $t0, 4($sp)             
           jal   _PrintString            
           jal   _Halt                   
 _L18:                                   
-          lw    $t0, 8($fp)             
-          li    $t1, 4                  
-          mul   $t2, $t1, $t0           
-          add   $t4, $t1, $t2           
+          lw    $t1, 8($fp)             
+          li    $t0, 4                  
+          mul   $t2, $t0, $t1           
+          add   $t4, $t0, $t2           
           sw    $t4, 4($sp)             
-          sw    $t0, 8($fp)             
+          sw    $t1, 8($fp)             
           sw    $t4, -8($fp)            
-          sw    $t1, -12($fp)           
+          sw    $t0, -12($fp)           
           jal   _Alloc                  
           move  $t3, $v0                
-          lw    $t0, 8($fp)             
+          lw    $t1, 8($fp)             
           lw    $t4, -8($fp)            
-          lw    $t1, -12($fp)           
-          sw    $t0, 0($t3)             
+          lw    $t0, -12($fp)           
+          sw    $t1, 0($t3)             
           li    $t2, 0                  
           add   $t3, $t3, $t4           
-          sw    $t0, 8($fp)             
+          sw    $t1, 8($fp)             
           sw    $t4, -8($fp)            
           sw    $t3, -16($fp)           
           sw    $t2, -20($fp)           
-          sw    $t1, -12($fp)           
+          sw    $t0, -12($fp)           
 _L19:                                   
           lw    $t2, -8($fp)            
           lw    $t0, -12($fp)           
@@ -102,12 +102,12 @@ _L19:
 _L20:                                   
           lw    $t2, -20($fp)           
           lw    $t3, -16($fp)           
-          lw    $t0, -12($fp)           
-          sub   $t3, $t3, $t0           
+          lw    $t1, -12($fp)           
+          sub   $t3, $t3, $t1           
           sw    $t2, 0($t3)             
           sw    $t3, -16($fp)           
           sw    $t2, -20($fp)           
-          sw    $t0, -12($fp)           
+          sw    $t1, -12($fp)           
           b     _L19                    
 _L21:                                   
           lw    $t1, -16($fp)           

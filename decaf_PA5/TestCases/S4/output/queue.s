@@ -98,24 +98,24 @@ _QueueItem.Init:                        # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L38:                                   
-          lw    $t3, 16($fp)            
+          lw    $t1, 16($fp)            
           lw    $t2, 12($fp)            
-          lw    $t1, 8($fp)             
-          lw    $t0, 4($fp)             
-          lw    $t4, 4($t0)             
-          sw    $t1, 4($t0)             
-          lw    $t4, 8($t0)             
-          sw    $t2, 8($t0)             
-          lw    $t4, 12($t2)            
-          sw    $t0, 12($t2)            
-          lw    $t4, 12($t0)            
-          sw    $t3, 12($t0)            
-          lw    $t4, 8($t3)             
-          sw    $t0, 8($t3)             
-          sw    $t0, 4($fp)             
-          sw    $t1, 8($fp)             
+          lw    $t3, 8($fp)             
+          lw    $t4, 4($fp)             
+          lw    $t0, 4($t4)             
+          sw    $t3, 4($t4)             
+          lw    $t0, 8($t4)             
+          sw    $t2, 8($t4)             
+          lw    $t0, 12($t2)            
+          sw    $t4, 12($t2)            
+          lw    $t0, 12($t4)            
+          sw    $t1, 12($t4)            
+          lw    $t0, 8($t1)             
+          sw    $t4, 8($t1)             
+          sw    $t4, 4($fp)             
+          sw    $t3, 8($fp)             
           sw    $t2, 12($fp)            
-          sw    $t3, 16($fp)            
+          sw    $t1, 16($fp)            
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -127,10 +127,10 @@ _QueueItem.GetData:                     # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L39:                                   
-          lw    $t0, 4($fp)             
-          lw    $t1, 4($t0)             
-          sw    $t0, 4($fp)             
-          move  $v0, $t1                
+          lw    $t1, 4($fp)             
+          lw    $t0, 4($t1)             
+          sw    $t1, 4($fp)             
+          move  $v0, $t0                
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -172,12 +172,12 @@ _QueueItem.SetNext:                     # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L42:                                   
-          lw    $t1, 8($fp)             
-          lw    $t0, 4($fp)             
-          lw    $t2, 8($t0)             
-          sw    $t1, 8($t0)             
-          sw    $t0, 4($fp)             
-          sw    $t1, 8($fp)             
+          lw    $t0, 8($fp)             
+          lw    $t1, 4($fp)             
+          lw    $t2, 8($t1)             
+          sw    $t0, 8($t1)             
+          sw    $t1, 4($fp)             
+          sw    $t0, 8($fp)             
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -189,12 +189,12 @@ _QueueItem.SetPrev:                     # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L43:                                   
-          lw    $t1, 8($fp)             
-          lw    $t0, 4($fp)             
-          lw    $t2, 12($t0)            
-          sw    $t1, 12($t0)            
-          sw    $t0, 4($fp)             
-          sw    $t1, 8($fp)             
+          lw    $t0, 8($fp)             
+          lw    $t1, 4($fp)             
+          lw    $t2, 12($t1)            
+          sw    $t0, 12($t1)            
+          sw    $t1, 4($fp)             
+          sw    $t0, 8($fp)             
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -206,27 +206,27 @@ _Queue.Init:                            # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -28           
 _L44:                                   
-          lw    $t0, 4($fp)             
-          lw    $t1, 8($t0)             
-          sw    $t0, 4($fp)             
+          lw    $t1, 4($fp)             
+          lw    $t0, 8($t1)             
+          sw    $t1, 4($fp)             
           jal   _QueueItem_New          
-          move  $t1, $v0                
-          lw    $t0, 4($fp)             
-          sw    $t1, 8($t0)             
-          lw    $t4, 8($t0)             
+          move  $t0, $v0                
+          lw    $t1, 4($fp)             
+          sw    $t0, 8($t1)             
+          lw    $t4, 8($t1)             
           li    $t3, 0                  
-          lw    $t2, 8($t0)             
-          lw    $t1, 8($t0)             
+          lw    $t2, 8($t1)             
+          lw    $t0, 8($t1)             
           sw    $t4, 4($sp)             
           sw    $t3, 8($sp)             
           sw    $t2, 12($sp)            
-          sw    $t1, 16($sp)            
-          lw    $t1, 0($t4)             
-          lw    $t1, 8($t1)             
-          sw    $t0, 4($fp)             
-          jalr  $t1                     
-          lw    $t0, 4($fp)             
-          sw    $t0, 4($fp)             
+          sw    $t0, 16($sp)            
+          lw    $t0, 0($t4)             
+          lw    $t0, 8($t0)             
+          sw    $t1, 4($fp)             
+          jalr  $t0                     
+          lw    $t1, 4($fp)             
+          sw    $t1, 4($fp)             
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -239,39 +239,39 @@ _Queue.EnQueue:                         # function entry
           addiu $sp, $sp, -32           
 _L45:                                   
           lw    $t1, 8($fp)             
-          lw    $t0, 4($fp)             
-          sw    $t0, 4($fp)             
+          lw    $t3, 4($fp)             
+          sw    $t3, 4($fp)             
           sw    $t1, 8($fp)             
           jal   _QueueItem_New          
-          move  $t2, $v0                
-          lw    $t0, 4($fp)             
+          move  $t0, $v0                
+          lw    $t3, 4($fp)             
           lw    $t1, 8($fp)             
-          move  $t3, $t2                
-          lw    $t2, 8($t0)             
-          sw    $t2, 4($sp)             
-          lw    $t2, 0($t2)             
-          lw    $t2, 16($t2)            
-          sw    $t0, 4($fp)             
-          sw    $t3, -8($fp)            
+          move  $t2, $t0                
+          lw    $t0, 8($t3)             
+          sw    $t0, 4($sp)             
+          lw    $t0, 0($t0)             
+          lw    $t0, 16($t0)            
+          sw    $t3, 4($fp)             
+          sw    $t2, -8($fp)            
           sw    $t1, 8($fp)             
-          jalr  $t2                     
+          jalr  $t0                     
           move  $t4, $v0                
-          lw    $t0, 4($fp)             
-          lw    $t3, -8($fp)            
+          lw    $t3, 4($fp)             
+          lw    $t2, -8($fp)            
           lw    $t1, 8($fp)             
-          lw    $t2, 8($t0)             
-          sw    $t3, 4($sp)             
+          lw    $t0, 8($t3)             
+          sw    $t2, 4($sp)             
           sw    $t1, 8($sp)             
           sw    $t4, 12($sp)            
-          sw    $t2, 16($sp)            
-          lw    $t2, 0($t3)             
-          lw    $t2, 8($t2)             
-          sw    $t0, 4($fp)             
+          sw    $t0, 16($sp)            
+          lw    $t0, 0($t2)             
+          lw    $t0, 8($t0)             
+          sw    $t3, 4($fp)             
           sw    $t1, 8($fp)             
-          jalr  $t2                     
-          lw    $t0, 4($fp)             
+          jalr  $t0                     
+          lw    $t3, 4($fp)             
           lw    $t1, 8($fp)             
-          sw    $t0, 4($fp)             
+          sw    $t3, 4($fp)             
           sw    $t1, 8($fp)             
           move  $sp, $fp                
           lw    $ra, -4($fp)            
@@ -421,25 +421,25 @@ _L50:
           sw    $t1, -8($fp)            
           sw    $t0, -12($fp)           
 _L52:                                   
-          lw    $t0, -12($fp)           
-          li    $t2, 10                 
-          slt   $t2, $t0, $t2           
-          sw    $t0, -12($fp)           
-          beqz  $t2, _L54               
+          lw    $t1, -12($fp)           
+          li    $t0, 10                 
+          slt   $t0, $t1, $t0           
+          sw    $t1, -12($fp)           
+          beqz  $t0, _L54               
 _L53:                                   
-          lw    $t1, -12($fp)           
-          lw    $t0, -8($fp)            
-          sw    $t0, 4($sp)             
-          sw    $t1, 8($sp)             
-          lw    $t2, 0($t0)             
-          lw    $t2, 12($t2)            
-          sw    $t0, -8($fp)            
-          sw    $t1, -12($fp)           
-          jalr  $t2                     
-          lw    $t0, -8($fp)            
-          lw    $t1, -12($fp)           
-          sw    $t0, -8($fp)            
-          sw    $t1, -12($fp)           
+          lw    $t2, -12($fp)           
+          lw    $t1, -8($fp)            
+          sw    $t1, 4($sp)             
+          sw    $t2, 8($sp)             
+          lw    $t0, 0($t1)             
+          lw    $t0, 12($t0)            
+          sw    $t1, -8($fp)            
+          sw    $t2, -12($fp)           
+          jalr  $t0                     
+          lw    $t1, -8($fp)            
+          lw    $t2, -12($fp)           
+          sw    $t1, -8($fp)            
+          sw    $t2, -12($fp)           
 _L51:                                   
           lw    $t3, -12($fp)           
           li    $t2, 1                  
@@ -448,109 +448,107 @@ _L51:
           sw    $t3, -12($fp)           
           b     _L52                    
 _L54:                                   
-          li    $t1, 0                  
-          move  $t2, $t1                
-          sw    $t2, -12($fp)           
-_L56:                                   
-          lw    $t0, -12($fp)           
-          li    $t1, 4                  
-          slt   $t1, $t0, $t1           
+          li    $t0, 0                  
           sw    $t0, -12($fp)           
-          beqz  $t1, _L58               
+_L56:                                   
+          lw    $t1, -12($fp)           
+          li    $t0, 4                  
+          slt   $t0, $t1, $t0           
+          sw    $t1, -12($fp)           
+          beqz  $t0, _L58               
 _L57:                                   
-          lw    $t0, -8($fp)            
+          lw    $t1, -8($fp)            
+          sw    $t1, 4($sp)             
+          lw    $t0, 0($t1)             
+          lw    $t0, 16($t0)            
+          sw    $t1, -8($fp)            
+          jalr  $t0                     
+          move  $t0, $v0                
+          lw    $t1, -8($fp)            
           sw    $t0, 4($sp)             
-          lw    $t1, 0($t0)             
-          lw    $t1, 16($t1)            
-          sw    $t0, -8($fp)            
-          jalr  $t1                     
-          move  $t1, $v0                
-          lw    $t0, -8($fp)            
-          sw    $t1, 4($sp)             
-          sw    $t0, -8($fp)            
+          sw    $t1, -8($fp)            
           jal   _PrintInt               
-          lw    $t0, -8($fp)            
-          la    $t1, _STRING4           
-          sw    $t1, 4($sp)             
-          sw    $t0, -8($fp)            
+          lw    $t1, -8($fp)            
+          la    $t0, _STRING4           
+          sw    $t0, 4($sp)             
+          sw    $t1, -8($fp)            
           jal   _PrintString            
-          lw    $t0, -8($fp)            
-          sw    $t0, -8($fp)            
+          lw    $t1, -8($fp)            
+          sw    $t1, -8($fp)            
 _L55:                                   
-          lw    $t2, -12($fp)           
-          li    $t1, 1                  
-          add   $t1, $t2, $t1           
-          move  $t2, $t1                
-          sw    $t2, -12($fp)           
+          lw    $t3, -12($fp)           
+          li    $t2, 1                  
+          add   $t0, $t3, $t2           
+          move  $t3, $t0                
+          sw    $t3, -12($fp)           
           b     _L56                    
 _L58:                                   
-          la    $t1, _STRING5           
-          sw    $t1, 4($sp)             
-          jal   _PrintString            
-          li    $t1, 0                  
-          sw    $t1, -12($fp)           
-_L60:                                   
-          lw    $t0, -12($fp)           
-          li    $t1, 10                 
-          slt   $t1, $t0, $t1           
-          sw    $t0, -12($fp)           
-          beqz  $t1, _L62               
-_L61:                                   
-          lw    $t1, -12($fp)           
-          lw    $t0, -8($fp)            
+          la    $t0, _STRING5           
           sw    $t0, 4($sp)             
-          sw    $t1, 8($sp)             
-          lw    $t2, 0($t0)             
-          lw    $t2, 12($t2)            
-          sw    $t0, -8($fp)            
-          sw    $t1, -12($fp)           
-          jalr  $t2                     
-          lw    $t0, -8($fp)            
+          jal   _PrintString            
+          li    $t0, 0                  
+          sw    $t0, -12($fp)           
+_L60:                                   
           lw    $t1, -12($fp)           
-          sw    $t0, -8($fp)            
+          li    $t0, 10                 
+          slt   $t0, $t1, $t0           
           sw    $t1, -12($fp)           
-_L59:                                   
+          beqz  $t0, _L62               
+_L61:                                   
           lw    $t2, -12($fp)           
-          li    $t1, 1                  
-          add   $t1, $t2, $t1           
-          move  $t2, $t1                
+          lw    $t1, -8($fp)            
+          sw    $t1, 4($sp)             
+          sw    $t2, 8($sp)             
+          lw    $t0, 0($t1)             
+          lw    $t0, 12($t0)            
+          sw    $t1, -8($fp)            
           sw    $t2, -12($fp)           
+          jalr  $t0                     
+          lw    $t1, -8($fp)            
+          lw    $t2, -12($fp)           
+          sw    $t1, -8($fp)            
+          sw    $t2, -12($fp)           
+_L59:                                   
+          lw    $t3, -12($fp)           
+          li    $t2, 1                  
+          add   $t0, $t3, $t2           
+          move  $t3, $t0                
+          sw    $t3, -12($fp)           
           b     _L60                    
 _L62:                                   
-          li    $t1, 0                  
-          move  $t2, $t1                
-          sw    $t2, -12($fp)           
-_L64:                                   
-          lw    $t0, -12($fp)           
-          li    $t1, 17                 
-          slt   $t1, $t0, $t1           
+          li    $t0, 0                  
           sw    $t0, -12($fp)           
-          beqz  $t1, _L66               
+_L64:                                   
+          lw    $t1, -12($fp)           
+          li    $t0, 17                 
+          slt   $t0, $t1, $t0           
+          sw    $t1, -12($fp)           
+          beqz  $t0, _L66               
 _L65:                                   
-          lw    $t0, -8($fp)            
+          lw    $t1, -8($fp)            
+          sw    $t1, 4($sp)             
+          lw    $t0, 0($t1)             
+          lw    $t0, 16($t0)            
+          sw    $t1, -8($fp)            
+          jalr  $t0                     
+          move  $t0, $v0                
+          lw    $t1, -8($fp)            
           sw    $t0, 4($sp)             
-          lw    $t1, 0($t0)             
-          lw    $t1, 16($t1)            
-          sw    $t0, -8($fp)            
-          jalr  $t1                     
-          move  $t1, $v0                
-          lw    $t0, -8($fp)            
-          sw    $t1, 4($sp)             
-          sw    $t0, -8($fp)            
+          sw    $t1, -8($fp)            
           jal   _PrintInt               
-          lw    $t0, -8($fp)            
-          la    $t1, _STRING4           
-          sw    $t1, 4($sp)             
-          sw    $t0, -8($fp)            
+          lw    $t1, -8($fp)            
+          la    $t0, _STRING4           
+          sw    $t0, 4($sp)             
+          sw    $t1, -8($fp)            
           jal   _PrintString            
-          lw    $t0, -8($fp)            
-          sw    $t0, -8($fp)            
+          lw    $t1, -8($fp)            
+          sw    $t1, -8($fp)            
 _L63:                                   
-          lw    $t2, -12($fp)           
-          li    $t1, 1                  
-          add   $t1, $t2, $t1           
-          move  $t2, $t1                
-          sw    $t2, -12($fp)           
+          lw    $t3, -12($fp)           
+          li    $t2, 1                  
+          add   $t0, $t3, $t2           
+          move  $t3, $t0                
+          sw    $t3, -12($fp)           
           b     _L64                    
 _L66:                                   
           la    $t0, _STRING5           

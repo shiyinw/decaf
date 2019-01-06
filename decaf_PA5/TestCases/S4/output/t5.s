@@ -63,16 +63,16 @@ _Cow.Init:                              # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L15:                                   
-          lw    $t2, 12($fp)            
-          lw    $t1, 8($fp)             
-          lw    $t0, 4($fp)             
-          lw    $t3, 8($t0)             
-          sw    $t1, 8($t0)             
-          lw    $t3, 4($t0)             
-          sw    $t2, 4($t0)             
-          sw    $t0, 4($fp)             
-          sw    $t1, 8($fp)             
-          sw    $t2, 12($fp)            
+          lw    $t1, 12($fp)            
+          lw    $t2, 8($fp)             
+          lw    $t3, 4($fp)             
+          lw    $t0, 8($t3)             
+          sw    $t2, 8($t3)             
+          lw    $t0, 4($t3)             
+          sw    $t1, 4($t3)             
+          sw    $t3, 4($fp)             
+          sw    $t2, 8($fp)             
+          sw    $t1, 12($fp)            
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -84,28 +84,28 @@ _Cow.Moo:                               # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -16           
 _L16:                                   
-          lw    $t0, 4($fp)             
-          lw    $t1, 4($t0)             
-          sw    $t1, 4($sp)             
-          sw    $t0, 4($fp)             
+          lw    $t1, 4($fp)             
+          lw    $t0, 4($t1)             
+          sw    $t0, 4($sp)             
+          sw    $t1, 4($fp)             
           jal   _PrintInt               
-          lw    $t0, 4($fp)             
-          la    $t1, _STRING2           
-          sw    $t1, 4($sp)             
-          sw    $t0, 4($fp)             
+          lw    $t1, 4($fp)             
+          la    $t0, _STRING2           
+          sw    $t0, 4($sp)             
+          sw    $t1, 4($fp)             
           jal   _PrintString            
-          lw    $t0, 4($fp)             
-          lw    $t1, 8($t0)             
-          sw    $t1, 4($sp)             
-          sw    $t0, 4($fp)             
+          lw    $t1, 4($fp)             
+          lw    $t0, 8($t1)             
+          sw    $t0, 4($sp)             
+          sw    $t1, 4($fp)             
           jal   _PrintInt               
-          lw    $t0, 4($fp)             
-          la    $t1, _STRING3           
-          sw    $t1, 4($sp)             
-          sw    $t0, 4($fp)             
+          lw    $t1, 4($fp)             
+          la    $t0, _STRING3           
+          sw    $t0, 4($sp)             
+          sw    $t1, 4($fp)             
           jal   _PrintString            
-          lw    $t0, 4($fp)             
-          sw    $t0, 4($fp)             
+          lw    $t1, 4($fp)             
+          sw    $t1, 4($fp)             
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             

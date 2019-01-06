@@ -78,10 +78,10 @@ _L21:
           sw    $t1, -12($fp)           
           beqz  $t1, _L23               
 _L22:                                   
-          lw    $t2, -8($fp)            
-          li    $t3, 4                  
-          sub   $t2, $t2, $t3           
-          sw    $t2, -8($fp)            
+          lw    $t1, -8($fp)            
+          li    $t2, 4                  
+          sub   $t1, $t1, $t2           
+          sw    $t1, -8($fp)            
 _L23:                                   
           lw    $t1, -8($fp)            
           lw    $t0, -16($fp)           

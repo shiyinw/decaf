@@ -92,15 +92,15 @@ _L20:
           li    $t0, 0                  
           sw    $t0, -8($fp)            
 _L22:                                   
-          lw    $t1, -8($fp)            
-          lw    $t0, 8($fp)             
-          slt   $t2, $t1, $t0           
-          sw    $t0, 8($fp)             
-          sw    $t1, -8($fp)            
+          lw    $t0, -8($fp)            
+          lw    $t1, 8($fp)             
+          slt   $t2, $t0, $t1           
+          sw    $t1, 8($fp)             
+          sw    $t0, -8($fp)            
           beqz  $t2, _L24               
 _L23:                                   
-          la    $t1, _STRING3           
-          sw    $t1, 4($sp)             
+          la    $t2, _STRING3           
+          sw    $t2, 4($sp)             
           jal   _PrintString            
 _L21:                                   
           lw    $t2, -8($fp)            

@@ -58,11 +58,11 @@ _Math.abs:                              # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L30:                                   
-          lw    $t0, 4($fp)             
-          li    $t1, 0                  
-          sge   $t1, $t0, $t1           
-          sw    $t0, 4($fp)             
-          beqz  $t1, _L32               
+          lw    $t1, 4($fp)             
+          li    $t0, 0                  
+          sge   $t0, $t1, $t0           
+          sw    $t1, 4($fp)             
+          beqz  $t0, _L32               
 _L31:                                   
           lw    $t0, 4($fp)             
           sw    $t0, 4($fp)             
@@ -93,18 +93,18 @@ _L34:
           sw    $t0, -8($fp)            
           sw    $t2, -12($fp)           
 _L36:                                   
-          lw    $t1, -8($fp)            
-          lw    $t0, 8($fp)             
-          slt   $t2, $t1, $t0           
-          sw    $t1, -8($fp)            
-          sw    $t0, 8($fp)             
-          beqz  $t2, _L38               
+          lw    $t2, -8($fp)            
+          lw    $t1, 8($fp)             
+          slt   $t0, $t2, $t1           
+          sw    $t2, -8($fp)            
+          sw    $t1, 8($fp)             
+          beqz  $t0, _L38               
 _L37:                                   
-          lw    $t2, -12($fp)           
-          lw    $t0, 4($fp)             
-          mul   $t2, $t2, $t0           
-          sw    $t0, 4($fp)             
-          sw    $t2, -12($fp)           
+          lw    $t0, -12($fp)           
+          lw    $t1, 4($fp)             
+          mul   $t0, $t0, $t1           
+          sw    $t1, 4($fp)             
+          sw    $t0, -12($fp)           
 _L35:                                   
           lw    $t2, -8($fp)            
           li    $t3, 1                  
@@ -126,22 +126,22 @@ _Math.log:                              # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -16           
 _L39:                                   
-          lw    $t0, 4($fp)             
-          li    $t1, 1                  
-          slt   $t1, $t0, $t1           
-          sw    $t0, 4($fp)             
-          beqz  $t1, _L41               
+          lw    $t1, 4($fp)             
+          li    $t0, 1                  
+          slt   $t0, $t1, $t0           
+          sw    $t1, 4($fp)             
+          beqz  $t0, _L41               
 _L40:                                   
-          li    $t1, 1                  
-          neg   $t1, $t1                
-          move  $v0, $t1                
+          li    $t0, 1                  
+          neg   $t0, $t0                
+          move  $v0, $t0                
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
           jr    $ra                     
 _L41:                                   
-          li    $t1, 0                  
-          sw    $t1, -8($fp)            
+          li    $t0, 0                  
+          sw    $t0, -8($fp)            
 _L42:                                   
           lw    $t0, 4($fp)             
           li    $t2, 1                  
@@ -149,16 +149,16 @@ _L42:
           sw    $t0, 4($fp)             
           beqz  $t1, _L44               
 _L43:                                   
-          lw    $t2, -8($fp)            
+          lw    $t1, -8($fp)            
           lw    $t3, 4($fp)             
           li    $t0, 1                  
-          add   $t0, $t2, $t0           
-          move  $t2, $t0                
-          li    $t1, 2                  
-          div   $t0, $t3, $t1           
+          add   $t0, $t1, $t0           
+          move  $t1, $t0                
+          li    $t2, 2                  
+          div   $t0, $t3, $t2           
           move  $t3, $t0                
           sw    $t3, 4($fp)             
-          sw    $t2, -8($fp)            
+          sw    $t1, -8($fp)            
           b     _L42                    
 _L44:                                   
           lw    $t0, -8($fp)            
@@ -175,11 +175,11 @@ _Math.max:                              # function entry
           addiu $sp, $sp, -12           
 _L45:                                   
           lw    $t1, 8($fp)             
-          lw    $t0, 4($fp)             
-          sgt   $t2, $t0, $t1           
-          sw    $t0, 4($fp)             
+          lw    $t2, 4($fp)             
+          sgt   $t0, $t2, $t1           
+          sw    $t2, 4($fp)             
           sw    $t1, 8($fp)             
-          beqz  $t2, _L47               
+          beqz  $t0, _L47               
 _L46:                                   
           lw    $t0, 4($fp)             
           sw    $t0, 4($fp)             
@@ -203,12 +203,12 @@ _Math.min:                              # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L49:                                   
-          lw    $t1, 8($fp)             
-          lw    $t0, 4($fp)             
-          slt   $t2, $t0, $t1           
-          sw    $t0, 4($fp)             
-          sw    $t1, 8($fp)             
-          beqz  $t2, _L51               
+          lw    $t0, 8($fp)             
+          lw    $t2, 4($fp)             
+          slt   $t1, $t2, $t0           
+          sw    $t2, 4($fp)             
+          sw    $t0, 8($fp)             
+          beqz  $t1, _L51               
 _L50:                                   
           lw    $t0, 4($fp)             
           sw    $t0, 4($fp)             

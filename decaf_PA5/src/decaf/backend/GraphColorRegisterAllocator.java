@@ -46,17 +46,10 @@ public class GraphColorRegisterAllocator implements RegisterAllocator {
 
 
         for(Temp liveuse: bb.liveUse){
-            for(Register r:this.regs){
-                if(r.var==null){
-                    bind(r, liveuse);
-                    break;
-                }
-            }
             load(bb.tacList, liveuse);
         }
 
         this.inferenceGraph.alloc(this.bb, regs, this.fp.reg);
-
         this.inferenceGraph.makeGraph();
 
 		Tac tail = null;

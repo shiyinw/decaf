@@ -2,76 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39cf26f6-a6c9-4df6-ae7e-e9bd221c6545" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ant.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../decaf_PA4/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/../decaf_PA4/report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Decaf PA5 README.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Decaf PA5 README.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/blackjack.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/blackjack.dout" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/blackjack.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/blackjack.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/casterror.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/casterror.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/casterror.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/casterror.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/casterror.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/casterror.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/indexout.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/indexout.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/indexout.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/indexout.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/indexout.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/indexout.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/math.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/math.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/math.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/math.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/math.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/math.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/matrix.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/matrix.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/matrix.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/matrix.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/matrix.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/matrix.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/neglength.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/neglength.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/neglength.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/neglength.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/neglength.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/neglength.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/queue.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/queue.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/queue.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/queue.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/queue.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/queue.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/stack.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/stack.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/stack.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/stack.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/stack.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/stack.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/strcmp.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/strcmp.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/strcmp.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/strcmp.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/strcmp.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/strcmp.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t0.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t0.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t0.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t0.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t0.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t0.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t1.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t1.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t1.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t1.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t1.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t1.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t10.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t10.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t10.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t10.result" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t10.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t10.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t2.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t2.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t2.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t2.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t2.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t2.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t3.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t3.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t3.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t3.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t3.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t3.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t4.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t4.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t4.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t4.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t4.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t4.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t5.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t5.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t5.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t5.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t5.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t5.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t6.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t6.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t6.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t6.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t6.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t6.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t7.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t7.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t7.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t7.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t7.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t7.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t8.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t8.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t8.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t8.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t8.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t8.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t9.dout" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t9.dout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t9.result" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t9.result" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t9.s" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t9.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/backend/GraphColorRegisterAllocator$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/backend/GraphColorRegisterAllocator$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/bin/decaf/backend/GraphColorRegisterAllocator.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/backend/GraphColorRegisterAllocator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/result/decaf.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/backend/GraphColorRegisterAllocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/backend/GraphColorRegisterAllocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/backend/InferenceGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/backend/InferenceGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/backend/mips/Mips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/backend/mips/Mips.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Parser.output" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Parser.output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/tac/Tac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/tac/Tac.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +49,7 @@
           <entry key="decaf" value="4" />
           <entry key="dout" value="17" />
           <entry key="input" value="2" />
-          <entry key="java" value="18" />
+          <entry key="java" value="19" />
           <entry key="py" value="1" />
           <entry key="result" value="41" />
           <entry key="s" value="32" />
@@ -103,19 +58,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="18" />
+          <entry key="JAVA" value="19" />
           <entry key="PLAIN_TEXT" value="98" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1132" />
+          <entry key="java" value="1174" />
           <entry key="s" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1132" />
+          <entry key="JAVA" value="1174" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -123,11 +78,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/decaf/backend/InferenceGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+            <state relative-caret-position="313">
+              <caret line="91" column="27" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/decaf/backend/BruteRegisterAllocator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -150,11 +117,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/decaf/backend/GraphColorRegisterAllocator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+            <state relative-caret-position="272">
+              <caret line="167" column="9" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -186,11 +153,6 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S4/result/strcmp.result">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -201,6 +163,10 @@
       <find>fp</find>
       <find>this.fp</find>
       <find>makeNodes</find>
+      <find>bind</find>
+      <find>chooseA</find>
+      <find>findRegForWrite</find>
+      <find>spill</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -375,7 +341,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -482,13 +447,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S4/output/blackjack.dout">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/backend/BruteRegisterAllocator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-139">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/decaf/machdesc/Register.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -600,29 +558,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestCases/S4/output/t8.result">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S4/output/indexout.result">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/TestCases/S4/output/indexout.dout">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/backend/GraphColorRegisterAllocator.java">
+    <entry file="file://$PROJECT_DIR$/TestCases/S4/output/t8.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/backend/InferenceGraph.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="59" column="40" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
+        <state relative-caret-position="313">
+          <caret line="91" column="27" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/decaf/backend/InferenceGraph.java">
+    <entry file="file://$PROJECT_DIR$/src/decaf/backend/BruteRegisterAllocator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+        <state relative-caret-position="135">
+          <caret line="9" column="22" lean-forward="true" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/decaf/backend/GraphColorRegisterAllocator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="167" column="9" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -67,17 +67,17 @@ _L15:
           sw    $t1, -12($fp)           
           sw    $t0, -16($fp)           
 _L16:                                   
-          lw    $t1, -16($fp)           
-          lw    $t0, -12($fp)           
-          seq   $t3, $t0, $t1           
-          sw    $t0, -12($fp)           
-          sw    $t1, -16($fp)           
+          lw    $t0, -16($fp)           
+          lw    $t1, -12($fp)           
+          seq   $t3, $t1, $t0           
+          sw    $t1, -12($fp)           
+          sw    $t0, -16($fp)           
           bne   $t3, $zero, _L19        
 _L17:                                   
-          lw    $t1, -16($fp)           
-          lw    $t1, 0($t1)             
-          sw    $t1, -16($fp)           
-          bne   $t1, $zero, _L16        
+          lw    $t2, -16($fp)           
+          lw    $t2, 0($t2)             
+          sw    $t2, -16($fp)           
+          bne   $t2, $zero, _L16        
 _L18:                                   
           lw    $t0, -8($fp)            
           la    $t1, _STRING2           
