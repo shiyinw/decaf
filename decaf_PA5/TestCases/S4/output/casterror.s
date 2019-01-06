@@ -67,50 +67,50 @@ _L15:
           sw    $t1, -12($fp)           
           sw    $t0, -16($fp)           
 _L16:                                   
-          lw    $t0, -16($fp)           
-          lw    $t1, -12($fp)           
-          seq   $t2, $t1, $t0           
-          sw    $t1, -12($fp)           
-          sw    $t0, -16($fp)           
-          bne   $t2, $zero, _L19        
+          lw    $t1, -16($fp)           
+          lw    $t0, -12($fp)           
+          seq   $t3, $t0, $t1           
+          sw    $t0, -12($fp)           
+          sw    $t1, -16($fp)           
+          bne   $t3, $zero, _L19        
 _L17:                                   
-          lw    $t0, -16($fp)           
-          lw    $t0, 0($t0)             
-          sw    $t0, -16($fp)           
-          bne   $t0, $zero, _L16        
+          lw    $t1, -16($fp)           
+          lw    $t1, 0($t1)             
+          sw    $t1, -16($fp)           
+          bne   $t1, $zero, _L16        
 _L18:                                   
-          lw    $t1, -8($fp)            
-          la    $t0, _STRING2           
-          sw    $t0, 4($sp)             
-          sw    $t1, -8($fp)            
+          lw    $t0, -8($fp)            
+          la    $t1, _STRING2           
+          sw    $t1, 4($sp)             
+          sw    $t0, -8($fp)            
           jal   _PrintString            
-          lw    $t1, -8($fp)            
-          lw    $t0, 0($t1)             
-          lw    $t0, 4($t0)             
-          sw    $t0, 4($sp)             
-          sw    $t1, -8($fp)            
+          lw    $t0, -8($fp)            
+          lw    $t1, 0($t0)             
+          lw    $t1, 4($t1)             
+          sw    $t1, 4($sp)             
+          sw    $t0, -8($fp)            
           jal   _PrintString            
-          lw    $t1, -8($fp)            
-          la    $t0, _STRING3           
-          sw    $t0, 4($sp)             
-          sw    $t1, -8($fp)            
+          lw    $t0, -8($fp)            
+          la    $t1, _STRING3           
+          sw    $t1, 4($sp)             
+          sw    $t0, -8($fp)            
           jal   _PrintString            
-          lw    $t1, -8($fp)            
-          la    $t0, _A                 
-          lw    $t0, 4($t0)             
-          sw    $t0, 4($sp)             
-          sw    $t1, -8($fp)            
+          lw    $t0, -8($fp)            
+          la    $t1, _A                 
+          lw    $t1, 4($t1)             
+          sw    $t1, 4($sp)             
+          sw    $t0, -8($fp)            
           jal   _PrintString            
-          lw    $t1, -8($fp)            
-          la    $t0, _STRING4           
-          sw    $t0, 4($sp)             
-          sw    $t1, -8($fp)            
+          lw    $t0, -8($fp)            
+          la    $t1, _STRING4           
+          sw    $t1, 4($sp)             
+          sw    $t0, -8($fp)            
           jal   _PrintString            
-          lw    $t1, -8($fp)            
-          sw    $t1, -8($fp)            
+          lw    $t0, -8($fp)            
+          sw    $t0, -8($fp)            
           jal   _Halt                   
-          lw    $t1, -8($fp)            
-          sw    $t1, -8($fp)            
+          lw    $t0, -8($fp)            
+          sw    $t0, -8($fp)            
 _L19:                                   
           lw    $t0, -8($fp)            
           move  $sp, $fp                

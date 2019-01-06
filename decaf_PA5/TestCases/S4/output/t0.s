@@ -69,23 +69,24 @@ _L19:
 _L20:                                   
           jal   _Main.f                 
 _L21:                                   
-          lw    $t2, -12($fp)           
-          lw    $t0, -8($fp)            
-          li    $t1, 1                  
-          add   $t0, $t0, $t1           
-          sw    $t0, -8($fp)            
-          sw    $t2, -12($fp)           
-          beqz  $t2, _L23               
+          lw    $t1, -12($fp)           
+          lw    $t3, -8($fp)            
+          li    $t2, 1                  
+          add   $t2, $t3, $t2           
+          move  $t3, $t2                
+          sw    $t3, -8($fp)            
+          sw    $t1, -12($fp)           
+          beqz  $t1, _L23               
 _L22:                                   
-          lw    $t0, -8($fp)            
-          li    $t1, 4                  
-          sub   $t0, $t0, $t1           
-          sw    $t0, -8($fp)            
+          lw    $t2, -8($fp)            
+          li    $t3, 4                  
+          sub   $t2, $t2, $t3           
+          sw    $t2, -8($fp)            
 _L23:                                   
-          lw    $t0, -8($fp)            
-          lw    $t1, -16($fp)           
-          move  $t1, $t0                
-          sw    $t0, -8($fp)            
+          lw    $t1, -8($fp)            
+          lw    $t0, -16($fp)           
+          move  $t0, $t1                
+          sw    $t1, -8($fp)            
           b     _L18                    
 _L24:                                   
           move  $sp, $fp                

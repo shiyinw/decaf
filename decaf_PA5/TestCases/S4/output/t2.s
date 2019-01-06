@@ -42,10 +42,11 @@ _L12:
           sw    $t1, -12($fp)           
           beqz  $t1, _L14               
 _L13:                                   
-          lw    $t0, -8($fp)            
-          li    $t1, 5                  
-          mul   $t0, $t0, $t1           
-          sw    $t0, -8($fp)            
+          lw    $t3, -8($fp)            
+          li    $t2, 5                  
+          mul   $t0, $t3, $t2           
+          move  $t3, $t0                
+          sw    $t3, -8($fp)            
 _L14:                                   
           lw    $t1, -12($fp)           
           lw    $t0, -8($fp)            

@@ -183,42 +183,47 @@ private void search(Temp variable, Set<Integer> locations, Tac start, BasicBlock
 
 ### （2）以 TestCases/S4/t0.decaf(对应于讲义第 12 讲 2.2 节图 4)为例，分析输出的 TAC 序列与 DU 链信息，并验证它与讲义中 2.4.2 节给出的结果是一致的。
 
-t0.decaf
+t0.decaf 代码长度比较短，通过观察，可以分为以下的几个块儿，**这里我把相同的块儿放到了一行**
 
 ```
 class Main {
-    static void main() {
-        f();
-    }
+
+    static void main() {f();}
 
     static void f() {
-        int i;
-        int j;
-        int a;
-        int b;
-        a = 0;
-        b = 1;
+        int i;int j;int a;int b;a = 0;b = 1;bool flag;flag = false;i = 2;j = i + 1; 
 
-        bool flag;
-        flag = false;
-
-        i = 2;
-        j = i + 1;
-        
         while (flag) {
-            i = 1;
-            if (flag)
-                f();
 
-            j = j + 1;
-            if (flag)
-                j = j - 4;
-            a = i;
-            b = j;
-        }
-    }
-}
+            i = 1;if (flag){
+
+                f();}
+
+            j = j + 1;if (flag){
+
+            	j = j - 4;}
+
+            a = i;b = j;}}}
 ```
+
+根据下面的输出，手动推导所有的DU链为：
+
+| D           | U                                 |
+| ----------- | --------------------------------- |
+| a=0;        | []                                |
+| b=1;        | []                                |
+| flag=false; | [while(flag), if(flag), if(flag)] |
+| i=2;        | [j=i+1]                           |
+| j=i+1;      | [j=j+1]                           |
+| i=1;        | [a=i]                             |
+| j=j+1;      | [b=j, j=j-4, j=j+1]               |
+| j=j-4;      | [j=j+1]                           |
+| a=i;        | []                                |
+| b=j;        | []                                |
+
+经过比较，手动推导的和程序生成的DU链一致。
+
+程序因为处理存储的原因，增加了很多DU链，比如分配内存、记录函数表、定义和赋值分开写，这里我们可以忽略。
 
 t0.du
 
@@ -281,15 +286,7 @@ BASIC BLOCK 7 :
 38	END BY RETURN, void result
 ```
 
-t0.result
 
-```
-SPIM Version 7.3. of August 28, 2006
-Copyright 1990-2004 by James R. Larus (larus@cs.wisc.edu).
-All Rights Reserved.
-See the file README for a full copyright notice.
-Loaded: ./exceptions.s
-```
 
 
 

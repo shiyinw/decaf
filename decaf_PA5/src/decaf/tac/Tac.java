@@ -39,12 +39,64 @@ public class Tac {
 	
 	public Set<Temp> saves;
 
+	public Temp def;
+
+	public Temp used1, used2;
+
+	private void defDU(){
+		switch (opc) {
+			case ADD:
+			case SUB:
+			case MUL:
+			case DIV:
+			case MOD:
+			case LAND:
+			case LOR:
+			case GTR:
+			case GEQ:
+			case EQU:
+			case NEQ:
+			case LEQ:
+			case LES:
+				used1 = op1;
+				used2 = op2;
+				def = op0;
+				break;
+			case NEG:
+			case LNOT:
+			case ASSIGN:
+			case INDIRECT_CALL:
+			case LOAD:
+				used1 = op1;
+				def = op0;
+				break;
+			case LOAD_VTBL:
+			case DIRECT_CALL:
+			case RETURN:
+			case LOAD_STR_CONST:
+			case LOAD_IMM4:
+				def = op0;
+				break;
+			case STORE:
+				used1 = op0;
+				used2 = op1;
+				break;
+			case PARM:
+				used1 = op0;
+				break;
+			default:
+				break;
+		}
+	}
+
 	private Tac(Kind opc, Temp op0) {
 		this(opc, op0, null, null);
+		defDU();
 	}
 
 	private Tac(Kind opc, Temp op0, Temp op1) {
 		this(opc, op0, op1, null);
+		defDU();
 	}
 
 	private Tac(Kind opc, Temp op0, Temp op1, Temp op2) {
@@ -52,34 +104,41 @@ public class Tac {
 		this.op0 = op0;
 		this.op1 = op1;
 		this.op2 = op2;
+		defDU();
 	}
 
 	private Tac(Kind opc, String str) {
 		this.opc = opc;
 		this.str = str;
+		defDU();
 	}
 
 	private Tac(Kind opc, Temp op0, String str) {
 		this.opc = opc;
 		this.op0 = op0;
 		this.str = str;
+		defDU();
 	}
 
 	private Tac(Kind opc, Temp op0, VTable vt) {
 		this.opc = opc;
 		this.op0 = op0;
 		this.vt = vt;
+		defDU();
 	}
 
 	private Tac(Kind opc, Label label) {
 		this.opc = opc;
 		this.label = label;
+		defDU();
 	}
 
 	private Tac(Kind opc, Temp op0, Label label) {
 		this.opc = opc;
 		this.op0 = op0;
 		this.label = label;
+		def = op0;
+		defDU();
 	}
 
 	public static Tac genAdd(Temp dst, Temp src1, Temp src2) {

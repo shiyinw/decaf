@@ -92,21 +92,22 @@ _L20:
           li    $t0, 0                  
           sw    $t0, -8($fp)            
 _L22:                                   
-          lw    $t0, -8($fp)            
-          lw    $t2, 8($fp)             
-          slt   $t1, $t0, $t2           
-          sw    $t2, 8($fp)             
-          sw    $t0, -8($fp)            
-          beqz  $t1, _L24               
+          lw    $t1, -8($fp)            
+          lw    $t0, 8($fp)             
+          slt   $t2, $t1, $t0           
+          sw    $t0, 8($fp)             
+          sw    $t1, -8($fp)            
+          beqz  $t2, _L24               
 _L23:                                   
-          la    $t0, _STRING3           
-          sw    $t0, 4($sp)             
+          la    $t1, _STRING3           
+          sw    $t1, 4($sp)             
           jal   _PrintString            
 _L21:                                   
-          lw    $t0, -8($fp)            
-          li    $t1, 1                  
-          add   $t0, $t0, $t1           
-          sw    $t0, -8($fp)            
+          lw    $t2, -8($fp)            
+          li    $t0, 1                  
+          add   $t0, $t2, $t0           
+          move  $t2, $t0                
+          sw    $t2, -8($fp)            
           b     _L22                    
 _L24:                                   
           move  $sp, $fp                

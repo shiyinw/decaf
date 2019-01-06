@@ -97,16 +97,16 @@ _Animal.InitAnimal:                     # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L20:                                   
-          lw    $t1, 12($fp)            
-          lw    $t2, 8($fp)             
-          lw    $t3, 4($fp)             
-          lw    $t0, 4($t3)             
-          sw    $t2, 4($t3)             
-          lw    $t0, 8($t3)             
-          sw    $t1, 8($t3)             
-          sw    $t3, 4($fp)             
-          sw    $t2, 8($fp)             
-          sw    $t1, 12($fp)            
+          lw    $t2, 12($fp)            
+          lw    $t1, 8($fp)             
+          lw    $t0, 4($fp)             
+          lw    $t3, 4($t0)             
+          sw    $t1, 4($t0)             
+          lw    $t3, 8($t0)             
+          sw    $t2, 8($t0)             
+          sw    $t0, 4($fp)             
+          sw    $t1, 8($fp)             
+          sw    $t2, 12($fp)            
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -118,10 +118,10 @@ _Animal.GetHeight:                      # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L21:                                   
-          lw    $t1, 4($fp)             
-          lw    $t0, 4($t1)             
-          sw    $t1, 4($fp)             
-          move  $v0, $t0                
+          lw    $t0, 4($fp)             
+          lw    $t1, 4($t0)             
+          sw    $t0, 4($fp)             
+          move  $v0, $t1                
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -133,10 +133,10 @@ _Animal.GetMom:                         # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L22:                                   
-          lw    $t1, 4($fp)             
-          lw    $t0, 8($t1)             
-          sw    $t1, 4($fp)             
-          move  $v0, $t0                
+          lw    $t0, 4($fp)             
+          lw    $t1, 8($t0)             
+          sw    $t0, 4($fp)             
+          move  $v0, $t1                
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -148,30 +148,30 @@ _Cow.InitCow:                           # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -24           
 _L23:                                   
-          lw    $t1, 16($fp)            
+          lw    $t3, 16($fp)            
           lw    $t2, 12($fp)            
-          lw    $t3, 8($fp)             
-          lw    $t4, 4($fp)             
-          lw    $t0, 12($t4)            
-          sw    $t1, 12($t4)            
-          sw    $t4, 4($sp)             
-          sw    $t3, 8($sp)             
+          lw    $t1, 8($fp)             
+          lw    $t0, 4($fp)             
+          lw    $t4, 12($t0)            
+          sw    $t3, 12($t0)            
+          sw    $t0, 4($sp)             
+          sw    $t1, 8($sp)             
           sw    $t2, 12($sp)            
-          lw    $t0, 0($t4)             
-          lw    $t0, 8($t0)             
-          sw    $t4, 4($fp)             
-          sw    $t3, 8($fp)             
+          lw    $t4, 0($t0)             
+          lw    $t4, 8($t4)             
+          sw    $t0, 4($fp)             
+          sw    $t1, 8($fp)             
           sw    $t2, 12($fp)            
-          sw    $t1, 16($fp)            
-          jalr  $t0                     
-          lw    $t4, 4($fp)             
-          lw    $t3, 8($fp)             
+          sw    $t3, 16($fp)            
+          jalr  $t4                     
+          lw    $t0, 4($fp)             
+          lw    $t1, 8($fp)             
           lw    $t2, 12($fp)            
-          lw    $t1, 16($fp)            
-          sw    $t4, 4($fp)             
-          sw    $t3, 8($fp)             
+          lw    $t3, 16($fp)            
+          sw    $t0, 4($fp)             
+          sw    $t1, 8($fp)             
           sw    $t2, 12($fp)            
-          sw    $t1, 16($fp)            
+          sw    $t3, 16($fp)            
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             
@@ -183,10 +183,10 @@ _Cow.IsSpottedCow:                      # function entry
           move $fp, $sp                 
           addiu $sp, $sp, -12           
 _L24:                                   
-          lw    $t1, 4($fp)             
-          lw    $t0, 12($t1)            
-          sw    $t1, 4($fp)             
-          move  $v0, $t0                
+          lw    $t0, 4($fp)             
+          lw    $t1, 12($t0)            
+          sw    $t0, 4($fp)             
+          move  $v0, $t1                
           move  $sp, $fp                
           lw    $ra, -4($fp)            
           lw    $fp, 0($fp)             

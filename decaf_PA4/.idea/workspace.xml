@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="defcb99d-0d4a-48f7-920b-1ff6bac5f981" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Decaf PA4 README.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Decaf PA4 README.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/blackjack.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/blackjack.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/casterror.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/casterror.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/indexout.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/indexout.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/math.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/math.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/matrix.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/matrix.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/neglength.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/neglength.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/queue.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/queue.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/stack.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/stack.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/strcmp.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/strcmp.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t0.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t0.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t1.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t1.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t2.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t2.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t3.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t3.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t4.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t4.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t5.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t5.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t6.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t6.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t7.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t7.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t8.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t8.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestCases/S4/output/t9.du" beforeDir="false" afterPath="$PROJECT_DIR$/TestCases/S4/output/t9.du" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/dataflow/BasicBlock$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/dataflow/BasicBlock$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/dataflow/BasicBlock$EndKind.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/dataflow/BasicBlock$EndKind.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/dataflow/BasicBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/dataflow/BasicBlock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/dataflow/FlowGraph$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/dataflow/FlowGraph$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/dataflow/FlowGraph.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/dataflow/FlowGraph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tac/Tac$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tac/Tac$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/bin/decaf/tac/Tac.class" beforeDir="false" afterPath="$PROJECT_DIR$/result/bin/decaf/tac/Tac.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result/decaf.jar" beforeDir="false" afterPath="$PROJECT_DIR$/result/decaf.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/dataflow/BasicBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/dataflow/BasicBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/dataflow/FlowGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/dataflow/FlowGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/frontend/Lexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decaf/tac/Tac.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/decaf/tac/Tac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/report.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +14,7 @@
     <session id="-791998419">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
@@ -55,18 +23,18 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="decaf" value="1" />
+          <entry key="decaf" value="2" />
           <entry key="dout" value="6" />
-          <entry key="du" value="7" />
+          <entry key="du" value="8" />
           <entry key="java" value="6" />
-          <entry key="result" value="7" />
+          <entry key="result" value="9" />
           <entry key="s" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="6" />
-          <entry key="PLAIN_TEXT" value="23" />
+          <entry key="PLAIN_TEXT" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -83,7 +51,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/decaf/dataflow/BasicBlock.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="151">
@@ -93,6 +61,38 @@
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TestCases/S4/t0.decaf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/S4/result/t0.du">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/S4/result/t0.result">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" lean-forward="true" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestCases/S4/result/t1.result">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -192,11 +192,6 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestCases/S4/output/casterror.result">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -220,7 +215,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -329,10 +324,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1076" height="1080" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25559106" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.46421662" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -352,7 +346,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32970297" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" visible="true" weight="0.24920128" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24920128" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -559,6 +553,30 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S4/result/t1.result">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S4/result/t0.result">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S4/result/t0.du">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestCases/S4/t0.decaf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
         </state>
       </provider>
     </entry>

@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import decaf.backend.InferenceGraph;
 import decaf.Driver;
 import decaf.dataflow.BasicBlock;
 import decaf.machdesc.Register;
@@ -25,11 +26,14 @@ public class GraphColorRegisterAllocator implements RegisterAllocator {
 
 	private Temp fp;
 
+	private InferenceGraph inferenceGraph;
+
 	public GraphColorRegisterAllocator(Temp fp, CallingConv callingConv,
 			Register[] regs) {
 		this.fp = fp;
 		this.callingConv = callingConv;
 		this.regs = regs;
+		this.inferenceGraph = new InferenceGraph();
 	}
 
 	public void alloc(BasicBlock bb) {
@@ -38,6 +42,22 @@ public class GraphColorRegisterAllocator implements RegisterAllocator {
 
 		// Use InferenceGraph to do basicblock-wise register allocation here.
 		// But before that, you have to do something.
+
+
+
+        for(Temp liveuse: bb.liveUse){
+            for(Register r:this.regs){
+                if(r.var==null){
+                    bind(r, liveuse);
+                    break;
+                }
+            }
+            load(bb.tacList, liveuse);
+        }
+
+        this.inferenceGraph.alloc(this.bb, regs, this.fp.reg);
+
+        this.inferenceGraph.makeGraph();
 
 		Tac tail = null;
 		for (Tac tac = bb.tacList; tac != null; tail = tac, tac = tac.next) {

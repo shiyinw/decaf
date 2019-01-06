@@ -164,7 +164,27 @@ class InferenceGraph {
 
 	// With your definition of inference graphs, build the edges.
 	void makeEdges() {
+		for(Temp t:bb.liveUse){
+			addNode(t);
+		}
+
+		for(Temp t1:bb.liveUse){
+			for(Temp t2:bb.liveUse){
+				if(t1!=t2){
+					addEdge(t1, t2);
+				}
+			}
+		}
+
 		for (Tac tac = bb.tacList; tac != null; tac = tac.next) {
+			if(tac.def!=null && tac.liveOut!=null){
+				addNode(tac.def);
+				for(Temp t:tac.liveOut){
+					addNode(t);
+					addEdge(tac.def, t);
+				}
+			}
+
 			switch (tac.opc) {
 				case ADD: case SUB: case MUL: case DIV: case MOD:
 				case LAND: case LOR: case GTR: case GEQ: case EQU:
